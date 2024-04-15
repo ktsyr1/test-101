@@ -6,14 +6,14 @@ import { GET_USERS } from '@/graphql/queries/user'
 
 
 let getData = async () => {
-    // try {
-        // console.log("testing");
+    try {
+        console.log("testing");
 
         return await getClient().query({ query: GET_USERS })
-    // } catch (error) {
-        // console.log(error)
-        // return { data: { users: [] } }
-    // }
+    } catch (error) {
+        console.log(error)
+        return { data: { users: [] } }
+    }
 }
 
 export default async function AdminUsersPage() {

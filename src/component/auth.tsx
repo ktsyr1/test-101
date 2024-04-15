@@ -79,12 +79,4 @@ export default function LoginApp({ userType = 2 }: any) {
         </div>
     )
 }
-
-
-export function form() {
-    let [data, setData] = useState({})
-
-    const Send = () => { console.log(data); }
-    const upload = () => { console.log(data); }
-
-}
+ 
