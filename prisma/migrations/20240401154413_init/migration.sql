@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE `user` MODIFY `fullname` VARCHAR(191) NULL DEFAULT ' ',
+    MODIFY `email` VARCHAR(191) NOT NULL DEFAULT ' ',
+    MODIFY `password` VARCHAR(191) NULL DEFAULT ' ',
+    MODIFY `bio` VARCHAR(191) NULL DEFAULT ' ',
+    MODIFY `image` VARCHAR(191) NULL DEFAULT ' ';

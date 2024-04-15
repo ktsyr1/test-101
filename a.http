@@ -1,0 +1,17 @@
+POST http://91.106.107.178:98/Authorization/Login
+Content-Type: application/json
+{
+  "email": "email@email.com",
+  "password": "p@ssw0rd"
+}
+
+
+HTTP/1.1 200  - OK
+cache-control: no-store,no-cache
+pragma: no-cache
+transfer-encoding: chunked
+content-type: application/json; charset=utf-8
+server: Microsoft-IIS/10.0
+x-powered-by: ASP.NET
+date: Thu, 04 Apr 2024 06:17:14 GMT
+connection: close

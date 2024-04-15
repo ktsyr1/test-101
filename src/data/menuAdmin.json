@@ -1,0 +1,10 @@
+[
+    { "to": "#", "title": "كل الاقسام", "Icon": "all-parts.png" },
+    { "to": "users", "title": "المستخدمين", "Icon": "users.png" },
+    { "to": "blog", "title": "المدونة", "Icon": "blog.png" },
+    { "to": "survey", "title": "الاستطلاع", "Icon": "services.png" },
+    { "to": "#jobs", "title": "الوظائف", "Icon": "job.png" },
+    { "to": "#sliders", "title": "السلايدر", "Icon": "sliders.png" },
+    { "to": "#services", "title": "الخدمات", "Icon": "services.png" },
+    { "to": "#faqs", "title": "الاسئلة الشائعة", "Icon": "faq.png" }
+]

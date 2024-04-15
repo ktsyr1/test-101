@@ -1,0 +1,115 @@
+"use client"
+import Btn from "@/component/btns"
+import Icon from "@/component/icons"
+import { useState } from "react"
+type LayoutType = {
+    children: JSX.Element
+    slug: string
+}
+export default function QA() {
+    let [part, setPart] = useState('eng')
+
+    const Layout = ({ children, slug }: LayoutType) => part === slug ? <>{children}</> : <></>
+
+    return (
+        <div className="flex flex-col py-14  max-[697px]:p-4 p-20 bg-[#F0F0F0]  select-none justify-center items-center">
+            {/* add map */}
+            <div className={`flex  items-center justify-center w-full flex-col h-max     xl:w-[1500px] `}>
+                <b className="text-safety-700 mb-6 text-6xl font-black max-[697px]:text-xl text-start w-full  ">أسئلة شائعة</b>
+                <p className="  text-xl font-semibold text-slate-500 max-[697px]:text-sm text-start  w-full  ">لقد أولينا المزيد من الاهتمام لتخصيص الإجابات أدناه، ولتسهيل الأمر عليك، قمنا بتصنيف الأسئلة لك</p>
+                <div className=" w-full max-[697px]:p-1 justify-center">
+
+
+                    {/* list QA */}
+                    <div >
+                        <b className="text-safety-700 my-6  flex text-4xl font-black max-[697px]:text-xl text-start w-full  ">  مهندسين</b>
+                        {asksData.eng.map(task => <Ask title={task.question} answer={task.answer} key={task.question} />)}
+                        <b className="text-safety-700 my-6 flex text-4xl font-black max-[697px]:text-xl text-start w-full  ">  عملاء</b>
+                        {asksData.client.map(task => <Ask title={task.question} answer={task.answer} key={task.question} />)}
+                        <b className="text-safety-700 my-6 flex text-4xl font-black max-[697px]:text-xl text-start w-full  ">  عامة</b>
+                        {asksData.public.map(task => <Ask title={task.question} answer={task.answer} key={task.question} />)}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+type Asktype = {
+    title: string,
+    answer: string
+}
+function Ask({ title, answer }: Asktype) {
+    let [open, setOpen] = useState(false)
+
+    function handleOpen() { setOpen(!open) }
+    return (
+        <div className="flex flex-col border-b-1 text-slate-700 w-full" >
+            {/* ask */}
+            <div className="flex flex-row justify-between w-full items-center" onClick={handleOpen}>
+                <p className={`text-2xl font-medium text-[#1B2E45] max-[697px]:text-sm max-w-[92%]   py-6 ${open ? "!text-safety-700" : " "}`}>{title}</p>
+                {/* icon */}
+                {open ? <Icon.arrowUp /> : <Icon.arrowDown />}
+            </div>
+            {/* anser */}
+            <div className={`flex flex-col justify-between max-w-[90%] max-[697px]:text-sm  text-gray-500 font-medium text-xl mt-2 ${!open ? "hidden" : "flex"}`}>
+                <p>{answer}</p>
+                {/* icon */}
+            </div>
+        </div>
+    )
+}
+
+let asksData = {
+    eng: [
+        {
+            "question": "ما هي المقومات الازمة لإنضمام الفاحص لإنسبكتكس؟",
+            answer: "على الفاحص الراغب بالإنضمام لإنسبكتكس ان يكون حاصل على:شهادة البكالوريوس الهندسية في إحدى الإختصاصات التالية(مدني-ميكانيكي-كهربائي)-شهادة دورة فحص المباني الجاهزة من المعهد السعودي العقاري- حاصل على الإعتماد المهني من هيئة المهندسين السعوديين - وثيقة تأمين الأخطاء المهنية - يمتلك 3 سنوات خبرة على الأقل في مجال الفحص"
+        },
+        {
+            "question": "كيف يتم تأهيل الفاحص للإنضمام إلى النظام ؟",
+            answer: "بعد تقديم الفاحص يتم مراجعة الوثائق التي تم تزويدها، ومنحه الموافقة المبدئية، ومن ثم يتم تحديد موعد اختبار لقياس مدى ملائمته وخبراته، وعند تجاوزه للإختبار يتم الإلتحاق في ورشة عمل تهدف إلى تأهيله على استخدام تقنيات وأدوات الفحص، ومن ثم يتم منحه كلمة مرور إلى النظام الخاص بالتقييم لبدء تلقي الطلبات."
+        },
+        {
+            "question": "ما هي مستويات الفاحصين ؟",
+            answer: `من 0 - 6 أشهر = مهندس فاحص مبتدئ.
+        من 6 - 12 شهر مع إتمام عدد 30 فحص فأكثر = مهندس فاحص متمرّس
+        من 12 - 24 شهر مع إتمام 80 فحص = مهندس فاحص محترف`
+        },
+        {
+            "question": "كيف أكون قائد فريق ؟",
+            answer: "أن تكون مهندس مدني، خبرة في الفحص لا تقل عن 3 سنوات، تجاوز إختبار القبول والحصول على نسبة تتجاوز 90%."
+        }
+    ],
+    client: [
+        {
+            "question": "لدي عميل يرغب بالخدمة، كيف يتم التعامل مع الطلب ؟",
+            answer: "يقوم العميل بإدخال رقمك المرجعي كفاحص داخل خانة الخصومات عند إنشاء طلب الفحص، ليقوم النظام باحتساب خصم خاص لطالب الخدمة، وبحد أعلى 5%، ويتم منح الفاحص 5% من قيمة الفحص وفقاً للسياسات المعمول بها."
+        },
+        {
+            "question": "ما هي الإجراءات المتبعة في حال تأخري عن موعد الفحص ؟",
+            answer: "في حال تأخر الفاحص عن موعد الفحص مدة 5 - 10 دقائق، يتم خصم مبلغ 100 ريال. في حال تأخر الفاحص عن موعد الفحص مدة تزيد عن 10 د وحتى 15 دقيقة، يتم خصم مبلغ 200 ريال. عدم الحضور الكلي عن موعد الفحص يعني انسحاب الفاحص من النظام."
+        }
+    ],
+    public: [
+        {
+            "question": "ما هي النسبة التي يحصل عليها الفاحص بعد إتمام عملية الفحص؟",
+            answer: "تتكون عملية الفحص من فريق يضم 3 اختصاصات، يتحصّل الفريق على ما نسبته 55% من قيمة الفحص بعد اقتطاع الرسوم والضرائب، تكون حصص الفاحصين وفقاً للتالي: 1- المهندس المدني : 20% 2- مهندس الكهرباء : 15% 3- مهندس الميكانيك : 15% و5% إضافية على ما سبق لقائد الفريق."
+        },
+        {
+            "question": "بماذا يؤثر مستوى الفاحص على النسبة المالية التي يتحصل عليها من الفحص ؟",
+            answer: "كل مستوى يتحصّل على 5% إضافية من قيمة الفحص."
+        },
+        {
+            "question": "كيف يتم سداد مستحقاتي المالية ؟",
+            answer: "تظهر مستحقاتك المالية من خلال التطبيق، ويتم تحويل مبالغ الفاحصين مع نهاية كل شهر ميلادي، وبعد أن يكون مضى ما لا يقل عن أسبوع عن آخر تقرير تم تسليمه للعميل."
+        }
+    ]
+
+}
+
+let dataBtns = [
+    { title: "مهندسين", slug: "eng" },
+    { title: "عملاء", slug: "client" },
+    { title: "عامة", slug: "public" },
+]
