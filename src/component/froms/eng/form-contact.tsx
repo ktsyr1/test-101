@@ -40,25 +40,12 @@ const FormContact = () => {
                     </div>
                     <div className="flex flex-col  w-full">
                         <p className="text-xl  font-bold text-prussian-800 my-2">البريد الإلكتروني</p>
-                        <Form.Item<FieldType> name="email" className='w-full' rules={[{ required: true, message: 'Please input your password!' }]} >
-                            <Input type='email' size='large' minLength={6} placeholder='أدخل البريد الإلكتروني' defaultValue={defaultData.email} />
+                        <Form.Item<FieldType> name="Email" className='w-full' rules={[{ required: true, message: 'Please input your password!' }]} >
+                            <Input type='email' size='large' minLength={6} placeholder='أدخل البريد الإلكتروني' defaultValue={defaultData.Email} />
                         </Form.Item>
                     </div>
                 </div>
-                {/* <div className="flex flex-col  w-full">
-                    <p className="text-xl  font-bold text-prussian-800 my-2">كلمة مرور</p>
-                    <Form.Item<FieldType> name="password" className='w-full' rules={[{ required: true, message: 'Please input your password!' }]} >
-                        <Input type='password' size='large' minLength={6} placeholder='أدخل البريد الإلكتروني' defaultValue={defaultData.password} />
-                    </Form.Item>
-                </div> */}
-                {/* <div className="flex flex-row  w-full">
-                    <div className="flex flex-col  w-full">
-                        <p className="text-xl  font-bold text-prussian-800 my-2">كلمة مرور</p>
-                        <Form.Item<FieldType> name="bankDetails" className='w-full' rules={[{ required: true, message: 'Please input your password!' }]} >
-                            <Input type='text' size='large' minLength={6} placeholder='أدخل البريد الإلكتروني' defaultValue={defaultData.bankDetails} />
-                        </Form.Item>
-                    </div>
-                </div> */}
+
             </div>
             <div className='*:mt-4'>
                 <SubmitButton2 form={form}>التالي</SubmitButton2>

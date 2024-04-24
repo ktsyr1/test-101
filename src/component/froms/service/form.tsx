@@ -6,7 +6,7 @@ import { LayoutType, SubmitButtonProps, TypeReadmap } from "../types";
 import FormProfile from "./form-Profile";
 import { FormContext, FormDataContext } from "../contextApi";
 import FormPropertyData from "./FormPropertyData";
-import FormEducation from "./form-education";
+import FormLocation from "./form-location";
 import FormSkills from "./form-skills";
 import { Button, Form } from "antd";
 // end imported
@@ -14,14 +14,14 @@ import { Button, Form } from "antd";
 let readmap: TypeReadmap[] = [
     { id: 1, title: "معلومات الشخصية", slug: "profile" },
     { id: 2, title: "بيانات العقار", slug: "PropertyData" },
-    { id: 3, title: "المؤهل الأكاديمي", slug: "education" },
-    { id: 4, title: "المستندات و المؤهلات", slug: "skills" }
+    { id: 3, title: "موقع العقار", slug: "pin" },
+    { id: 4, title: "موعد الفحص", slug: "time" },
 ]
 // end config setup
 
 export default function Forms() {
     let [data, setData] = useState({})
-    let [select, setSelect] = useState("profile")
+    let [select, setSelect] = useState(readmap[2].slug)
 
     function Send() {
         let SelectData = readmap.filter((a: any) => a.slug === select)[0]
@@ -35,19 +35,19 @@ export default function Forms() {
             <FormDataContext.Provider value={{ data, setData }}>
                 <SetupForms>
                     <>
-                        <Layout slug="profile">
+                        <Layout slug={readmap[0].slug}>
                             <FormProfile />
                         </Layout>
 
-                        <Layout slug="PropertyData">
+                        <Layout slug={readmap[1].slug}>
                             <FormPropertyData />
                         </Layout>
 
-                        <Layout slug="education">
-                            <FormEducation />
+                        <Layout slug={readmap[2].slug}>
+                            <FormLocation />
                         </Layout>
 
-                        <Layout slug="skills">
+                        <Layout slug={readmap[3].slug}>
                             <FormSkills />
                         </Layout>
                     </>

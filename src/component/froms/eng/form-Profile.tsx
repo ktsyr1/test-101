@@ -18,41 +18,22 @@ const FormProfile = () => {
     let [cities, setCities] = useState<any>([])
 
     useEffect(() => {
-        let { url, info, headers } = ConfigApi()
+        let { info, headers } = ConfigApi()
         setDD({ ...defaultData, fullName: info?.loginName })
 
         async function Cities() {
-
+            let url = process.env.NEXT_PUBLIC_API
             url += `/Lookup/Cities`
             axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`, { headers })
                 .then(({ data }) => setCities(data?.data))
                 .catch(error => console.error(error))
-
-            // await axios.get(url, {
-            //     headers: {
-            //         'accept': '*/*',
-            //         "content-type": 'application/json',
-
-            //     }
-            // })
-            //     .then(({ data }) => setCities(data?.data))
-            //     .catch(error => {
-            //         console.log(error);
-
-            //         // refreshToken()
-            //         // Cities()
-            //     })
-
             return
         }
         Cities()
     }, [data])
 
     const onFinish = (values: any) => {
-        console.log(values);
-
         let firstname = values.firstname
-
         if (firstname.length > 6) {
             setData({ ...data, ...values })
             let slug = NextPage(select)
@@ -115,7 +96,3 @@ const FormProfile = () => {
     );
 }
 export default FormProfile
-
-"firstname"
-"middleName"
-"lastName" 

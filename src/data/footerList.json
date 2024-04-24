@@ -14,8 +14,8 @@
         "title": "سياسات وأحكام",
         "list": [
             { "title": "إشعارات ملفات", "to": "/#file-notices" },
-            { "title": "إشعار الخصوصية", "to": "/#privacy-notice" },
-            { "title": "الشروط والأحكام", "to": "/#terms-and-conditions" },
+            { "title": "إشعار الخصوصية", "to": "/privacy-policy" },
+            { "title": "الشروط والأحكام", "to": "/policies-and-provisions" },
             { "title": "تنبيه من الاحتيال والفش", "to": "#-alert" },
             { "title": "الملكية الفكرية", "to": "/#intellectual-property" }
         ]

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Cookies from "js-cookie"
 import SizeBox from "../size-box";
+import Image from "next/image";
 
 
 
@@ -20,17 +21,25 @@ export default function PupLinks() {
 }
 
 function WhatsAppBtn() {
+    let [hover, setHover] = useState(false);
     return (
-        <div className=" bottom-0 fixed flex justify-end w-full z-50 p-10">
-            <div>
-                {/* <Icon.whatsapp /> */}
-            </div>
-            <div className="bg-safety-700 p-2 rounded-3xl w-40 px-4 flex-row -reverse flex justify-between items-center pl-6">
-                <Icon.whatsappOutline />
-                <p className="text-white font-semibold">تواصل معنا</p>
-                <div className="bg-prussian-800 p-4 border-2 border-white rounded-full fixed">
+        <div className=" bottom-0 fixed flex justify-end h-1 p-0 w-full z-50">
+            <div className=" fixed p-9 z-40 mt-[-110px]" onMouseLeave={() => setTimeout(() => setHover(false), 200)} onMouseEnter={() => setTimeout(() => setHover(true), 200)}   >
 
-                </div>
+                {!hover &&
+                    <div>
+                        <Icon.whatsapp />
+                    </div>
+                }
+                {hover &&
+                    <a href="https://wa.me/966533344735" target="_blank" className="bg-safety-700 p-2 rounded-3xl w-52 px-4 flex-row-reverse flex items-center pl-6">
+                        <div className="bg-prussian-800 border-4 shadow-lg border-white fixed h-20 rounded-full w-20 ml-32">
+                            <Image src={"/images/man-sa.png"} width={80} height={80} alt="icon man-sa" />
+                        </div>
+                        <Icon.whatsappOutline />
+                        <p className="text-white font-semibold px-3">تواصل معنا</p>
+                    </a>
+                }
             </div>
         </div>
     )

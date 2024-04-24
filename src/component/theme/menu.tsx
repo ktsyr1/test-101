@@ -43,7 +43,7 @@ export default function Menu() {
     ]
 
     return (
-        <div className="flex flex-col fixed z-10 top-0" >
+        <div className="flex flex-col fixed z-[60] top-0" >
             {/* menu */}
             <div onClick={handleOpen}>
                 <Icon className={'w-[75px] max-[697px]:w-[50px] h-[75px] max-[697px]:h-[50px] '} />

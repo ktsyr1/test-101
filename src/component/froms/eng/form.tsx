@@ -15,19 +15,14 @@ let readmap: TypeReadmap[] = [
     { id: 1, title: "معلومات الشخصية", slug: "profile" },
     { id: 2, title: "معلومات الاتصال", slug: "contact" },
     { id: 3, title: "المؤهل الأكاديمي", slug: "education" },
-    { id: 4, title: "المستندات و المؤهلات", slug: "skills" }
+    { id: 4, title: "المستندات و المؤهلات", slug: "skills" },
 ]
 // end config setup
 
 export default function Forms() {
     let [data, setData] = useState({})
-    let [select, setSelect] = useState("profile")
+    let [select, setSelect] = useState("skills")
 
-    function Send() {
-        let SelectData = readmap.filter((a: any) => a.slug === select)[0]
-
-        setSelect(readmap[SelectData.id].slug)
-    }
     const Layout = ({ children, slug }: LayoutType) => (<>{select === slug ? children : ""}</>)
 
     return (
@@ -80,4 +75,5 @@ export const SubmitButton2: React.FC<React.PropsWithChildren<SubmitButtonProps>>
             {children}
         </Button>
     );
-}; 
+};
+

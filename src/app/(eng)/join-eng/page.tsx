@@ -9,7 +9,7 @@ export default async function Jobs() {
     const auth = cookieStore.get('userToken')
     let token = auth?.value || ""
 
-    return ( 
+    return (
         <div className="flex flex-col">
             <div className="h-[100px] bg-slate-100" />
             <SizeBox className="   w-full flex flex-col">

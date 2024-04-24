@@ -13,7 +13,7 @@ export default function SetupForms({ children }: TypeSetup) {
     let [data, setData] = useState({})
     return (
         <FormContext.Provider value={{ data, setData, select, setSelect, list }}>
-            <SizeBox className=" flex-col items-center bg-[#DAE0E6DE] z-30 rounded-[32px] min-h-[700px] m-8 ">
+            <SizeBox className=" flex-col items-center bg-[#DAE0E6DE] z-30 rounded-[32px] min-h-[700px] h-max m-8 ">
                 <Header />
                 <div className="flex flex-col h-full w-[80%]">
                     <NavigationNumber />
@@ -81,6 +81,7 @@ export function Line({ alt, i }: any) {
 }
 export function Header() {
     let { select, setSelect, list } = useContext(FormContext)
+
     let _id = list?.filter((a: any) => a.slug === select)[0]
 
     function Title({ data }: any) {
@@ -103,8 +104,8 @@ export function Header() {
                     <p>الرجوع</p>
                 </div> : <div></div>}
                 <div className="flex flex-row *:mr-4 items-center my-4">
-                    <p>الإغلاق</p>
-                    <Icon.Close size={20} />
+                    {/* <p>الإغلاق</p>
+                    <Icon.Close size={20} /> */}
                 </div>
             </div>
             <div className="flex flex-row justify-between w-[80%] my-4 items-center mx-6">

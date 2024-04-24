@@ -62,6 +62,7 @@ export default function Footer() {
                 <p className="p-2 text-xl font-bold text-blue-950 max-[700px]:!text-md">© 2023 شركة إنسبكتكس السعودية</p>
                 <Logo size={"260"} type="arOrange" />
             </div>
+            <C_Dev_andDes />
         </footer >
     )
 }
@@ -88,4 +89,14 @@ type ItemType = {
 function Item({ data, className }: ItemType) {
     let { title, to } = data
     return <Link href={to} className={` text-start text-base font-bold p-2 text-gray-500  ${className} `}>{title}</Link>
+}
+
+function C_Dev_andDes() {
+
+    return (
+        <div className="flex flex-row m-auto p-4" >
+            <p>Designed by SNRGY and Developed by </p>
+            <a href="https://Digitresults.com" >DigitResults</a>
+        </div>
+    )
 }

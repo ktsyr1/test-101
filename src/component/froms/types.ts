@@ -29,7 +29,7 @@ export type FieldType = {
     middleName?: string;
     lastName?: string;
     phoneNumber?: number;
-    email?: string;
+    Email?: string;
     password?: string;
     bankDetails?: string;
     codeEng?: string | undefined

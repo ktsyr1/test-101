@@ -44,24 +44,8 @@ const FormProfile = () => {
 
             return
         }
-        Cities()
+        // Cities()
     }, [data])
-
-    const onFinish = (values: any) => {
-        console.log(values);
-
-        let firstname = values.firstname
-
-        if (firstname.length > 6) {
-            setData({ ...data, ...values })
-            let slug = NextPage(select)
-            setSelect(slug)
-        };
-    }
-
-    const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
-    };
 
     const onSubmit: SubmitHandler<any> = (res) => {
         res.age = Number(res.age)
@@ -70,7 +54,6 @@ const FormProfile = () => {
 
         let slug = NextPage(select)
         setSelect(slug)
-        setSelect(select + 1)
     }
 
     function Input({ text, name, type = "test" }: any) {
@@ -83,27 +66,19 @@ const FormProfile = () => {
     }
 
     return (
-
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className='flex flex-col'
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'        >
             <div className="flex flex-col w-full mt-20 ">
                 <div className="flex flex-row  w-full">
-
                     <Input text="الإسم الاول" name="firstname" />
                     <Input text="الإسم الثاني" name="middleName" />
                     <Input text="الإسم العائلة" name="lastName" />
-
                 </div>
                 <div className="flex flex-row  w-full">
-
                     <Input text="البريد الإلكتروني" name="email" type="email" />
-                    <Input text="رقم الهاتف" name="phone" />
+                    <Input text="رقم الهاتف" name="phone" type="tel" />
                 </div>
             </div>
-            <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg' />
-
+            <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg cursor-pointer' />
         </form >
     );
 }
