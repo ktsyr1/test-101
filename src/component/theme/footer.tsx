@@ -94,9 +94,9 @@ function Item({ data, className }: ItemType) {
 function C_Dev_andDes() {
 
     return (
-        <div className="flex flex-row m-auto p-4" >
+        <div className="flex flex-row m-auto p-4 " style={{ direction: 'ltr' }} >
             <p>Designed by SNRGY and Developed by </p>
-            <a href="https://Digitresults.com" >DigitResults</a>
+            <a href="https://Digitresults.com" className="px-2 text-prussian-800" >DigitResults</a>
         </div>
     )
 }
