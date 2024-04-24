@@ -48,7 +48,7 @@ export default function Privacy_policy_inspectex() {
                         <a className=" text-prussian-600" href="https://www.google.ae/settings/ads" target="_blank"> إعدادات الإعلانات </a>
                     </li>
                 </ul>
-                <p className="flex flex-row mt-4" >
+                <p className="flex flex-wrap mt-4" >
                     <p>إذا لم يتم اختيار&nbsp;</p>
 
                     <a className=" text-prussian-600" href="https://support.google.com/dfp_premium/answer/94152" target="_blank"> تعطيل عرض إعلانات الأطراف الثالثة</a>
