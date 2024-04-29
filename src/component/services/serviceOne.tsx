@@ -37,7 +37,7 @@ function Header({ data }: any) {
     return (
         <>
             <div className="flex flex-row items-center w-full *:font-bold">
-                <Image src={`/icons/gif/${data.icon}`} alt={data.ar} width={90} height={90} className="m-4 mt-0" />
+                <Image src={`/icons/gif/${data.icon}`} alt={data.ar} width={90} height={90} className="m-4 mt-0" loading="lazy" />
                 <div>
                     <p className="text-xl">{data.ar}</p>
                     <p className="text-[#00A5A5]">{data.en}</p>
@@ -67,7 +67,7 @@ function NextService({ data, className, navigation }: any) {
     return (
         <div onClick={() => navigation(data.i)} className={`flex items-center min-w-[300]   ${className ? "flex-row-reverse" : "flex-row "}  ${className}`}>
             <div className={`${className ? "rotate-180" : " "} m-4`}> <Icon.next /> </div>
-            <Image src={`/icons/gif/${data.icon}`} alt={data.ar} width={60} height={60} className="mx-4 p-2 rounded-full border-[1px] border-prussian-600  " />
+            <Image src={`/icons/gif/${data.icon}`} alt={data.ar} loading="lazy" width={60} height={60} className="mx-4 p-2 rounded-full border-[1px] border-prussian-600  " />
             <div>
                 <p className="text-sm  font-semibold">{data.ar}</p>
                 <p className="text-[#00A5A5] text-sm font-semibold">{data.en}</p>

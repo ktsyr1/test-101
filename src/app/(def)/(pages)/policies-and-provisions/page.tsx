@@ -5,7 +5,7 @@ export default function Policies_and_provisions() {
     return (
         <SizeBox className="flex flex-col !items-start m-4 p-4  " >
             <h1 className="text-4xl font-bold my-4 text-safety-700  ">سياسات و أحكام </h1>
-            <div className="flex flex-col !items-start m-4 p-4 *:text-xl *:my-2">
+            <div className="flex flex-col !items-start m-4 p-4 *:text-xl *:my-2 *:text-slate-900">
 
                 <h2 className="text-2xl font-bold my-4">مقدمة</h2>
                 <p> يرجى قراءة هذه السياسة (سياسة و أحكام) إلى جانب سياسة الخصوصية وكافة السياسات بشكل جيد للتأكد من فهمك لكل البنود قبل استخدام إحدى مواقع إنسبكتكس أو تطبيقاته فمن خلال الوصول إلى أو استخدام أي جزء من المواقع أو التطبيقات أو تقديم طلب، فأنت توافق على الالتزام بهذه السياسات والأحكام  وأي تعديلات قد تقام عليها.</p>

@@ -51,7 +51,7 @@ function Feature() {
                         <div className="flex flex-col justify-center   w-full  max-w-[450px] m-auto">
                             {data.slice(0, len / 2).map(one => <FeatureOne data={one} layout="start" key={one.id} />)}
                         </div>
-                        <img src={cover} alt="" className="w-72 h-max m-auto" />
+                        <img src={cover} alt="" className="w-72 h-max m-auto" loading="lazy" />
                         <div className="flex flex-col justify-center w-full  max-w-[450px] m-auto">
                             {data.slice(len / 2, len).map(one => <FeatureOne data={one} layout="end" key={one.id} />)}
                         </div>
@@ -115,7 +115,7 @@ function SaveAndGet() {
                     <Btn to="/#" title="حمل التطبيق  " className="text-white bg-prussian-800 rounded-lg" />
                 </div>
             </div>
-            <img src="/images/about-app-3.png" alt="" className="hidden lg:flex ml-20 w-[350px]  !h-max" />
+            <img src="/images/about-app-3.png" alt="" className="hidden lg:flex ml-20 w-[350px] !h-max" loading="lazy" />
         </div>
     )
 }

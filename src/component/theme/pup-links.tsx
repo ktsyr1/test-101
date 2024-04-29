@@ -34,7 +34,7 @@ function WhatsAppBtn() {
                 {hover &&
                     <a href="https://wa.me/966533344735" target="_blank" className="bg-safety-700 p-2 rounded-3xl w-52 px-4 flex-row-reverse flex items-center pl-6">
                         <div className="bg-prussian-800 border-4 shadow-lg border-white fixed h-20 rounded-full w-20 ml-32">
-                            <Image src={"/images/man-sa.png"} width={80} height={80} alt="icon man-sa" />
+                            <Image src={"/images/man-sa.png"} width={80} height={80} alt="icon man-sa" loading="lazy" />
                         </div>
                         <Icon.whatsappOutline />
                         <p className="text-white font-semibold px-3">تواصل معنا</p>
@@ -58,7 +58,7 @@ function PupServie() {
     }
     if (!view) return <></>
     else return (
-        <div className="bottom-0 fixed w-full z-50 bg-white shadow-xl">
+        <div className="bottom-0 fixed w-full z-50 bg-white shadow-2xl  border-2 border-safety-700">
             <div className=" flex justify-end p-4 text-3xl w-full">
                 <button className="cursor-pointer w-9 h-9" onClick={close}>x</button>
             </div>

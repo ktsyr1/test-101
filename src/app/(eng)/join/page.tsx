@@ -55,7 +55,7 @@ function Box({ data }: { data: BoxType }) {
                 <h2 className="text-3xl font-semibold text-prussian-500 mb-4" >{data.title}</h2>
                 <p className="text-xl font-medium" dangerouslySetInnerHTML={{ __html: data.content }} />
             </div>
-            <img src={data.image} alt=" gallery image" className={`w-60   ${!data?.rtl ? " ml-10 " : " mr-10 "}`} />
+            <img src={data.image} alt=" gallery image" className={`w-60   ${!data?.rtl ? " ml-10 " : " mr-10 "}`} loading="lazy" />
         </SizeBox>
     )
 }

@@ -135,7 +135,7 @@ function Expertise() {
 function CardExpertise({ data }: { data: ExpertiseType }) {
     return (
         <div className={`flex m-4 ${data.top ? "flex-col" : "flex-col-reverse justify-end"} w-96`}    >
-            <img src={data.icon} className={`${data.w ? "w-40" : "w-96"} `} alt="" />
+            <img src={data.icon} className={`${data.w ? "w-40" : "w-96"} `} alt="" loading="lazy" />
             <div className="flex flex-col my-4" >
                 <p className="text-safety-700 mt-8 text-3xl font-bold leading-snug tracking-normal text-right">{data.title}</p>
                 <ol className="flex flex-col mx-4 mt-8 text-xl font-medium leading-loose tracking-tightest text-right">

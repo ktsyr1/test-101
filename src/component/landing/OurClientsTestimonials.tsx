@@ -17,7 +17,7 @@ export default function OurClientsTestimonials() {
                         <IconArrow color={"#34d399"} className={"fill-emerald-400 rotate-180"} />
 
                         <div className="flex flex-row mx-2 justify-between w-full">
-                            {clints.map(clint => <img src={clint.image} alt={clint.name} className={` mx-2 hover:shadow-lg rounded-2xl h-[100px] ${clint.name !== one.name && "grayscale"}`} key={clint.image} onClick={() => setOne(clint)} />)}
+                            {clints.map(clint => <img src={clint.image} alt={clint.name} loading="lazy" className={` mx-2 hover:shadow-lg rounded-2xl h-[100px] ${clint.name !== one.name && "grayscale"}`} key={clint.image} onClick={() => setOne(clint)} />)}
                         </div>
                         <IconArrow color={"#34d399"} className={"fill-emerald-400  "} />
                     </div>
@@ -29,7 +29,7 @@ export default function OurClientsTestimonials() {
 function Gallery({ data }: { data: OurClientsTestimonialsCardType }) {
     return (
         <div className="flex flex-row mt-4 px-8">
-            <img src={data.image} alt={`صورة ${data.name}`} className="w-96 h-max rounded-3xl  hover:shadow-lg" />
+            <img src={data.image} alt={`صورة ${data.name}`} className="w-96 h-max rounded-3xl  hover:shadow-lg" loading="lazy" />
             <Icon.Coteshen className={'mt-[-33px] mr-[-50px]'} />
             <div className="flex flex-col">
                 <div className="flex flex-row items-center mb-8">

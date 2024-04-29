@@ -13,9 +13,9 @@ const FormProfile = () => {
     let [defaultData, setDD] = useState(data)
     let { select, setSelect, list } = useContext(FormContext)
 
-    let [cities, setCities] = useState<any>([])
     const { register, handleSubmit, watch, formState: { errors } } = useForm<any>({ defaultValues: data })
 
+    let [cities, setCities] = useState<any>([])
     useEffect(() => {
         let { url, info, headers } = ConfigApi()
         setDD({ ...defaultData, fullName: info?.loginName })

@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react"
 import SetupForms from "../setupForm";
 import { LayoutType, SubmitButtonProps, TypeReadmap } from "../types";
-import FormProfile from "./form-Profile";
 import { FormContext, FormDataContext } from "../contextApi";
 import FormPropertyData from "./FormPropertyData";
-import FormLocation from "./form-location";
 import FormSkills from "./form-skills";
 import { Button, Form } from "antd";
+import FormPart2 from "./FormPart2";
+import FormPart3 from "./FormPart3";
 // end imported
 
 let readmap: TypeReadmap[] = [
@@ -21,13 +21,8 @@ let readmap: TypeReadmap[] = [
 
 export default function Forms() {
     let [data, setData] = useState({})
-    let [select, setSelect] = useState(readmap[2].slug)
+    let [select, setSelect] = useState(readmap[1].slug)
 
-    function Send() {
-        let SelectData = readmap.filter((a: any) => a.slug === select)[0]
-
-        setSelect(readmap[SelectData.id].slug)
-    }
     const Layout = ({ children, slug }: LayoutType) => (<>{select === slug ? children : ""}</>)
 
     return (
@@ -36,15 +31,15 @@ export default function Forms() {
                 <SetupForms>
                     <>
                         <Layout slug={readmap[0].slug}>
-                            <FormProfile />
-                        </Layout>
-
-                        <Layout slug={readmap[1].slug}>
                             <FormPropertyData />
                         </Layout>
 
+                        <Layout slug={readmap[1].slug}>
+                            <FormPart2 />
+                        </Layout>
+
                         <Layout slug={readmap[2].slug}>
-                            <FormLocation />
+                            <FormPart3 />
                         </Layout>
 
                         <Layout slug={readmap[3].slug}>

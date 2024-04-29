@@ -92,7 +92,7 @@ export function CardService({ data, set, type }: CardType) {
         <div className="group flex flex-col  items-center *:hover:!fill-[#fff]  shadow-sm hover:shadow-xl hover:border-2 hover:border-[#00A5A5] bg-white text-[#002D9C] w-[330px] justify-center rounded-3xl m-1 py-8 p-6 border-2" >
 
             <div onClick={() => set(data)} className="flex flex-col  items-center   group-hover:hidden w-[330px] justify-center rounded-3xl m-1 py-8 p-6 " >
-                <Image src={`/icons/gif/${data.icon}`} alt={data.ar} width={90} height={90} className="m-4 mt-0" />
+                <Image src={`/icons/gif/${data.icon}`} alt={data.ar} width={90} height={90} className="m-4 mt-0" loading="lazy" />
                 <p className="text-center text-xl font-bold leading-tight tracking-normal  ">{data.ar}</p>
                 <p className={`text-center font-bold text-xl   leading-tight tracking-normal   ${type === "page" ? "text-[#00A5A5]" : " "}`}>{data.en}</p>
 

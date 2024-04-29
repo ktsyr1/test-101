@@ -95,8 +95,9 @@ function C_Dev_andDes() {
 
     return (
         <div className="flex flex-row m-auto p-4 " style={{ direction: 'ltr' }} >
-            <p>Designed by SNRGY and Developed by </p>
-            <a href="https://Digitresults.com" className="px-2 text-prussian-800" >DigitResults</a>
+            <p>Designed by SNRGY and Developed by
+                <a href="https://Digitresults.com" className="px-2 text-prussian-800" >DigitResults</a>
+            </p>
         </div>
     )
 }

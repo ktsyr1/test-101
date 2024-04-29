@@ -64,7 +64,7 @@ type Row = { Icon: any; title: string; to: string, }
 function Row({ title, Icon, to, }: Row) {
     return (
         <Link href={to} className=" flex flex-row items-center hover:text-prussian-600 *:max-[697px]:!w-[50px] *:max-[697px]:!p-3 origin-top text-white  transition duration-700 ease-in-out  group">
-            <Image width={75} height={75} src={`/icons/${Icon}`} className={'  p-6'} alt="icon " />
+            <Image width={75} height={75} src={`/icons/${Icon}`} className={'  p-6'} alt="icon " loading="lazy" />
             <p className="p-4 min-w-[400px] text-3xl font-bold  border-red-400 group-hover:bg-white  group-hover:border-r-2  group-hover:pr-[100px]  transition duration-200 ease-in-out ">{title}</p>
             <div className="p-4 w-full hidden group-hover:flex bg-gradient-to-r from-[#FDBA8C] to-[#F25B06] group-hover:pr-[100px]  transition duration-200 ease-in-out ">
                 <IconPlay />

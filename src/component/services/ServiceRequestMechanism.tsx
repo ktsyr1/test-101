@@ -44,7 +44,7 @@ function CardServiceRequestMechanism({ data }: typeCardServiceRequestMechanism) 
                 <p className=" text-xl text-gray-700">{data.about}</p>
                 {data?.notes ? <p className="text-red-600 py-4 text-xl" dangerouslySetInnerHTML={{ __html: data?.notes }} /> : <></>}
             </div>
-            <img src={`/icons/${data.icon}` || "house.png"} alt={data.title} className="w-72 mx-6" />
+            <img src={`/icons/${data.icon}` || "house.png"} alt={data.title} className="w-72 mx-6" loading="lazy"  />
 
         </div>
     )

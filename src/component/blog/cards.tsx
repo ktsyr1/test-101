@@ -20,11 +20,11 @@ enum CardType {
 export default function BlogCard({ data, type }: { data: PostType, type?: CardType }) {
     return (
         <div className={`flex  m-4 shadow-sm hover:shadow-xl bg-white rounded-3xl ${type === CardType.full ? "flex-row-reverse" : "flex-col min-w-[350px] max-w-[421px] w-full"} `}>
-            <img src={data.image} alt={data.title} className={type === CardType.full ? "w-[50%] rounded-l-3xl border-safety-700 border-r" : "rounded-t-3xl border-safety-700 border-b"} />
+            <img src={data.image} loading="lazy" alt={data.title} className={type === CardType.full ? "w-[50%] rounded-l-3xl border-safety-700 border-r" : "rounded-t-3xl border-safety-700 border-b"} />
             <div className={`flex flex-col max-h-[432px] ${type === CardType.full ? "mt-[60px]" : ""} `}>
 
                 <div className="flex flex-col mt-[-40px] mx-8">
-                    <img src={data.author.image} alt={data.author.name} className="rounded-full w-16" />
+                    <img src={data.author.image} alt={data.author.name} loading="lazy"  className="rounded-full w-16" />
                     <b className="text-prussian-500 py-4 font-semibold text-base">{data.author.name}</b>
                 </div>
                 <div className="flex flex-col p-4">
