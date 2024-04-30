@@ -5,6 +5,7 @@ import Btn from "../btns"
 import { IconArrow } from "../icons"
 import { createContext, useContext, useEffect, useState } from "react"
 import SlidesData from "@/data/Sliders.json"
+import { loaderProp } from "../lib"
 
 const ThemeContext = createContext<any | null>({});
 const TimeLineContext = createContext<any | null>({});
@@ -38,7 +39,7 @@ function SliderFullData() {
     if (!data?.title) return <></>
     return (
         <div className="w-full " >
-            <Image src={`/images/${data.bg}`} alt={'Background slide'} fill={true} className="!h-min !relative" loading="lazy" />
+            <Image src={`/images/${data.bg}`} alt={'Background slide'} fill={true} className="!h-min !relative" loading="lazy" loader={loaderProp} />
             <div className="flex flex-col m-4 absolute  lg:mr-36 sm:mr-10    max-[697px]:top-[228px] top-[178px]" >
 
                 <p className="text-6xl     text-prussian-800"> {data.title}</p>

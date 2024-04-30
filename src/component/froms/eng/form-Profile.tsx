@@ -4,7 +4,6 @@ import { FieldType } from '../types';
 import { NextPage, SubmitButton2 } from './form';
 import { FormContext, FormDataContext } from '../contextApi';
 import axios from 'axios';
-import { ConfigApi, refreshToken } from '@/component/lib';
 
 
 const FormProfile = () => {
@@ -12,19 +11,18 @@ const FormProfile = () => {
 
     let { data, setData } = useContext(FormDataContext)
     let [defaultData, setDD] = useState(data)
-    let { select, setSelect, list } = useContext(FormContext)
+    let { select, setSelect } = useContext(FormContext)
     const [form] = Form.useForm();
 
     let [cities, setCities] = useState<any>([])
 
     useEffect(() => {
-        let { info, headers } = ConfigApi()
-        setDD({ ...defaultData, fullName: info?.loginName })
+        setDD({ ...defaultData })
 
         async function Cities() {
             let url = process.env.NEXT_PUBLIC_API
             url += `/Lookup/Cities`
-            axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`, { headers })
+            axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`)
                 .then(({ data }) => setCities(data?.data))
                 .catch(error => console.error(error))
             return

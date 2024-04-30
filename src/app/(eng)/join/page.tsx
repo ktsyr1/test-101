@@ -8,7 +8,7 @@ import list from "@/data/jobs_staps.json"
 export default function Jobs() {
     return (
         <div className="">
-            {/* <Hero /> */}
+            <Hero />
             <SizeBox>
                 <div className={`flex flex-row items-center m-auto w-full my-10 mt-[103px]`} >
                     <Logo type="semple" />
@@ -26,7 +26,7 @@ export default function Jobs() {
     )
 }
 
- function Hero() {
+function Hero() {
     return (
         <div className={`bg-blue-900 flex flex-col h-[514px] justify-center bg-center bg-[url(/images/Apply-For-a-Job.jpeg)]`}>
             <div className="bg-blue-900 flex flex-col bg-opacity-90 h-full justify-center text-center text-white ">
@@ -59,3 +59,4 @@ function Box({ data }: { data: BoxType }) {
         </SizeBox>
     )
 }
+

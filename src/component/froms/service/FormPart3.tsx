@@ -104,7 +104,7 @@ const FormPart3 = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
-            <div className='flex flex-row m-4 p-4'>
+            {/* <div className='flex flex-row m-4 p-4'>
 
                 <Field title="منطقة العمل" className='flex flex-col w-full mx-4 '>
                     <Select
@@ -118,7 +118,7 @@ const FormPart3 = () => {
             <div className='flex flex-row m-4 p-4'>
                 <Input text="رقم العقار" name="realEstateNumber" type="number" />
                 <Input text="شارع العقارات" name="realEstateStreet" />
-            </div>
+            </div> */}
 
             <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
             <br />

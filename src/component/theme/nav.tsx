@@ -42,7 +42,7 @@ export default function Nav() {
             {/* logo */}
             {/* path */}
             <div className="flex flex-row  max-[697px]:w-full ">
-                <LinkBtn to="/get" title=" أطلب الخدمة الآن" Class=" bg-[#FFF8F1] border-[#F25B06] text-[#F25B06] " />
+                <LinkBtn to="/get-service" title=" أطلب الخدمة الآن" Class=" bg-[#FFF8F1] border-[#F25B06] text-[#F25B06] " />
                 <LinkBtn to="/about-app" title=" حمل التطبيق" Class="bg-[#EBF5FF] border-prussian-600 border-solid text-prussian-600" />
             </div>
         </nav >

@@ -1,13 +1,8 @@
 "use server"
-import LoginApp from "@/component/auth";
 import Forms from "@/component/froms/eng/form";
 import SizeBox from "@/component/size-box";
-import { cookies } from 'next/headers'
 
 export default async function Jobs() {
-    const cookieStore = cookies()
-    const auth = cookieStore.get('userToken')
-    let token = auth?.value || ""
 
     return (
         <div className="flex flex-col">
@@ -21,7 +16,7 @@ export default async function Jobs() {
                         </div>
                     </SizeBox>
 
-                    {token?.length > 20 ? <Forms /> : <LoginApp />}
+                    <Forms />
                 </div>
             </SizeBox>
         </div>

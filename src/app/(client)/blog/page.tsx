@@ -19,9 +19,9 @@ export default function BlogAll() {
             <div className="flex flex-row items-center text-sm justify-between   max-w-[1360px] m-auto my-8">
                 <div className="flex flex-row items-center   my-8">
                     {["مؤخرًا", "مقابلات", "خطوط إرشاد", "مقالات"].map(a => <p key={a} className="py-2 bg-slate-100 text-sm  font-medium rounded-md px-4 mx-2"> {a}</p>)}
-                    <div className="w-[44px] h-[44px] bg-safety-700 rounded-md text-white text-xl items-center flex justify-center mx-4">
+                    {/* <div className="w-[44px] h-[44px] bg-safety-700 rounded-md text-white text-xl items-center flex justify-center mx-4">
                         +
-                    </div>
+                    </div> */}
                 </div>
                 <form className="flex flex-row justify-center w-full max-w-[500px]">
                     <Icon.search className={"ml-[-30px] z-10 m-4"} />

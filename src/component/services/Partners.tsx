@@ -1,5 +1,6 @@
 
 import Image from "next/image";
+import { loaderProp } from "../lib";
 
 // icons Partners
 export default function Partners() {
@@ -22,7 +23,7 @@ function SubPartner({ data }: typeSubPartner) {
     return (
         <div className="bg-white w-44 rounded-2xl p-2 text-center flex flex-col py-6 justify-center items-center m-2 h-[220px]">
             {/* icon */}
-            <Image src={`${data.image}` || "house.png"} alt={data.title} width={90} height={90} className="m-auto mb-2" loading="lazy" />
+            <Image src={`${data.image}` || "house.png"} alt={data.title} width={90} height={90} className="m-auto mb-2" loading="lazy" loader={loaderProp} />
 
             <p className="text-safety-500 my-4 text-lg font-bold" >{data.title} </p>
         </div>

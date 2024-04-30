@@ -46,10 +46,10 @@ let pages<any> = {
     "🥇numberOfFloors": 0, // input عدد الطوابق
     "🥇buildingArea": 0, // input مساحة البناء 
     // page
-    "realEstateMunicipal": "string", // input  البلدية العقارية
-    "realEstateNumber": "string", // input رقم العقار
-    "realEstateStreet": "string", // input شارع العقارات
-    "workAreaId": URL("/Lookup/WorkAreas"), // input معرف منطقة العمل 
+    "🥇realEstateMunicipal": "string", // input  البلدية العقارية
+    "🥇realEstateNumber": "string", // input رقم العقار
+    "🥇realEstateStreet": "string", // input شارع العقارات
+    "🥇workAreaId": URL("/Lookup/WorkAreas"), // input معرف منطقة العمل 
     // page
     "projectTitle": "string", // input text
     "projectImage": "string", // input image
