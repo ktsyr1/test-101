@@ -9,16 +9,22 @@ import Services from "@/component/landing/services";
 import Sliders from "@/component/landing/slider";
 
 export default function Home() {
-    
+
     return (
         <div className="flex  flex-col items-center justify-between">
-            <Sliders /> 
+            <Sliders />
             <Services />
             <RequestMechanism />
             <JobsPart />
             <BlogPart />
             {/* <OurClientsTestimonials /> */}
-            شهادات عملائنا - تحت الاصلاح
+            <p className="p-20 border-2 border-red-600 text-center m-8  ">
+                شهادات عملائنا - تحت الاصلاح
+                <br />
+                تم اخفاء هذا القسم
+                <br />
+                حتى تاريخ 5-2-2024
+            </p>
             <Consultation />
         </div>
     );

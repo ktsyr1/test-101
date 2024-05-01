@@ -51,7 +51,7 @@ export default function Menu() {
             </div>
             <div className={`fixed flex flex-col max-[697px]:top-[48px] top-[78px] w-full bg-gradient-to-r from-[#0043cecc] to-[#032da6cc] h-full ${!open ? "!hidden" : " "}`} >
                 <div className="h-full w-[75px] max-[697px]:w-[50px] bg-white fixed"> </div>
-                <div className="h-70 w-full fixed z-20  top-[200px] " onClick={handleOpen}>
+                <div className="h-70 w-full fixed z-20  top-[200px] max-[700px]:top-[100px] " onClick={handleOpen}>
                     {list.map(a => <Row {...a} key={a.title} />)}
                 </div>
 
@@ -66,7 +66,7 @@ function Row({ title, Icon, to, }: Row) {
     return (
         <Link href={to} className=" flex flex-row items-center hover:text-prussian-600 *:max-[697px]:!w-[50px] *:max-[697px]:!p-3 origin-top text-white  transition duration-700 ease-in-out  group">
             <Image width={75} height={75} src={`/icons/${Icon}`} className={'  p-6'} alt="icon " loading="lazy" loader={loaderProp} />
-            <p className="p-4 min-w-[400px] text-3xl font-bold  border-red-400 group-hover:bg-white  group-hover:border-r-2  group-hover:pr-[100px]  transition duration-200 ease-in-out ">{title}</p>
+            <p className="p-4 min-w-[400px] text-3xl font-bold  border-red-400 group-hover:bg-white  group-hover:border-r-2  group-hover:pr-[100px]  transition duration-200 ease-in-out max-[700px]:text-xl max-[700px]:">{title}</p>
             <div className="p-4 w-full hidden group-hover:flex bg-gradient-to-r from-[#FDBA8C] to-[#F25B06] group-hover:pr-[100px]  transition duration-200 ease-in-out ">
                 <IconPlay />
             </div>

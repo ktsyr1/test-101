@@ -11,9 +11,9 @@ export default function Services() {
     // end functions
 
     return (
-        <div className=" min-h-[300px] px-20 py-10 w-full bg-[#F0F0F0] ">
+        <div className=" min-h-[300px] px-20 py-10 w-full bg-[#F0F0F0] max-[700px]:px-4">
 
-            <h1 className="w-full text-start text-6xl font-black text-safety-700 m-auto   max-w-[1360px] max-[700px]:text-3xl">خدمــــــــاتنا</h1>
+            <h1 className="w-full text-start text-6xl font-black text-safety-700 m-auto   max-w-[1360px] max-[700px]:text-3xl ">خدمــــــــاتنا</h1>
             <GroupServices data={dataServices} type="landing" />
             <Btn2 />
         </div>

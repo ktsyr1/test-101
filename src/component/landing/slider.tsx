@@ -38,14 +38,14 @@ function SliderFullData() {
     }
     if (!data?.title) return <></>
     return (
-        <div className="w-full " >
-            <Image src={`/images/${data.bg}`} alt={'Background slide'} fill={true} className="!h-min !relative" loading="lazy" loader={loaderProp} />
-            <div className="flex flex-col m-4 absolute  lg:mr-36 sm:mr-10    max-[697px]:top-[228px] top-[178px]" >
+        <div className="w-full  min-h-[800px] " >
+            <Image src={`/images/${data.bg}`} alt={'Background slide'} fill={true} className="!h-screen !relative" loading="lazy" loader={loaderProp} />
+            <div className="flex flex-col m-4 absolute lg:mr-36 sm:mr-10 max-[697px]:top-[228px] top-[178px] " >
 
-                <p className="text-6xl     text-prussian-800"> {data.title}</p>
-                <p className="text-6xl font-black text-safety-700 my-4 "> {data.titleBold}</p>
+                <p className="text-6xl text-prussian-800 max-[700px]:text-3xl"> {data.title}</p>
+                <p className="text-6xl font-black text-safety-700 my-4 max-[700px]:text-3xl"> {data.titleBold}</p>
                 <div className="max-w-[640px] " >
-                    <p className="my-8 text-2xl font-semibold"> {data.bio}</p>
+                    <p className="my-8 text-2xl font-semibold max-[700px]:text-lg"> {data.bio}</p>
                     <div onMouseEnter={enter} onMouseLeave={leave} className="my-3 p-0">
                         <Btn title={data.btn.title} to={data.btn.to} childSort="end" className="bg-white m-0 rounded-lg hover:bg-safety-700 hover:text-white *:hover:fill-white " style={style} >
                             <IconArrow color={btnHover ? "#fff" : "#032DA6"} className={'mr-40'} />
@@ -64,8 +64,11 @@ function TimeLine(props: any) {
 
     return (
         <TimeLineContext.Provider value={{ "data": "" }}>
-            <div className="h-[200px] mt-[-200px]  bg-[#001F67] w-full flex flex-row justify-center z-30 pt-[50px]">
-                {timeLine.map(slider => <TimeLineCard data={slider} key={slider.title} />)}
+            <div className="bg-[#001F67] flex flex-col h-[200px] justify-center mt-[-200px] overflow-x-scroll px-4 select-none z-30" >
+                <div className="flex flex-row justify-center w-[1400px] min-[1400px]:justify-start m-auto">
+
+                    {timeLine.map(slider => <TimeLineCard data={slider} key={slider.title} />)}
+                </div>
             </div>
         </TimeLineContext.Provider>
     )
@@ -82,7 +85,7 @@ function TimeLineCard({ data }: any) {
 
     return (
         <div className={`flex flex-col !h-min text-slate-400 w-[280px] mx-6 ${One.id === data.id ? "*:text-white" : " "}`} onClick={handelOne} >
-            <p className="text-xl font-black">{data.timeLine.title}</p>
+            <p className="text-xl font-black text-nowrap">{data.timeLine.title}</p>
             <hr className="w-full my-2 border-2" />
             <hr className={`my-2 border-2 mt-[-12px] text-sm font-medium border-safety-700 w-16  a22  ${One.id === data.id ? "*:text-white" : " "}`} />
             <p className="text-xs">{data.timeLine.about}</p>
