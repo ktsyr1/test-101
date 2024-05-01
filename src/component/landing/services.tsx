@@ -13,7 +13,7 @@ export default function Services() {
     return (
         <div className=" min-h-[300px] px-20 py-10 w-full bg-[#F0F0F0] ">
 
-            <h1 className="w-full text-start text-6xl font-black text-safety-700 m-auto   max-w-[1360px]">خدمــــــــاتنا</h1>
+            <h1 className="w-full text-start text-6xl font-black text-safety-700 m-auto   max-w-[1360px] max-[700px]:text-3xl">خدمــــــــاتنا</h1>
             <GroupServices data={dataServices} type="landing" />
             <Btn2 />
         </div>
@@ -98,10 +98,8 @@ export function CardService({ data, set, type }: CardType) {
                 <p className={`text-center font-bold text-xl   leading-tight tracking-normal   ${type === "page" ? "text-[#00A5A5]" : " "}`}>{data.en}</p>
 
             </div>
-            <Link href={`/services?name=${data.ar}`} className="  flex-col group items-center  hidden group-hover:flex group-hover:m-0 h-full  w-[330px] justify-center rounded-3xl py-8 p-6 "  >
-                <ul className="text-center text-xl group-hover:flex  group-hover:text-start hidden flex-col">
-                    {data.report.map((item: any) => <li key={item}>{item}</li>)}
-                </ul>
+            <Link href={`/services?name=${data.ar}`} className="  flex-col group items-center  hidden group-hover:flex group-hover:m-0 w-[330px] justify-center rounded-3xl py-8 p-6 h-[260px] text-center"  > 
+                {data.report.join("  ,  ")}
             </Link>
         </div>
     )

@@ -9,7 +9,8 @@ let getData = async () => {
     try {
         console.log("testing");
 
-        return await getClient().query({ query: GET_USERS })
+        return { data: {} }
+        //await getClient().query({ query: GET_USERS })
     } catch (error) {
         console.log(error)
         return { data: { users: [] } }

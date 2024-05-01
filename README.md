@@ -6,6 +6,23 @@
 - /src/graphql/*
 - /src/app/api/graphql
  
+# res 
+```css 
+mobile
+    max-[700px]:
+fontH1
+    max-[700px]:text-3xl 
+fontH2
+    max-[700px]:text-2xl 
+fontP
+    max-[700px]:text-lg 
+
+  max-[700px]:text-3xl max-[700px]:text-2xl max-[700px]:text-lg 
+
+```
+
+
+
 # bug 1
 ```ts
 URL_ClientAssessment = "/Client/Assessment"

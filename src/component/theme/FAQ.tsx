@@ -2,15 +2,19 @@
 import Btn from "../btns"
 import { useState } from "react"
 import Icon from "../icons"
+import { usePathname } from 'next/navigation'
+
 type LayoutType = {
     children: JSX.Element
     slug: string
 }
+
 export default function QA() {
     let [part, setPart] = useState('eng')
+    const pathname = usePathname()
 
     const Layout = ({ children, slug }: LayoutType) => part === slug ? <>{children}</> : <></>
-
+    if (pathname == "/FAQ") return <></>
     return (
         <div className="flex flex-col py-14  max-[697px]:p-4 p-20 bg-[#F0F0F0]  select-none justify-center items-center">
             {/* add map */}

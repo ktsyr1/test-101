@@ -1,9 +1,9 @@
-
+"use server"
 import Image from "next/image";
 import { loaderProp } from "../lib";
 
 // icons Partners
-export default function Partners() {
+export default async function Partners() {
     return (
         <div className="bg-prussian-800 w-full min-h-96 py-40" >
             <h2 className="w-full text-center text-6xl text-white  mt-20">شركاؤنا</h2>
@@ -19,11 +19,11 @@ type typeSubPartner = {
         image: string
     }
 }
-function SubPartner({ data }: typeSubPartner) {
+async function SubPartner({ data }: typeSubPartner) {
     return (
         <div className="bg-white w-44 rounded-2xl p-2 text-center flex flex-col py-6 justify-center items-center m-2 h-[220px]">
             {/* icon */}
-            <Image src={`${data.image}` || "house.png"} alt={data.title} width={90} height={90} className="m-auto mb-2" loading="lazy" loader={loaderProp} />
+            <img src={data.image} alt={data.title} width={90} height={90} className="m-auto mb-2" loading="lazy" />
 
             <p className="text-safety-500 my-4 text-lg font-bold" >{data.title} </p>
         </div>

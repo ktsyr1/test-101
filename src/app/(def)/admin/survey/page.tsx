@@ -7,7 +7,8 @@ import AdminSurveysList from '@/component/admin/survey';
 
 let getData = () => {
     try {
-        return async () => await getClient().query({ query: Surveys });
+        return { data: {} }
+        return //async () => await getClient().query({ query: Surveys });
     } catch (error) {
         return { data: { surveys: [] } }
     }

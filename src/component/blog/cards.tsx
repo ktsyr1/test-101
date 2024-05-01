@@ -19,9 +19,9 @@ enum CardType {
 }
 export default function BlogCard({ data, type }: { data: PostType, type?: CardType }) {
     return (
-        <div className={`flex  m-4 shadow-sm hover:shadow-xl bg-white rounded-3xl ${type === CardType.full ? "flex-row-reverse" : "flex-col min-w-[350px] max-w-[421px] w-full"} `}>
-            <img src={data.image} loading="lazy" alt={data.title} className={type === CardType.full ? "w-[50%] rounded-l-3xl border-safety-700 border-r" : "rounded-t-3xl border-safety-700 border-b"} />
-            <div className={`flex flex-col max-h-[432px] ${type === CardType.full ? "mt-[60px]" : ""} `}>
+        <div className={`flex  m-4 shadow-sm hover:shadow-xl bg-white rounded-3xl max-[700px]:flex-col max-[700px]:min-w-[350px] max-[700px]:max-w-[421px] max-[700px]:w-full ${type === CardType.full ? "flex-row-reverse" : "flex-col min-w-[350px] max-w-[421px] w-full"} `}>
+            <img src={data.image} loading="lazy" alt={data.title} className={`max-[700px]:rounded-t-3xl max-[700px]:border-safety-700 max-[700px]:border-b max-[700px]:border-0 max-[700px]:w-full max-[700px]:rounded-b-none ${type === CardType.full ? "w-[50%] rounded-l-3xl border-safety-700 border-r" : "rounded-t-3xl border-safety-700 border-b"}`} />
+            <div className={`flex flex-col max-h-[432px] max-[700px]:mt-0 ${type === CardType.full ? "mt-[60px]" : ""} `}>
 
                 <div className="flex flex-col mt-[-40px] mx-8">
                     <img src={data.author.image} alt={data.author.name} loading="lazy"  className="rounded-full w-16" />

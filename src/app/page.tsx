@@ -17,7 +17,8 @@ export default function Home() {
             <RequestMechanism />
             <JobsPart />
             <BlogPart />
-            <OurClientsTestimonials />
+            {/* <OurClientsTestimonials /> */}
+            شهادات عملائنا - تحت الاصلاح
             <Consultation />
         </div>
     );

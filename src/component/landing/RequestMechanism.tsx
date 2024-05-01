@@ -18,8 +18,8 @@ export default function RequestMechanism() {
     // let enter = () => SetBtnHover(true)
     // let leave = () => SetBtnHover(false)
     return (
-        <div className=" min-h-[300px] px-20 py-10 w-full bg-white ">
-            <h1 className="w-full text-start text-6xl font-black text-safety-700 m-auto p-10  max-w-[1360px]">آلية العمل</h1>
+        <div className=" min-h-[300px] px-20 py-10  max-[700px]:p-4 w-full bg-white ">
+            <h1 className="w-full text-start text-6xl font-black text-safety-700 m-auto p-10  max-w-[1360px]  max-[700px]:text-3xl ">آلية العمل</h1>
             <ThemeContext.Provider value={{ data, setOne, One }}>
                 <div className="flex flex-col m-auto max-w-[1360px] rounded-[50px] shadow-xl bg-no-repeat bg-none lg:bg-[url(/images/bg-1.jpg)] "  >
                     <div className="flex flex-row justify-between  " >
@@ -47,7 +47,7 @@ function ListLine() {
         <div  >
             <div className="flex flex-row w-full justify-between" >
                 {/* 4 staps  */}
-                {[1, 2, 3, 4].map(i => <p key={i} onClick={() => setOne(data[i - 1])} className={`rounded-full border-2 border-safety-700 p-[10px] w-12 h-12 text-center ${One.id == i ? "bg-safety-700 text-white text-4xl font-normal !p-1" : "bg-white"}`}>{i}</p>)}
+                {[1, 2, 3, 4].map(i => <p key={i} onClick={() => setOne(data[i - 1])} className={`rounded-full border-2 border-safety-700 p-[10px] w-12 h-12 text-center ${One.id == i ? "bg-safety-700 text-white text-2xl font-normal !p-2" : "bg-white"}`}>{i}</p>)}
             </div>
             <hr className="border-2 border-safety-700 mt-[-27px] mb-[27px] w-[95%]" />
         </div>
@@ -82,9 +82,9 @@ function Header() {
     const { One: data } = useContext(ThemeContext);
     return (
         <>
-            <p className="text-safety-700 py-4 text-3xl font-semibold">{data.stap}</p>
-            <b className="text-blue-800 text-4xl py-8   font-extrabold ">{data.title} </b>
-            <p className="min-h-36  py-8 text-xl font-medium  ">{data.bio} </p>
+            <p className="text-safety-700 py-4 text-2xl max-[700px]:text-xl font-semibold">{data.stap}</p>
+            <b className="text-blue-800 text-3xl py-8   max-[700px]:text-2xl  font-extrabold ">{data.title} </b>
+            <p className="min-h-36  py-8 text-xl font-medium  max-[700px]:text-lg  ">{data.bio} </p>
         </>
     )
 }

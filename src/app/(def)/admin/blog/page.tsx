@@ -8,7 +8,8 @@ import { Blogs_Get } from "@/graphql/queries/blog";
 
 let getData =async () => {
     try {
-        return async () => await getClient().query({ query: Blogs_Get });
+        return { data: {} }
+        return //async () => await getClient().query({ query: Blogs_Get });
     } catch (error) {
         return { data: {  } }
     }

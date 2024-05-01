@@ -39,4 +39,5 @@ export function refreshToken() {
         .then(res => res)
     return
 }
+
 export const loaderProp = ({ src }: any) => src
