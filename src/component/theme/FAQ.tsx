@@ -19,8 +19,8 @@ export default function QA() {
         <div className="flex flex-col py-14  max-[697px]:p-4 p-20 bg-[#F0F0F0]  select-none justify-center items-center">
             {/* add map */}
             <div className={`flex  items-center justify-center w-full flex-col h-max     -xl:w-[1500px] `}>
-                <b className="text-safety-700 mb-6 text-6xl font-black max-[697px]:text-xl text-start w-full  ">أسئلة شائعة</b>
-                <p className="  text-xl font-semibold text-slate-500 max-[697px]:text-sm text-start  w-full  ">لقد أولينا المزيد من الاهتمام لتخصيص الإجابات أدناه، ولتسهيل الأمر عليك، قمنا بتصنيف الأسئلة لك</p>
+                <b className="text-safety-700 mb-6 text-6xl font-black max-[697px]:text-xl text-start w-full max-[1400px]:text-3xl  ">أسئلة شائعة</b>
+                <p className="  text-xl font-semibold text-slate-500 max-[697px]:text-sm text-start  w-full  max-[1400px]:text-lg">لقد أولينا المزيد من الاهتمام لتخصيص الإجابات أدناه، ولتسهيل الأمر عليك، قمنا بتصنيف الأسئلة لك</p>
                 <div className=" w-full max-[697px]:p-1 justify-center">
 
                     <div className="flex flex-row bg-white w-full rounded-md p-1 m-4 max-[697px]:mx-0 ">

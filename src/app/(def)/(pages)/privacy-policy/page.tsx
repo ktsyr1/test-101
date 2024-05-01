@@ -18,9 +18,7 @@ export default function Privacy_policy_inspectex() {
                 <h2 className="text-2xl font-bold my-4">ملفات تعريف الارتباط</h2>
 
 
-                <p className="flex flex-row" >نحن نستخدم ملفات تعريف الارتباط لنمنحك أفضل تجربة أستخدام ممكنة على تطبيق بسيط، لمزيد من المعلومات حول ملفات تعريف الارتباط ، تفضل بزيارة &nbsp;
-                    <a className=" text-prussian-600" href="https://allaboutcookies.org/" target="_blank">allaboutcookies.org</a>.
-                </p>
+                <p className="flex flex-row" >نحن نستخدم ملفات تعريف الارتباط لنمنحك أفضل تجربة أستخدام ممكنة على تطبيق بسيط، لمزيد من المعلومات حول ملفات تعريف الارتباط . </p>
 
                 <h2 className="text-2xl font-bold my-4">ملفات تعريف الارتباط الأساسية</h2>
 
