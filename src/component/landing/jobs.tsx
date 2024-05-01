@@ -17,7 +17,7 @@ export default function JobsPart({ className, title, to }: any) {
                             <p className="text-safety-700 text-5xl max-[700px]:text-xl font-black">تقدم للعمل معنا وساهم في</p>
                             <p className="text-prussian-800 text-5xl max-[700px]:text-xl font-black mt-4">تطوير مستدام لخبراتك.</p>
                         </div>
-                        <img src={"/images/jobs-koba.png"} loading="lazy" className="w-96 absolute mt-0 filter mr-10 max-[700px]:w-52 max-[700px]:relative m-auto left-4 max-[700px]:left-auto max-[700px]:mr-auto max-[700px]:mb-[-20px]" alt="" />
+                        <img src={"/images/jobs-koba-300.png"} loading="lazy" className="w-96 absolute mt-0 filter mr-10 max-[700px]:w-52 max-[700px]:relative m-auto left-4 max-[700px]:left-auto max-[700px]:mr-auto max-[700px]:mb-[-20px]" alt="" />
                     </div>
                     <div className="  bg-prussian-800 text-white p-4 rounded-b-3xl w-full flex justify-start max-[700px]:p-0 max-[700px]:m-0 ">
                         <div className="flex flex-col w-[50%] max-[700px]:w-full">

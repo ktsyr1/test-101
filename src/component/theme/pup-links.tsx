@@ -35,7 +35,7 @@ function WhatsAppBtn() {
                 {hover &&
                     <a href="https://wa.me/966533344735" target="_blank" className="bg-safety-700 p-2 rounded-3xl w-52 px-4 flex-row-reverse flex items-center pl-6">
                         <div className="bg-prussian-800 border-4 shadow-lg border-white fixed h-20 rounded-full w-20 ml-32">
-                            <Image src={"/images/man-sa.png"} width={80} height={80} alt="icon man-sa" loading="lazy" loader={loaderProp} />
+                            <Image src={"/images/man-sa-150.png"} width={80} height={80} alt="icon man-sa" loading="lazy" loader={loaderProp} />
                         </div>
                         <Icon.whatsappOutline />
                         <p className="text-white font-semibold px-3">تواصل معنا</p>
