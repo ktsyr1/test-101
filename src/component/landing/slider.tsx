@@ -17,7 +17,7 @@ export default function Sliders() {
 
     return (
         <ThemeContext.Provider value={{ data, setOne, One }}>
-            <div className="  w-full flex flex-col h-min bg-no-repeat bg-contain max-[1300px]:hidden "            >
+            <div className=" w-full flex flex-col h-min bg-no-repeat bg-contain min-h-[800px] " >
                 <SliderFullData />
                 <TimeLine />
             </div>
