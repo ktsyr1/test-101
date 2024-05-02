@@ -5,6 +5,7 @@ import { useContext, useState } from "react"
 import Btn from "../btns"
 import { createContext } from "react";
 import Image from "next/image"
+import SizeBox from "../size-box"
 
 type ThemeContextType = any | null
 
@@ -18,24 +19,27 @@ export default function RequestMechanism() {
     // let enter = () => SetBtnHover(true)
     // let leave = () => SetBtnHover(false)
     return (
-        <div className=" min-h-[300px] px-20 py-10  max-[700px]:p-4 w-full bg-white ">
-            <h1 className="w-full text-start text-6xl font-black text-safety-700 m-auto p-10  max-w-[1360px]  max-[700px]:text-3xl ">آلية العمل</h1>
+        <div className=" min-h-[300px] tap:px-20 py-10  p-4 w-full bg-white ">
+            <h1 className="w-full text-start font-black text-safety-700 m-auto p-10 max-w-[1360px] text-3xl lap:text-6xl">آلية العمل</h1>
             <ThemeContext.Provider value={{ data, setOne, One }}>
-                <div className="flex flex-col m-auto max-w-[1360px] rounded-[50px] shadow-xl bg-no-repeat bg-none lg:bg-[url(/images/bg-1.jpg)] "  >
-                    <div className="flex flex-row justify-between  " >
-                        <div className="p-6 lg:!w-[50%] w-full"  >
-                            <Header />
-                            <Navigation />
-                            <ListLine />
-                            <Btn to={"#"} title=" أطلب الخدمة الآن" childSort="end" className="mt-12 border-2 border-safety-700 rounded-2xl bg-white text-prussian-800 " >
-                                <IconArrow className={'mr-16'} />
-                            </Btn>
+                <SizeBox>
+
+                    <div className="flex flex-col m-auto max-w-[1360px] rounded-[50px] shadow-xl bg-no-repeat bg-none lg:bg-[url(/images/bg-1.jpg)] w-full"  >
+                        <div className="flex flex-row justify-between  " >
+                            <div className="p-6 lg:!w-[50%] w-full"  >
+                                <Header />
+                                <Navigation />
+                                <ListLine />
+                                <Btn to={"#"} title=" أطلب الخدمة الآن" childSort="end" className="mt-12 border-2 border-safety-700 rounded-2xl bg-white text-prussian-800 " >
+                                    <IconArrow className={'mr-16'} />
+                                </Btn>
+                            </div>
+                            {/* images */}
+                            {/* <img src={`/images/${One.icon}`} alt={One.title} className="w-[40%] lg:flex hidden" /> */}
                         </div>
-                        {/* images */}
-                        {/* <img src={`/images/${One.icon}`} alt={One.title} className="w-[40%] lg:flex hidden" /> */}
+                        <div className="h-24  bg-blue-900 rounded-br-[40px]" ></div>
                     </div>
-                    <div className="h-24  bg-blue-900 rounded-br-[40px]" ></div>
-                </div>
+                </SizeBox>
             </ThemeContext.Provider>
         </div>
     )
@@ -82,9 +86,9 @@ function Header() {
     const { One: data } = useContext(ThemeContext);
     return (
         <>
-            <p className="text-safety-700 py-4 text-2xl max-[700px]:text-xl font-semibold">{data.stap}</p>
-            <b className="text-blue-800 text-3xl py-8   max-[700px]:text-2xl  font-extrabold ">{data.title} </b>
-            <p className="min-h-36  py-8 text-xl font-medium  max-[700px]:text-lg  ">{data.bio} </p>
+            <p className="text-safety-700 py-4 tap:text-2xl  text-xl font-semibold">{data.stap}</p>
+            <b className="text-blue-800 tap:text-3xl py-8   text-2xl  font-extrabold ">{data.title} </b>
+            <p className="min-h-36  py-8 tap:text-xl font-medium  text-lg  ">{data.bio} </p>
         </>
     )
 }

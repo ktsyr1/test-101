@@ -19,7 +19,7 @@ export default function Footer() {
 
 
     return (
-        <footer className={` flex flex-col border-y-[40px] border-safety-700 *:text-md`} style={{
+        <footer className={` flex flex-col border-y-[40px] border-safety-700 *:text-md   *:text-slate-900 `} style={{
             background: 'linear-gradient(360deg, #CDCDCD 0%, #EFEFF1 19.34%, #FFFFFF 52.54%), linear-gradient(0deg, #F25B06, #F25B06)'
         }}
         >
@@ -27,7 +27,7 @@ export default function Footer() {
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d572.4348198944405!2d46.69394306528545!3d24.804518960971865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd097e7e9681%3A0xcf6a844114dfed61!2sBuilding%20Rank%20SA!5e0!3m2!1sar!2slb!4v1708619809636!5m2!1sar!2slb" width={'100%'} height="450" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             <div className="flex flex-wrap items-center justify-evenly  py-14 " >
                 <PupLinks />
-                <div className="flex flex-col justify-end *:m-[20px] min-w-[250px] max-[700px]:!flex-row  max-[700px]:my-6 " >
+                <div className="flex tap:flex-col justify-end *:m-[20px] min-w-[250px]  flex-row m-4 " >
                     {sochalmedia.map(Item => <Link href={Item.to} key={Item.to} > <Item.Icon /> </Link>)}
                 </div>
 

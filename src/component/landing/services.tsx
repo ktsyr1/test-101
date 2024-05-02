@@ -11,9 +11,9 @@ export default function Services() {
     // end functions
 
     return (
-        <div className=" min-h-[300px] px-20 py-10 w-full bg-[#F0F0F0] max-[700px]:px-4">
+        <div className=" min-h-[300px] py-10 w-full bg-[#F0F0F0] px-4 tap:px-20">
 
-            <h1 className="w-full text-start text-6xl font-black text-safety-700 m-auto   max-w-[1360px] max-[700px]:text-3xl ">خدمــــــــاتنا</h1>
+            <h1 className="w-full text-start font-black text-safety-700 m-auto max-w-[1360px] text-3xl lap:text-6xl ">خدمــــــــاتنا</h1>
             <GroupServices data={dataServices} type="landing" />
             <Btn2 />
         </div>
@@ -90,16 +90,17 @@ type CardType = {
 export function CardService({ data, set, type }: CardType) {
 
     return (
-        <div className="group flex flex-col  items-center *:hover:!fill-[#fff]  shadow-sm hover:shadow-xl hover:border-2 hover:border-[#00A5A5] bg-white text-[#002D9C] w-[330px] justify-center rounded-3xl m-1 py-8 p-6 border-2" >
+        <div className="group flex flex-col items-center *:hover:!fill-[#fff]  shadow-sm hover:shadow-xl hover:border-2 hover:border-[#00A5A5] bg-white text-[#002D9C] justify-center rounded-3xl m-1 py-8 p-6 border-2 w-[240px] h-[240px] lap:w-[330px] " >
 
-            <div onClick={() => set(data)} className="flex flex-col  items-center   group-hover:hidden w-[330px] justify-center rounded-3xl m-1 py-8 p-6 " >
+            <div onClick={() => set(data)} className="flex flex-col  items-center   group-hover:hidden justify-center rounded-3xl m-1 py-8 p-6 w-[240px]  lap:w-[330px]" >
                 <Image src={`/icons/gif/${data.icon}`} alt={data.ar} width={90} height={90} className="m-4 mt-0" loading="lazy" loader={loaderProp} />
-                <p className="text-center text-xl font-bold leading-tight tracking-normal  ">{data.ar}</p>
-                <p className={`text-center font-bold text-xl   leading-tight tracking-normal   ${type === "page" ? "text-[#00A5A5]" : " "}`}>{data.en}</p>
+                <p className="text-center font-bold leading-tight tracking-normal text-base lap:text-xl ">{data.ar}</p>
+                <p className={`text-center font-bold    leading-tight tracking-normal   ${type === "page" ? "text-[#00A5A5]" : " "} text-base lap:text-xl`}>{data.en}</p>
 
             </div>
-            <Link href={`/services?name=${data.ar}`} className="  flex-col group items-center  hidden group-hover:flex group-hover:m-0 w-[330px] justify-center rounded-3xl py-8 p-6 h-[260px] text-center"  > 
-                {data.report.join("  ,  ")}
+            <Link href={`/services?name=${data.ar}`} className="  flex-col group items-center  hidden group-hover:flex group-hover:m-0 justify-center rounded-3xl py-8 p-6 h-[260px] text-center  text-sm  w-[240px] lap:w-[330px]"  >
+                {data.report.map((a: any) => <p>{a}</p>)}
+                {/* {data.report.join("  ,  ")} */}
             </Link>
         </div>
     )

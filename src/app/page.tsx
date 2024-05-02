@@ -17,14 +17,7 @@ export default function Home() {
             <RequestMechanism />
             <JobsPart />
             <BlogPart />
-            {/* <OurClientsTestimonials /> */}
-            <p className="p-20 border-2 border-red-600 text-center m-8  ">
-                شهادات عملائنا - تحت الاصلاح
-                <br />
-                تم اخفاء هذا القسم
-                <br />
-                حتى تاريخ 5-2-2024
-            </p>
+            <OurClientsTestimonials /> 
             <Consultation />
         </div>
     );

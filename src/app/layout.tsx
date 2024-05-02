@@ -40,7 +40,7 @@ export default function RootLayout({ children }: Children) {
             <body className={inter.className} >
                 <Landing />
                 <Nav />
-                <main className={"max-[697px]:mt-[128px] mt-[78px]   "} >
+                <main className={"max-[697px]:mt-[128px] mt-[78px]  *:text-slate-900 "} >
                     <ApolloWrapper>{children}</ApolloWrapper>
 
                     {/* {children} */}

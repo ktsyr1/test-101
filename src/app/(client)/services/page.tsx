@@ -11,7 +11,7 @@ import { Suspense } from 'react'
 export default function ServicesPade() {
     return (
         <Suspense>
-            <div className=" min-h-[300px] py-10 w-full flex flex-col bg-[#F0F0F0]">
+            <div className=" min-h-[300px] tap:py-10 w-full flex flex-col bg-[#F0F0F0]">
                 <SizeBox >
                     <TitlePart title="خدمــــــــاتنا" />
                 </SizeBox>

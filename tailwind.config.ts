@@ -37,11 +37,11 @@ module.exports = {
                 "red-500": "#FF6539",
                 "red-700": "#F14600",
 
-                "grays-25" : "#F1F1F5",
-                "grays-100" : "#D1D5DB",
-                "grays-300" : "#6B7280",
-                "grays-500" : "#374151", 
-                "grays-700" : "#111928", 
+                "grays-25": "#F1F1F5",
+                "grays-100": "#D1D5DB",
+                "grays-300": "#6B7280",
+                "grays-500": "#374151",
+                "grays-700": "#111928",
 
                 "gray-50": "var(--gray-50)",
                 "inactive-elements25": "var(--inactive-elements25)",
@@ -84,7 +84,23 @@ module.exports = {
                 "neutral-700": "var(--neutral-700)",
                 "neutral-950": "var(--neutral-950)",
             },
-            
+
+            screens: {
+                'sm': '350px',
+                // => @media (min-width: 640px) { ... }
+
+                'tap': '700px',
+                // => @media (min-width: 768px) { ... }
+
+                'lap': '1400px'
+                // => @media (min-width: 1024px) { ... }
+
+            //     'xl': '1280px',
+            //     // => @media (min-width: 1280px) { ... }
+
+            //     '2xl': '1536px',
+            //     // => @media (min-width: 1536px) { ... }
+            },
             fontFamily: {
                 "text-s-medium": "var(--text-s-medium-font-family)",
             },

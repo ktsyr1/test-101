@@ -16,19 +16,19 @@ export default function QA() {
     const Layout = ({ children, slug }: LayoutType) => part === slug ? <>{children}</> : <></>
     if (pathname == "/FAQ") return <></>
     return (
-        <div className="flex flex-col py-14  max-[697px]:p-4 p-20 bg-[#F0F0F0]  select-none justify-center items-center">
+        <div className="flex flex-col py-14  max-[697px]:p-4 tap:p-20 bg-[#F0F0F0]  select-none justify-center items-center  ">
             {/* add map */}
-            <div className={`flex  items-center justify-center w-full flex-col h-max     -xl:w-[1500px] `}>
-                <b className="text-safety-700 mb-6 text-6xl font-black max-[697px]:text-xl text-start w-full max-[1400px]:text-3xl  ">أسئلة شائعة</b>
-                <p className="  text-xl font-semibold text-slate-500 max-[697px]:text-sm text-start  w-full  max-[1400px]:text-lg">لقد أولينا المزيد من الاهتمام لتخصيص الإجابات أدناه، ولتسهيل الأمر عليك، قمنا بتصنيف الأسئلة لك</p>
+            <div className={`flex  items-center justify-center w-full flex-col h-max-xl:w-[1500px]  max-w-[1000px] lap:max-w-[1360px]`}>
+                <b className="text-safety-700 mb-6 lap:text-6xl font-black  text-xl text-start w-full  tap:text-3xl  ">أسئلة شائعة</b>
+                <p className="  lap:text-xl font-semibold text-slate-500  text-sm text-start  w-full   tap:text-lg">لقد أولينا المزيد من الاهتمام لتخصيص الإجابات أدناه، ولتسهيل الأمر عليك، قمنا بتصنيف الأسئلة لك</p>
                 <div className=" w-full max-[697px]:p-1 justify-center">
 
-                    <div className="flex flex-row bg-white w-full rounded-md p-1 m-4 max-[697px]:mx-0 ">
+                    <div className="flex flex-row bg-white max-w-[1000px] lap:max-w-[1360px] rounded-md p-1 m-4">
                         {dataBtns.map(btn => <Btn
                             key={btn.slug}
                             title={btn.title}
                             onClick={() => setPart(btn.slug)}
-                            className={`rounded-md shadow-none !p-2 !m-1 max-[697px]:text-sm max-[697px]:w-full w-full ${part === btn.slug ? "border-2 border-safety-700 text-safety-700 " : " "}   `}
+                            className={`rounded-md shadow-none  !p-2 !m-1 text-sm max-[697px]:w-full w-full ${part === btn.slug ? "border-2 border-safety-700 text-safety-700 " : " text-slate-900 "}   `}
                         />)}
                     </div>
 
@@ -67,12 +67,12 @@ function Ask({ title, answer }: Asktype) {
         <div className="flex flex-col border-b-1 text-slate-700 w-full" >
             {/* ask */}
             <div className="flex flex-row justify-between w-full items-center" onClick={handleOpen}>
-                <p className={`text-2xl font-medium text-[#1B2E45] max-[697px]:text-sm max-w-[92%]   py-6 ${open ? "!text-safety-700" : " "}`}>{title}</p>
+                <p className={`tap:text-xl lap:text-2xl font-medium text-[#1B2E45] text-sm max-w-[92%] py-6 ${open ? "!text-safety-700" : " "}  `}>{title}</p>
                 {/* icon */}
                 {open ? <Icon.arrowUp /> : <Icon.arrowDown />}
             </div>
             {/* anser */}
-            <div className={`flex flex-col justify-between max-w-[90%] max-[697px]:text-sm  text-gray-500 font-medium text-xl mt-2 ${!open ? "hidden" : "flex"}`}>
+            <div className={`flex flex-col justify-between max-w-[90%]  text-xs  text-gray-500 font-medium tap:text-lg mt-2 ${!open ? "hidden" : "flex"}  `}>
                 <p>{answer}</p>
                 {/* icon */}
             </div>

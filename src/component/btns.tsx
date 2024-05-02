@@ -34,7 +34,7 @@ function Btn(props: Props) {
                 {props.children}
             </div>
         ) : (
-            <Link href={to} className={`flex flex-row items-center justify-center shadow-lg m-3 p-3   ${className}`} style={style}  {...props}>
+            <Link href={to} className={`flex flex-row items-center justify-center shadow-lg m-3 lap:p-3 p-2   ${className}`} style={style}  {...props}>
                 {props.children}
             </Link>
         )

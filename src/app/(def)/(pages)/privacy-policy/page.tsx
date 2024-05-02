@@ -3,10 +3,9 @@ import SizeBox from "@/component/size-box";
 export default function Privacy_policy_inspectex() {
 
     return (
-        <SizeBox className="flex flex-col !items-start m-4 p-4  " >
-            <h1 className="text-3xl font-bold my-4"> </h1>
+        <SizeBox className="flex flex-col !items-start m-4 p-4 *:text-slate-900 " >
 
-            <h1 className="text-4xl font-bold my-4 text-safety-700  ">صفحة سياسة الخصوصية </h1>
+            <h1 className="text-4xl font-bold my-4 !text-safety-700  ">صفحة سياسة الخصوصية </h1>
             <div className="flex flex-col !items-start m-4 p-4 *:text-xl *:my-2">
                 <p > في تطبيق (  Inspectex )، ندرك أن خصوصية معلوماتك الشخصية هامة لك ولنا. </p>
                 <p> فيما يلي معلومات حول أنواع المعلومات الشخصية التي نتلقاها ونقوم بجمعها عند زيارات ( Inspectex )، وكيف نقوم بحماية معلوماتك الشخصية . </p>
