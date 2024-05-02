@@ -99,7 +99,7 @@ export function CardService({ data, set, type }: CardType) {
 
             </div>
             <Link href={`/services?name=${data.ar}`} className="  flex-col group items-center  hidden group-hover:flex group-hover:m-0 justify-center rounded-3xl py-8 p-6 h-[260px] text-center  text-sm  w-[240px] lap:w-[330px]"  >
-                {data.report.map((a: any) => <p>{a}</p>)}
+                {data.report.map((a: any) => <p key={a}>{a}</p>)}
                 {/* {data.report.join("  ,  ")} */}
             </Link>
         </div>
