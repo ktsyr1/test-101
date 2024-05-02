@@ -64,7 +64,7 @@ function TimeLine(props: any) {
 
     return (
         <TimeLineContext.Provider value={{ "data": "" }}>
-            <div className="bg-[#001F67] flex flex-col h-[200px] justify-center mt-[-200px] overflow-x-scroll px-4 select-none z-30" >
+            <div className="bg-[#001F67]  flex flex-col h-[200px] justify-center mt-[-200px] overflow-x-scroll px-4 select-none z-30" >
                 <div className="flex flex-row  w-[1000px]  justify-start m-auto lap:justify-center">
 
                     {timeLine.map(slider => <TimeLineCard data={slider} key={slider.title} />)}
@@ -84,11 +84,11 @@ function TimeLineCard({ data }: any) {
     }
 
     return (
-        <div className={`flex flex-col !h-min text-slate-400  w-[220px] lap:w-[280px] mx-6 ${One.id === data.id ? "*:text-white" : " "}`} onClick={handelOne} >
-            <p className=" font-black text-nowrap text-base lap:text-xl">{data.timeLine.title}</p>
+        <div className={`flex flex-col !h-min text-slate-400 cursor-pointer group w-[220px] lap:w-[280px] mx-6 ${One.id === data.id ? "*:text-white" : " "}`} onClick={handelOne} >
+            <p className=" font-black text-nowrap text-base lap:text-xl  group-hover:text-white">{data.timeLine.title}</p>
             <hr className="w-full my-2 border-2" />
             <hr className={`my-2 border-2 mt-[-12px] text-sm font-medium border-safety-700 w-16 a22  ${One.id === data.id ? "*:text-white" : " "}`} />
-            <p className="text-xs font-medium">{data.timeLine.about}</p>
+            <p className="text-xs font-medium group-hover:text-white" >{data.timeLine.about}</p>
         </div>
     )
 }

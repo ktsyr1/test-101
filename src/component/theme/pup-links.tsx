@@ -51,7 +51,7 @@ function PupServie() {
     useEffect(() => {
         let Surveys = Cookies.get("Surveys")
         if (Surveys) setView(false)
-        else setTimeout(() => { setView(true) }, 30000)
+        else setTimeout(() => { setView(true) }, 1000 * 60 * 5)
     }, [])
     let close = () => {
         Cookies.set("Surveys", new Date().getTime().toString())

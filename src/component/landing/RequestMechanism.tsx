@@ -15,9 +15,11 @@ export default function RequestMechanism() {
     let [data, setData] = useState(list)
     let [One, setOne] = useState(list[0])
 
-    // let [btnHover, SetBtnHover] = useState(false)
-    // let enter = () => SetBtnHover(true)
-    // let leave = () => SetBtnHover(false)
+
+    let [btnHover, SetBtnHover] = useState(false)
+    let enter = () => SetBtnHover(true)
+    let leave = () => SetBtnHover(false)
+
     return (
         <div className=" min-h-[300px] tap:px-20 py-10  p-4 w-full bg-white ">
             <h1 className="w-full text-start font-black text-safety-700 m-auto p-10 max-w-[1360px] text-3xl lap:text-6xl">آلية العمل</h1>
@@ -25,14 +27,16 @@ export default function RequestMechanism() {
                 <SizeBox>
 
                     <div className="flex flex-col m-auto max-w-[1360px] rounded-[50px] shadow-xl bg-no-repeat bg-none lg:bg-[url(/images/bg-1.jpg)] w-full"  >
-                        <div className="flex flex-row justify-between  " >
-                            <div className="p-6 lg:!w-[50%] w-full"  >
+                        <div className="flex flex-row justify-between" >
+                            <div className="p-6 lg:!w-[50%] w-full select-none"  >
                                 <Header />
                                 <Navigation />
                                 <ListLine />
-                                <Btn to={"#"} title=" أطلب الخدمة الآن" childSort="end" className="mt-12 border-2 border-safety-700 rounded-2xl bg-white text-prussian-800 " >
-                                    <IconArrow className={'mr-16'} />
-                                </Btn>
+                                <div onMouseEnter={enter} onMouseLeave={leave} > 
+                                    <Btn to={"#"} title=" أطلب الخدمة الآن" childSort="end" className="mt-12 border-2 border-safety-700 hover:bg-safety-700 hover:text-white hover:*:!fill-white  rounded-2xl bg-white text-prussian-800 " >
+                                        <IconArrow className={'mr-16'} color={btnHover ? "#fff" : "#032DA6"} />
+                                    </Btn>
+                                </div>
                             </div>
                             {/* images */}
                             {/* <img src={`/images/${One.icon}`} alt={One.title} className="w-[40%] lg:flex hidden" /> */}
@@ -51,7 +55,7 @@ function ListLine() {
         <div  >
             <div className="flex flex-row w-full justify-between" >
                 {/* 4 staps  */}
-                {[1, 2, 3, 4].map(i => <p key={i} onClick={() => setOne(data[i - 1])} className={`rounded-full border-2 border-safety-700 p-[10px] w-12 h-12 text-center ${One.id == i ? "bg-safety-700 text-white text-2xl font-normal !p-2" : "bg-white"}`}>{i}</p>)}
+                {[1, 2, 3, 4].map(i => <p key={i} onClick={() => setOne(data[i - 1])} className={`rounded-full border-2 cursor-pointer  border-safety-700 p-[10px] w-12 h-12 text-center hover:bg-safety-700 hover:text-white ${One.id == i ? "bg-safety-700 text-white text-2xl font-normal  !p-2" : "bg-white"}`}>{i}</p>)}
             </div>
             <hr className="border-2 border-safety-700 mt-[-27px] mb-[27px] w-[95%]" />
         </div>
@@ -70,12 +74,12 @@ function Navigation() {
         setOne(data[init[type] - 1]);
     }
     return (
-        <div className="flex flex-row justify-between my-12">
+        <div className="flex flex-row justify-between my-12 ">
             <div onClick={() => handler("back")} >
-                {One.id !== 1 ? <Icon.nextArrow /> : <></>}
+                {One.id !== 1 ? <Icon.nextArrow className={"hover:p-1 cursor-pointer "} /> : <></>}
             </div>
             <div onClick={() => handler("next")} >
-                {One.id !== 4 ? <Icon.nextArrow className={'rotate-180'} /> : <></>}
+                {One.id !== 4 ? <Icon.nextArrow className={'rotate-180 hover:p-1 cursor-pointer '} /> : <></>}
 
             </div>
         </div>

@@ -28,7 +28,7 @@ export default function Jobs() {
 
 function Hero() {
     return (
-        <div className={`bg-blue-900 flex flex-col h-[514px] justify-center bg-center bg-[url(/images/Apply-For-a-Job.jpeg)]`}>
+        <div className={`bg-blue-900 flex flex-col h-[514px] justify-center bg-center bg-[url(/images/Apply-For-a-Job.jpg)]`}>
             <div className="bg-blue-900 flex flex-col bg-opacity-90 h-full justify-center text-center text-white ">
                 <h1 className="text-white text-6xl font-extrabold mt-[100px]">تقديم لفرصة عمل</h1>
                 <SizeBox>

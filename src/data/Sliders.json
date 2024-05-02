@@ -56,7 +56,7 @@
         "cover": "Slider.png",
         "btn": {
             "title": "إقرأ المزيد",
-            "to": "#"
+            "to": "#Consultation"
         },
         "timeLine": {
             "title": "النصيحة بجمل, أما عنا فهي مجانا",

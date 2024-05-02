@@ -283,7 +283,7 @@ export function IconLogo({ size, color, className, style }: props) {
 export function IconArrow(props: props) {
 
     return (
-        <svg width={props.size ? props.size : "32"} className={props.className || ""} viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width={props.size ? props.size : "32"} className={props.className || ""} viewBox="0 0 33 32"   xmlns="http://www.w3.org/2000/svg">
             <path d="M14.5 26L15.91 24.59L8.33 17H28.5V15H8.33L15.91 7.41L14.5 6L4.5 16L14.5 26Z" fill={props.color ? props.color : "#000"} />
         </svg>
     )
