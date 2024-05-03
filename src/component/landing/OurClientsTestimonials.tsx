@@ -17,7 +17,7 @@ export default function OurClientsTestimonials() {
                         <IconArrow color={"#34d399"} className={"fill-emerald-400 rotate-180"} />
 
                         <div className="flex flex-row mx-2 justify-between w-full overflow-x-scroll lap:overflow-x-hidden  ">
-                            {clints.map(clint => <img src={clint.image} alt={clint.name} loading="lazy" className={` mx-2 hover:shadow-lg rounded-2xl lap:h-[100px] h-[80px] ${clint.name !== one.name && "grayscale"}  `} key={clint.image} onClick={() => setOne(clint)} />)}
+                            {clints.map(clint => <img src={clint.image} alt={clint.name} loading="lazy" className={` mx-2 hover:shadow-lg rounded-2xl lap:h-[100px] h-[80px] hover:grayscale-0	cursor-pointer  hover:border-4 hover:border-safety-700  ${clint.name !== one.name && "grayscale"}  `} key={clint.image} onClick={() => setOne(clint)} />)}
                         </div>
                         <IconArrow color={"#34d399"} className={"fill-emerald-400  "} />
                     </div>
@@ -61,10 +61,10 @@ function Header() {
     return (
         <div className="flex flex-row items-center justify-between px-4 mt-14 w-full">
             <h2 className="text-safety-700 lap:text-4xl font-bold  text-2xl max-[700px]:text-2xl ">شهادات عملائنا</h2>
-            <Link href="blog" className="flex flex-row justify-center items-center rounded-full px-4  " >
+            {/* <Link href="blog" className="flex flex-row justify-center items-center rounded-full px-4  " >
                 <p className="lap:p-3 text-emerald-400 font-normal lap:text-2xl  text-lg  p-2 ">إقرأ المزيد </p>
                 <IconArrow color={"#34d399"} className={"fill-emerald-400"} />
-            </Link>
+            </Link> */}
         </div>
     )
 }

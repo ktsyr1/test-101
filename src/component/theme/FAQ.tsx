@@ -28,7 +28,7 @@ export default function QA() {
                             key={btn.slug}
                             title={btn.title}
                             onClick={() => setPart(btn.slug)}
-                            className={`rounded-md shadow-none  !p-2 !m-1 text-sm max-[697px]:w-full w-full ${part === btn.slug ? "border-2 border-safety-700 text-safety-700 " : " text-slate-900 "}   `}
+                            className={`rounded-md shadow-none cursor-pointer   hover:bg-safety-700 hover:text-white   !p-2 !m-1 text-sm max-[697px]:w-full w-full ${part === btn.slug ? "border-2 border-safety-700 text-safety-700 " : " text-slate-900 "}   `}
                         />)}
                     </div>
 
@@ -59,15 +59,15 @@ type Asktype = {
     title: string,
     answer: string
 }
-function Ask({ title, answer }: Asktype) {
+export function Ask({ title, answer }: Asktype) {
     let [open, setOpen] = useState(false)
 
     function handleOpen() { setOpen(!open) }
     return (
         <div className="flex flex-col border-b-1 text-slate-700 w-full" >
             {/* ask */}
-            <div className="flex flex-row justify-between w-full items-center" onClick={handleOpen}>
-                <p className={`tap:text-xl lap:text-2xl font-medium text-[#1B2E45] text-sm max-w-[92%] py-6 ${open ? "!text-safety-700" : " "}  `}>{title}</p>
+            <div className="flex flex-row justify-between w-full items-center cursor-pointer group" onClick={handleOpen}>
+                <p className={`tap:text-xl lap:text-2xl font-medium text-[#1B2E45] text-sm max-w-[92%] py-6  group-hover:text-safety-700 ${open ? "!text-safety-700" : " "}  `}>{title}</p>
                 {/* icon */}
                 {open ? <Icon.arrowUp /> : <Icon.arrowDown />}
             </div>
@@ -79,8 +79,7 @@ function Ask({ title, answer }: Asktype) {
         </div>
     )
 }
-
-let asksData = {
+export let asksData = {
     eng: [
         {
             "question": "ما هي المقومات الازمة لإنضمام الفاحص لإنسبكتكس؟",

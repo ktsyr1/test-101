@@ -28,19 +28,19 @@ export default function Footer() {
             <div className="flex flex-wrap items-center justify-evenly  py-14 " >
                 <PupLinks />
                 <div className="flex tap:flex-col justify-end *:m-[20px] min-w-[250px]  flex-row m-4 " >
-                    {sochalmedia.map(Item => <Link href={Item.to} key={Item.to} > <Item.Icon /> </Link>)}
+                    {sochalmedia.map(Item => <Link href={Item.to} key={Item.to}  > <Item.Icon className="hover:p-2 m-2" /> </Link>)}
                 </div>
 
                 <Col title={'معلومات الإتصال'} >
                     <p className="text-safety-500 text-base font-bold">العنوان</p>
                     <p className="text-slate-500 my-2 text-sm">الرياض - شارع عثمان بن عفان </p>
                     <p className="text-safety-500  mt-2  text-sm font-bold">الايميل</p>
-                    <a href="mailto:info@inspectex.com" className="py-4 text-slate-500 text-sm font-bold">info@inspectex.com</a>
+                    <a href="mailto:info@inspectex.com" className="py-4 text-slate-500 text-sm font-bold hover:text-safety-700">info@inspectex.com</a>
 
                     <p className="text-safety-500 mt-2 text-base font-bold">ارقام هواتف </p>
-                    <a href="tel:+966533344735" className="py-2 text-slate-500 text-sm font-bold "> 00966-533344735</a>
-                    <a href="tel:+966536800408" className="py-2 text-slate-500 text-sm font-bold"> 00966-536800408</a>
-                    <a href="tel:+966920005543" className="py-2 text-slate-500 text-sm font-bold"> 00966-920005543</a>
+                    <a href="tel:+966533344735" className="py-2 text-slate-500 text-sm font-bold hover:text-safety-700 "> 00966-533344735</a>
+                    <a href="tel:+966536800408" className="py-2 text-slate-500 text-sm font-bold hover:text-safety-700"> 00966-536800408</a>
+                    <a href="tel:+966920005543" className="py-2 text-slate-500 text-sm font-bold hover:text-safety-700"> 00966-920005543</a>
 
                 </Col>
 
@@ -88,13 +88,13 @@ type ItemType = {
 }
 function Item({ data, className }: ItemType) {
     let { title, to } = data
-    return <Link href={to} className={` text-start text-base font-bold p-2 text-gray-500  ${className} `}>{title}</Link>
+    return <Link href={to} className={` text-start text-base font-bold p-2 text-gray-500 hover:text-safety-700 ${className} `}>{title}</Link>
 }
 
 function C_Dev_andDes() {
 
     return (
-        <div className="flex flex-row m-auto p-4 " style={{ direction: 'ltr' }} >
+        <div className="flex flex-row m-auto p-4 font-semibold" style={{ direction: 'ltr' }} >
             <p>Designed by SNRGY and Developed by
                 <a href="https://Digitresults.com" className="px-2 text-prussian-800" >DigitResults</a>
             </p>

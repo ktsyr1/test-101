@@ -1,10 +1,10 @@
-POST http://91.106.107.178:98/Authorization/Login
+POST http://app.inspectex.sa/Authorization/Login
 Content-Type: application/json
 {
-  "email": "email@email.com",
-  "password": "p@ssw0rd"
+    "email": "0f76e31016@emailbbox.pro",
+    "password": "P@ssw0rd",
+    "userType": 2
 }
-
 
 HTTP/1.1 200  - OK
 cache-control: no-store,no-cache
@@ -12,6 +12,8 @@ pragma: no-cache
 transfer-encoding: chunked
 content-type: application/json; charset=utf-8
 server: Microsoft-IIS/10.0
+set-cookie: .AUTHTOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/, .AUTHTOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjhkNjQwZTkxLWEyMTUtNDFlNy1iNWU0LTA4ZGM2MTQ3MjYzNyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdXNlcmRhdGEiOiJ7XCJVc2VySWRcIjpcIjhkNjQwZTkxLWEyMTUtNDFlNy1iNWU0LTA4ZGM2MTQ3MjYzN1wiLFwiVXNlclR5cGVcIjoyLFwiSW5zcGVjdG9yc1JvbGVcIjpudWxsLFwiSW5zcGVjdG9yc1JvbGVzTmFtZVwiOm51bGwsXCJQYXNzd29yZFwiOm51bGwsXCJFbWFpbFwiOlwiMGY3NmUzMTAxNkBlbWFpbGJib3gucHJvXCIsXCJQaG9uZU51bWJlclwiOlwiNzA3MjMxNzdcIixcIlBpY3R1cmVVcmxcIjpcIlwiLFwiTG9naW5OYW1lXCI6XCJRb3RheWJhIE1vaGFtbWFkXCIsXCJMYW5ndWFnZVwiOlwiZW5cIixcIklzUGhvbmVOdW1iZXJWZXJpZmF5XCI6dHJ1ZSxcIklzRW1haWxWZXJpZmF5XCI6dHJ1ZSxcIkV4cGlyeURhdGVcIjpcIjIwMjQtMDUtMDRUMjE6Mzk6MTMuMjIyODM2MlwiLFwiRW1haWxWZXJpZmljYXRpb25Ub2tlblwiOlwiXCIsXCJRdWFsaWZpY2F0aW9uSWRcIjpudWxsLFwiQ2l0eVwiOm51bGwsXCJDaXR5SWRcIjpudWxsLFwiTWVtYmVyU2hpcFwiOm51bGwsXCJCYW5rRGV0YWlsc1wiOm51bGwsXCJQYXNzaW5nQ291cnNlXCI6bnVsbCxcIlBhc3NpbmdXb3JrU2hvcFwiOm51bGx9IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IjBmNzZlMzEwMTZAZW1haWxiYm94LnBybyIsIm5iZiI6MTcxNDcxMTE1MywiZXhwIjoxNzE0NzE2NTUzLCJpc3MiOiJCdWlsZGluZ0luc3BlY3Rpb24iLCJhdWQiOiJCdWlsZGluZ0luc3BlY3Rpb24ifQ.6jDnOLAcz-IezlewZFdlpRlylGayXeg5wDND4lIsvNM; path=/; samesite=strict; httponly
 x-powered-by: ASP.NET
-date: Thu, 04 Apr 2024 06:17:14 GMT
+access-control-allow-origin: *
+date: Fri, 03 May 2024 04:39:13 GMT
 connection: close

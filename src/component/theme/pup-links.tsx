@@ -28,9 +28,9 @@ function WhatsAppBtn() {
             <div className=" fixed p-9 z-40 mt-[-110px]" onMouseLeave={() => setTimeout(() => setHover(false), 200)} onMouseEnter={() => setTimeout(() => setHover(true), 200)}   >
 
                 {!hover &&
-                    <div>
+                    <a href="https://wa.me/966533344735" target="_blank">
                         <Icon.whatsapp />
-                    </div>
+                    </a>
                 }
                 {hover &&
                     <a href="https://wa.me/966533344735" target="_blank" className="bg-safety-700 p-2 rounded-3xl w-52 px-4 flex-row-reverse flex items-center pl-6">
@@ -110,7 +110,7 @@ function Links() {
         <div className="flex flex-col fixed z-40 top-0" >
             <div className="bg-[#ffffff75] fixed h-full left-0 max-[1000px]:hidden w-14 z-20"></div>
             <div ref={elementRef as any} className={`*:*:p-3 fixed flex flex-col h-full items-center justify-center left-0 top-0 z-20 max-[1000px]:hidden ${true ? 'visible' : 'phidden'}`} >
-                {sochalmedia.map(Item => <Link href={Item.to} key={Item.to} > <Item.Icon size={30} /> </Link>)}
+                {sochalmedia.map(Item => <Link href={Item.to} key={Item.to} className="hover:w-[40px]" > <Item.Icon size={30} /> </Link>)}
                 <div className="*:*:p-3 fixed flex flex-col h-full items-center justify-center left-0 top-0 z-50" style={{ background: 'linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.13) 65.59%)' }} />
             </div >
         </div >

@@ -1,0 +1,153 @@
+{
+    "RealEstatType": [
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "إستوديو",
+            "value": "1"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "بناء",
+            "value": "2"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "فيلا",
+            "value": "3"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "شقة",
+            "value": "4"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "بيت",
+            "value": "5"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "أرض",
+            "value": "6"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "محل تجاري",
+            "value": "7"
+        }
+    ],
+    "RealEstatAges": [
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "0-5",
+            "value": "1"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "5-10",
+            "value": "2"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "10-20",
+            "value": "3"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "> 20",
+            "value": "4"
+        }
+    ],
+    "WorkAreas": [
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "الرياض",
+            "value": "1"
+        }
+    ],
+    "AvailableTimeSlots": [
+        {
+            "date": "2024-05-04",
+            "lable": "Saturday",
+            "times": [
+                "12:00 pm - 03:50 PM"
+            ]
+        },
+        {
+            "date": "2024-05-05",
+            "lable": "Sunday",
+            "times": [
+                "02:00 AM - 11:50 PM",
+                "08:00 AM - 12:50 PM"
+            ]
+        }
+    ],
+    "ProjectObjectives": [
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "فحص حالة المبنى لغايات الشراء\r\n",
+            "value": "1"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "فحص حالة المبنى لغايات الترميم",
+            "value": "2"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "فحص الحالة الإنشائية",
+            "value": "3"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "فحص الأنظمة الميكانيكية",
+            "value": "4"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "فحص العناصر الكهربائية",
+            "value": "5"
+        },
+        {
+            "disabled": false,
+            "group": null,
+            "selected": false,
+            "text": "إعداد جداول بنود الصيانة",
+            "value": "6"
+        }
+    ]
+}

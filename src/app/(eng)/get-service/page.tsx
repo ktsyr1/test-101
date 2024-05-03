@@ -26,8 +26,8 @@ export default async function GetService() {
                             <p className="text-slate-700 m-4 w-full">اكتشف فرص العمل المثيرة في Inspectex، حيث نقدر الموهبة والابتكار والشغف بخدمة العملاء. انضم إلى فريقنا وكن جزءًا من تشكيل مستقبل أكثر إشراقًا في المجال العماري و الهندسي</p>
                         </div>
                     </SizeBox>
-                    {/* <LoginApp />
-                    <Forms /> */}
+                    {/* <LoginApp /> */}
+                    {/* <Forms /> */}
                     {token?.length > 20 ? <Forms /> : <LoginApp />}
                     <br />
                 </div>

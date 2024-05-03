@@ -5,7 +5,7 @@ type ConfigType = {
     url: string
     headers: {
         accept: string;
-        'Content-Type': string;
+        'Content-Type'?: string;
         Authorization: string;
     };
     token: any;
@@ -21,7 +21,7 @@ export function ConfigApi(): ConfigType {
     let url = process.env.NEXT_PUBLIC_API || ""
     let headers = {
         "accept": "*/*",
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
         'Authorization': `Bearer ${token}`
     }
     return {
