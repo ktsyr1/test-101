@@ -28,7 +28,7 @@ function Header() {
     return (
         <div className="flex flex-row items-center justify-between px-4 mt-14 w-full">
             <h2 className="text-safety-700 tap:text-6xl font-black my-4 text-3xl ">المدونة</h2>
-            <Link href="blog" className="flex flex-row justify-center items-center" >
+            <Link href="blog" prefetch={false} className="flex flex-row justify-center items-center" >
                 <p className="p-4 text-emerald-400 lap:text-2xl text-base font-normal">استكشف المدونة </p>
                 <IconArrow color={"#34d399"} className={"fill-emerald-400 p-1"} />
             </Link>

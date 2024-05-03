@@ -70,7 +70,7 @@ function PupServie() {
                     <h2 className="lap:text-3xl font-bold text-safety-700 lap:p-4 text-start text-xl p-2" >فورم الاستطلاع</h2>
                     <p className="lap:text-xl lap:p-4 text-sm p-2">قم بتعبئة الاستطلاع لاجل تحسين الخدمة </p>
                     <div className="w-full flex justify-end px-6 p-0">
-                        <Link href="/surveies" onClick={close} className="lap:p-4 bg-safety-700 text-white rounded-xl w-60 text-center m-0 font-bold p-2 " >الاستبيان</Link>
+                        <Link href="/surveies" prefetch={false} onClick={close} className="lap:p-4 bg-safety-700 text-white rounded-xl w-60 text-center m-0 font-bold p-2 " >الاستبيان</Link>
                     </div>
                 </div>
             </SizeBox>
@@ -110,7 +110,7 @@ function Links() {
         <div className="flex flex-col fixed z-40 top-0" >
             <div className="bg-[#ffffff75] fixed h-full left-0 max-[1000px]:hidden w-14 z-20"></div>
             <div ref={elementRef as any} className={`*:*:p-3 fixed flex flex-col h-full items-center justify-center left-0 top-0 z-20 max-[1000px]:hidden ${true ? 'visible' : 'phidden'}`} >
-                {sochalmedia.map(Item => <Link href={Item.to} key={Item.to} className="hover:w-[40px]" > <Item.Icon size={30} /> </Link>)}
+                {sochalmedia.map(Item => <Link href={Item.to} key={Item.to} className="hover:w-[40px]" prefetch={false} > <Item.Icon size={30} /> </Link>)}
                 <div className="*:*:p-3 fixed flex flex-col h-full items-center justify-center left-0 top-0 z-50" style={{ background: 'linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.13) 65.59%)' }} />
             </div >
         </div >

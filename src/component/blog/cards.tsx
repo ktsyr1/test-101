@@ -26,7 +26,7 @@ export default function BlogCard({ data, type }: { data: PostType, type?: CardTy
     let leave = () => SetBtnHover(false)
     return (
         <div className={`flex  m-4 shadow-sm hover:shadow-xl bg-white rounded-3xl flex-col lap:min-w-[350px] min-w-[250px] lap:max-w-[421px] max-w-[350px] w-full ${type === CardType.full && " card/post "} ${type === CardType.full ? "flex-row-reverse" : "flex-col w-full"} `}>
-            <img src={data.image} loading="lazy" alt={data.title} className={` rounded-t-3xl border-safety-700 w-full rounded-b-none card/w-[50%] ${type === CardType.full ? "w-[50%] rounded-l-3xl border-safety-700 border-r" : "rounded-t-3xl border-safety-700 border-b"}`} />
+            <img src={data.image} loading="lazy" alt={data.title} className={` rounded-t-3xl min-h-[200px] bg-slate-100 border-safety-700 w-full rounded-b-none card/w-[50%] ${type === CardType.full ? "w-[50%] rounded-l-3xl border-safety-700 border-r" : "rounded-t-3xl border-safety-700 border-b"}`} />
             <div className={`flex flex-col max-h-[432px] ${type === CardType.full ? "mt-[60px]" : ""} `}>
 
                 <div className="flex flex-col mt-[-40px] mx-8">

@@ -28,6 +28,7 @@ function Btn2() {
     return (
         <Link className={`flex flex-row items-center shadow-lg my-3 p-3 max-w-[500px] m-auto rounded-full bg-white mt-[30px] justify-between px-7 hover:bg-safety-700 *:hover:!text-white`}
             href={"/services"}
+            prefetch={false}
             onMouseEnter={enter}
             onMouseLeave={leave}
         >
@@ -98,7 +99,7 @@ export function CardService({ data, set, type }: CardType) {
                 <p className={`text-center font-bold    leading-tight tracking-normal   ${type === "page" ? "text-[#00A5A5]" : " "} text-base lap:text-xl`}>{data.en}</p>
 
             </div>
-            <Link href={`/services?name=${data.ar}`} className="  flex-col group items-center  hidden group-hover:flex group-hover:m-0 justify-center rounded-3xl py-8 p-6 h-[260px] text-center  text-sm  w-[240px] lap:w-[330px]"  >
+            <Link href={`/services?name=${data.ar}`} prefetch={false} className="  flex-col group items-center  hidden group-hover:flex group-hover:m-0 justify-center rounded-3xl py-8 p-6 h-[260px] text-center  text-sm  w-[240px] lap:w-[330px]"  >
                 {data.report.map((a: any) => <p key={a}>{a}</p>)}
                 {/* {data.report.join("  ,  ")} */}
             </Link>

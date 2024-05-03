@@ -3244,13 +3244,13 @@ export default function Logo(props: props) {
                         <stop offset="0.59375" stop-color="#FF810D" />
                         <stop offset="0.879313" stop-color="#F25B06" />
                     </radialGradient>
-                </defs> 
-            </svg> 
+                </defs>
+            </svg>
         )
     }
 
     else return (
-        <Link href={'/'} className="inline-flex items-center gap-[10px] relative h-[70px] mx-3  max-[697px]:h-[50px] mr-[80px] ">
+        <Link href={'/'} prefetch={false} className="inline-flex items-center gap-[10px] relative h-[70px] mx-3  max-[697px]:h-[50px] mr-[80px] ">
             <div className="relative w-[43.18px] "  >
                 <IconLogo className={'w-[43.18px]  max-[697px]:w-[35px] '} />
             </div>

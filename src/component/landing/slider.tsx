@@ -9,12 +9,20 @@ import { loaderProp } from "../lib"
 
 const ThemeContext = createContext<any | null>({});
 const TimeLineContext = createContext<any | null>({});
-
+let TimeSec = 15000
 export default function Sliders() {
 
     let [data, setData] = useState(SlidesData)
-    let [One, setOne] = useState(data[2])
+    let [One, setOne] = useState(data[0])
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const index = data.findIndex(item => item.id === One.id)
+            setOne(data[(index + 1) % data.length])
+        }, TimeSec)
+        return () => clearInterval(interval);
+    }, [One, data]);
+    // console.log(One);
     return (
         <ThemeContext.Provider value={{ data, setOne, One }}>
             <div className=" w-full flex flex-col h-min bg-no-repeat bg-contain min-h-[800px] " >
@@ -36,6 +44,8 @@ function SliderFullData() {
         borderImage: 'linear-gradient(90deg, #001F67 0%, #019D9A 10.94%, #FF5A1F 46.88%, #1D7FDA 100%)',
         borderImageSlice: '1'
     }
+
+
     if (!data?.title) return <></>
     return (
         <div className="w-full  min-h-[800px] " >
@@ -82,13 +92,34 @@ function TimeLineCard({ data }: any) {
         let newOne = all.filter((a: any) => a.id === data.id)[0]
         setOne(newOne)
     }
+    const [progress, setProgress] = useState(0);
+
+    useEffect(() => {
+        // if (One.id == data.id) {
+
+        //     const interval = setInterval(() => {
+        //         setProgress(prevProgress => {
+        //             const newProgress = prevProgress + 1;
+        //             if (newProgress >= 100) {
+        //                 clearInterval(interval);
+        //                 return 100;
+        //             }
+        //             return newProgress;
+        //         });
+        //     }, TimeSec / 100); // تحديث الخط كل 150 مللي ثانية
+
+        //     return () => clearInterval(interval);
+        // } setProgress(2)
+    }, [One]);
 
     return (
         <div className={`flex flex-col !h-min text-slate-400 cursor-pointer group w-[220px] lap:w-[280px] mx-6 ${One.id === data.id ? "*:text-white" : " "}`} onClick={handelOne} >
             <p className=" font-black text-nowrap text-base lap:text-xl  group-hover:text-white">{data.timeLine.title}</p>
             <hr className="w-full my-2 border-2" />
-            <hr className={`my-2 border-2 mt-[-12px] text-sm font-medium border-safety-700 w-16 a22  ${One.id === data.id ? "*:text-white" : " "}`} />
+            <hr className={`my-2 border-2 mt-[-12px] text-sm font-medium border-safety-700    a22  ${One.id === data.id ? "*:text-white" : " "}`} style={{ width: `${progress}%` }} />
             <p className="text-xs font-medium group-hover:text-white" >{data.timeLine.about}</p>
         </div>
     )
 }
+
+// ---------------------------------------------------------------- 

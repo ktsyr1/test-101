@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="flex flex-wrap items-center justify-evenly  py-14 " >
                 <PupLinks />
                 <div className="flex tap:flex-col justify-end *:m-[20px] min-w-[250px]  flex-row m-4 " >
-                    {sochalmedia.map(Item => <Link href={Item.to} key={Item.to}  > <Item.Icon className="hover:p-2 m-2" /> </Link>)}
+                    {sochalmedia.map(Item => <Link href={Item.to} prefetch={false} key={Item.to}  > <Item.Icon className="hover:p-2 m-2" /> </Link>)}
                 </div>
 
                 <Col title={'معلومات الإتصال'} >
@@ -88,7 +88,7 @@ type ItemType = {
 }
 function Item({ data, className }: ItemType) {
     let { title, to } = data
-    return <Link href={to} className={` text-start text-base font-bold p-2 text-gray-500 hover:text-safety-700 ${className} `}>{title}</Link>
+    return <Link href={to} prefetch={false} className={` text-start text-base font-bold p-2 text-gray-500 hover:text-safety-700 ${className} `}>{title}</Link>
 }
 
 function C_Dev_andDes() {
