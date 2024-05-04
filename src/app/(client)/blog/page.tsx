@@ -9,7 +9,7 @@ import { useState } from "react";
 export default function BlogAll() {
     return (
         <div className="bg-white">
-            <Hero className={" bg-[url(/images/pinsel.jpeg)] min-h-[400px]"} >
+            <Hero className={" bg-[url(/images/pinsel.webp)] min-h-[400px]"} >
                 <>
                     <h1 className="text-white lap:text-6xl  text-4xl  font-semibold">المدونة</h1>
                     <p className="w-full m-auto lap:text-2xl  text-base font-semibold my-0 p-4 max-w-[1000px]">هذا هو مركز الأخبار الخاص بنا، حيث نشارك خبرتنا ونصائحنا ومقالاتنا حول كل ما يتعلق بالعقارات، وكيفية البدء بالفحص، وكيفية تقييم ما إذا كنت بحاجة إلى واحدة أم لا.</p>

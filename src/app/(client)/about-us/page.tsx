@@ -20,7 +20,7 @@ export default function Aobut_us() {
 
 function Hero() {
     return (
-        <_init_Hero className=" bg-[url(/images/bg-about.jpg)] bg-no-repeat text-start !h-max " >
+        <_init_Hero className=" bg-[url(/images/bg-about.webp)] bg-no-repeat text-start !h-max " >
             <div>
                 <div className="flex flex-row items-center m-auto w-[70%] lap:my-10 tap:my-6 pt-4"  >
                     <Logo type="semple" className={"tap:p-[10px] p-[15px]"} />

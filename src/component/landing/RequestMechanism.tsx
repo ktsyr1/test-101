@@ -26,7 +26,7 @@ export default function RequestMechanism() {
             <ThemeContext.Provider value={{ data, setOne, One }}>
                 <SizeBox>
 
-                    <div className="flex flex-col m-auto max-w-[1360px] rounded-[50px] shadow-xl bg-no-repeat bg-none lg:bg-[url(/images/bg-1.jpg)] w-full"  >
+                    <div className="flex flex-col m-auto max-w-[1360px] rounded-[50px] shadow-xl bg-no-repeat bg-none lg:bg-[url(/images/bg-1.webp)] w-full"  >
                         <div className="flex flex-row justify-between" >
                             <div className="p-6 lg:!w-[50%] w-full select-none"  >
                                 <Header />
@@ -102,28 +102,28 @@ let list = [
         stap: "الخطوة الاولى",
         title: "الزيارة الميدانية",
         bio: "  يتم عمل زيارة معاينة لموقع المشروع وإعداد استبيان بالطلبات والخدمات المُحتاجة.",
-        icon: "bg-a2.png",
+        icon: "bg-a2.webp",
         link: "",
     }, {
         id: 2,
         stap: "الخطوة الثانية",
         title: "إعداد العرض الفني والمالي",
         bio: " يتم إعداد العرض المالي موضحاً به جميع الخدمات المقدمة.",
-        icon: "Location 1.png",
+        icon: "Location 1.webp",
         link: "",
     }, {
         id: 3,
         stap: " الخطوة الثالثة",
         title: "عملية الفحص",
         bio: "يتم إعداد عملية الفحص وفقاً لخطة العمل المرفقة مع العرض الفني والمالي. ",
-        icon: "bUILDING 1.png",
+        icon: "bUILDING 1.webp",
         link: "",
     }, {
         id: 4,
         stap: "الخطوة الرابعة",
         title: " إصدار التقرير",
         bio: "وهي المرحلة النهائية التي تعكس نتائج الفحوصات وتحليلها وتشمل التوصيات الواجب العمل بها، ويرتبط عادة بها قيم الإصلاحات الواجب تنفيذها، والتي ينبثق عنها تقرير حالة الصيانة PCR (Property Condition Report)",
-        icon: "lIST 1.png",
+        icon: "lIST 1.webp",
         link: "",
     },
 ]

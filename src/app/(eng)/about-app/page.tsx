@@ -37,7 +37,7 @@ function Feature() {
     let [data, setData] = useState(FeatureData.map((a, i) => {
         return { id: i + 1, title: a, active: i === 0 ? true : false, }
     }))
-    let [cover, setCover] = useState("/images/about-app-1.png")
+    let [cover, setCover] = useState("/images/about-app-1.webp")
     let len = data.length
     return (
         <AppContext.Provider value={{ data, setData, setCover }} >
@@ -129,7 +129,7 @@ function FeatureOne2({ data: One, layout }: { data: FeatureOneType; layout: stri
 
 function SaveAndGet() {
     return (
-        <div className="bg-[url(/images/about-app-2.png)] bg-center bg-no-repeat flex flex-row my-32 w-full h-[550px] justify-between m-4">
+        <div className="bg-[url(/images/about-app-2.webp)] bg-center bg-no-repeat flex flex-row my-32 w-full h-[550px] justify-between m-4">
             <div className="flex flex-col justify-center p-8">
                 <p className="w-full text-start lap:text-5xl tap:text-3xl text-2xl font-bold text-prussian-800 tap:mb-8 mb-4"> إحفظ حقك و أطلب فحصك,</p>
                 <p className="w-full text-start lap:text-5xl tap:text-3xl text-2xl font-bold text-safety-700 tap:mb-8 mb-4">مع تطبيق إنسبكتكس </p>
@@ -139,7 +139,7 @@ function SaveAndGet() {
                     <Btn to="/#" title="حمل التطبيق  " className="text-white bg-prussian-800 rounded-lg w-[175px]   " />
                 </div>
             </div>
-            <img src="/images/about-app-3.png" alt="" className="hidden lg:flex ml-20 w-[350px] !h-max" loading="lazy" />
+            <img src="/images/about-app-3.webp" alt="" className="hidden lg:flex ml-20 w-[350px] !h-max" loading="lazy" />
         </div>
     )
 }

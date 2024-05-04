@@ -7,7 +7,7 @@
             "البيوت المستقلة",
             "المنتجعات الخاصة"
         ],
-        "icon": "/images/about-1.png",
+        "icon": "/images/about-1.webp",
         "top": true
     },
     {
@@ -19,7 +19,7 @@
             "  مراكز الخدمات اللوجستية"
         ],
         "w": "w-60",
-        "icon": "/images/about-2.png",
+        "icon": "/images/about-2.webp",
         "top": false
     },
     {
@@ -30,7 +30,7 @@
             "المجمعات الصناعية",
             "مراكز الخدمات اللوجستية"
         ],
-        "icon": "/images/about-3.png",
+        "icon": "/images/about-3.webp",
         "top": true
     },
     {
@@ -41,7 +41,7 @@
             "البيوت المستقلة",
             "المنتجعات الخاصة"
         ],
-        "icon": "/images/about-4.png",
+        "icon": "/images/about-4.webp",
         "top": false
     },
     {
@@ -52,7 +52,7 @@
             "البيوت المستقلة",
             "المنتجعات الخاصة"
         ],
-        "icon": "/images/about-5.png",
+        "icon": "/images/about-5.webp",
         "top": true
     },
     {
@@ -63,7 +63,7 @@
             " المجمعات الصناعية",
             "  مراكز الخدمات اللوجستية"
         ],
-        "icon": "/images/about-6.png",
+        "icon": "/images/about-6.webp",
         "top": false
     },
     {
@@ -74,7 +74,7 @@
             "  البيوت المستقلة",
             "  المنتجعات الخاصة"
         ],
-        "icon": "/images/about-7.png",
+        "icon": "/images/about-7.webp",
         "top": true
     },
     {
@@ -85,7 +85,7 @@
             "المجمعات الصناعية",
             "مراكز الخدمات اللوجستية  "
         ],
-        "icon": "/images/about-8.png",
+        "icon": "/images/about-8.webp",
         "top": false
     },
     {
@@ -96,7 +96,7 @@
             "  البيوت المستقلة",
             "  المنتجعات الخاصة"
         ],
-        "icon": "/images/about-9.png",
+        "icon": "/images/about-9.webp",
         "top": true
     },
     {
@@ -107,7 +107,7 @@
             "المجمعات الصناعية",
             "مراكز الخدمات اللوجستية"
         ],
-        "icon": "/images/about-10.png",
+        "icon": "/images/about-10.webp",
         "top": false
     }
 ]

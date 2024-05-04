@@ -19,7 +19,7 @@ export default async function BlogOne({ params: { url }, }: { params: { url: str
 
     return (
         <div className="bg-white">
-            <Hero className={" bg-[url(/images/pinsel.jpeg)]"} >
+            <Hero className={" bg-[url(/images/pinsel.webp)]"} >
                 <SizeBox className='flex flex-col'>
                     <h1 className="text-white lap:text-6xl text-3xl font-bold">{post?.title}</h1>
                     <p className="w-full m-auto lap:text-3xl text-lg my-0 p-4  mt-6"> {post?.shortContent}</p>
