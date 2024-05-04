@@ -13,13 +13,13 @@ export default function SetupForms({ children }: TypeSetup) {
     let [data, setData] = useState({})
     return (
         <FormContext.Provider value={{ data, setData, select, setSelect, list }}>
-            <SizeBox className=" flex-col items-center bg-[#DAE0E6DE] z-30 rounded-[32px] min-h-[700px] h-max m-8 ">
+            <div className=" flex items-center w-full max-w-[1360px]  flex-col   bg-[#DAE0E6DE] z-30 rounded-[32px] min-h-[700px] h-max lap:m-8 ">
                 <Header />
-                <div className="flex flex-col h-full w-[80%]">
+                <div className="flex flex-col h-full w-[80%] ">
                     <NavigationNumber />
                     {children}
                 </div>
-            </SizeBox>
+            </div>
         </FormContext.Provider>
     )
 }
@@ -53,7 +53,7 @@ export function NavigationNumber() {
         )
     }
     return (
-        <div className="flex justify-between items-center my-6  w-full">
+        <div className="tap:flex justify-between items-center my-6  w-full hidden">
             {list.map((a: any) => <NavBlock data={a} key={a.id} />)}
         </div>
     )
@@ -85,14 +85,14 @@ export function Header() {
     let _id = list?.filter((a: any) => a.slug === select)[0]
 
     function Title({ data }: any) {
-        let font = " text-[#FFFFFF6E]"
-        if (_id.id > data.id) font = "text-teal-500"
-        else if (_id.id === data.id) font = " text-[#fff]"
+        let font = " text-[#FFFFFF6E] "
+        if (_id.id > data.id) font = "text-teal-500  "
+        else if (_id.id === data.id) font = " text-[#fff]  "
         return (
-            <>
-                <p className={`text-2xl  ${font} ${_id.id >= data.id ? "  font-bold  " : " "}`}  >{data.title}</p>
-                {data.id !== 4 ? <Icon.next className={'rotate-180 mx-4'} size={10} color={_id.id >= data.id ? "#00A5A5" : "#FFFFFF6E"} /> : <></>}
-            </>
+            <div className={`${_id.id === data.id && " !flex  "} tap:flex flex-row items-center hidden`}>
+                <p className={`text-2xl   ${font} ${_id.id >= data.id ? "  font-bold  " : " "}`}  >{data.title}</p>
+                {data.id !== 4 ? <Icon.next className={'rotate-180 mx-4 hidden tap:flex'} size={10} color={_id.id >= data.id ? "#00A5A5 " : "#FFFFFF6E"} /> : <></>}
+            </div>
         )
     }
     return (

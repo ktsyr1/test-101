@@ -49,25 +49,28 @@ function WhatsAppBtn() {
 function PupServie() {
     let [view, setView] = useState(false)
     useEffect(() => {
-        let Surveys = Cookies.get("Surveys")
+        let Surveys = sessionStorage.getItem(("Surveys")) //Cookies.get("Surveys")
         if (Surveys) setView(false)
-        else setTimeout(() => { setView(true) }, 1000 * 60 * 5)
+        // else setTimeout(() => { setView(true) }, 1000 * 60 * 5)
+        else setTimeout(() => { setView(true) }, 1000)
     }, [])
     let close = () => {
-        Cookies.set("Surveys", new Date().getTime().toString())
+        sessionStorage.setItem("Surveys", new Date().getTime().toString())
         setView(false)
     }
     if (!view) return <></>
     else return (
         <div className="bottom-0 fixed w-full z-50 bg-white shadow-2xl  border-2 border-safety-700 *:text-slate-900">
-            <div
-                className=" flex justify-end p-4 lap:text-3xl w-full pb-0  text-xl"
-            >
-                <button className="cursor-pointer w-9 h-9 text-slate-900" onClick={close}>x</button>
-            </div>
+
             <SizeBox className=" ">
-                <div className="flex flex-col  top-24 z-10 m-4 w-full  mt-0 " >
-                    <h2 className="lap:text-3xl font-bold text-safety-700 lap:p-4 text-start text-xl p-2" >فورم الاستطلاع</h2>
+                <div className="flex flex-col  top-24 z-10 m-4 w-full  mt-0 tap:mt-4 " >
+                    <div className="flex flex-row items-start">
+
+                        <h2 className="lap:text-3xl font-bold text-safety-700 lap:p-4 text-start text-xl p-2 w-full" >فورم الاستطلاع</h2>
+                        <div className=" flex justify-end px-4 lap:text-3xl w-full pb-0  text-xl"            >
+                            <button className="cursor-pointer w-9 h-9 text-slate-900" onClick={close}>x</button>
+                        </div>
+                    </div>
                     <p className="lap:text-xl lap:p-4 text-sm p-2">قم بتعبئة الاستطلاع لاجل تحسين الخدمة </p>
                     <div className="w-full flex justify-end px-6 p-0">
                         <Link href="/surveies" prefetch={false} onClick={close} className="lap:p-4 bg-safety-700 text-white rounded-xl w-60 text-center m-0 font-bold p-2 " >الاستبيان</Link>

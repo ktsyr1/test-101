@@ -16,18 +16,15 @@ export default function BlogAll() {
                     <p className="rounded-tl-[32px] lap:text-2xl  text-base font-bold  rounded-br-3xl my-0 px-16 m-auto bg-white p-4 text-safety-700 w-max"> لكن أولاً، فنجان قهوة.</p>
                 </>
             </Hero>
-            <div className="flex tap:flex-row flex-col  items-center text-sm justify-between   max-w-[1360px] m-auto my-8">
-                <div className="flex flex-row items-center overflow-x-scroll w-full my-8">
-                    {["مؤخرًا", "مقابلات", "خطوط إرشاد", "مقالات"].map(a => <p key={a} className="py-2 bg-slate-100 text-sm  font-medium rounded-md px-4 mx-2"> {a}</p>)}
-                    {/* <div className="w-[44px] h-[44px] bg-safety-700 rounded-md text-white text-xl items-center flex justify-center mx-4">
-                        +
-                    </div> */}
-                </div>
-                <form className="flex flex-row justify-center w-full p-4 max-w-[500px]">
+            <div className="flex  flex-col  items-center text-sm justify-between   max-w-[1360px] m-auto my-8 w-[90%] tap:w-[80%]">
+                <form className="flex flex-row justify-end w-full tap:p-4 p-2 max-w-[500px]">
                     <Icon.search className={"ml-[-30px] z-10 m-4"} />
                     <input type="text" className="border-2  rounded-l-none  rounded-r-lg pr-10 w-full" placeholder="بحث" />
-                    <input type="submit" value={"أبحث"} className="bg-safety-700 py-4 px-6 text-white rounded-l-lg " />
+                    <input type="submit" value={"أبحث"} className="bg-safety-700 tap:py-4 py-2 px-3 tap:px-6  text-white rounded-l-lg " />
                 </form>
+                <div className="flex flex-row items-center overflow-x-scroll tap:overflow-hidden w-full my-8 select-none">
+                    {["مؤخرًا", "مقابلات", "خطوط إرشاد", "مقالات"].map(a => <p key={a} className="py-2 bg-slate-100 tap:text-sm text-sx  border-2 border-slate-100 cursor-pointer hover:text-safety-700  hover:border-safety-700  font-medium rounded-md px-4 mx-2 text-nowrap"> {a}</p>)}
+                </div>
             </div>
             <Content />
         </div>
@@ -36,14 +33,13 @@ export default function BlogAll() {
 
 function Content() {
     let [posts, setPosts] = useState(Array.from([0, 1, 2, 4, 5, 6].map(a => postsData[0])));
-    let [limit, setLimit] = useState(3)
-
-
+    let [limit, setLimit] = useState(3)  
+    
     return (
         <div className=" flex flex-col items-center w-full   pb-16">
             <div className=" flex flex-col items-center   max-w-[1360px]">
                 <div className=" flex flex-col items-center justify-center  w-full ">
-                    <BlogCard data={posts[0]} type={CardType.full} />
+                    {/* <BlogCard data={posts[0]} type={CardType.full} /> */}
                     <div className="flex flex-wrap items-center justify-center">
                         {posts.slice(0, limit).map(post => <BlogCard data={post} key={post.title} />)}
                     </div>

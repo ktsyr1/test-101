@@ -1,8 +1,6 @@
 "use client"
 import Btn from "@/component/btns";
 import Icon, { IconArrow } from "@/component/icons";
-import SizeBox from "@/component/size-box";
-import FeatureData from "@/data/about-app.json"
 import { createContext, useContext, useState } from "react";
 
 type ThemeContextType = any | null
@@ -13,9 +11,9 @@ export default function Jobs() {
     return (
         <div className="flex flex-col">
             <div className="h-[100px] bg-slate-100" />
-            <SizeBox className="   w-full flex flex-col">
+            <div className="  items-center   max-w-[1360px]   tap:w-full flex flex-col">
                 <ListJobs />
-            </SizeBox>
+            </div>
         </div>
     )
 }
@@ -31,18 +29,20 @@ function ListJobs() {
     return (
         <AppContext.Provider value={{ data, setData, }} >
             <div className="my-10 bg-white">
-                <SizeBox className="   w-full flex flex-col">
-                    <form className="flex flex-row justify-center w-full ">
+                <div className=" items-center w-full max-w-[1360px]    m-auto flex flex-col">
+                    <form className="flex flex-row justify-center   tap:w-[80%] lap:w-full  ">
                         <Icon.search className={"ml-[-30px] z-10 m-4"} />
                         <input type="text" className="border-2  rounded-l-none  rounded-r-lg pr-10 w-full" placeholder="بحث" onChange={search} />
                         <input type="submit" value={"أبحث"} className="bg-safety-700 py-4 px-6 text-white rounded-l-lg " />
                     </form>
-                    <div className="flex flex-col items-center m-auto w-[90%] my-20 " >
-                        <h2 className="w-full text-start text-5xl font-bold text-safety-700 mr-10 mb-8 ">إنضم إلى فريقنا </h2>
-                        <p className="text-slate-700 m-4 w-full">اكتشف فرص العمل المثيرة في Inspectex، حيث نقدر الموهبة والابتكار والشغف بخدمة العملاء. انضم إلى فريقنا وكن جزءًا من تشكيل مستقبل أكثر إشراقًا في المجال العماري و الهندسي</p>
+                    <div className="flex flex-col items-center m-auto w-[90%] tap:my-20 my-6" >
+                        <h2 className="w-full text-start lap:text-5xl tap:text-3xl text-xl  font-bold text-safety-700 tap:mr-10 tap:mb-8 ">إنضم إلى فريقنا </h2>
+                        <p className="text-slate-700 m-4 w-full lap:text-xl tap:text-base text-sm ">اكتشف فرص العمل المثيرة في Inspectex، حيث نقدر الموهبة والابتكار والشغف بخدمة العملاء. انضم إلى فريقنا وكن جزءًا من تشكيل مستقبل أكثر إشراقًا في المجال العماري و الهندسي</p>
                     </div>
-                    {data.map(job => <CardJob data={job} key={job.job_title} />)}
-                </SizeBox>
+                    <div className="w-full tap:w-[80%] lap:w-full">
+                        {data.map(job => <CardJob data={job} key={job.job_title} />)}
+                    </div>
+                </div>
             </div>
         </AppContext.Provider>
     )
@@ -59,28 +59,35 @@ function CardJob({ data: One }: { data: CardJobType; }) {
     const { data, setData } = useContext(AppContext);
     let [open, setOpen] = useState(false)
 
+    let [btnHover, SetBtnHover] = useState(false)
+    let enter = () => SetBtnHover(true)
+    let leave = () => SetBtnHover(false)
     return (
-        <div className={` w-full flex flex-col  rounded-3xl p-6 !m-10 ${open ? " bg-white shadow-lg " : " bg-prussian-800 "}  `} onClick={() => setOpen(!open)}  >
-            <p className={`${open ? "text-safety-700" : " text-white"} text-2xl`}>{One.job_title} </p>
-            <div className={`flex flex-row ${open ? "*:text-white *:rounded-full *:bg-prussian-800" : " *:bg-white *:rounded-full *:text-prussian-800 "} `}>
-                <p className="p-4 py-2 my-4 w-full">{One.department} </p>
-                <p className="  p-4 py-2 m-4 w-max">{One.location} </p>
-            </div>
-            {open ? <>
-                <p className="text-safety-700 text-3xl mt-8 mb-6">عن الوظيفة</p>
-                <p className="max-w-[1000px]">{One.description} </p>
-                <p className="text-safety-700 text-3xl  mt-8 mb-6">المتطلبات والمؤهلات</p>
-                {One.qualifications.map(queueMicrotask => (
-                    <div className="flex flex-row" key={queueMicrotask}>
-                        <Icon.Bag size={20} className={'m-4'} />
-                        <p className={'my-4'} >{queueMicrotask}</p>
+        <div className="p-2 lap:p-4 w-full">
+            <div className={` w-full flex flex-col  rounded-3xl p-4 tap:p-6 lap:!m-10  ${open ? " bg-white shadow-lg " : " bg-prussian-800 "}  `} onClick={() => setOpen(!open)}  >
+                <p className={`${open ? "text-safety-700" : " text-white"} lap:text-2xl tap:text-lg text-lg`}>{One.job_title} </p>
+                <div className={`flex flex-row ${open ? "*:text-white *:rounded-full *:bg-prussian-800" : " *:bg-white *:rounded-full *:text-prussian-800 "} `}>
+                    <p className="p-4 py-2 my-4 w-full  lap:text-2xl tap:text-lg text-sx">{One.department} </p>
+                    <p className="  p-4 py-2 m-4 w-max">{One.location} </p>
+                </div>
+                {open ? <>
+                    <p className="text-safety-700  lap:text-3xl tap:text-xl text-base mt-8 mb-6">عن الوظيفة</p>
+                    <p className="max-w-[1000px] lap:text-lg tap:text-lg text-sx mt-8 mb-6">{One.description} </p>
+                    <p className="text-safety-700 text-3xl  mt-8 mb-6">المتطلبات والمؤهلات</p>
+                    {One.qualifications.map(queueMicrotask => (
+                        <div className="flex flex-row" key={queueMicrotask}>
+                            <Icon.Bag size={20} className={'m-4'} />
+                            <p className={'my-4'} >{queueMicrotask}</p>
+                        </div>
+                    ))}
+                    <div onMouseEnter={enter} onMouseLeave={leave}>
+                        <Btn title={"تقدم بالطلب"} to={"#"} childSort="end" className="bg-white m-20 rounded-full hover:bg-safety-700 hover:text-white *:hover:fill-white group border-2 border-safety-700 justify-between text-prussian-800"  >
+                            <IconArrow color={"#032DA6"} className={'  *:group-hover:fill-white'} />
+                        </Btn>
                     </div>
-                ))}
-                <Btn title={"تقدم بالطلب"} to={"/#"} childSort="end" className="bg-white m-20 rounded-full hover:bg-safety-700 hover:text-white *:hover:fill-white group border-2 border-safety-700 justify-between text-prussian-800"  >
-                    <IconArrow color={"#032DA6"} className={'mr-40 *:group-hover:fill-white'} />
-                </Btn>
-            </> : <></>}
-        </div>
+                </> : <></>}
+            </div>
+        </div >
     );
 }
 let CardJobData: CardJobType[] = [

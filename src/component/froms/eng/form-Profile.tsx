@@ -22,9 +22,13 @@ const FormProfile = () => {
         async function Cities() {
             let url = process.env.NEXT_PUBLIC_API
             url += `/Lookup/Cities`
-            axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`)
-                .then(({ data }) => setCities(data?.data))
-                .catch(error => console.error(error))
+            try { 
+                // axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`)
+                //     .then(({ data }) => setCities(data?.data))
+                //     .catch(error => console.error(error))
+            } catch (error) {
+                console.log(error); 
+            }
             return
         }
         Cities()
@@ -57,8 +61,8 @@ const FormProfile = () => {
             autoComplete="off"
             className='flex flex-col' defaultValue={defaultData}
         >
-            <div className="flex flex-col w-full mt-20">
-                <div className="flex flex-row  w-full">
+            <div className="flex flex-col w-full tap:mt-20 mt-10">
+                <div className="flex tap:flex-row flex-col  w-full">
                     <div className="flex flex-col  w-full">
                         <p className="text-xl  font-bold text-prussian-800 my-2">الإسم الاول</p>
                         <Form.Item<FieldType> name="firstname" className='w-full' rules={[{ required: true, message: 'Please input your password!' }]} >
@@ -72,7 +76,7 @@ const FormProfile = () => {
                         </Form.Item>
                     </div>
                 </div>
-                <div className="flex flex-row  w-full">
+                <div className="flex tap:flex-row flex-col  w-full">
                     <div className="flex flex-col  w-full">
                         <p className="text-xl  font-bold text-prussian-800 my-2">الإسم العائلة</p>
                         <Form.Item<FieldType> name="lastName" className='w-full' rules={[{ required: true, message: 'Please input your password!' }]} >

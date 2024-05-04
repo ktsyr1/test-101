@@ -30,11 +30,11 @@ function Btn(props: Props) {
     } = props
     const Layout = (props: any) =>
         typeof onClick === 'function' ? (
-            <div onClick={onClick} className={`flex flex-row items-center justify-center shadow-lg m-3 p-3   ${className}`} style={style} {...props}>
+            <div onClick={onClick} className={`flex flex-row items-center justify-center shadow-lg m-3 p-3 ${className}`} style={style} {...props}>
                 {props.children}
             </div>
         ) : (
-            <Link href={to} prefetch={false} className={`flex flex-row items-center justify-center shadow-lg m-3 p-3   ${className}`} style={style}  {...props}>
+            <Link href={to} prefetch={false} className={`flex flex-row items-center justify-center shadow-lg m-3 p-3 ${className}`} style={style}  {...props}>
                 {props.children}
             </Link>
         )

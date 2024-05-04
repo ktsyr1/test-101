@@ -68,7 +68,7 @@ export default function FormEducation() {
 
         return (
             <button type="button" onClick={setS}
-                className={`w-full rounded-md max-w-[300px] p-4 ml-10 bg-white flex flex-row justify-between ${study?.text == a.text && "!bg-prussian-800 text-white"}`}
+                className={`w-full rounded-md max-w-[300px] my-2 p-4 ml-10 bg-white flex flex-row justify-between ${study?.text == a.text && "!bg-prussian-800 text-white"}`}
             >
                 <p>{a.text} </p>
                 {study?.value == a.value ? <Icon.okBorder /> : <Icon.c01 size={20} />}
@@ -79,7 +79,7 @@ export default function FormEducation() {
 
         <form onChange={onChange} className='flex flex-col' onSubmit={handleSubmit(onSubmit)}
         >
-            <div className="flex flex-row w-full mt-20">
+            <div className="flex tap:flex-row flex-col w-full mt-20">
                 <div className="flex flex-col mx-4 w-full">
                     <p className="text-xl  font-bold text-prussian-800 my-2"> رقم عضوية هيئة المهندسين</p>
                     <input defaultValue="" {...register("MemberShip", { require: true, minLength: 3 })} className='w-full p-2 rounded-md ml-4 ' minLength={3} placeholder=' أدخل رقم العضوية' />
@@ -89,7 +89,7 @@ export default function FormEducation() {
                     <input  {...register("YearsOfExperience", { require: true, max: 50 })} type='number' className='w-full p-2 rounded-md  ' minLength={3} placeholder='0' max={50} defaultValue={defaultData.YearsOfExperience} />
                 </div>
             </div>
-            <div className=" flex flex-row my-6"  >
+            <div className=" flex tap:flex-row flex-col my-6"  >
                 {options.map((a: any, i: any) => <BtnsBol a={a} key={i} />)}
             </div>
 

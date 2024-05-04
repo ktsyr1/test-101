@@ -78,9 +78,9 @@ export default function FormSkills() {
             {/* ref */}
             <input name='file' type='file' onChange={Uploads} className='hidden' ref={cvRef} />
             {Files.length < 5 ?
-                <div className=" text-lg w-full m-auto justify-center flex" >
-                    <p className="ant-upload-text">قم بسحب وإسقاط الملف أو</p>
-                    <p className="ant-upload-hint font-bold !text-safety-700 mx-2"> تصفح جهاز الكمبيوتر </p>
+                <div className=" text-lg w-full m-auto justify-center flex tap:flex-row flex-col" >
+                    <p className="ant-upload-text">قم بسحب وإسقاط الملف أو
+                    <p className="ant-upload-hint font-bold !text-safety-700 mx-2"> تصفح جهاز الكمبيوتر </p></p>
                 </div>
                 : <p>تم رفع الملف</p>}
         </div>

@@ -24,18 +24,18 @@ export default function Nav() {
             <div className="flex flex-row items-center">
                 {/* <IconMenu className={'w-[70px]  max-[697px]:w-[50px] '} /> */}
                 <Menu />
-                <Link href={'/'} className="inline-flex items-center gap-[10px] relative lap:h-[70px] mx-3 p-3 h-[50px] mr-[80px] ">
-                    <Logo type={"ar"} />
+                <Link href={'/'} prefetch={false} className="inline-flex items-center gap-[10px] relative lap:h-[70px] mx-3 p-3 h-[50px] mr-[80px] ">
+                    <Logo type={"ar"} className={'p-2 tap:p-0' } />
                 </Link>
                 {/* <Logo /> */}
                 <div className="flex flex-row items-center max-[697px]:hidden">
-                    <Link href={'/'} >
+                    <Link href={'/'}  prefetch={false}>
                         <IconHome className={'m-4'} />
                     </Link>
                     {pathArray.length > 0 && <div className="flex flex-row items-center mx-6">
                         <IconPlay color={"#00A5A5"} className={'m-4 mx-6'} />
-                        <p className="text-sm font-bold">{paths[pathArray[0]]} </p>
-                    </div>} 
+                        <p className="text-sm font-bold text-slate-800">{paths[pathArray[0]]} </p>
+                    </div>}
                 </div>
             </div>
             {/* logo */}
@@ -52,7 +52,7 @@ type LinkBtn = { title: string; to: string; Class?: string; }
 
 function LinkBtn({ to, Class, title }: LinkBtn) {
     return (
-        <Link href={to} className={`flex flex-row items-center shadow-lg m-3 p-3 rounded-lg border-solid border-2 max-[697px]:w-[45%]    w-40  relative justify-center shrink-0 font-semibold ${Class} `}>
+        <Link href={to} prefetch={false} className={`flex flex-row items-center shadow-lg m-3 p-3 rounded-lg border-solid border-2 max-[697px]:w-[45%]    w-40  relative justify-center shrink-0 font-semibold ${Class} `}>
             {title}
         </Link >
     );
