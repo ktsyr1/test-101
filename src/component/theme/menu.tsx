@@ -5,7 +5,7 @@ import { IconClose, IconHome, IconLogo, IconMenu, IconPlay } from "../icons";
 import Link from "next/link";
 import { loaderProp } from "../lib";
 
-export default function Menu() { 
+export default function Menu() {
 
     return (
         <div className="flex flex-col fixed z-[60] top-0" >
@@ -38,7 +38,10 @@ type Row = { Icon: any; title: string; to: string, }
 
 function Row({ title, Icon, to, }: Row) {
     return (
-        <Link href={to} prefetch={false} className=" flex flex-row items-center hover:text-prussian-600   *:!p-3 origin-top text-white  transition duration-700 ease-in-out  group" onClick={()=> document.querySelector("#openMenu").checked =false    }>
+        <Link href={to} prefetch={false} className=" flex flex-row items-center hover:text-prussian-600   *:!p-3 origin-top text-white  transition duration-700 ease-in-out  group" onClick={() => {
+            const checkbox = document.querySelector("#openMenu") as HTMLInputElement;
+            if (checkbox) checkbox.checked = false;
+        }}>
             <Image width={75} height={75} src={`/icons/${Icon}`} className={'  p-6 w-[55px] lap:w-[75px]'} alt="icon " loading="lazy" loader={loaderProp} />
             <p className="p-4 min-w-[400px] lap:text-xl font-bold  border-red-400 group-hover:bg-white  group-hover:border-r-2  group-hover:pr-[100px]  transition duration-200 ease-in-out  text-xl  ">{title}</p>
             <div className="p-4 w-full hidden group-hover:flex bg-gradient-to-r from-[#FDBA8C] to-[#F25B06] group-hover:pr-[100px]  transition duration-200 ease-in-out ">
