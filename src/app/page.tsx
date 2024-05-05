@@ -1,5 +1,6 @@
-
+// "use client"
 import Forms from "@/component/froms/eng/form";
+import InspectionRequest from "@/component/landing/InspectionRequest";
 import OurClientsTestimonials from "@/component/landing/OurClientsTestimonials";
 import RequestMechanism from "@/component/landing/RequestMechanism";
 import BlogPart from "@/component/landing/blog";
@@ -10,14 +11,16 @@ import Sliders from "@/component/landing/slider";
 
 export default function Home() {
 
+
     return (
         <div className="flex  flex-col items-center justify-between">
             <Sliders />
             <Services />
             <RequestMechanism />
+            <InspectionRequest />
             <JobsPart />
             <BlogPart />
-            <OurClientsTestimonials /> 
+            <OurClientsTestimonials />
             <Consultation />
         </div>
     );

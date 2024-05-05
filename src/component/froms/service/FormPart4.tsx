@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react';
-import { Err } from './form';
+import { Err, Field } from './form';
 import { FormDataContext } from '../contextApi';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
@@ -7,6 +7,8 @@ import { ConfigApi } from '@/component/lib';
 import backup from './backup.json';
 import AdditionalFieldsValue from './AdditionalFieldsValue';
 
+import JsCookies from 'js-cookie';
+import GetFatch from '../get';
 // ------------------------------------------ 
 
 const reducer = (state: any, action: any) => {
@@ -22,24 +24,20 @@ const FormPart4 = () => {
 
     let { data, setData } = useContext(FormDataContext)
     // useReducer start 
-    const [state, dispatch] = useReducer(reducer, { defaultData: data, AvailableTimeSlots: backup.AvailableTimeSlots, nextPart: 1 });
+    const [state, dispatch] = useReducer(reducer, { defaultData: data, AvailableTimeSlots: [], nextPart: 1 });
     // useReducer end
 
     useEffect(() => {
-        async function Cities() {
-            let { url, headers } = ConfigApi()
-            const today = new Date();
-            const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
 
-            let UrlAvailableTimeSlots = url + `/Client/Project/AvailableTimeSlots?TargetDate=${formattedDate}`
-            axios.get(UrlAvailableTimeSlots, { headers })
-                .then(({ data }) => dispatch({ type: 'AvailableTimeSlots', payload: data?.data }))
-                .catch((error) => Err(error))
+        const today = new Date();
+        const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
 
-            return
+        let UrlAvailableTimeSlots = `/Client/Project/AvailableTimeSlots?TargetDate=${formattedDate}`
+        let token: any = JsCookies.get("userToken")
+        GetFatch(UrlAvailableTimeSlots, token)
+            .then(data => dispatch({ type: 'AvailableTimeSlots', payload: data?.data }))
+            .catch((error) => Err(error))
 
-        }
-        Cities()
     }, [data])
 
     const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
@@ -54,9 +52,14 @@ const FormPart4 = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
-            {state.nextPart == 1 && <div className="flex flex-wrap w-full m-auto justify-center select-none">
-                {state.AvailableTimeSlots?.map((a: any) => <SelectRadio key={a.date} data={a} register={register} dispatch={dispatch} state={state} />)}
-            </div>}
+            <Field title="اختيار موعد" className='flex flex-col w-full mx-4 '>
+                <>
+                    {state.nextPart == 1 ? <div className="flex flex-wrap w-full m-auto justify-center select-none">
+                        {state.AvailableTimeSlots?.map((a: any) => <SelectRadio key={a.date} data={a} register={register} dispatch={dispatch} state={state} />)}
+                        {state.AvailableTimeSlots?.length == 0 && <>جاري تحميل المواعيد</>}
+                    </div> : <> </>}
+                </>
+            </Field>
             <AdditionalFieldsValue page={4} />
 
             <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />

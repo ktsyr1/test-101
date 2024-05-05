@@ -51,8 +51,8 @@ function PupServie() {
     useEffect(() => {
         let Surveys = sessionStorage.getItem(("Surveys")) //Cookies.get("Surveys")
         if (Surveys) setView(false)
-        // else setTimeout(() => { setView(true) }, 1000 * 60 * 5)
-        else setTimeout(() => { setView(true) }, 1000)
+        else setTimeout(() => { setView(true) }, 1000 * 60 * 5)
+        // else setTimeout(() => { setView(true) }, 1000)
     }, [])
     let close = () => {
         sessionStorage.setItem("Surveys", new Date().getTime().toString())

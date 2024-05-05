@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useReducer, useRef, useState } from 'reac
 import { Err, Field, Input, NextPage, Select } from './form';
 import { FormContext, FormDataContext } from '../contextApi';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
-import { ConfigApi } from '@/component/lib';
 import JsCookies from 'js-cookie';
+import GetFatch from '../get';
+
 // ------------------------------------------ 
 import backup from './backup.json';
 import AdditionalFieldsValue from './AdditionalFieldsValue';
@@ -29,18 +29,11 @@ const FormParrt2 = () => {
 
     useEffect(() => {
 
-        async function Cities() {
+        let token: any = JsCookies.get("userToken")
+        GetFatch("/Lookup/WorkAreas", token)
+            .then(data => dispatch({ type: 'WorkAreas', payload: data?.data }))
+            .catch((error) => Err(error))
 
-            let { url } = ConfigApi()
-            let UrlWorkAreas = url + `/Lookup/WorkAreas`
-
-            axios.get(UrlWorkAreas)
-                .then(({ data }) => dispatch({ type: 'WorkAreas', payload: data?.data }))
-                .catch((error) => { Err(error); dispatch({ type: 'WorkAreas', payload: backup.WorkAreas }) })
-
-            return
-        }
-        Cities()
     }, [data])
 
     const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });

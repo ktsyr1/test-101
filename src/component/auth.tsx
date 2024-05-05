@@ -6,6 +6,9 @@ import Cookies from "js-cookie"
 import axios from "axios"
 import { createContext, forwardRef, useContext, useEffect, useState } from 'react';
 
+import JsCookies from 'js-cookie';
+import { createFatch } from "./froms/get"
+import { Err } from "./froms/service/form"
 // Create a context for the authentication state
 export const AuthContext = createContext({});
 /* This code snippet defines a functional component called `LoginApp` in TypeScript with React. Here's
@@ -56,10 +59,10 @@ function Login({ userType = 2, route }: any) {
     let url = process.env.NEXT_PUBLIC_API
     const onSubmit: SubmitHandler<any> = async (res) => {
         let body = { ...res, userType }
+        createFatch("/Authorization/Login", body)
+            .then((data: any) => {
 
-        axios.post(`${url}/Authorization/Login`, body)
-            .then(({ data }) => {
-                if (data.code === 400) {
+                if (data?.code === 400) {
                     let { user } = data
                     if (!user?.isEmailVerified) message.info(' لم يتم التحقق من البريد الإلكتروني')
                 }
@@ -73,6 +76,7 @@ function Login({ userType = 2, route }: any) {
                     location.reload()
                 }
             })
+            .catch((error) => Err(error))
 
         // refresh
     }
@@ -87,16 +91,12 @@ function Login({ userType = 2, route }: any) {
     )
 }
 
-
 function SignUp({ route }: any) {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm<any>()
     const Register: SubmitHandler<any> = (res) => {
-        console.log(res);
-        let url = process.env.NEXT_PUBLIC_API
-        axios.post(`${url}/Authorization/Client/Register`, res)
+        createFatch("/Authorization/Client/Register", res)
             .then(({ data }) => {
-                console.log(data);
                 if (data?.code === 200) {
                     localStorage.setItem("userData", JSON.stringify(data?.data))
                     message.success('تم تسجيل الحساب')
@@ -127,7 +127,7 @@ function OTP({ route }: any) {
         let userData = JSON.parse(localStorage.getItem("userData") || 'null');
         if (userData) {
             let body = { userId: userData.userId, code: res.code }
-            axios.post(`${url}/Authorization/EmailVerification`, body)
+            createFatch("/Authorization/EmailVerification", body)
                 .then(({ data }) => {
                     console.log(data);
                     if (data.code === 200) {
@@ -162,7 +162,7 @@ const Field = forwardRef((props: any, ref) => {
     return (
         <div>
             <p>{props.title} *</p>
-            <input type="text" className="p-2 border-2 rounded-lg border-slate-300 px-6 my-4 w-full" {...props} ref={ref} /> 
+            <input type="text" className="p-2 border-2 rounded-lg border-slate-300 px-6 my-4 w-full" {...props} ref={ref} />
         </div>
     )
 })

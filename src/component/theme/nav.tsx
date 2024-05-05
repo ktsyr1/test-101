@@ -30,7 +30,7 @@ export default function Nav() {
                 {/* <Logo /> */}
                 <div className="flex flex-row items-center max-[697px]:hidden">
                     <Link href={'/'}  prefetch={false}>
-                        <IconHome className={'m-4'} />
+                        <IconHome className={'m-4  hover:p-1'} />
                     </Link>
                     {pathArray.length > 0 && <div className="flex flex-row items-center mx-6">
                         <IconPlay color={"#00A5A5"} className={'m-4 mx-6'} />
@@ -41,8 +41,8 @@ export default function Nav() {
             {/* logo */}
             {/* path */}
             <div className="flex flex-row  max-[697px]:w-full ">
-                <LinkBtn to="/get-service" title=" أطلب الخدمة الآن" Class=" bg-[#FFF8F1] border-[#F25B06] text-[#F25B06] " />
-                <LinkBtn to="/about-app" title=" حمل التطبيق" Class="bg-[#EBF5FF] border-prussian-600 border-solid text-prussian-600" />
+                <LinkBtn to="/get-service" title=" أطلب الخدمة الآن" Class=" bg-[#FFF8F1] border-[#F25B06] text-[#F25B06]  hover:text-white hover:bg-safety-700" />
+                <LinkBtn to="/about-app" title=" حمل التطبيق" Class="bg-[#EBF5FF] border-prussian-600 border-solid text-prussian-600  hover:text-white hover:bg-prussian-600" />
             </div>
         </nav >
     );

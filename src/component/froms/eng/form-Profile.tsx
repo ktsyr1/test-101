@@ -3,11 +3,10 @@ import { Form, Input, Select } from 'antd';
 import { FieldType } from '../types';
 import { NextPage, SubmitButton2 } from './form';
 import { FormContext, FormDataContext } from '../contextApi';
-import axios from 'axios';
-
-
-const FormProfile = () => {
-
+ 
+import Cookies from "js-cookie"
+import GetFatch from '../get';
+export default function FormProfile() { 
 
     let { data, setData } = useContext(FormDataContext)
     let [defaultData, setDD] = useState(data)
@@ -15,25 +14,11 @@ const FormProfile = () => {
     const [form] = Form.useForm();
 
     let [cities, setCities] = useState<any>([])
-
     useEffect(() => {
-        setDD({ ...defaultData })
+        let token: any = Cookies.get("userToken")
+        GetFatch("/Lookup/Cities", token).then(data => setCities(data?.data))
 
-        async function Cities() {
-            let url = process.env.NEXT_PUBLIC_API
-            url += `/Lookup/Cities`
-            try { 
-                // axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`)
-                //     .then(({ data }) => setCities(data?.data))
-                //     .catch(error => console.error(error))
-            } catch (error) {
-                console.log(error); 
-            }
-            return
-        }
-        Cities()
     }, [data])
-
     const onFinish = (values: any) => {
         let firstname = values.firstname
         if (firstname.length > 6) {
@@ -97,4 +82,4 @@ const FormProfile = () => {
         </Form>
     );
 }
-export default FormProfile
+

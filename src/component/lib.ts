@@ -38,6 +38,5 @@ export function refreshToken() {
     axios.post(url, { refreshToken })
         .then(res => res)
     return
-}
-
+} 
 export const loaderProp = ({ src }: any) => src

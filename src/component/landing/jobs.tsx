@@ -23,7 +23,7 @@ export default function JobsPart({ className, title, to }: any) {
                             <p className="text-safety-700 lap:text-5xl text-xl font-black">تقدم للعمل معنا وساهم في</p>
                             <p className="text-prussian-800 lap:text-5xl text-xl font-black mt-4">تطوير مستدام لخبراتك.</p>
                         </div>
-                        <img src={"/images/jobs-koba-300.png"} loading="lazy" className=" w-52 tap:w-72 lap:w-96 tap:absolute mt-0 filter tap:mr-10relative m-auto tap:left-4 left-auto mr-auto mb-[-20px]" alt="" />
+                        <img src={"/images/jobs-koba-300.webp"} loading="lazy" className=" w-52 tap:w-72 lap:w-96 tap:absolute mt-0 filter tap:mr-10relative m-auto tap:left-4 left-auto mr-auto mb-[-20px]" alt="" />
                     </div>
                     <div className="  bg-prussian-800 text-white tap:p-4 rounded-b-3xl w-full flex justify-start p-0 m-0 ">
                         <div className="flex flex-col tap:w-[50%] w-full">

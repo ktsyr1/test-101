@@ -25,7 +25,7 @@ export default function Sliders() {
     // console.log(One);
     return (
         <ThemeContext.Provider value={{ data, setOne, One }}>
-            <div className=" w-full flex flex-col h-min bg-no-repeat bg-contain min-h-[800px] " >
+            <div className=" w-full flex flex-col h-min bg-no-repeat bg-contain min-h-[800px] select-none" >
                 <SliderFullData />
                 <TimeLine />
             </div>
@@ -95,21 +95,21 @@ function TimeLineCard({ data }: any) {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-        // if (One.id == data.id) {
+        if (One.id == data.id) {
 
-        //     const interval = setInterval(() => {
-        //         setProgress(prevProgress => {
-        //             const newProgress = prevProgress + 1;
-        //             if (newProgress >= 100) {
-        //                 clearInterval(interval);
-        //                 return 100;
-        //             }
-        //             return newProgress;
-        //         });
-        //     }, TimeSec / 100); // تحديث الخط كل 150 مللي ثانية
+            const interval = setInterval(() => {
+                setProgress(prevProgress => {
+                    const newProgress = prevProgress + 1;
+                    if (newProgress >= 100) {
+                        clearInterval(interval);
+                        return 100;
+                    }
+                    return newProgress;
+                });
+            }, TimeSec / 100); // تحديث الخط كل 150 مللي ثانية
 
-        //     return () => clearInterval(interval);
-        // } setProgress(2)
+            return () => clearInterval(interval);
+        } setProgress(2)
     }, [One]);
 
     return (

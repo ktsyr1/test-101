@@ -5,6 +5,8 @@ import { FormContext, FormDataContext } from '../contextApi';
 import Icon from '../../icons';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import Cookies from "js-cookie"
+import createFatch from '../get';
 
 type QualificationsTypes = {
     "disabled": Boolean,
@@ -24,7 +26,11 @@ export default function FormEducation() {
     const [nextPart, setNextPart] = useState(false);
 
     let [options, setOptions] = useState<QualificationsTypes[]>([])
+    useEffect(() => {
+        let token: any = Cookies.get("userToken")
+        createFatch("/Lookup/Qualifications", token).then(data => setOptions(data?.data))
 
+    }, [data])
     useEffect(() => {
 
         async function Qualifications() {
@@ -40,7 +46,7 @@ export default function FormEducation() {
     const { register, handleSubmit, watch, formState: { errors }, }: any = useForm<FieldType>()
 
     const onChange = () => {
-
+        console.clear()
         if (watch("MemberShip")?.length > 3 && watch("YearsOfExperience") > 0) {
             if (study && study?.text.length > 7) {
                 setNextPart(true);

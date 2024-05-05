@@ -8,10 +8,13 @@ import { ConfigApi } from '@/component/lib';
 import axios from 'axios';
 import AdditionalFieldsValue from './AdditionalFieldsValue';
 
+import JsCookies from 'js-cookie';
+import GetFatch from '../get';
 // ------------------------------------------ 
 
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
+    if (action.type === "ProjectObjectives") return { ...state, ProjectObjectives: action.payload };
     else return state;
 }
 
@@ -21,22 +24,18 @@ const FormPart3 = () => {
     let { select, setSelect } = useContext(FormContext)
     let { data, setData } = useContext(FormDataContext)
     // useReducer start 
-    const [state, dispatch] = useReducer(reducer, { defaultData: data, ProjectObjectives: backup.ProjectObjectives });
+    // const [state, dispatch] = useReducer(reducer, { defaultData: data, ProjectObjectives: backup.ProjectObjectives });
+    const [state, dispatch] = useReducer(reducer, { defaultData: data, ProjectObjectives: [] });
     // useReducer end
     const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
 
     useEffect(() => {
-        async function Fatch() {
-            let { url, headers } = ConfigApi()
-            let UrlProjectObjectives = url + '/Lookup/ProjectObjectives'
-            axios.get(UrlProjectObjectives, { headers })
-                .then(({ data }) => dispatch({ type: 'ProjectObjectives', payload: data?.data }))
-                .catch((error) => { Err(error); dispatch({ type: 'ProjectObjectives', payload: backup.ProjectObjectives }) })
 
-            return
+        let token: any = JsCookies.get("userToken")
+        GetFatch("/Lookup/ProjectObjectives", token)
+            .then(data => dispatch({ type: 'ProjectObjectives', payload: data?.data }))
+            .catch((error) => Err(error))
 
-        }
-        Fatch()
     }, [data])
     const onSubmit = (res: any) => {
         setData({ ...state?.defaultData, projectTitle: res.projectTitle })
@@ -67,8 +66,8 @@ const FormPart3 = () => {
         dispatch({ type: "data", payload: { ...state?.defaultData, "ProjectObjectives": [{ assessmentObjectivesId: Number(s.value) }] } })
     }
     let titleProjectObjectives = state.ProjectObjectives
-        .filter((A: any) => A?.value === state.defaultData?.ProjectObjectives?.[0]?.assessmentObjectivesId)?.[0]?.text || "اهداف المشروع"
-
+        .filter((A: any) => A?.value == state.defaultData?.ProjectObjectives?.[0]?.assessmentObjectivesId)//?.[0]?.text || "اهداف المشروع"
+    console.log()
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
@@ -81,7 +80,7 @@ const FormPart3 = () => {
             <Field title="اهداف المشروع" className='flex flex-col w-full mx-4 '>
                 <Select
                     list={state.ProjectObjectives}
-                    title={titleProjectObjectives}
+                    title={titleProjectObjectives?.[0]?.text || "اهداف المشروع"}
                     set={setProjectObjectives}
                     className='w-full'
                 />

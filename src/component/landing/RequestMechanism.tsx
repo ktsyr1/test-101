@@ -27,7 +27,7 @@ export default function RequestMechanism() {
                 <SizeBox>
 
                     <div className="flex flex-col m-auto max-w-[1360px] rounded-[50px] shadow-xl bg-no-repeat bg-none lg:bg-[url(/images/bg-1.webp)] w-full"  >
-                        <div className="flex flex-row justify-between" >
+                        <div className="flex flex-row justify-between items-center" >
                             <div className="p-6 lg:!w-[50%] w-full select-none"  >
                                 <Header />
                                 <Navigation />
@@ -39,7 +39,7 @@ export default function RequestMechanism() {
                                 </div>
                             </div>
                             {/* images */}
-                            {/* <img src={`/images/${One.icon}`} alt={One.title} className="w-[40%] lg:flex hidden" /> */}
+                            {/* <img src={`/images/${One.icon}`} alt={One.title} className="w-max h-full lg:flex " /> */}
                         </div>
                         <div className="h-24  bg-blue-900 rounded-br-[40px]" ></div>
                     </div>

@@ -6,8 +6,10 @@ import { Err } from './form';
 import { FormContext, FormDataContext } from '../contextApi';
 import { useForm } from 'react-hook-form';
 import backup from './backup.json';
-import { ConfigApi } from '@/component/lib';
 import axios from 'axios';
+
+import JsCookies from 'js-cookie';
+import GetFatch from '../get';
 
 // ------------------------------------------ 
 
@@ -26,12 +28,26 @@ const AdditionalFieldsValue = ({ page }: any) => {
     const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
 
     useEffect(() => {
+        let url = '/Client/Project/Options'
+        let UrlAdditionalFieldsValue = ""
+
+        if (page == 1) UrlAdditionalFieldsValue = `${url}?section=1`
+        else if (page == 2) UrlAdditionalFieldsValue = `${url}?section=2`
+        else if (page == 3) UrlAdditionalFieldsValue = `${url}?section=3`
+        else if (page == 4) UrlAdditionalFieldsValue = `${url}?section=4`
+
+        let fulURL
+        if (data?.realEstateTypeId) {
+
+            fulURL = `${UrlAdditionalFieldsValue}&realEstateTypeId=${data?.realEstateTypeId}`
+            let token: any = JsCookies.get("userToken")
+            GetFatch(fulURL, token)
+                .then(data => dispatch({ type: 'ProjectObjectives', payload: data?.data }))
+                .catch((error) => Err(error))
+        }
         async function Fatch() {
-            // let { url="/api", headers } = ConfigApi()
-            let url = "/api"
-            url += '/Lookup/ProjectObjectives'
+            let url = '/Lookup/ProjectObjectives'
             let UrlAdditionalFieldsValue = ""
-            console.log(page);
 
             if (page == 1) UrlAdditionalFieldsValue = `${url}?section=1`
             else if (page == 2) UrlAdditionalFieldsValue = `${url}?section=2`
@@ -52,7 +68,7 @@ const AdditionalFieldsValue = ({ page }: any) => {
             return
 
         }
-        Fatch()
+        // Fatch()
     }, [data])
     const onSubmit = (res: any) => {
         setData({ ...state?.defaultData, projectTitle: res.projectTitle })

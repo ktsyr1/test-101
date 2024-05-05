@@ -5,6 +5,7 @@ import { FormContext, FormDataContext } from '../contextApi';
 import { message } from 'antd';
 import Icon from '../../icons';
 import axios from 'axios';
+import { createFatch } from '../get';
 
 export default function FormSkills() {
 
@@ -15,9 +16,7 @@ export default function FormSkills() {
     const [dane, setDane] = useState(false);
     let [Files, setFile] = useState("")
 
-    const onFinish = () => {
-        let url = process.env.NEXT_PUBLIC_API
-        url = url + "/Inspector/InspectorJoinRequest"
+    const onFinish = () => { 
         let body = { ...data, PassingCourse: value, Files }
 
         let formData = new FormData();
@@ -33,8 +32,7 @@ export default function FormSkills() {
         formData.append('PhoneNumber', body.PhoneNumber);
         formData.append('Files', new Blob([Files], { type: 'application/pdf' }), `CV${new Date().getTime()}.pdf`);
         formData.append('Email', body.Email);
-
-        axios.post(url, formData, { headers: { 'accept': 'application/json', 'Content-Type': 'multipart/form-data' } })
+        createFatch("/Inspector/InspectorJoinRequest" ,formData)
             .then(res => {
                 setDane(true)
                 message.success("تم ارسال الطلب بنجاح")
@@ -76,7 +74,7 @@ export default function FormSkills() {
 
             </p>
             {/* ref */}
-            <input name='file' type='file' onChange={Uploads} className='hidden' ref={cvRef} />
+            <input name='file' type='file' onChange={Uploads} className='hidden' accept='application/pdf' ref={cvRef} />
             {Files.length < 5 ?
                 <div className=" text-lg w-full m-auto justify-center flex tap:flex-row flex-col" >
                     <p className="ant-upload-text">قم بسحب وإسقاط الملف أو
