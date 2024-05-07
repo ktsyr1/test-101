@@ -106,7 +106,7 @@
             ]
         }
     ],
-    "ProjectObjectives": [
+    "projectObjectives": [
         {
             "disabled": false,
             "group": null,

@@ -8,6 +8,7 @@ import FAQ from "@/component/theme/FAQ";
 import Landing from "@/component/loading";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { ApolloWrapper } from "./ApolloWrapper";
+import Head from "next/head";
 
 const inter =// localFont({ src: './fonts/ArbFONTS-LamaSans-BoldCondensed.ttf', display: 'swap' }) 
     localFont({

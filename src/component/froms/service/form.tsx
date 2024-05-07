@@ -9,7 +9,7 @@ import JsCookies from 'js-cookie';
 import { Button, Form } from "antd";
 import FormPart2 from "./FormPart2";
 import FormPart3 from "./FormPart3";
-import FormPart4 from "./FormPart4"; 
+import FormPart4 from "./FormPart4";
 // end imported
 
 let readmap: TypeReadmap[] = [
@@ -22,7 +22,7 @@ let readmap: TypeReadmap[] = [
 
 export default function Forms() {
     let [data, setData] = useState({})
-    let [select, setSelect] = useState(readmap[3].slug)
+    let [select, setSelect] = useState(readmap[0].slug)
 
     const Layout = ({ children, slug }: LayoutType) => (<>{select === slug ? children : ""}</>)
 
@@ -80,7 +80,7 @@ export function Select({ list = [], title, name, set, className }: any) {
 
     return (
         <div className={`  ${className}`}>
-            <button onClick={(e: any) => m.current?.classList.toggle("hidden")} className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-white focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-white dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 w-full rounded-lg`} type="button">
+            <button onClick={(e: any) => m.current?.classList.toggle("hidden")} className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 lap:text-xl tap:text-sm text-xs font-medium text-center text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-white focus:ring-4 focus:outline-none focus:ring-gray-100 w-full rounded-lg`} type="button">
                 {title}
             </button>
             <ul ref={m} className="py-2 hidden text-sm text-gray-700 dark:text-gray-200 absolute bg-white   rounded-lg z-40 w-full max-w-[500px]">
@@ -101,7 +101,7 @@ export function Select({ list = [], title, name, set, className }: any) {
 export function Field({ children, title, className }: any) {
     return (
         <div className={className}>
-            <p className="text-xl  font-bold text-prussian-800 my-2 mr-4">{title}</p>
+            <p className="lap:text-xl tap:text-sm text-xs font-bold text-prussian-800 my-2 mr-4">{title}</p>
             <div className='flex flex-col w-full m-4 '>       {children}</div>
         </div>
     )
@@ -110,7 +110,7 @@ export function Field({ children, title, className }: any) {
 export function Input({ text, name, type = "test", className, register, ...props }: any) {
     return (
         <div className={`flex flex-col my-4 w-full ${className}`}>
-            <p className="text-xl  font-bold text-prussian-800 my-2 mr-4">{text}</p>
+            <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">{text}</p>
             <input type={type} {...register(name)} className='p-2 ml-4 rounded-md' {...props} />
         </div>
     )

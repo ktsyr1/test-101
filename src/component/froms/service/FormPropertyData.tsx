@@ -16,6 +16,7 @@ const FormPropertyData = () => {
 
     useEffect(() => {
         let token: any = JsCookies.get("userToken")
+        
         GetFatch("/Lookup/RealEstatType", token)
             .then(data => setRealEstatTypes(data?.data))
             .catch((error) => { Err(error); })
@@ -37,11 +38,11 @@ const FormPropertyData = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
-            <div className='flex flex-row'>
+            <div className='flex tap:flex-row flex-col'>
                 <Field title="نوع العقار" className='flex flex-col w-full m-4 '>
                     <Select
                         list={RealEstatTypes}
-                        title={RealEstatTypes.filter((A: any) => A?.value === defaultData.realEstateTypeId)[0]?.text || "حدد نوع العقار"}
+                        title={RealEstatTypes?.filter((A: any) => A?.value === defaultData.realEstateTypeId)[0]?.text || "حدد نوع العقار"}
                         set={(s: any) => {
 
                             setData({ ...defaultData, "realEstateTypeId": s.value })
@@ -52,14 +53,14 @@ const FormPropertyData = () => {
                 <Field title="  العمر التقريبي للعقار" className='flex flex-col w-full m-4 '>
                     <Select
                         list={RealEstatAges}
-                        title={RealEstatAges.filter((A: any) => A?.value === defaultData.realEstateAgesId)[0]?.text || "حدد العمر التقريبي العقار"}
+                        title={RealEstatAges?.filter((A: any) => A?.value === defaultData.realEstateAgesId)[0]?.text || "حدد العمر التقريبي العقار"}
                         set={(s: any) => setData({ ...defaultData, "realEstateAgesId": s.value })}
                     />
                 </Field>
 
             </div>
 
-            <div className='flex flex-row m-4 p-4'>
+            <div className='flex tap:flex-row flex-col m-4 p-4'>
                 <Input text="عدد الطوابق" name="numberOfFloors" type="number" register={register} />
                 <Input text="مسطحات البناء المسقوفة ( م²)" name="buildingArea" type="number" register={register} />
             </div>

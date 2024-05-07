@@ -1,6 +1,5 @@
 "use server"
-import Forms from "@/component/froms/eng/form";
-import SizeBox from "@/component/size-box";
+import Forms from "@/component/froms/eng/form"; 
 
 export default async function Jobs() {
 

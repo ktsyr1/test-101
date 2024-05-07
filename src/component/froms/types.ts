@@ -35,6 +35,12 @@ export type FieldType = {
     codeEng?: string | undefined
     yearsExperience?: number
     study?: string | undefined
+    Picture?: string | undefined
+    NationalId?: number
+    RelativeName?: string
+    RelativePhone?: number
+    HasRelatives?: boolean
+    BankDetails?: string
 };
 
 export interface SubmitButtonProps {

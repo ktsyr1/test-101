@@ -14,7 +14,7 @@ import GetFatch from '../get';
 
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
-    if (action.type === "ProjectObjectives") return { ...state, ProjectObjectives: action.payload };
+    if (action.type === "projectObjectives") return { ...state, projectObjectives: action.payload };
     else return state;
 }
 
@@ -24,8 +24,8 @@ const FormPart3 = () => {
     let { select, setSelect } = useContext(FormContext)
     let { data, setData } = useContext(FormDataContext)
     // useReducer start 
-    // const [state, dispatch] = useReducer(reducer, { defaultData: data, ProjectObjectives: backup.ProjectObjectives });
-    const [state, dispatch] = useReducer(reducer, { defaultData: data, ProjectObjectives: [] });
+    // const [state, dispatch] = useReducer(reducer, { defaultData: data, projectObjectives: backup.projectObjectives });
+    const [state, dispatch] = useReducer(reducer, { defaultData: data, projectObjectives: [] });
     // useReducer end
     const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
 
@@ -33,7 +33,7 @@ const FormPart3 = () => {
 
         let token: any = JsCookies.get("userToken")
         GetFatch("/Lookup/ProjectObjectives", token)
-            .then(data => dispatch({ type: 'ProjectObjectives', payload: data?.data }))
+            .then(data => dispatch({ type: 'projectObjectives', payload: data?.data }))
             .catch((error) => Err(error))
 
     }, [data])
@@ -61,32 +61,32 @@ const FormPart3 = () => {
     // console.log(state.defaultData);
     let setProjectObjectives = (s: any) => {
         console.log(s);
-        console.log({ type: "data", payload: { ...state?.defaultData, "ProjectObjectives": [{ assessmentObjectivesId: s.value }] } });
+        console.log({ type: "data", payload: { ...state?.defaultData, "projectObjectives": [{ assessmentObjectivesId: s.value }] } });
 
-        dispatch({ type: "data", payload: { ...state?.defaultData, "ProjectObjectives": [{ assessmentObjectivesId: Number(s.value) }] } })
+        dispatch({ type: "data", payload: { ...state?.defaultData, "projectObjectives": [{ assessmentObjectivesId: Number(s.value) }] } })
     }
-    let titleProjectObjectives = state.ProjectObjectives
-        .filter((A: any) => A?.value == state.defaultData?.ProjectObjectives?.[0]?.assessmentObjectivesId)//?.[0]?.text || "اهداف المشروع"
+    let titleProjectObjectives = state.projectObjectives
+        ?.filter((A: any) => A?.value == state.defaultData?.projectObjectives?.[0]?.assessmentObjectivesId)//?.[0]?.text || "اهداف المشروع"
     console.log()
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
 
-            <div className='flex flex-row m-4 p-4'>
+            <div className='flex tap:flex-row flex-col m-4 p-4'>
                 <Input text="اسم المشروع" name="projectTitle" register={register} />
-                <Input text="صورة العقار" name="projectImage" type='file' register={register} onChange={setProjectImage} />
+                <Input text="صورة العقار" name="projectImage" type='file' accept="image/*" register={register} onChange={setProjectImage} />
             </div>
 
             <Field title="اهداف المشروع" className='flex flex-col w-full mx-4 '>
                 <Select
-                    list={state.ProjectObjectives}
+                    list={state.projectObjectives}
                     title={titleProjectObjectives?.[0]?.text || "اهداف المشروع"}
                     set={setProjectObjectives}
                     className='w-full'
                 />
             </Field>
             <div className='flex flex-col m-4 p-4' >
-                <p className="text-xl  font-bold text-prussian-800 my-2 mr-4">وصف إضافي</p>
+                <p className="lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">وصف إضافي</p>
                 <textarea
                     className="!w-full  min-h-[50px] rounded-md p-2"
                     defaultValue={state?.defaultData?.description}

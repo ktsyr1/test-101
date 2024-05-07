@@ -35,18 +35,24 @@ const FormContact = () => {
                 <div className="flex tap:flex-row flex-col  w-full">
                     <div className="flex flex-col  w-full">
                         <p className="text-xl  font-bold text-prussian-800 my-2"> رقم الجوال</p>
-                        <Form.Item<FieldType> name="phoneNumber" className='w-full' rules={[{ required: true, message: 'Please input your password!' }]} >
-                            <InputNumber size='large' minLength={7} className='w-full' placeholder='أدخل رقم الجوال' defaultValue={defaultData.phoneNumber} />
+                        <Form.Item<FieldType> name="phoneNumber" className='w-full' rules={[{ required: true, message: 'Please input your phoneNumber!' }]} >
+                            <Input size='large' minLength={7} className='w-full' placeholder='أدخل رقم الجوال' defaultValue={defaultData.phoneNumber} />
                         </Form.Item>
                     </div>
                     <div className="flex flex-col  w-full">
                         <p className="text-xl  font-bold text-prussian-800 my-2">البريد الإلكتروني</p>
-                        <Form.Item<FieldType> name="Email" className='w-full' rules={[{ required: true, message: 'Please input your password!' }]} >
+                        <Form.Item<FieldType> name="Email" className='w-full' rules={[{ required: true, message: 'Please input your Email!' }]} >
                             <Input type='email' size='large' minLength={6} placeholder='أدخل البريد الإلكتروني' defaultValue={defaultData.Email} />
                         </Form.Item>
                     </div>
                 </div>
 
+            </div>
+            <div className="flex flex-col  w-full">
+                <p className="text-xl  font-bold text-prussian-800 my-2">رقم IBAN</p>
+                <Form.Item<FieldType> name="BankDetails" className='w-full' rules={[{ required: true, message: 'Please input your BankDetails!' }]} >
+                    <Input type='text' size='large' minLength={6} placeholder='أدخل الرقم البنكي' defaultValue={defaultData.BankDetails} />
+                </Form.Item>
             </div>
             <div className='*:mt-4'>
                 <SubmitButton2 form={form}>التالي</SubmitButton2>

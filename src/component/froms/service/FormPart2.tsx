@@ -48,18 +48,18 @@ const FormParrt2 = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
-            <div className='flex flex-row m-4 p-4'>
+            <div className='flex tap:flex-row flex-col tap:m-4 p-4'>
 
-                <Field title="منطقة العمل" className='flex flex-col w-full mx-4 '>
+                <Field title="منطقة العمل" className='flex flex-col w-full tap:mx-4 '>
                     <Select
                         list={state.WorkAreas}
-                        title={state.WorkAreas.filter((A: any) => A?.value === state.defaultData.workAreaId)[0]?.text || "منطقة العمل"}
+                        title={state?.WorkAreas.filter((A: any) => A?.value === state.defaultData.workAreaId)[0]?.text || "منطقة العمل"}
                         set={(s: any) => setData({ ...state.defaultData, "workAreaId": s.value })}
                     />
                 </Field>
                 <Input text="البلدية العقارية" name="realEstateMunicipal" className="mr-4" register={register} />
             </div>
-            <div className='flex flex-row m-4 p-4'>
+            <div className='flex tap:flex-row flex-col m-4 p-4'>
                 <Input text="رقم العقار" name="realEstateNumber" type="number" register={register} />
                 <Input text="شارع العقارات" name="realEstateStreet" register={register} />
             </div>

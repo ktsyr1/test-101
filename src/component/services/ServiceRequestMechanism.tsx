@@ -7,7 +7,7 @@ import SizeBox from "../size-box";
 export default function ServiceRequestMechanism() {
 
     return (
-        <SizeBox className="flex flex-col w-full min-h-[200px] lap:my-8 top:my-4   max-w-[1000px] lap:max-w-[1360px]" >
+        <SizeBox className="flex flex-col w-full min-h-[200px] lap:my-8 top:my-4 max-[1000px]:!m-0   max-w-[1000px] lap:max-w-[1360px]" >
             <TitlePart title="آلية العمل" className="mt-[50px] !w-full" />
 
             <div className="  tap:w-full m-auto ">

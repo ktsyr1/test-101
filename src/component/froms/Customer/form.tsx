@@ -23,7 +23,7 @@ export const Layout = ({ children, slug }: LayoutType) => {
 }
 export default function FormsCustomer() {
     let [data, setData] = useState({})
-    let [select, setSelect] = useState(1)
+    let [select, setSelect] = useState(6)
 
     return (
         <FormContext.Provider value={{ select, setSelect }}>
@@ -46,9 +46,9 @@ export default function FormsCustomer() {
 
 
 export class FormElm {
-    static Select = ({ value, one, onClick }: any) => <div className={`p-4 rounded-full  text-xl font-semibold ${value == one ? "bg-[#001D6C] text-white" : "text-[#001D6C] bg-white"}  !pr-6 hover:shadow-lg `} onClick={onClick} >{one} </div>
+    static Select = ({ value, one, onClick, className }: any) => <div className={`p-4 rounded-full lap:text-base tap:text-sm text-xs  font-semibold ${value == one ? "bg-[#001D6C] text-white" : "text-[#001D6C] bg-white"} !pr-6 hover:shadow-lg ${className} `} onClick={onClick} >{one} </div>
 
-    static Title = ({ children }: any) => <h1 className="!w-full text-3xl font-normal text-white bg-[#001F67] text-center !p-10" >{children}</h1>
+    static Title = ({ children }: any) => <h1 className="!w-full lap:text-3xl tap:text-xl text-base font-normal text-white bg-[#001F67] text-center lap:!p-8 tap:!p-6 p-4" >{children}</h1>
 
     static Send = ({ title }: any) => <input type="submit" value={title ? title : "التالي"} className={`!w-full bg-safety-700 text-white hover:shadow-lg`} />
 } 

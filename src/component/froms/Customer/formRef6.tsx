@@ -28,9 +28,11 @@ export default function FormRef6() {
 
     return (
         <Layout slug={6}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px]  *:w-[48%] *:m-2 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px]  *:m-2 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
                 <FormElm.Title >هل واجهت أي صعوبات في فهم خطوات طلب الخدمة؟</FormElm.Title>
-                {list.map(a => <FormElm.Select value={value} one={a} key={a} onClick={() => setValue(a)} />)}
+                <div className="flex flex-row flex-wrap" >
+                    {list.map(a => <FormElm.Select value={value} one={a} key={a} onClick={() => setValue(a)} className="w-[50%] my-2" />)}
+                </div>
                 {other && <textarea className="!w-full" defaultValue={value !== list[-1] ? value : "."} onChange={e => setValue(e.target.value)} placeholder="هناك مشكلة في  ..." />}
                 <FormElm.Send />
             </form>

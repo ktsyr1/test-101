@@ -11,40 +11,79 @@ export default function FormSkills() {
 
     let { data, setData } = useContext(FormDataContext)
 
-    const [value, setValue] = useState(false);
+    const [PassingCourse, setValue] = useState(false);
+    const [PassingWorkShop, setValue2] = useState(false);
+    const [IsFullTime, setIsFullTime] = useState(false);
     const [nextPart, setNextPart] = useState(false);
     const [dane, setDane] = useState(false);
     let [Files, setFile] = useState("")
 
-    const onFinish = () => { 
-        let body = { ...data, PassingCourse: value, Files }
+    const onFinish = () => {
+        let body: any = { PassingCourse, PassingWorkShop, IsFullTime: IsFullTime }
 
+        let phoneNumbers = Object.values(data).find(item => item === 'NationalId');
+        console.log(phoneNumbers);
+        console.log(data);
+        console.log(Object.keys(data));
         let formData = new FormData();
 
-        formData.append('Firstname', body.firstname);
-        formData.append('MiddleName', body.middleName);
-        formData.append('LastName', body.lastName);
-        formData.append('CityId', body.cityId);
-        formData.append('QualificationId', body.QualificationId);
+        // Firstname
+        formData.append('Firstname', data.firstname);
+        // MiddleName
+        formData.append('MiddleName', data.middleName);
+        // LastName
+        formData.append('LastName', data.lastName);
+        // Email
+        formData.append('Email', data.Email);
+        // PhoneNumber
+        formData.append('PhoneNumber', data.PhoneNumber);
+        // CityId
+        formData.append('CityId', data.cityId);
+        // QualificationId
+        formData.append('QualificationId', data.QualificationId);
+        // NationalId
+        formData.append('NationalId', data.NationalId);
+        // MemberShip
+        formData.append('MemberShip', data.MemberShip)
+        // YearsOfExperience
+        formData.append('YearsOfExperience', data.YearsOfExperience);
+        // BankDetails
+        formData.append('BankDetails', data.BankDetails);
+        // PassingCourse
         formData.append('PassingCourse', body.PassingCourse);
-        formData.append('MemberShip', body.MemberShip)
-        formData.append('YearsOfExperience', body.YearsOfExperience);
-        formData.append('PhoneNumber', body.PhoneNumber);
+        // PassingWorkShop
+        formData.append('PassingWorkShop', body.PassingWorkShop);
+        // IsFullTime
+        formData.append('IsFullTime', body.IsFullTime);
+        // HasRelatives
+        formData.append('HasRelatives', data.HasRelatives);
+        // RelativeName
+        formData.append('RelativeName', data.RelativeName);
+        // RelativePhone
+        formData.append('RelativePhone', data.RelativePhone);
+        // Files
         formData.append('Files', new Blob([Files], { type: 'application/pdf' }), `CV${new Date().getTime()}.pdf`);
-        formData.append('Email', body.Email);
-        createFatch("/Inspector/InspectorJoinRequest" ,formData)
+        // Picture
+        formData.append('Picture', new Blob([data.Picture], { type: 'image/*' }), `Picture${new Date().getTime()}.jpeg`);
+
+        createFatch("/Inspector/InspectorJoinRequest", formData)
             .then(res => {
+
                 setDane(true)
                 message.success("تم ارسال الطلب بنجاح")
             })
             .catch(error => console.error(error))
     }
 
-    function BtnsBol({ a }: any) {
+    function BtnsBol({ a, v, set, list }: any) {
+        function Title() {
+            if (list) return <p>{list[a == false ? 0 : 1]}</p>
+            else return <p>{a ? "نعم" : "لا"} </p>
+        }
         return (
-            <button type="button" className={`w-full rounded-md max-w-[300px] p-4 ml-10 bg-white flex flex-row justify-between ${value == a && "!bg-prussian-800 text-white"}`} onClick={() => setValue(a)} >
-                <p>{a ? "نعم" : "لا"} </p>
-                {value == a ? <Icon.okBorder /> : <Icon.c01 size={20} />}
+            <button type="button" className={`w-full rounded-md max-w-[300px] p-4 ml-10 bg-white flex flex-row justify-between ${v == a && "!bg-prussian-800 text-white"}`} onClick={() => set(a)} >
+                <Title />
+                {v == a ? <Icon.okBorder /> : <Icon.c01 size={20} />}
             </button>
         )
     }
@@ -78,7 +117,7 @@ export default function FormSkills() {
             {Files.length < 5 ?
                 <div className=" text-lg w-full m-auto justify-center flex tap:flex-row flex-col" >
                     <p className="ant-upload-text">قم بسحب وإسقاط الملف أو
-                    <p className="ant-upload-hint font-bold !text-safety-700 mx-2"> تصفح جهاز الكمبيوتر </p></p>
+                        <p className="ant-upload-hint font-bold !text-safety-700 mx-2"> تصفح جهاز الكمبيوتر </p></p>
                 </div>
                 : <p>تم رفع الملف</p>}
         </div>
@@ -90,13 +129,22 @@ export default function FormSkills() {
                 <>
                     <p className="text-xl  font-bold text-prussian-800 my-2"> هل تمتلك دورة فحص المباني الجاهزة؟</p>
                     <div className=" flex flex-row my-6" >
-                        {[true, false].map((a, i) => <BtnsBol a={a} key={i} />)}
+                        {[true, false].map((a, i) => <BtnsBol a={a} key={i} v={PassingCourse} set={setValue} />)}
+                    </div>
+                    <p className="text-xl  font-bold text-prussian-800 my-2"> هل  قمت باجتياز ورشة العمل؟</p>
+                    <div className=" flex flex-row my-6" >
+                        {[true, false].map((a, i) => <BtnsBol a={a} key={i} v={PassingWorkShop} set={setValue2} />)}
+                    </div>
+                    <p className="text-xl  font-bold text-prussian-800 my-2">    هل الدوام الكامل</p>
+                    <div className=" flex flex-row my-6" >
+                        {[true, false].map((a, i) => <BtnsBol a={a} key={i} v={IsFullTime} set={setIsFullTime} list={["دوام كامل", "دوام جزئي"]} />)}
                     </div>
                     {/* pdf to base64   */}
-                    {value === false && <p className='text-red-600 font-bold mb-8'> تعتبر شهادة فحص المباني الجاهزة شرط اساسي للتقديم و لا تقبل طلبات المهندسين الغير حاصلين عليها.</p>}
+                    {PassingCourse === false && <p className='text-red-600 font-bold mb-8'> تعتبر شهادة فحص المباني الجاهزة شرط اساسي للتقديم و لا تقبل طلبات المهندسين الغير حاصلين عليها.</p>}
                     {nextPart && <App />}
-                    {!nextPart && <SubmitButton active={value === true} onClick={() => setNextPart(true)}  >التالي</SubmitButton>}
-                    {nextPart && <SubmitButton active={value === true} onClick={() => onFinish()} >إنهاء تقديم الطلب</SubmitButton>}
+                    {!nextPart && <SubmitButton active={PassingCourse === true} onClick={() => setNextPart(true)}  >التالي</SubmitButton>}
+                    {nextPart && <SubmitButton active={PassingCourse === true} onClick={() => onFinish()} >إنهاء تقديم الطلب</SubmitButton>}
+                    {/* <SubmitButton active={true} onClick={() => onFinish()} >إنهاء تقديم الطلب</SubmitButton> */}
                 </>
             }
         </div >

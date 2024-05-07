@@ -20,13 +20,13 @@ export default function FormRef1() {
         <Layout slug={1}>
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="max-w-[1200px] *:w-[45%] *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
+                className="max-w-[1200px] *:w-[45%] *:m-2 *:lap:p-2 *:p-1 *:rounded-lg  flex flex-wrap  justify-between mt-10 *:lap:text-xl *:tap:text-base *:text-xs placeholder:*:text-xs   " >
                 <FormElm.Title >أخبرنا عنك</FormElm.Title>
                 <input type="text"  {...register("fullName", { required: true })} placeholder="الاسم الكامل" />
                 <input type="number" {...register("age", { required: true })} placeholder="العمر" />
                 <input type="text" {...register("occupation", { required: true })} placeholder="المهنة" />
                 <input type="text" {...register("city", { required: true })} placeholder="المدينة" />
-                <select defaultValue="male"  {...register("gender", { required: true })}   >
+                <select defaultValue="male" className="lap:text-xl *:tap:text-base *:text-xs  "  {...register("gender", { required: true })}   >
                     <option value="male" >ذكر</option>
                     <option value="female" >انثى</option>
                 </select>

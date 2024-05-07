@@ -13,9 +13,9 @@ export default function SetupFormsCustomer({ children }: TypeSetup) {
     let [data, setData] = useState({})
     return (
         <FormContext.Provider value={{ data, setData, select, setSelect, list }}>
-            <SizeBox className=" flex-col items-center bg-[#DAE0E6DE] z-30 rounded-[32px] min-h-[700px] my-8 m-8 ">
+            <SizeBox className=" flex-col items-center bg-[#DAE0E6DE] z-30 rounded-[32px] min-h-[200px] my-8 m-8 ">
                 <Header />
-                <div className="flex flex-col h-full w-[80%]">
+                <div className="flex flex-col h-full w-[80%] p-4">
                     {children}
                 </div>
             </SizeBox>
@@ -55,10 +55,10 @@ export function Header() {
                     <IconArrow className={'rotate-180'} color={"#fff"} />
                     <p>الرجوع</p>
                 </div> : <div></div>}
-                <div className="flex flex-row *:mr-4 items-center my-4">
+                {/* <div className="flex flex-row *:mr-4 items-center my-4">
                     <p>الإغلاق</p>
                     <Icon.Close size={20} />
-                </div>
+                </div> */}
             </div>
         </div>
     )

@@ -30,19 +30,7 @@ export default function FormEducation() {
         let token: any = Cookies.get("userToken")
         createFatch("/Lookup/Qualifications", token).then(data => setOptions(data?.data))
 
-    }, [data])
-    useEffect(() => {
-
-        async function Qualifications() {
-            let url = process.env.NEXT_PUBLIC_API
-            url += `/Lookup/Qualifications`
-            axios.get(url || "")
-                .then(({ data }) => setOptions(data?.data))
-                .catch(error => console.error(error))
-            return
-        }
-        Qualifications()
-    }, [data])
+    }, [data]) 
     const { register, handleSubmit, watch, formState: { errors }, }: any = useForm<FieldType>()
 
     const onChange = () => {
