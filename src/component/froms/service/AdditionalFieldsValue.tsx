@@ -78,7 +78,7 @@ const AdditionalFieldsValue = ({ page }: any) => {
         if (index == undefined) additionalFieldsValue = additionalFieldsValue
         else if (index === -1) additionalFieldsValue = [...additionalFieldsValue, body]
         else additionalFieldsValue[index] = body
-console.log(additionalFieldsValue);
+        console.log(additionalFieldsValue);
 
         localStorage.setItem("additionalFieldsValue", JSON.stringify(additionalFieldsValue))
 
@@ -87,18 +87,18 @@ console.log(additionalFieldsValue);
         <div className='*:py-2 mb-10 '   >
             {state.additionalField?.map((a: any) => {
                 if (a.sectionName === "Textbox") return (
-                    <div className='m-4 px-4 '>
+                    <div className='m-4 px-4 ' key={a.id}>
                         <p className='text-xl  font-bold text-prussian-800 my-2 mr-4'>{a.name}</p>
                         <textarea className='p-2 ml-4 rounded-md w-full' onChange={(e: any) => Change(e, a)} />
                     </div>
                 )
                 else if (a.sectionName === "MultiSelect" && a.additionalField_MultiSelectValue?.length > 0) return (
-                    <div className='m-4 px-4 '>
+                    <div className='m-4 px-4 ' key={a.id}>
                         <p className='text-xl  font-bold text-prussian-800 my-2 mr-4'>{a.name}</p>
                         <div>
                             {a.additionalField_MultiSelectValue.map((m: any) => {
                                 return (
-                                    <div onClick={() => setSelect(m, a)} className="flex items-center   border border-gray-200 rounded  max-w-max min-w-[200px]">
+                                    <div onClick={() => setSelect(m, a)} className="flex items-center   border border-gray-200 rounded  max-w-max min-w-[200px]" key={m.id}>
                                         <input type="radio" id={`ass`} value={`ass`} className="hidden peer" />
                                         <label htmlFor={`ass`} className=" flex flex-col items-center   w-full lap:p-4 p-2 text-gray-500 bg-white border rounded-lg cursor-pointer   peer-checked:bg-blue-600 border-blue-600 peer-checked:text-white hover:text-white  hover:bg-blue-600    text-center h-full ">
                                             {m.text}
@@ -109,6 +109,7 @@ console.log(additionalFieldsValue);
                         </div>
                     </div>
                 )
+                else return <></>
             })}
         </div >
     );
