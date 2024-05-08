@@ -24,11 +24,10 @@ export default function FormProfile() {
 
     }, [data])
     const onFinish = (values: any) => {
-        console.log(values);
 
         let firstname = values.firstname
         if (firstname.length > 3) {
-            setData({ ...data, ...values, Picture, HasRelatives, })
+            setData({ ...data, ...values, HasRelatives, })
             let slug = NextPage(select)
             setSelect(slug)
         };
@@ -38,21 +37,21 @@ export default function FormProfile() {
         console.log('Failed:', errorInfo);
     };
 
-    function onChange(e: any) {
+    // function onChange(e: any) {
 
-        const file = e.target.files && e.target.files[0];
-        const reader = new FileReader();
-        message.info("جاري رفع الصورة بنجاح")
+    //     const file = e.target.files && e.target.files[0];
+    //     const reader = new FileReader();
+    //     message.info("جاري رفع الصورة بنجاح")
 
-        reader.onload = (e) => {
-            const base64String = e.target?.result as string;
-            // set {base64String} to 
-            setPicture(base64String)
-            message.success("تم رفع الصورة بنجاح");
-        };
-        if (file) reader.readAsDataURL(file);
+    //     reader.onload = (e) => {
+    //         const base64String = e.target?.result as string;
+    //         // set {base64String} to 
+    //         setPicture(base64String)
+    //         message.success("تم رفع الصورة بنجاح");
+    //     };
+    //     if (file) reader.readAsDataURL(file);
 
-    }
+    // }
 
     function BtnsBol({ a, v, set }: any) {
         return (
@@ -95,7 +94,7 @@ export default function FormProfile() {
                     <div className="flex flex-col  w-full">
                         <p className="text-xl  font-bold text-prussian-800 my-2">الإسم العائلة</p>
                         <Form.Item<FieldType> name="lastName" className='w-full' rules={[{ required: true, message: 'Please input your lastName!' }]} >
-                            <Input size='large'  minLength={2} defaultValue={defaultData.lastName} />
+                            <Input size='large' minLength={2} defaultValue={defaultData.lastName} />
                         </Form.Item>
                     </div>
                     <div className="flex flex-col  w-full">
@@ -114,14 +113,7 @@ export default function FormProfile() {
                             <Input size='large' minLength={2} defaultValue={defaultData.NationalId} />
                         </Form.Item>
                     </div>
-                    <div className="flex flex-col  w-full">
-                        <p className="text-xl  font-bold text-prussian-800 my-2">الصورة الشخصية</p>
-                        <Form.Item<FieldType> name="Picture" className='w-full' rules={[{ required: true, message: 'Please input your Picture!' }]} >
-                            <Input size='large' type='file' accept="image/*"
-                            onChange={onChange}
-                            />
-                        </Form.Item>
-                    </div>
+
                 </div>
 
                 <p className="text-xl  font-bold text-prussian-800 my-2">    هل لديك اقارب</p>

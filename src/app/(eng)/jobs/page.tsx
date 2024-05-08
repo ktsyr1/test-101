@@ -9,7 +9,7 @@ const AppContext = createContext<ThemeContextType>({});
 
 export default function Jobs() {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-center items-center">
             <div className="h-[100px] bg-slate-100" />
             <div className="  items-center   max-w-[1360px]   tap:w-full flex flex-col">
                 <ListJobs />
@@ -63,8 +63,8 @@ function CardJob({ data: One }: { data: CardJobType; }) {
     let enter = () => SetBtnHover(true)
     let leave = () => SetBtnHover(false)
     return (
-        <div className="p-2 lap:p-4 w-full">
-            <div className={` w-full flex flex-col  rounded-3xl p-4 tap:p-6 lap:!m-10  ${open ? " bg-white shadow-lg " : " bg-prussian-800 "}  `} onClick={() => setOpen(!open)}  >
+        <div className="p-2 lap:p-4 w-full ">
+            <div className={` w-full flex flex-col  rounded-3xl p-4 tap:p-6 lap:!m-10 cursor-pointer  ${open ? " bg-white shadow-lg " : " bg-prussian-800  hover:px-5 hover:tap:px-7 "}  `} onClick={() => setOpen(!open)}  >
                 <p className={`${open ? "text-safety-700" : " text-white"} lap:text-2xl tap:text-lg text-lg`}>{One.job_title} </p>
                 <div className={`flex flex-row ${open ? "*:text-white *:rounded-full *:bg-prussian-800" : " *:bg-white *:rounded-full *:text-prussian-800 "} `}>
                     <p className="p-4 py-2 my-4 w-full  lap:text-2xl tap:text-lg text-sx">{One.department} </p>

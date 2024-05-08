@@ -27,7 +27,7 @@ export default function Footer() {
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d572.4348198944405!2d46.69394306528545!3d24.804518960971865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd097e7e9681%3A0xcf6a844114dfed61!2sBuilding%20Rank%20SA!5e0!3m2!1sar!2slb!4v1708619809636!5m2!1sar!2slb" width={'100%'} height="450" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             <div className="flex flex-wrap items-center justify-evenly  py-14 " >
                 <PupLinks />
-                <div className="flex tap:flex-col justify-end *:m-[20px] min-w-[250px]  flex-row m-4 " >
+                <div className="flex tap:flex-col justify-end *:m-[20px] lap:min-w-[250px]  flex-row m-4 " >
                     {sochalmedia.map(Item => <Link href={Item.to} prefetch={false} key={Item.to}  > <Item.Icon className="hover:p-2 m-2" /> </Link>)}
                 </div>
 
@@ -38,9 +38,9 @@ export default function Footer() {
                     <a href="mailto:info@inspectex.com" className="py-4 text-slate-500 text-sm font-bold hover:text-safety-700">info@inspectex.com</a>
 
                     <p className="text-safety-500 mt-2 text-base font-bold">ارقام هواتف </p>
-                    <a href="tel:+966533344735" className="py-2 text-slate-500 text-sm font-bold hover:text-safety-700 "> 00966-533344735</a>
-                    <a href="tel:+966536800408" className="py-2 text-slate-500 text-sm font-bold hover:text-safety-700"> 00966-536800408</a>
-                    <a href="tel:+966920005543" className="py-2 text-slate-500 text-sm font-bold hover:text-safety-700"> 00966-920005543</a>
+                    <a href="tel:+966533344735" className="py-2 text-slate-500 lap:text-sm text-xs font-bold hover:text-safety-700 "> 00966-533344735</a>
+                    <a href="tel:+966536800408" className="py-2 text-slate-500 lap:text-sm text-xs font-bold hover:text-safety-700"> 00966-536800408</a>
+                    <a href="tel:+966920005543" className="py-2 text-slate-500 lap:text-sm text-xs font-bold hover:text-safety-700"> 00966-920005543</a>
 
                 </Col>
 
@@ -59,7 +59,7 @@ export default function Footer() {
                 </Col>
             </div >
             <div style={{}} className="flex flex-row max-[700px]:flex-col-reverse p-6 md:mr-[140px]  md:ml-[140px] justify-between ">
-                <p className="p-2 text-xl font-bold text-blue-950 max-[700px]:!text-md">© 2023 شركة إنسبكتكس السعودية</p>
+                <p className="p-2 lap:text-xl tap:text-lg text-base font-bold text-blue-950 max-[700px]:!text-md">© 2023 شركة إنسبكتكس السعودية</p>
                 <Logo size={"260"} type="arOrange" />
             </div>
             <C_Dev_andDes />
@@ -71,8 +71,8 @@ export default function Footer() {
 type ColType = { title: string, children: any, className?: string }
 function Col({ title, children, className }: ColType) {
     return (
-        <div className={`w-full flex  flex-col max-w-[250px] min-h-[300px] ${className}`}>
-            <b className="text-safety-700 mb-6 text-2xl font-bold">{title}</b>
+        <div className={`w-full flex   flex-col max-w-[200px] min-h-[300px] ${className}`}>
+            <b className="text-safety-700 mb-6 lap:text-2xl tap:text-lg font-bold">{title}</b>
             {children}
         </div>
     )
@@ -88,7 +88,7 @@ type ItemType = {
 }
 function Item({ data, className }: ItemType) {
     let { title, to } = data
-    return <Link href={to} prefetch={false} className={` text-start text-base font-bold p-2 text-gray-500 hover:text-safety-700 ${className} `}>{title}</Link>
+    return <Link href={to} prefetch={false} className={` text-start lap:text-base text-xs font-bold p-2 text-gray-500 hover:text-safety-700 ${className} `}>{title}</Link>
 }
 
 function C_Dev_andDes() {

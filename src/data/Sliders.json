@@ -8,7 +8,7 @@
         "cover": "Slider.png",
         "btn": {
             "title": "إقرأ المزيد",
-            "to": "#"
+            "to": "/about-us"
         },
         "timeLine": {
             "title": " تعرف على إنسبكتكس",
@@ -24,7 +24,7 @@
         "cover": "Slider.png",
         "btn": {
             "title": "إقرأ المزيد",
-            "to": "#"
+            "to": "/about-app"
         },
         "timeLine": {
             "title": "تطبيق إنسبكتكس",
@@ -40,7 +40,7 @@
         "cover": "Slider.png",
         "btn": {
             "title": "إقرأ المزيد",
-            "to": "#"
+            "to": "/join"
         },
         "timeLine": {
             "title": "إنضم إلى  إنسبكتكس",

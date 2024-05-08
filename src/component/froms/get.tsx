@@ -17,16 +17,24 @@ export default async function GetFatch(url: string, token?: string): Promise<any
 export const createFatch = async (url: string, body: any, token?: string): Promise<any> => {
     let headers: any = { "Content-Type": "application/json" }
     if (token) headers["Authorization"] = `Bearer ${token}`
-
     return axios.post(`${process.env.NEXT_PUBLIC_API}${url}`, body, { headers })
         .then(({ data }) => {
             console.log(data);
-
             return data
         })
         .catch((error: Function) => refreshToken(createFatch(url, body, token)))
 
 }
+
+export const createInvester = async ({ data }: any): Promise<any> => {
+    return axios.post(`${process.env.NEXT_PUBLIC_API}/Inspector/InspectorJoinRequest`, data.formData)
+        .then(({ data }) => {
+            console.log(data);
+            return data
+        })
+        .catch((error: Function) => console.log({ error }))
+}
+
 
 function refreshToken(fun: any) {
     try {

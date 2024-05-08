@@ -15,7 +15,7 @@ export default function SetupForms({ children }: TypeSetup) {
         <FormContext.Provider value={{ data, setData, select, setSelect, list }}>
             <div className=" flex items-center w-full max-w-[1360px]  flex-col   bg-[#DAE0E6DE] z-30 rounded-[32px] min-h-[100px] h-max lap:m-8 ">
                 <Header />
-                <div className="flex flex-col h-full w-[80%] ">
+                <div className="flex flex-col h-full w-[80%] p-4 ">
                     <NavigationNumber />
                     {children}
                 </div>

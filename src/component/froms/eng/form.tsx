@@ -21,7 +21,7 @@ let readmap: TypeReadmap[] = [
 
 export default function Forms() {
     let [data, setData] = useState({})
-    let [select, setSelect] = useState(readmap[0].slug)
+    let [select, setSelect] = useState(readmap[3].slug)
 
     const Layout = ({ children, slug }: LayoutType) => (<>{select === slug ? children : ""}</>)
 

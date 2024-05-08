@@ -1,11 +1,11 @@
 import React, { useContext, useRef, useState } from 'react';
 import { TypeBtn } from '../types';
-import { NextPage } from './form';
-import { FormContext, FormDataContext } from '../contextApi';
+import { FormDataContext } from '../contextApi';
 import { message } from 'antd';
 import Icon from '../../icons';
+import { createFatch, createInvester } from '../get';
+import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { createFatch } from '../get';
 
 export default function FormSkills() {
 
@@ -16,58 +16,37 @@ export default function FormSkills() {
     const [IsFullTime, setIsFullTime] = useState(false);
     const [nextPart, setNextPart] = useState(false);
     const [dane, setDane] = useState(false);
-    let [Files, setFile] = useState("")
+    let [Files, setFile] = useState(true)
+    const { register, handleSubmit } = useForm({ defaultValues: data });
 
-    const onFinish = () => {
+    const onSubmit = (res: any) => {
+
         let body: any = { PassingCourse, PassingWorkShop, IsFullTime: IsFullTime }
 
-        let phoneNumbers = Object.values(data).find(item => item === 'NationalId');
-        console.log(phoneNumbers);
-        console.log(data);
-        console.log(Object.keys(data));
-        let formData = new FormData();
+        const formData = new FormData();
+        formData.append('Firstname', data.firstname || data.Firstname);  // Firstname
+        formData.append('MiddleName', data.middleName || data.MiddleName);  // MiddleName
+        formData.append('LastName', data.lastName || data.LastName);   // LastName
+        formData.append('Email', data.Email || data.Email);   // Email
+        formData.append('PhoneNumber', data.PhoneNumber || data.PhoneNumber);   // PhoneNumber
+        formData.append('CityId', data.cityId || data.CityId);   // CityId
+        formData.append('QualificationId', data.QualificationId || data.QualificationId);    // QualificationId
+        formData.append('NationalId', data.NationalId || data.NationalId);  // NationalId
+        formData.append('MemberShip', data.MemberShip || data.MemberShip)       // MemberShip
+        formData.append('YearsOfExperience', data.YearsOfExperience || data.YearsOfExperience);       // YearsOfExperience
+        formData.append('BankDetails', data.BankDetails || data.BankDetails);      // BankDetails
+        formData.append('PassingCourse', body.PassingCourse || body.PassingCourse);     // PassingCourse
+        formData.append('PassingWorkShop', body.PassingWorkShop || body.PassingWorkShop);     // PassingWorkShop
+        formData.append('IsFullTime', body.IsFullTime || body.IsFullTime);    // IsFullTime
+        formData.append('HasRelatives', data.HasRelatives || data.HasRelatives);      // HasRelatives
+        formData.append('RelativeName', data.RelativeName || data.RelativeName);      // RelativeName
+        formData.append('RelativePhone', data.RelativePhone || data.RelativePhone);   // RelativePhone
+        formData.append('Files', new Blob([res?.Files], { type: 'application/pdf' }), `CV${new Date().getTime()}.pdf`);    // Files
+        formData.append('Picture', new Blob([res.Picture], { type: 'image/*' }), `Picture-${new Date().getTime()}.jpeg`);       // Picture      console.log(formData.values());
 
-        // Firstname
-        formData.append('Firstname', data.firstname);
-        // MiddleName
-        formData.append('MiddleName', data.middleName);
-        // LastName
-        formData.append('LastName', data.lastName);
-        // Email
-        formData.append('Email', data.Email);
-        // PhoneNumber
-        formData.append('PhoneNumber', data.PhoneNumber);
-        // CityId
-        formData.append('CityId', data.cityId);
-        // QualificationId
-        formData.append('QualificationId', data.QualificationId);
-        // NationalId
-        formData.append('NationalId', data.NationalId);
-        // MemberShip
-        formData.append('MemberShip', data.MemberShip)
-        // YearsOfExperience
-        formData.append('YearsOfExperience', data.YearsOfExperience);
-        // BankDetails
-        formData.append('BankDetails', data.BankDetails);
-        // PassingCourse
-        formData.append('PassingCourse', body.PassingCourse);
-        // PassingWorkShop
-        formData.append('PassingWorkShop', body.PassingWorkShop);
-        // IsFullTime
-        formData.append('IsFullTime', body.IsFullTime);
-        // HasRelatives
-        formData.append('HasRelatives', data.HasRelatives);
-        // RelativeName
-        formData.append('RelativeName', data.RelativeName);
-        // RelativePhone
-        formData.append('RelativePhone', data.RelativePhone);
-        // Files
-        formData.append('Files', new Blob([Files], { type: 'application/pdf' }), `CV${new Date().getTime()}.pdf`);
-        // Picture
-        formData.append('Picture', new Blob([data.Picture], { type: 'image/*' }), `Picture${new Date().getTime()}.jpeg`);
-
-        createFatch("/Inspector/InspectorJoinRequest", formData)
-            .then(res => {
+        createInvester({ data: { formData } })
+            .then(RES => {
+                console.log(RES);
 
                 setDane(true)
                 message.success("تم ارسال الطلب بنجاح")
@@ -91,19 +70,17 @@ export default function FormSkills() {
     function Uploads(event: React.ChangeEvent<HTMLInputElement>) {
         message.info("جاري رفع الملف بنجاح")
 
-        const file = event.target.files && event.target.files[0];
-        const reader = new FileReader();
+        const file: any = event.target.files && event.target.files[0]
+        console.log(file);
 
-        reader.onload = (e) => {
-            const base64String = e.target?.result as string;
-            // set {base64String} to
-            setFile(base64String)
+        if (file) {
+            setFile(false)
             message.success("تم رفع الملف بنجاح");
-        };
-        if (file) reader.readAsDataURL(file);
+        }
 
     }
     let cvRef = useRef<any>()
+
     const App: React.FC = () => (
         <div className='flex flex-col justify-center items-center my-6 bg-slate-100 p-4 pb-8 rounded-md' onClick={() => cvRef.current.click()}   >
             <p className="ant-upload-drag-icon w-full m-auto justify-center flex my-4">
@@ -113,8 +90,9 @@ export default function FormSkills() {
 
             </p>
             {/* ref */}
-            <input name='file' type='file' onChange={Uploads} className='hidden' accept='application/pdf' ref={cvRef} />
-            {Files.length < 5 ?
+
+            <input type='file'  {...register('Files')} className='hidden' accept='application/pdf' ref={cvRef} onChange={Uploads} />
+            {Files ?
                 <div className=" text-lg w-full m-auto justify-center flex tap:flex-row flex-col" >
                     <p className="ant-upload-text">قم بسحب وإسقاط الملف أو
                         <p className="ant-upload-hint font-bold !text-safety-700 mx-2"> تصفح جهاز الكمبيوتر </p></p>
@@ -124,30 +102,41 @@ export default function FormSkills() {
     );
     return (
 
-        <div className='max-w-[700px] m-auto w-full flex flex-col'>
+        <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 '   >
             {dane ? <Dane /> :
                 <>
                     <p className="text-xl  font-bold text-prussian-800 my-2"> هل تمتلك دورة فحص المباني الجاهزة؟</p>
-                    <div className=" flex flex-row my-6" >
+                    <div className=" flex flex-row my-6  py-6" >
                         {[true, false].map((a, i) => <BtnsBol a={a} key={i} v={PassingCourse} set={setValue} />)}
                     </div>
                     <p className="text-xl  font-bold text-prussian-800 my-2"> هل  قمت باجتياز ورشة العمل؟</p>
-                    <div className=" flex flex-row my-6" >
+                    <div className=" flex flex-row my-6  py-6" >
                         {[true, false].map((a, i) => <BtnsBol a={a} key={i} v={PassingWorkShop} set={setValue2} />)}
                     </div>
                     <p className="text-xl  font-bold text-prussian-800 my-2">    هل الدوام الكامل</p>
-                    <div className=" flex flex-row my-6" >
-                        {[true, false].map((a, i) => <BtnsBol a={a} key={i} v={IsFullTime} set={setIsFullTime} list={["دوام كامل", "دوام جزئي"]} />)}
+                    <div className=" flex flex-row my-6  py-6" >
+                        {[false, true].map((a, i) => <BtnsBol a={a} key={i} v={IsFullTime} set={setIsFullTime} list={["دوام جزئي", "دوام كامل"]} />)}
                     </div>
                     {/* pdf to base64   */}
                     {PassingCourse === false && <p className='text-red-600 font-bold mb-8'> تعتبر شهادة فحص المباني الجاهزة شرط اساسي للتقديم و لا تقبل طلبات المهندسين الغير حاصلين عليها.</p>}
-                    {nextPart && <App />}
-                    {!nextPart && <SubmitButton active={PassingCourse === true} onClick={() => setNextPart(true)}  >التالي</SubmitButton>}
-                    {nextPart && <SubmitButton active={PassingCourse === true} onClick={() => onFinish()} >إنهاء تقديم الطلب</SubmitButton>}
-                    {/* <SubmitButton active={true} onClick={() => onFinish()} >إنهاء تقديم الطلب</SubmitButton> */}
+                    {nextPart &&
+                        <>
+                            <div className="flex flex-col  w-full">
+                                <p className="text-xl  font-bold text-prussian-800 my-2">الصورة الشخصية</p>
+                                <input type='file' accept="image/*" {...register('Picture')} className='bg-white p-3 rounded-lg' />
+                            </div>
+                            <App />
+                        </>
+                    }
+                    <div className='flex justify-center'>
+                        {nextPart ? <input type='submit' className='text-center rounded-md max-w-[600px] text-white w-full m-auto p-2 !bg-safety-700 ' value={"إنهاء تقديم الطلب"} />
+                            : <SubmitButton active={PassingCourse === true} onClick={() => setNextPart(true)}  >التالي</SubmitButton>
+                        }
+                    </div>
+
                 </>
             }
-        </div >
+        </form >
     );
 }
 export function SubmitButton({ children, onClick, className, active }: TypeBtn) {

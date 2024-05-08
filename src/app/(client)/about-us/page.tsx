@@ -5,7 +5,9 @@ import SizeBox from "@/component/size-box";
 import Logo from "@/component/theme/logo1";
 import data from "@/data/about.json"
 import listExpertise from "@/data/listExpertise.json"
-import { useState } from "react";
+import { MutableRefObject, useState } from "react";
+import { useRef } from "react";
+import { useDraggable } from "react-use-draggable-scroll";
 
 export default function Aobut_us() {
     return (
@@ -121,9 +123,18 @@ function Clients() {
         </div>
     )
 }
-function Expertise() { 
+function Expertise() {
+
+    const ref = useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
+    const { events } = useDraggable(ref, {
+        applyRubberBandEffect: true,
+        isMounted: true, 
+        safeDisplacement: 11, // specify the drag sensitivity
+    });
+
     return (
-        <div className="mb-10">
+        <div className="mb-10 "
+        >
             <div className=" flex items-center  max-w-[1360px]   tap:w-full  flex-col">
                 <div className="flex flex-row items-center m-auto w-[90%] my-10" >
                     <Logo type="semple" />
@@ -133,8 +144,9 @@ function Expertise() {
                     </div>
                 </div>
             </div >
-            <div className="overflow-x-scroll tap:px-24 px-12">
-                <div className="flex flex-row scroll-auto w-[2200px] content"               >
+            <div {...events} ref={ref} className="w-full tap:px-24 px-12 space-x-3 overflow-x-scroll scrollbar-hide cursor-e-resize select-none ">
+                {/* <div {...events} ref={ref} className="flex flex-row scroll-auto contentmax-w-xl space-x-3 overflow-x-scroll scrollbar-hide"> */}
+                <div className="flex w-[2200px]  ">
                     {listExpertise.map((item, i) => <CardExpertise data={item} key={i} />)}
                 </div>
             </div>

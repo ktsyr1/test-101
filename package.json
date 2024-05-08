@@ -36,7 +36,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.50.1",
-    "react-native-svg": "^12.3.0"
+    "react-native-svg": "^12.3.0",
+    "react-use-draggable-scroll": "^0.4.7"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

@@ -3,9 +3,10 @@
 import Image from "next/image"
 import Btn from "../btns"
 import { IconArrow } from "../icons"
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useRef, useState } from "react"
 import SlidesData from "@/data/Sliders.json"
 import { loaderProp } from "../lib"
+import { useDraggable } from "react-use-draggable-scroll"
 
 const ThemeContext = createContext<any | null>({});
 const TimeLineContext = createContext<any | null>({});
@@ -49,13 +50,13 @@ function SliderFullData() {
     if (!data?.title) return <></>
     return (
         <div className="w-full  min-h-[800px] " >
-            <Image src={`/images/${data.bg}`} alt={'Background slide'} fill={true} className="!h-screen !relative" loading="lazy" loader={loaderProp} />
-            <div className="flex flex-col m-4 absolute lg:mr-36 sm:mr-10 max-[697px]:top-[228px] top-[178px] " >
+            <Image src={`/images/${data.bg}`} alt={'Background slide'} fill={true} className="lap:!h-screen !relative" loading="lazy" loader={loaderProp} />
+            <div className="flex flex-col m-4 absolute lg:mr-36 sm:mr-10 max-[697px]:top-[228px] tap:top-[178px] " >
 
-                <p className=" text-prussian-800  text-3xl lap:text-6xl"> {data.title}</p>
-                <p className="font-black text-safety-700 my-4 text-3xl lap:text-6xl "> {data.titleBold}</p>
+                <p className=" text-prussian-800 lap:text-6xl tap:text-3xl text-xl "> {data.title}</p>
+                <p className="font-black text-safety-700 my-4 lap:text-6xl tap:text-3xl text-xl  "> {data.titleBold}</p>
                 <div className="max-w-[640px] " >
-                    <p className="my-8  font-medium text-lg lap:text-2xl"> {data.bio}</p>
+                    <p className="tap:my-8  font-medium lap:text-2xl tap:text-lg text-sm  "> {data.bio}</p>
                     <div onMouseEnter={enter} onMouseLeave={leave} className="my-3 p-0">
                         <Btn title={data.btn.title} to={data.btn.to} childSort="end" className="bg-white m-0 rounded-lg hover:bg-safety-700 hover:text-white *:hover:fill-white " style={style} >
                             <IconArrow color={btnHover ? "#fff" : "#032DA6"} className={'mr-40'} />
@@ -72,10 +73,17 @@ function TimeLine(props: any) {
     const { setOne, One } = useContext(ThemeContext);
     let [timeLine, setTimeLine] = useState(SlidesData)
 
+    const ref = useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
+    const { events } = useDraggable(ref, {
+        applyRubberBandEffect: true,
+        isMounted: true,
+        safeDisplacement: 11, // specify the drag sensitivity
+
+    });
     return (
         <TimeLineContext.Provider value={{ "data": "" }}>
             <div className="bg-[#001F67]  flex flex-col h-[200px] justify-center mt-[-200px] overflow-x-scroll px-4 select-none z-30" >
-                <div className="flex flex-row  w-[1000px]  justify-start m-auto lap:justify-center">
+                <div className="flex flex-row  w-[1000px]  justify-start m-auto lap:justify-center" >
 
                     {timeLine.map(slider => <TimeLineCard data={slider} key={slider.title} />)}
                 </div>
