@@ -1,12 +1,10 @@
 "use client"
-
 import Image from "next/image"
 import Btn from "../btns"
 import { IconArrow } from "../icons"
 import { createContext, useContext, useEffect, useRef, useState } from "react"
 import SlidesData from "@/data/Sliders.json"
 import { loaderProp } from "../lib"
-import { useDraggable } from "react-use-draggable-scroll"
 
 const ThemeContext = createContext<any | null>({});
 const TimeLineContext = createContext<any | null>({});
@@ -73,13 +71,6 @@ function TimeLine(props: any) {
     const { setOne, One } = useContext(ThemeContext);
     let [timeLine, setTimeLine] = useState(SlidesData)
 
-    const ref = useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
-    const { events } = useDraggable(ref, {
-        applyRubberBandEffect: true,
-        isMounted: true,
-        safeDisplacement: 11, // specify the drag sensitivity
-
-    });
     return (
         <TimeLineContext.Provider value={{ "data": "" }}>
             <div className="bg-[#001F67]  flex flex-col h-[200px] justify-center mt-[-200px] overflow-x-scroll px-4 select-none z-30" >
