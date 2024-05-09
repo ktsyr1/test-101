@@ -10,6 +10,7 @@ import { Button, Form } from "antd";
 import FormPart2 from "./FormPart2";
 import FormPart3 from "./FormPart3";
 import FormPart4 from "./FormPart4";
+import { defaultPage } from "../config";
 // end imported
 
 let readmap: TypeReadmap[] = [
@@ -21,8 +22,9 @@ let readmap: TypeReadmap[] = [
 // end config setup
 
 export default function Forms() {
+    let defaultPage = 3
     let [data, setData] = useState({})
-    let [select, setSelect] = useState(readmap[0].slug)
+    let [select, setSelect] = useState(readmap[defaultPage].slug)
 
     const Layout = ({ children, slug }: LayoutType) => (<>{select === slug ? children : ""}</>)
 

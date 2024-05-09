@@ -48,13 +48,13 @@ const FormContact = () => {
                 </div>
 
             </div>
-            <div className="flex flex-col  w-full">
+            {/* <div className="flex flex-col  w-full">
                 <p className="text-xl  font-bold text-prussian-800 my-2">رقم IBAN</p>
                 <Form.Item<FieldType> name="BankDetails" className='w-full' rules={[{ required: true, message: 'Please input your BankDetails!' }]} >
                     <Input type='text' size='large' minLength={6} placeholder='أدخل الرقم البنكي' defaultValue={defaultData.BankDetails} />
                 </Form.Item>
-            </div>
-            <div className='*:mt-4'>
+            </div> */}
+            <div className='*:mt-4 m-auto w-full flex'>
                 <SubmitButton2 form={form}>التالي</SubmitButton2>
             </div>
         </Form>

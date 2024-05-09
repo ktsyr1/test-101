@@ -10,6 +10,7 @@ import FormRef4 from "./formRef4";
 import FormRef5 from "./formRef5";
 import FormRef6 from "./formRef6";
 import FormRef7 from "./formRef7";
+import { defaultPage } from "../config";
 
 // end imported
 
@@ -23,7 +24,7 @@ export const Layout = ({ children, slug }: LayoutType) => {
 }
 export default function FormsCustomer() {
     let [data, setData] = useState({})
-    let [select, setSelect] = useState(6)
+    let [select, setSelect] = useState(defaultPage == 0 && 1)
 
     return (
         <FormContext.Provider value={{ select, setSelect }}>

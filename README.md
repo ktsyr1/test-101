@@ -118,33 +118,34 @@ let pages<any> = {
 }
 
 {
-  // "projectTitle": "TstTitle",
-  // "projectImage": "data:image/jpeg;base64,/9j/4AAQ...",
-  // "realEstateTypeId": 2,
-  // "workAreaId": 1,
-  // "realEstateMunicipal": "ryadh",
-  // "realEstateNumber": "998A",
-  // "realEstateStreet": "al-Sarraj.st",
+  "projectTitle": "TstTitle",
+  "projectImage": "data:image/jpeg;base64,/9j/4AAQ...",
+  "realEstateTypeId": 2,
+  "workAreaId": 1,
+  "realEstateMunicipal": "ryadh",
+  "realEstateNumber": "998A",
+  "realEstateStreet": "al-Sarraj.st",
   "longitude": "123123",
   "latitude": "321321",
-  // "projectDate": "3-5-2024",
-  // "description": "abc",
-  // "startTime": "08:12:00.0000000",
-  // "endTime": "10:35:00.0000000",
-  // "realEstateAgesId": 1,
-  // "numberOfFloors": 3,
-  // "buildingArea": 2,
+  "projectDate": "3-5-2024",
+  "description": "abc",
+  "startTime": "08:12:00.0000000",
+  "endTime": "10:35:00.0000000",
+  "realEstateAgesId": 1,
+  "numberOfFloors": 3,
+  "buildingArea": 2, 
+  "promoCode": "mostafa",
   "additionalFieldsValue": [
     {
       "id": "6FE46970-F1B2-4831-7E79-08DC67F444F4",
       "value": "tstststst"
     }
   ],
-  // "projectObjectives": [
-  //   {
-  //     "assessmentObjectivesId": 1
-  //   }
-  // ]
+  "projectObjectives": [
+    {
+      "assessmentObjectivesId": 1
+    }
+  ]
 }
 {
       "id": "e9e7cc06-4a33-4ef0-6f77-08dc5cbdad73",

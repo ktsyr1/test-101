@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer, useState } from 'react';
+import React, { useContext, useEffect, useReducer, useRef, useState } from 'react';
 import { Err, Field } from './form';
 import { FormDataContext } from '../contextApi';
 import { useForm } from 'react-hook-form';
@@ -11,11 +11,10 @@ import GetFatch, { createFatch } from '../get';
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
     else if (action.type === "AvailableTimeSlots") return { ...state, AvailableTimeSlots: action.payload };
-    else if (action.type === "nextPart") {
-        console.log(action);
+    else if (action.type === "nextPart") return { ...state, nextPart: action.payload };
+    else if (action.type === "promoCode") return { ...state, promoCode: action.payload };
+    else if (action.type === "Bill") return { ...state, Bill: action.payload };
 
-        return { ...state, nextPart: action.payload };
-    }
     else return state;
 }
 
@@ -25,10 +24,8 @@ const FormPart4 = () => {
 
     let { data, setData } = useContext(FormDataContext)
     // useReducer start 
-    const [state, dispatch] = useReducer(reducer, { defaultData: data, AvailableTimeSlots: [], nextPart: 1 });
+    const [state, dispatch] = useReducer(reducer, { defaultData: data, AvailableTimeSlots: [], nextPart: 1, Bill: {} });
     // useReducer end
-
- 
 
     return (
         <div className='*:py-2 mb-10 '   >
@@ -58,7 +55,6 @@ function LastPage({ state, dispatch }: any) {
 
     const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
     const onSubmit = (res: any) => {
-        // setData({ ...state?.defaultData, projectTitle: res.projectTitle })
         let body = { ...state?.defaultData, projectTitle: res.projectTitle }
 
         let additionalFieldsValue: any = localStorage.getItem("additionalFieldsValue")
@@ -80,6 +76,7 @@ function LastPage({ state, dispatch }: any) {
             "description": body.description,
             "startTime": body.startTime,
             "endTime": body.endTime,
+            "promoCode": body.promoCode,
             "realEstateAgesId": Number(body.realEstateAgesId),
             "numberOfFloors": Number(body.numberOfFloors),
             "buildingArea": Number(body.buildingArea),
@@ -88,11 +85,8 @@ function LastPage({ state, dispatch }: any) {
         }
         let token: any = JsCookies.get("userToken")
         createFatch("/Client/Assessment", model, token)
-            .then((res: any) => {
-                console.log(res);
-                dispatch({ type: 'nextPart', payload: 2 })
+            .then(res => dispatch({ type: "Bill", payload: res.data }))
 
-            })
         localStorage.removeItem("additionalFieldsValue")
     };
     function Loading() {
@@ -102,6 +96,13 @@ function LastPage({ state, dispatch }: any) {
                 return <p  > {loading}</p>
             }
         } else return <p className={`${loading == "فشل التحميل" && "text-red-700"}`}> {loading}</p>
+    }
+    function SendPromoCode() {
+        let el = (document.querySelector('input[name="promoCode"]') as HTMLInputElement)?.value;
+        let token: any = JsCookies.get("userToken")
+
+        if (el) GetFatch(`/Client/CheckPromoCode?PromoCode=${el}`, token)
+            .then(res => dispatch({ type: "promoCode", payload: res.data }))
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
@@ -114,19 +115,85 @@ function LastPage({ state, dispatch }: any) {
                     </div>
                 </>
             </Field>
+            <div className='flex flex-col'>
+                <p className="lap:text-xl tap:text-sm text-xs font-bold text-prussian-800 my-2 mr-4">الكوبون</p>
+                <div className='flex flex-row max-w-[500px]'>
+                    <input type={"text"}  {...register("promoCode")} className='p-2 ml-4 rounded-md' />
+                    <div className='p-2 px-4 bg-safety-700 text-white rounded-lg w-max  cursor-pointer' onClick={SendPromoCode}>تحقق </div>
+                </div>
+                {state?.promoCode?.amount && <p className='p-4 font-bold lap:text-xl tap:text-lg text-base text-safety-700'> قيمة الخصم
+                    <strong > {state?.promoCode?.amount}% </strong>
+                </p>}
+            </div>
             <AdditionalFieldsValue page={4} />
-
             <input type='submit' value="انهاء تقديم الطلب" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
             <br />
         </form >
     );
 }
 
-
 function EndPage({ state, dispatch }: any) {
     let { data, setData } = useContext(FormDataContext)
+    console.log(state?.Bill);
+
+    let assessmentPayment = {
+        "assessmentId": "51c68a97-2680-4664-b1ab-ff3d055601ac",
+        "promoCodeId": 1,
+        "discountPercent": 0,
+        "subtotal": 24,
+        "promoCodePrice": 12,
+        "discountPrice": 0,
+        "totalAmount": 12,
+        "serviceTax": 4988,
+        "tax": 750,
+        "netTotal": 5750
+    }
+    let title = {
+        "subtotal": "المجموع الفرعي",
+        "promoCodePrice": "قيمة الكوبون",
+        "discountPrice": "سعر الخصم",
+        "totalAmount": "المبلغ الاجمالي",
+        "serviceTax": "ضريبة الخدمة",
+        "tax": "الضريبة",
+        "netTotal": "الإجمالي الصافي"
+    }
+    //     "سعر الخصم": 0,
+    //     "المبلغ الإجمالي": 12،
+    //     "ضريبة الخدمة": 4988،
+    //     "الضريبة": 750،
+    //     "الإجمالي الصافي": 5750
+    let list = ["subtotal", "promoCodePrice", "discountPrice", "totalAmount", "serviceTax", "tax", "netTotal"]
+    function Card({ data, x }: { data: keyof typeof title, x?: string }) {
+        return (
+            <>
+                <div className='flex flex-row justify-between text-base min-w-[200px] font-medium p-2 bg-white rounded-lg my-2' >
+                    <p>{title[data]}</p>
+                    <p className='mx-2'>{assessmentPayment[data]} ر.س</p>
+                </div>
+                <p className='m-4'>{x}</p>
+            </>
+        )
+    }
     return (
-        <div className='*:py-2 mb-10 w-full flex justify-center items-center min-h-[200px]'>  تم  انهاء تقديم الطلب      </div >
+        <div className='*:py-2 mb-10 w-full flex flex-col justify-center items-center min-h-[200px]'>
+            <p> تم  انهاء تقديم الطلب    </p>
+            <div className='text-center flex justify-center flex-col tap:flex-row items-center'>
+                <Card data={"subtotal"} x="-" />
+                <Card data={"promoCodePrice"} x="-" />
+                <Card data={"discountPrice"} x="=" />
+                <Card data={"totalAmount"} />
+            </div>
+            <hr className='border-2 border-prussian-800 w-full !p-0' />
+            <div className='text-center flex justify-center flex-col tap:flex-row items-center'>
+                <Card data={"totalAmount"} x="+" />
+
+                <Card data={"serviceTax"} x="+" />
+                <Card data={"tax"} x="=" />
+                <Card data={"netTotal"} />
+
+                {/* {list.map(a => <Card data={a} />)} */}
+            </div>
+        </div >
     );
 }
 

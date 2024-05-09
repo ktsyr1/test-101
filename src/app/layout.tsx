@@ -25,8 +25,8 @@ const inter =// localFont({ src: './fonts/ArbFONTS-LamaSans-BoldCondensed.ttf', 
         ],
     })
 export const metadata: Metadata = {
-    title: "inspectx",
-    description: "Generated inspectx",
+    title: "inspectex",
+    description: "Generated inspectex",
 };
 type Children = Readonly<{ children: React.ReactNode }>
 
