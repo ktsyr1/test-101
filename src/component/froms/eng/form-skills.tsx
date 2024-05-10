@@ -15,48 +15,39 @@ export default function FormSkills() {
     const [IsFullTime, setIsFullTime] = useState(null)
     const [nextPart, setNextPart] = useState(false)
     const [dane, setDane] = useState(false)
+    const [valid, setValid] = useState(false)
     let [Files, setFile] = useState(true)
-    const { register, handleSubmit, formState: { errors }, } = useForm({ defaultValues: data })
-    let [Errors, setErrors] = useState(errors)
-
+    const { register, handleSubmit, formState: { errors }, watch } = useForm({ defaultValues: data })
     const onSubmit = (res: any) => {
+        if (!Files && typeof IsFullTime === "boolean" && PassingCourse && typeof Picture !== "undefined") {
+            console.log("Send data");
 
-        let body: any = { PassingCourse, IsFullTime }
-        if (typeof IsFullTime !== 'boolean') {
-            console.log(IsFullTime);
-
-            let other = { "type": "required", "message": "هذا الحقل مطلوب ", "ref": { "name": "IsFullTime" } }
-            Object.assign({ IsFullTime: other }, Errors)
-            setErrors(Errors)
-
+            const formData = new FormData();
+            formData.append('Firstname', data.firstname || data.Firstname);  // Firstname
+            formData.append('MiddleName', data.middleName || data.MiddleName);  // MiddleName
+            formData.append('LastName', data.lastName || data.LastName);  // LastName
+            formData.append('Email', data.Email || data.Email);  // Email
+            formData.append('PhoneNumber', data.PhoneNumber || data.PhoneNumber);  // PhoneNumber
+            formData.append('CityId', data.cityId || data.CityId);  // CityId
+            formData.append('QualificationId', data.QualificationId || data.QualificationId);  // QualificationId
+            formData.append('NationalId', data.NationalId || data.NationalId);  // NationalId
+            formData.append('MemberShip', data.MemberShip || data.MemberShip)  // MemberShip
+            formData.append('YearsOfExperience', data.YearsOfExperience || data.YearsOfExperience);  // YearsOfExperience
+            formData.append('BankDetails', "0");      // BankDetails
+            formData.append('PassingCourse', PassingCourse);     // PassingCourse
+            formData.append('IsFullTime', IsFullTime)   // IsFullTime
+            formData.append('HasRelatives', data.HasRelatives || data.HasRelatives);  // HasRelatives
+            formData.append('RelativeName', data.RelativeName || data.RelativeName);  // RelativeName
+            formData.append('RelativePhone', data.RelativePhone || data.RelativePhone);  // RelativePhone
+            formData.append('Files', new Blob([res?.Files], { type: 'application/pdf' }), `CV${new Date().getTime()}.pdf`);    // Files
+            formData.append('Picture', new Blob([res.Picture], { type: 'image/*' }), `Picture-${new Date().getTime()}.jpeg`);       // Picture      console.log(formData.values());
+            createInvester({ data: { formData } })
+                .then(RES => {
+                    setDane(true)
+                    message.success("تم ارسال الطلب بنجاح")
+                })
+                .catch(error => console.error(error))
         }
-        const formData = new FormData();
-        formData.append('Firstname', data.firstname || data.Firstname);  // Firstname
-        formData.append('MiddleName', data.middleName || data.MiddleName);  // MiddleName
-        formData.append('LastName', data.lastName || data.LastName);   // LastName
-        formData.append('Email', data.Email || data.Email);   // Email
-        formData.append('PhoneNumber', data.PhoneNumber || data.PhoneNumber);   // PhoneNumber
-        formData.append('CityId', data.cityId || data.CityId);   // CityId
-        formData.append('QualificationId', data.QualificationId || data.QualificationId);    // QualificationId
-        formData.append('NationalId', data.NationalId || data.NationalId);  // NationalId
-        formData.append('MemberShip', data.MemberShip || data.MemberShip)       // MemberShip
-        formData.append('YearsOfExperience', data.YearsOfExperience || data.YearsOfExperience);       // YearsOfExperience
-        formData.append('BankDetails', "0");      // BankDetails
-        formData.append('PassingCourse', body.PassingCourse || body.PassingCourse);     // PassingCourse
-        // formData.append('PassingWorkShop', "0");     // PassingWorkShop
-        formData.append('IsFullTime', body.IsFullTime || body.IsFullTime);    // IsFullTime
-        formData.append('HasRelatives', data.HasRelatives || data.HasRelatives);      // HasRelatives
-        formData.append('RelativeName', data.RelativeName || data.RelativeName);      // RelativeName
-        formData.append('RelativePhone', data.RelativePhone || data.RelativePhone);   // RelativePhone
-        formData.append('Files', new Blob([res?.Files], { type: 'application/pdf' }), `CV${new Date().getTime()}.pdf`);    // Files
-        formData.append('Picture', new Blob([res.Picture], { type: 'image/*' }), `Picture-${new Date().getTime()}.jpeg`);       // Picture      console.log(formData.values());
-        createInvester({ data: { formData } })
-            .then(RES => {
-                console.log(RES);
-                setDane(true)
-                message.success("تم ارسال الطلب بنجاح")
-            })
-            .catch(error => console.error(error))
     }
 
     function BtnsBol({ a, v, set, list }: any) {
@@ -76,14 +67,10 @@ export default function FormSkills() {
         message.info("جاري رفع الملف بنجاح")
 
         const file: any = event.target.files && event.target.files[0]
-        console.log(file);
-
         if (file) {
             setFile(false)
-
             message.success("تم رفع الملف بنجاح");
         }
-
     }
     let cvRef = useRef<any>()
 
@@ -101,28 +88,41 @@ export default function FormSkills() {
             <input type='file'  {...register('Files')} className='hidden' accept='application/pdf' ref={cvRef} onChange={Uploads} />
 
             {Files ?
-                <div className=" text-lg w-full m-auto justify-center flex tap:flex-row flex-col" >
-                    <p className="ant-upload-text">قم بسحب وإسقاط الملف أو
-                        <p className="ant-upload-hint font-bold !text-safety-700 mx-2"> تصفح جهاز الكمبيوتر </p></p>
-                </div>
+                <>
+                    <div className=" text-lg w-full m-auto justify-center flex tap:flex-row flex-col" >
+                        <p className="ant-upload-text">قم بسحب وإسقاط الملف أو
+                            <p className="ant-upload-hint font-bold !text-safety-700 mx-2"> تصفح جهاز الكمبيوتر </p></p>
+                    </div>
+                    <p className='p-4 text-red-600'>{errors?.Files?.message?.toString() || ""}</p>
+                </>
                 : <p>تم رفع الملف</p>}
-            <p className='p-4 text-red-600'>{errors?.Files?.message?.toString() || ""}</p>
         </div>
     )
 
-    return (
+    function Valid() {
+        setTimeout(() => {
 
-        <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 '   >
+            let Picture = watch("Picture")
+            let Files = watch("Files")
+            // console.log([Files, IsFullTime, PassingCourse, Picture?.length])
+            // console.log([Files, IsFullTime, PassingCourse, Picture])
+            if (!Files && typeof IsFullTime === "boolean" && PassingCourse && typeof Picture !== "undefined") setValid(true)
+            else setValid(false)
+        }, 200);
+    }
+
+    let Picture = watch("Picture")
+    console.log([!Files, typeof IsFullTime === "boolean", PassingCourse, typeof Picture !== "undefined"])
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onClick={Valid}   >
             {dane ? <Dane /> :
                 <>
                     <p className="text-xl  font-bold text-prussian-800 my-2"> هل تمتلك دورة فحص المباني الجاهزة؟</p>
                     <div className=" flex flex-row my-6  py-6" >
                         {[true, false].map((a, i) => <BtnsBol a={a} key={i} v={PassingCourse} set={setValue} />)}
                     </div>
-                    {/* <p className="text-xl  font-bold text-prussian-800 my-2"> هل  قمت باجتياز ورشة العمل؟</p>
-                    <div className=" flex flex-row my-6  py-6" >
-                        {[true, false].map((a, i) => <BtnsBol a={a} key={i} v={PassingWorkShop} set={setValue2} />)}
-                    </div> */}
+
                     <p className="text-xl  font-bold text-prussian-800 my-2">    هل الدوام الكامل</p>
                     <div className=" flex flex-row my-6  py-6" >
                         {[false, true].map((a, i) => <BtnsBol a={a} key={i} v={IsFullTime} set={setIsFullTime} list={["دوام جزئي", "دوام كامل"]} />)}
@@ -140,8 +140,9 @@ export default function FormSkills() {
                         </>
                     }
                     <div className='flex justify-center'>
-                        {nextPart ? <input type='submit' className='text-center rounded-md max-w-[600px] text-white w-full m-auto p-2 !bg-safety-700 ' value={"إنهاء تقديم الطلب"} />
-                            : <SubmitButton active={PassingCourse === true} onClick={() => setNextPart(true)}  >التالي</SubmitButton>
+                        {nextPart
+                            ? <input type='submit' className={`text-center rounded-md max-w-[600px] text-white w-full m-auto p-2 ${valid ? "!bg-safety-700 " : "bg-[#6B7B8F] "}`} value={"إنهاء تقديم الطلب"} disabled={!valid} />
+                            : <SubmitButton active={PassingCourse === true && typeof IsFullTime === "boolean"} onClick={() => setNextPart(true)}  >التالي</SubmitButton>
                         }
                     </div>
 

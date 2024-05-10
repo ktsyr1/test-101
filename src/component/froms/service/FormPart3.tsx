@@ -15,6 +15,7 @@ import GetFatch from '../get';
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
     if (action.type === "projectObjectives") return { ...state, projectObjectives: action.payload };
+    else if (action.type === "err") return { ...state, err: action.payload };
     else return state;
 }
 
@@ -25,7 +26,7 @@ const FormPart3 = () => {
     let { data, setData } = useContext(FormDataContext)
     // useReducer start 
     // const [state, dispatch] = useReducer(reducer, { defaultData: data, projectObjectives: backup.projectObjectives });
-    const [state, dispatch] = useReducer(reducer, { defaultData: data, projectObjectives: [] });
+    const [state, dispatch] = useReducer(reducer, { defaultData: data, projectObjectives: [], err: {} });
     // useReducer end
     const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
 
@@ -38,9 +39,29 @@ const FormPart3 = () => {
 
     }, [data])
     const onSubmit = (res: any) => {
-        setData({ ...state?.defaultData, projectTitle: res.projectTitle })
-        let slug = NextPage(select)
-        setSelect(slug)
+
+        let { description } = state.defaultData
+        let { projectTitle, projectImage } = res
+        dispatch({ type: 'err', payload: {} })
+        let listErr: any = {}
+
+        if (projectImage?.length == 0) listErr["projectImage"] = { text: "هذه لحقل مطلوب" }
+        if (!projectTitle) listErr["projectTitle"] = { text: "هذه لحقل مطلوب" }
+        else if (projectTitle?.length <= 2) listErr["projectTitle"] = { text: "النص قصير" }
+
+        if (!projectTitle) listErr["projectTitle"] = { text: "هذه لحقل مطلوب" }
+        else if (projectTitle?.length <= 2) listErr["projectTitle"] = { text: "النص قصير" }
+
+        if (!description) listErr["description"] = { text: "هذه لحقل مطلوب" }
+        else if (description?.length <= 2) listErr["description"] = { text: "النص قصير" }
+
+        dispatch({ type: 'err', payload: listErr })
+
+        if (Object.keys(listErr)?.length == 0) {
+            setData({ ...state?.defaultData, projectTitle: res.projectTitle })
+            let slug = NextPage(select)
+            setSelect(slug)
+        };
     };
 
     let setProjectImage = (e: any) => {
@@ -59,22 +80,17 @@ const FormPart3 = () => {
 
     }
     // console.log(state.defaultData);
-    let setProjectObjectives = (s: any) => {
-        console.log(s);
-        console.log({ type: "data", payload: { ...state?.defaultData, "projectObjectives": [{ assessmentObjectivesId: s.value }] } });
+    let setProjectObjectives = (s: any) => dispatch({ type: "data", payload: { ...state?.defaultData, "projectObjectives": [{ assessmentObjectivesId: Number(s.value) }] } })
 
-        dispatch({ type: "data", payload: { ...state?.defaultData, "projectObjectives": [{ assessmentObjectivesId: Number(s.value) }] } })
-    }
     let titleProjectObjectives = state.projectObjectives
         ?.filter((A: any) => A?.value == state.defaultData?.projectObjectives?.[0]?.assessmentObjectivesId)//?.[0]?.text || "اهداف المشروع"
-    console.log()
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
 
             <div className='flex tap:flex-row flex-col m-4 p-4'>
-                <Input text="اسم المشروع" name="projectTitle" register={register} />
-                <Input text="صورة العقار" name="projectImage" type='file' accept="image/*" register={register} onChange={setProjectImage} />
+                <Input text="اسم المشروع" name="projectTitle" register={register} err={state?.err?.projectTitle} />
+                <Input text="صورة العقار" name="projectImage" type='file' accept="image/*" register={register} onChange={setProjectImage} err={state?.err?.projectImage} />
             </div>
 
             <Field title="اهداف المشروع" className='flex flex-col w-full mx-4 '>
@@ -83,6 +99,7 @@ const FormPart3 = () => {
                     title={titleProjectObjectives?.[0]?.text || "اهداف المشروع"}
                     set={setProjectObjectives}
                     className='w-full'
+                    err={state?.err?.projectObjectives}
                 />
             </Field>
             <div className='flex flex-col m-4 p-4' >
@@ -93,6 +110,8 @@ const FormPart3 = () => {
                     placeholder=" "
                     onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => dispatch({ type: "data", payload: { ...state?.defaultData, description: e.target.value } })}
                 />
+                {state?.err?.description?.text && <p className='p-4 text-red-600'>{state?.err?.description.text}</p>}
+
             </div>
             <AdditionalFieldsValue page={3} />
 

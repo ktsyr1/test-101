@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     let data = {
         id: "100001",
         currency: "SAU", // default
-        amount: "550",
+        amount: "1",
         description: "dummy description",
         name: "Qotayba Mohammad",
         email: "ktsyr1@gmail.com",

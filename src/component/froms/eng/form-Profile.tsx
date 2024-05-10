@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Form, Input, Select, message } from 'antd';
+import { Form, Input, Select } from 'antd';
 import { FieldType } from '../types';
 import { NextPage, SubmitButton2 } from './form';
 import { FormContext, FormDataContext } from '../contextApi';
@@ -11,9 +11,8 @@ export default function FormProfile() {
 
     let { data, setData } = useContext(FormDataContext)
     let [defaultData, setDD] = useState(data)
-    let [Picture, setPicture] = useState(data?.Picture)
     let { select, setSelect } = useContext(FormContext)
-    const [HasRelatives, setHasRelatives] = useState(false);
+    const [HasRelatives, setHasRelatives] = useState(null);
 
     const [form] = Form.useForm();
 
@@ -36,22 +35,6 @@ export default function FormProfile() {
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
     };
-
-    // function onChange(e: any) {
-
-    //     const file = e.target.files && e.target.files[0];
-    //     const reader = new FileReader();
-    //     message.info("جاري رفع الصورة بنجاح")
-
-    //     reader.onload = (e) => {
-    //         const base64String = e.target?.result as string;
-    //         // set {base64String} to 
-    //         setPicture(base64String)
-    //         message.success("تم رفع الصورة بنجاح");
-    //     };
-    //     if (file) reader.readAsDataURL(file);
-
-    // }
 
     function BtnsBol({ a, v, set }: any) {
         return (

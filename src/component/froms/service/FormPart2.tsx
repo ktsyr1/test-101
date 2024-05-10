@@ -11,6 +11,7 @@ import AdditionalFieldsValue from './AdditionalFieldsValue';
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
     else if (action.type === "WorkAreas") return { ...state, WorkAreas: action.payload };
+    else if (action.type === "err") return { ...state, err: action.payload };
     else return state;
 }
 
@@ -22,7 +23,7 @@ const FormParrt2 = () => {
     let { select, setSelect } = useContext(FormContext)
     let { data, setData } = useContext(FormDataContext)
     // useReducer start
-    const initialState = { defaultData: data, WorkAreas: [] };
+    const initialState = { defaultData: data, WorkAreas: [], err: {} };
     const [state, dispatch] = useReducer(reducer, initialState);
     // useReducer end
     // example ` dispatch({ type: 'WorkAreas', payload: data?.data }) `
@@ -38,10 +39,29 @@ const FormParrt2 = () => {
 
     const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
     const onSubmit = (res: any) => {
+        // scan valid
+        let { workAreaId } = state.defaultData
+        let { realEstateMunicipal, realEstateNumber, realEstateStreet } = res
+        dispatch({ type: 'err', payload: {} })
+        let listErr: any = {}
+        if (!workAreaId) listErr["workAreaId"] = { text: "هذه لحقل مطلوب" }
+        if (!realEstateMunicipal) listErr["realEstateMunicipal"] = { text: "هذه لحقل مطلوب" }
+        else if (realEstateMunicipal?.length <= 2) listErr["realEstateMunicipal"] = { text: "النص قصير" }
 
-        setData({ ...data, ...res })
-        let slug = NextPage(select)
-        setSelect(slug)
+        if (!realEstateNumber) listErr["realEstateNumber"] = { text: "هذه لحقل مطلوب" }
+        else if (Number.isNaN(realEstateNumber)) listErr["realEstateNumber"] = { text: "النص قصير" }
+        else if (Number(realEstateNumber) == 0) listErr["realEstateNumber"] = { text: "النص قصير" }
+
+        if (!realEstateStreet) listErr["realEstateStreet"] = { text: "هذه لحقل مطلوب" }
+        else if (realEstateStreet?.length <= 2) listErr["realEstateStreet"] = { text: "النص قصير" }
+
+        dispatch({ type: 'err', payload: listErr })
+
+        if (Object.keys(listErr)?.length == 0) { 
+            setData({ ...data, ...res })
+            let slug = NextPage(select)
+            setSelect(slug)
+        }
     };
 
 
@@ -55,13 +75,16 @@ const FormParrt2 = () => {
                         list={state.WorkAreas}
                         title={state?.WorkAreas.filter((A: any) => A?.value === state.defaultData.workAreaId)[0]?.text || "منطقة العمل"}
                         set={(s: any) => setData({ ...state.defaultData, "workAreaId": s.value })}
+                        err={state?.err?.workAreaId}
+
                     />
                 </Field>
-                <Input text="البلدية العقارية" name="realEstateMunicipal" className="mr-4" register={register} />
+
+                <Input text="البلدية العقارية" name="realEstateMunicipal" className="mr-4" register={register} err={state?.err?.realEstateMunicipal} />
             </div>
             <div className='flex tap:flex-row flex-col m-4 p-4'>
-                <Input text="رقم العقار" name="realEstateNumber" type="number" register={register} />
-                <Input text="شارع العقارات" name="realEstateStreet" register={register} />
+                <Input text="رقم العقار" name="realEstateNumber" type="number" register={register} err={state?.err?.realEstateNumber} />
+                <Input text="شارع العقارات" name="realEstateStreet" register={register} err={state?.err?.realEstateStreet} />
             </div>
             <AdditionalFieldsValue page={2} />
 

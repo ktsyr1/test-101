@@ -18,6 +18,7 @@ const reducer = (state: any, action: any) => {
     else if (action.type === "nextPart") return { ...state, nextPart: action.payload };
     else if (action.type === "promoCode") return { ...state, promoCode: action.payload };
     else if (action.type === "Bill") return { ...state, Bill: action.payload };
+    else if (action.type === "err") return { ...state, err: action.payload };
 
     else return state;
 }
@@ -28,7 +29,7 @@ const FormPart4 = () => {
 
     let { data, setData } = useContext(FormDataContext)
     // useReducer start 
-    const [state, dispatch] = useReducer(reducer, { defaultData: data, AvailableTimeSlots: [], nextPart: 1, Bill: {} });
+    const [state, dispatch] = useReducer(reducer, { defaultData: data, AvailableTimeSlots: [], nextPart: 1, Bill: {}, err: {} });
     // useReducer end
 
     return (
@@ -87,15 +88,24 @@ function LastPage({ state, dispatch }: any) {
             "projectObjectives": body.projectObjectives,
             "additionalFieldsValue": additionalFieldsValue
         }
-        let token: any = JsCookies.get("userToken")
-        createFatch("/Client/Assessment", model, token)
-            .then(res => {
-                dispatch({ type: "nextPart", payload: 2 })
-                dispatch({ type: "Bill", payload: res.data })
-            })
-        localStorage.removeItem("additionalFieldsValue")
 
-    };
+        dispatch({ type: 'err', payload: {} })
+        let listErr: any = {}
+
+        if (model.projectDate) listErr["projectDate"] = { text: "لم تقم بتحديد الموعد " }
+        dispatch({ type: 'err', payload: listErr })
+
+        if (Object.keys(listErr)?.length == 0) {
+            let token: any = JsCookies.get("userToken")
+            createFatch("/Client/Assessment", model, token)
+                .then(res => {
+                    dispatch({ type: "nextPart", payload: 2 })
+                    dispatch({ type: "Bill", payload: res.data })
+                })
+            localStorage.removeItem("additionalFieldsValue")
+
+        };
+    }
     function Loading() {
         if (state?.AvailableTimeSlots) {
             if (state.AvailableTimeSlots?.length == 0) {
