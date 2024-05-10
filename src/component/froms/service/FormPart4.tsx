@@ -7,7 +7,11 @@ import AdditionalFieldsValue from './AdditionalFieldsValue';
 import JsCookies from 'js-cookie';
 import GetFatch, { createFatch } from '../get';
 // ------------------------------------------ 
-
+let clean = {
+    "projectDate": "3-5-2024",
+    "startTime": "08:12:00.0000000",
+    "endTime": "10:35:00.0000000",
+}
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
     else if (action.type === "AvailableTimeSlots") return { ...state, AvailableTimeSlots: action.payload };
@@ -72,11 +76,11 @@ function LastPage({ state, dispatch }: any) {
             "realEstateStreet": body.realEstateStreet,
             "longitude": "0",
             "latitude": "0",
-            "projectDate": body.projectDate,
+            "projectDate": body.projectDate || clean.projectDate,
+            "startTime": body.startTime || clean.startTime,
+            "endTime": body.endTime || clean.endTime,
             "description": body.description,
-            "startTime": body.startTime,
-            "endTime": body.endTime,
-            "promoCode": body.promoCode,
+            "promoCode": res.promoCode || "",
             "realEstateAgesId": Number(body.realEstateAgesId),
             "numberOfFloors": Number(body.numberOfFloors),
             "buildingArea": Number(body.buildingArea),
@@ -85,9 +89,12 @@ function LastPage({ state, dispatch }: any) {
         }
         let token: any = JsCookies.get("userToken")
         createFatch("/Client/Assessment", model, token)
-            .then(res => dispatch({ type: "Bill", payload: res.data }))
-
+            .then(res => {
+                dispatch({ type: "nextPart", payload: 2 })
+                dispatch({ type: "Bill", payload: res.data })
+            })
         localStorage.removeItem("additionalFieldsValue")
+
     };
     function Loading() {
         if (state?.AvailableTimeSlots) {
@@ -168,7 +175,7 @@ function EndPage({ state, dispatch }: any) {
             <>
                 <div className='flex flex-row justify-between text-base min-w-[200px] font-medium p-2 bg-white rounded-lg my-2' >
                     <p>{title[data]}</p>
-                    <p className='mx-2'>{assessmentPayment[data]} ر.س</p>
+                    <p className='mx-2'>{state?.Bill?.assessmentPayment && state?.Bill?.assessmentPayment[data]} ر.س</p>
                 </div>
                 <p className='m-4'>{x}</p>
             </>
@@ -176,7 +183,7 @@ function EndPage({ state, dispatch }: any) {
     }
     return (
         <div className='*:py-2 mb-10 w-full flex flex-col justify-center items-center min-h-[200px]'>
-            <p> تم  انهاء تقديم الطلب    </p>
+            <p className='text-3xl font-bold'> تم  انهاء تقديم الطلب    </p>
             <div className='text-center flex justify-center flex-col tap:flex-row items-center'>
                 <Card data={"subtotal"} x="-" />
                 <Card data={"promoCodePrice"} x="-" />

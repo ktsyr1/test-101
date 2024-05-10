@@ -12,7 +12,7 @@ export default async function GetFatch(url: string, token?: string): Promise<any
             // console.log(data);
             return data
         })
-        .catch((error: Function) => refreshToken(GetFatch(url, token)))
+        // .catch((error: Function) => refreshToken(GetFatch(url, token)))
 }
 export const createFatch = async (url: string, body: any, token?: string): Promise<any> => {
     let headers: any = { "Content-Type": "application/json" }
@@ -22,7 +22,7 @@ export const createFatch = async (url: string, body: any, token?: string): Promi
             console.log(data);
             return data
         })
-        .catch((error: Function) => refreshToken(createFatch(url, body, token)))
+        // .catch((error: Function) => refreshToken(createFatch(url, body, token)))
 
 }
 

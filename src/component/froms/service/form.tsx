@@ -22,7 +22,7 @@ let readmap: TypeReadmap[] = [
 // end config setup
 
 export default function Forms() {
-    let defaultPage = 3
+    // let defaultPage = 3
     let [data, setData] = useState({})
     let [select, setSelect] = useState(readmap[defaultPage].slug)
 

@@ -23,8 +23,8 @@ export default function FormSkills() {
 
         let body: any = { PassingCourse, IsFullTime }
         if (typeof IsFullTime !== 'boolean') {
-            console.log(IsFullTime );
-            
+            console.log(IsFullTime);
+
             let other = { "type": "required", "message": "هذا الحقل مطلوب ", "ref": { "name": "IsFullTime" } }
             Object.assign({ IsFullTime: other }, Errors)
             setErrors(Errors)
@@ -98,7 +98,7 @@ export default function FormSkills() {
             {/* ref */}
 
             {/* <input type='file'  {...register('Files', { required: "السيرة الذاتية  مطلوبة " })}  aria-invalid={errors.Files ? "true" : "false"}  className='hidden' accept='application/pdf' ref={cvRef} onChange={Uploads} /> */}
-            <input type='file'  {...register('Files' )} className='hidden' accept='application/pdf' ref={cvRef} onChange={Uploads} />
+            <input type='file'  {...register('Files')} className='hidden' accept='application/pdf' ref={cvRef} onChange={Uploads} />
 
             {Files ?
                 <div className=" text-lg w-full m-auto justify-center flex tap:flex-row flex-col" >
@@ -106,7 +106,7 @@ export default function FormSkills() {
                         <p className="ant-upload-hint font-bold !text-safety-700 mx-2"> تصفح جهاز الكمبيوتر </p></p>
                 </div>
                 : <p>تم رفع الملف</p>}
-            <p className='p-4 text-red-600'>{errors?.Files?.message || ""}</p>
+            <p className='p-4 text-red-600'>{errors?.Files?.message?.toString() || ""}</p>
         </div>
     )
 
@@ -134,7 +134,7 @@ export default function FormSkills() {
                             <div className="flex flex-col  w-full">
                                 <p className="text-xl  font-bold text-prussian-800 my-2">الصورة الشخصية</p>
                                 <input type='file' accept="image/*" {...register('Picture', { required: "الصورة مطلوبة ", })} aria-invalid={errors.Picture ? "true" : "false"} className='bg-white p-3 rounded-lg cursor-pointer' />
-                                <p className='p-4 text-red-600'>{errors?.Picture?.message || ""}</p>
+                                <p className='p-4 text-red-600'>{errors?.Picture?.message?.toString() || ""}</p>
                             </div>
                             <App />
                         </>
