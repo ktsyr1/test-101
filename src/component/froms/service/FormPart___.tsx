@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useReducer, useRef, useState } from 'react';
-import { Err, Field, NextPage } from './form';
-import { FormContext, FormDataContext } from '../contextApi';
+import { Err, Field } from './form';
+import { FormDataContext } from '../contextApi';
 import { useForm } from 'react-hook-form';
 import AdditionalFieldsValue from './AdditionalFieldsValue';
 
@@ -15,6 +15,7 @@ let clean = {
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
     else if (action.type === "AvailableTimeSlots") return { ...state, AvailableTimeSlots: action.payload };
+    else if (action.type === "nextPart") return { ...state, nextPart: action.payload };
     else if (action.type === "promoCode") return { ...state, promoCode: action.payload };
     else if (action.type === "Bill") return { ...state, Bill: action.payload };
     else if (action.type === "err") return { ...state, err: action.payload };
@@ -28,12 +29,13 @@ const FormPart4 = () => {
 
     let { data, setData } = useContext(FormDataContext)
     // useReducer start 
-    const [state, dispatch] = useReducer(reducer, { defaultData: data, AvailableTimeSlots: [], Bill: {}, err: {} });
+    const [state, dispatch] = useReducer(reducer, { defaultData: data, AvailableTimeSlots: [], nextPart: 1, Bill: {}, err: {} });
     // useReducer end
 
     return (
         <div className='*:py-2 mb-10 '   >
-            <LastPage state={state} dispatch={dispatch} />
+            {state.nextPart == 1 && <LastPage state={state} dispatch={dispatch} />}
+            {state.nextPart == 2 && <EndPage state={state} dispatch={dispatch} />}
             <AdditionalFieldsValue page={4} />
             <br />
         </div>
@@ -41,10 +43,8 @@ const FormPart4 = () => {
 }
 
 function LastPage({ state, dispatch }: any) {
-    let { data, setData, Content, setContent } = useContext(FormDataContext)
+    let { data, setData } = useContext(FormDataContext)
     let [loading, setLoading] = useState("جاري تحميل المواعيد")
-    let { select, setSelect } = useContext(FormContext)
-
     useEffect(() => {
 
         const today = new Date();
@@ -94,31 +94,18 @@ function LastPage({ state, dispatch }: any) {
 
         if (!model.projectDate) listErr["projectDate"] = { text: "لم تقم بتحديد الموعد " }
         dispatch({ type: 'err', payload: listErr })
-
         if (Object.keys(listErr)?.length == 0) {
-            console.log(model);
+            console.log("test");
 
+            // let token: any = JsCookies.get("userToken")
+            // createFatch("/Client/Assessment", model, token)
+            //     .then(res => {
+            //         dispatch({ type: "nextPart", payload: 2 })
+            //         dispatch({ type: "Bill", payload: res.data })
+            //     })
+            // localStorage.removeItem("additionalFieldsValue")
 
-
-            let DB: any = {}
-            DB["projectDate"] = model?.projectDate
-            DB["startTime"] = model?.startTime.slice(0,5)
-            DB["endTime"] = model?.endTime.slice(0,5)
-            DB["promoCode"] = model?.promoCode
-
-            setContent({ ...Content, ...DB })
-            console.log({ ...Content, ...DB });
-
-            let token: any = JsCookies.get("userToken")
-            createFatch("/Client/Assessment", model, token)
-                .then((res: any) => {
-
-                    localStorage.removeItem("additionalFieldsValue")
-                    let slug = NextPage(select)
-                    setSelect(slug)
-                    localStorage.setItem("paymonet", JSON.stringify(res?.data?.assessmentPayment))
-                })
-        }
+        };
     }
     function Loading() {
         if (state?.AvailableTimeSlots) {
@@ -157,11 +144,77 @@ function LastPage({ state, dispatch }: any) {
                 </p>}
             </div>
             <AdditionalFieldsValue page={4} />
-            <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
+            <input type='submit' value="انهاء تقديم الطلب" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
             <br />
         </form >
     );
 }
+
+function EndPage({ state, dispatch }: any) {
+    let { data, setData } = useContext(FormDataContext)
+    console.log(state?.Bill);
+
+    let assessmentPayment = {
+        "assessmentId": "51c68a97-2680-4664-b1ab-ff3d055601ac",
+        "promoCodeId": 1,
+        "discountPercent": 0,
+        "subtotal": 24,
+        "promoCodePrice": 12,
+        "discountPrice": 0,
+        "totalAmount": 12,
+        "serviceTax": 4988,
+        "tax": 750,
+        "netTotal": 5750
+    }
+    let title = {
+        "subtotal": "المجموع الفرعي",
+        "promoCodePrice": "قيمة الكوبون",
+        "discountPrice": "سعر الخصم",
+        "totalAmount": "المبلغ الاجمالي",
+        "serviceTax": "ضريبة الخدمة",
+        "tax": "الضريبة",
+        "netTotal": "الإجمالي الصافي"
+    }
+    //     "سعر الخصم": 0,
+    //     "المبلغ الإجمالي": 12،
+    //     "ضريبة الخدمة": 4988،
+    //     "الضريبة": 750،
+    //     "الإجمالي الصافي": 5750
+    let list = ["subtotal", "promoCodePrice", "discountPrice", "totalAmount", "serviceTax", "tax", "netTotal"]
+    function Card({ data, x }: { data: keyof typeof title, x?: string }) {
+        return (
+            <>
+                <div className='flex flex-row justify-between text-base min-w-[200px] font-medium p-2 bg-white rounded-lg my-2' >
+                    <p>{title[data]}</p>
+                    <p className='mx-2'>{state?.Bill?.assessmentPayment && state?.Bill?.assessmentPayment[data]} ر.س</p>
+                </div>
+                <p className='m-4'>{x}</p>
+            </>
+        )
+    }
+    return (
+        <div className='*:py-2 mb-10 w-full flex flex-col justify-center items-center min-h-[200px]'>
+            <p className='text-3xl font-bold'> تم  انهاء تقديم الطلب    </p>
+            <div className='text-center flex justify-center flex-col tap:flex-row items-center'>
+                <Card data={"subtotal"} x="-" />
+                <Card data={"promoCodePrice"} x="-" />
+                <Card data={"discountPrice"} x="=" />
+                <Card data={"totalAmount"} />
+            </div>
+            <hr className='border-2 border-prussian-800 w-full !p-0' />
+            <div className='text-center flex justify-center flex-col tap:flex-row items-center'>
+                <Card data={"totalAmount"} x="+" />
+
+                <Card data={"serviceTax"} x="+" />
+                <Card data={"tax"} x="=" />
+                <Card data={"netTotal"} />
+
+                {/* {list.map(a => <Card data={a} />)} */}
+            </div>
+        </div >
+    );
+}
+
 
 function SelectRadio({ data, register, dispatch, state }: any) {
     let [Time, setTime] = useState(data.times[0])

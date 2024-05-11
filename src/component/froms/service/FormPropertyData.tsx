@@ -9,10 +9,11 @@ import GetFatch from '../get';
 
 const FormPropertyData = () => {
     let { select, setSelect } = useContext(FormContext)
-    let { data, setData } = useContext(FormDataContext)
+    let { data, setData, Content, setContent } = useContext(FormDataContext)
     let [defaultData, setDD] = useState(data)
     let [RealEstatTypes, setRealEstatTypes] = useState<any>([])
     let [RealEstatAges, setRealEstatAges] = useState<any>([])
+    let [ProjectObjectives, setProjectObjectives] = useState<any>([])
 
     useEffect(() => {
         let token: any = JsCookies.get("userToken")
@@ -25,6 +26,10 @@ const FormPropertyData = () => {
             .then(data => setRealEstatAges(data?.data))
             .catch((error) => { Err(error); })
 
+        GetFatch("/Lookup/ProjectObjectives", token)
+            .then(data => setProjectObjectives(data?.data))
+            .catch((error) => Err(error))
+
     }, [defaultData])
 
     const { register, handleSubmit } = useForm({ defaultValues: defaultData });
@@ -32,7 +37,7 @@ const FormPropertyData = () => {
 
     const onSubmit = (res: any) => {
         // scan valid
-        let { realEstateTypeId, realEstateAgesId } = data
+        let { realEstateTypeId, realEstateAgesId, projectObjectives } = data
         let { numberOfFloors, buildingArea } = res
         setError({})
         let listErr: any = {}
@@ -45,13 +50,26 @@ const FormPropertyData = () => {
 
         setError(listErr)
         // next page
-        if (Object.keys(listErr)?.length == 0) { 
+        if (Object.keys(listErr)?.length == 0) {
+
+            // function esww(prom: any) {
+            let DB = { realEstateTypeId, realEstateAgesId, numberOfFloors, buildingArea, projectObjectives }
+            DB["realEstateTypeId"] = RealEstatTypes.filter((a: any) => a?.value == DB.realEstateTypeId)[0]?.text
+            DB["realEstateAgesId"] = RealEstatAges.filter((a: any) => a?.value == DB.realEstateAgesId)[0]?.text
+            DB["projectObjectives"] = ProjectObjectives.filter((a: any) => a?.value == DB.projectObjectives[0].assessmentObjectivesId)[0]?.text
+
+            setContent({ ...Content, ...DB })
             setData({ ...data, ...res })
             let slug = NextPage(select)
             setSelect(slug)
-        }
-    };
 
+        };
+
+    }
+    let _setProjectObjectives = (s: any) => setData({ ...defaultData, "projectObjectives": [{ assessmentObjectivesId: Number(s.value) }] })
+
+
+    let titleProjectObjectives = ProjectObjectives?.filter((A: any) => A?.value == defaultData?.projectObjectives?.[0]?.assessmentObjectivesId)//?.[0]?.text || "اهداف المشروع"
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
@@ -76,6 +94,15 @@ const FormPropertyData = () => {
 
             </div>
 
+            <Field title="اهداف المشروع" className='flex flex-col w-full mx-4 '>
+                <Select
+                    list={ProjectObjectives}
+                    title={titleProjectObjectives?.[0]?.text || "اهداف المشروع"}
+                    set={_setProjectObjectives}
+                    className='w-full'
+                    err={error?.projectObjectives}
+                />
+            </Field>
             <div className='flex tap:flex-row flex-col m-4 p-4'>
                 <Input text="عدد الطوابق" name="numberOfFloors" type="number" register={register} err={error?.numberOfFloors} />
                 <Input text="مسطحات البناء المسقوفة ( م²)" name="buildingArea" type="number" register={register} err={error?.buildingArea} />
@@ -89,3 +116,4 @@ const FormPropertyData = () => {
 }
 
 export default FormPropertyData;
+

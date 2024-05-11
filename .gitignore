@@ -15,7 +15,7 @@
 
 # production
 /build
-.http
+/*.http
 # misc
 .DS_Store
 *.pem

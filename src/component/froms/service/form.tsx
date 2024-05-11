@@ -14,23 +14,25 @@ import { defaultPage } from "../config";
 // end imported
 
 let readmap: TypeReadmap[] = [
-    { id: 1, title: "معلومات الشخصية", slug: "profile" },
-    { id: 2, title: "بيانات العقار", slug: "PropertyData" },
-    { id: 3, title: "موقع العقار", slug: "pin" },
-    { id: 4, title: "موعد الفحص", slug: "time" },
+    { id: 1, title: "بيانات العقار", slug: "profile" },
+    { id: 2, title: "الموقع والتفاصيل", slug: "PropertyData" },
+    // { id: 3, title: "تفاصيل المشروع", slug: "pin" },
+    { id: 3, title: "موعد الفحص", slug: "time" },
+    { id: 4, title: "تقديم الطلب", slug: "end" },
 ]
 // end config setup
 
 export default function Forms() {
-    // let defaultPage = 2
+    let defaultPage = 3
     let [data, setData] = useState({})
+    let [Content, setContent] = useState({})
     let [select, setSelect] = useState(readmap[defaultPage].slug)
 
     const Layout = ({ children, slug }: LayoutType) => (<>{select === slug ? children : ""}</>)
 
     return (
         <FormContext.Provider value={{ select, setSelect, list: readmap }}>
-            <FormDataContext.Provider value={{ data, setData }}>
+            <FormDataContext.Provider value={{ data, setData, Content, setContent }}>
                 <SetupForms>
                     <>
                         <Layout slug={readmap[0].slug}>

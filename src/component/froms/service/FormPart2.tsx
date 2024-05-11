@@ -8,6 +8,7 @@ import GetFatch from '../get';
 // ------------------------------------------ 
 import backup from './backup.json';
 import AdditionalFieldsValue from './AdditionalFieldsValue';
+import { message } from 'antd';
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
     else if (action.type === "WorkAreas") return { ...state, WorkAreas: action.payload };
@@ -21,7 +22,7 @@ const FormParrt2 = () => {
 
 
     let { select, setSelect } = useContext(FormContext)
-    let { data, setData } = useContext(FormDataContext)
+    let { data, setData, Content, setContent } = useContext(FormDataContext)
     // useReducer start
     const initialState = { defaultData: data, WorkAreas: [], err: {} };
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -42,6 +43,8 @@ const FormParrt2 = () => {
         // scan valid
         let { workAreaId } = state.defaultData
         let { realEstateMunicipal, realEstateNumber, realEstateStreet } = res
+        let { projectTitle, projectImage } = res
+
         dispatch({ type: 'err', payload: {} })
         let listErr: any = {}
         if (!workAreaId) listErr["workAreaId"] = { text: "هذه لحقل مطلوب" }
@@ -55,10 +58,23 @@ const FormParrt2 = () => {
         if (!realEstateStreet) listErr["realEstateStreet"] = { text: "هذه لحقل مطلوب" }
         else if (realEstateStreet?.length <= 2) listErr["realEstateStreet"] = { text: "النص قصير" }
 
+        if (projectImage?.length == 0) listErr["projectImage"] = { text: "هذه لحقل مطلوب" }
+        if (!projectTitle) listErr["projectTitle"] = { text: "هذه لحقل مطلوب" }
+        else if (projectTitle?.length <= 2) listErr["projectTitle"] = { text: "النص قصير" }
+
+        if (!projectTitle) listErr["projectTitle"] = { text: "هذه لحقل مطلوب" }
+        else if (projectTitle?.length <= 2) listErr["projectTitle"] = { text: "النص قصير" }
+
         dispatch({ type: 'err', payload: listErr })
 
-        if (Object.keys(listErr)?.length == 0) { 
-            setData({ ...data, ...res })
+        if (Object.keys(listErr)?.length == 0) {
+            let payload = { ...state?.defaultData, ...res, projectImage: state?.defaultData?.projectImage }
+
+            let DB = { workAreaId, realEstateMunicipal, realEstateNumber, realEstateStreet, projectTitle, description: res?.description }
+            DB["workAreaId"] = state?.WorkAreas?.filter((a: any) => a?.value == DB.workAreaId)[0]?.text
+
+            setContent({ ...Content, ...DB })
+            setData(payload)
             let slug = NextPage(select)
             setSelect(slug)
         }
@@ -66,9 +82,31 @@ const FormParrt2 = () => {
 
 
 
+    let setProjectImage = (e: any) => {
+
+        const file = e.target.files && e.target.files[0];
+        const reader = new FileReader();
+        message.info("جاري رفع الصورة بنجاح")
+
+        reader.onload = (e) => {
+            const base64String = e.target?.result as string;
+            // set {base64String} to
+            dispatch({ type: "data", payload: { ...state?.defaultData, projectImage: base64String } })
+            message.success("تم رفع الصورة بنجاح");
+        };
+        if (file) reader.readAsDataURL(file);
+
+    }
+
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
-            <div className='flex tap:flex-row flex-col tap:m-4 p-4'>
+
+            <div className='flex tap:flex-row flex-col m-4 p-4'>
+                <Input text="اسم المشروع" name="projectTitle" register={register} err={state?.err?.projectTitle} />
+                <Input text="صورة العقار" name="projectImage" type='file' accept="image/*" register={register} onChange={setProjectImage} err={state?.err?.projectImage} />
+            </div>
+
+            <div className='flex tap:flex-row flex-col p-4'>
 
                 <Field title="منطقة العمل" className='flex flex-col w-full tap:mx-4 '>
                     <Select
@@ -85,6 +123,17 @@ const FormParrt2 = () => {
             <div className='flex tap:flex-row flex-col m-4 p-4'>
                 <Input text="رقم العقار" name="realEstateNumber" type="number" register={register} err={state?.err?.realEstateNumber} />
                 <Input text="شارع العقارات" name="realEstateStreet" register={register} err={state?.err?.realEstateStreet} />
+            </div>
+
+            <div className='flex flex-col m-4 p-4' >
+                <p className="lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">وصف إضافي</p>
+                <textarea
+                    className="!w-full  min-h-[50px] rounded-md p-2"
+                    defaultValue={state?.defaultData?.description}
+                    placeholder=" "
+                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => dispatch({ type: "data", payload: { ...state?.defaultData, description: e.target.value } })}
+                />
+
             </div>
             <AdditionalFieldsValue page={2} />
 
