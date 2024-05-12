@@ -79,7 +79,7 @@ function FeatureOne({ data: One, layout, set }: { data: FeatureOneType; layout: 
         setData(all)
     }
     return (
-        <div className={` flex items-center lap:w-full bg-prussian-800 rounded-full my-4 ${One.active ? "" : "opacity-60"} flex ${layout == "start" ? 'flex-row ' : "flex-row-reverse"} `} onClick={handle}>
+        <div className={` flex items-center lap:w-full bg-prussian-800 rounded-full cursor-pointer my-4 ${One.active ? "" : "opacity-60"} flex ${layout == "start" ? 'flex-row ' : "flex-row-reverse"} `} onClick={handle}>
             <div className=" border-4 border-[#0694a27a] rounded-full text-center text-xl ">
                 <p className="bg-[#0694A2] p-2 rounded-full text-white w-[45px] top:w-[56px] h-[45px] top:h-[56px] z-20 ">{One.id}</p>
             </div>
@@ -87,40 +87,6 @@ function FeatureOne({ data: One, layout, set }: { data: FeatureOneType; layout: 
         </div>
     );
 }
-
-
-function FeatureOne2({ data: One, layout }: { data: FeatureOneType; layout: string }) {
-    const { data, setData } = useContext(AppContext);
-    let handle = () => {
-        let all = data.map((a: any, i: any) => {
-            return { ...a, active: false }
-        })
-
-        let filter = all.filter((a: any) => a.id === One.id)[0]
-        filter.active = true
-        all[One.id - 1] = filter
-        console.log(all);
-        setData(all)
-    }
-    return (
-        <div className={` lap:w-full ${One.active ? "" : "opacity-60"}  `} onClick={handle}>
-            {layout === "start" && (
-                <div className="mr-6 mb-[-50px] relative z-10 w-max border-4 border-[#0694a27a] rounded-full text-center text-xl bt ">
-                    <p className="bg-[#0694A2] text-white p-4 rounded-full w-[56px] relative z-20 h-[56px]  ">{One.id}</p>
-                </div>
-            )}
-            <p className={`bg-prussian-800 text-white py-4 my-4 mx-0 rounded-full tap:max-w-[350px] lap:text-xl tap:text-base lap:w-full text-sm z-10 h- ${layout === "start" ? " tap:pr-24 pr-24" : " pl-28 pr-6"} `}>{One.title}</p>
-            {layout === "end" && (
-                <div className={` w-full flex justify-end mt-[-50px] `}>
-                    <div className="ml-6 relative z-10 w-max border-4 border-[#0694a27a] rounded-full text-center text-xl bt">
-                        <p className="bg-[#0694A2] text-white p-4 rounded-full w-[56px] relative z-20 h-[56px] ">{One.id}</p>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-}
-
 
 function SaveAndGet() {
     return (
@@ -130,8 +96,9 @@ function SaveAndGet() {
                 <p className="w-full text-start lap:text-5xl tap:text-3xl text-2xl font-bold text-safety-700 tap:mb-8 mb-4">مع تطبيق إنسبكتكس </p>
                 <p className="w-full text-start font-bold mb-8 tap:w-[500px] mt-14 text-slate-800">تجنب العديد من المشاكل التي تؤدي إلى زيادة مصاريف الصيانة, إرتفاع مستوى الخطر و غيرها من المخالفات عبر خدمة الكشف على العقار و احصل على تقرير مفصل لمساعدتك بإتخاذ قرار واضح و موثوق به. </p>
 
-                <div className="flex justify-start ">
-                    <Btn to="/#" title="حمل التطبيق  " className="text-white bg-prussian-800 rounded-lg w-[175px]   " />
+                <div className="flex justify-start   test-2xl font-semibold text-safety-700 border border-safety-700 p-4 rounded-lg w-max mx-4   ">
+                    التطبيق قيد الإنشاء و سيكون متاحا فور اطلاقه
+                    {/* <Btn to="/#" title="حمل التطبيق  " className="text-white bg-prussian-800 rounded-lg w-[175px]   " /> */}
                 </div>
             </div>
             <img src="/images/about-app-3.webp" alt="" className="hidden lg:flex ml-20 w-[350px] !h-max" loading="lazy" />

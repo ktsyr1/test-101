@@ -25,7 +25,9 @@ export function setConfig(merchantId: string, serverKey: string, region: string)
     config.serverKey = serverKey;
     config.region = Region[region as keyof typeof Region];
     const regions_urls = {
-        ARE: 'https://secure.paytabs.com/', SAU: 'https://secure.paytabs.sa/',
+        ARE: 'https://secure.paytabs.com/',
+        SAU: 'https://secure.paytabs.sa/',
+        // SAU: 'https://merchant.paytabs.sa/',
         OMN: 'https://secure-oman.paytabs.com/', JOR: 'https://secure-jordan.paytabs.com/',
         EGY: 'https://secure-egypt.paytabs.com/', GLOBAL: 'https://secure-global.paytabs.com/'
     };
@@ -108,7 +110,7 @@ function sendPost(url: any, objData: any, callback: any) {
     return axios(sendData)
         // .then((res: any) => callback(res.data))
         .then((res: any) => {
-            // console.log(res);
+            console.log(res);
 
             return res.data
         })

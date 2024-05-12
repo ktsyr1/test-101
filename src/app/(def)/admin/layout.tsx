@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import  menuAdmin  from "@/data/menuAdmin.json";
+import menuAdmin from "@/data/menuAdmin.json";
 
 export default function LayoutAdmin({ children }: any) {
     // users , blog , jobs , sliders , services , FAQs ,
@@ -26,13 +26,12 @@ type ItemType = {
 }
 
 function Item({ title, to, Icon }: ItemType) {
-    const pathname = usePathname()
+    const pathname: any = usePathname()
     return (
-        <Link href={`/admin/${to}`} className={`p-4 hover:bg-white font-bold mx-4 w-full rounded-lg ${to == pathname.split("/")[2] && "text-safety-700 bg-white"}`}  >
+        <Link href={`/admin/${to}`} className={`p-4 hover:bg-white font-bold mx-4 w-full rounded-lg ${to == pathname?.split("/")[2] && "text-safety-700 bg-white"}`}  >
             {/* icons */}
             {/* <img src={`/icons/${Icon}`} alt="" /> */}
             <p>{title}</p>
         </Link>
     )
 }
-  

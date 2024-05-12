@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import dataServices from '@/data/services.json'
 import OpenServiceOne from "./serviceOne"
 import CardService from "./CardService"
@@ -39,13 +39,13 @@ export default function GroupServices({ data, type }: any) {
     // end functions
 
     return (
-        <>
+        <Suspense>
             <div className=" min-h-[300px] tap:px-20 py-10 w-full z-10">
                 <OpenServiceOne data={ServiceOne} set={setServiceOne} navigation={navigation} />
                 <div className="flex flex-wrap  max-w-[1360px] m-auto justify-center" >
                     {dataServices.map((service, i) => <CardService type={type} data={{ ...service, i }} key={service.ar} set={setServiceOne} />)}
                 </div>
             </div>
-        </>
+        </Suspense>
     )
 }

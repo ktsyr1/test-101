@@ -13,7 +13,7 @@ export async function POST(req: any, res: any) {
     let profileID = process.env.profileID || ""
     let serverKey = process.env.serverKey || ""
     let region = process.env.region || ""
-    console.log({ profileID, serverKey });
+    console.log({ profileID, serverKey, region });
     const headersList = headers();
     let data = {
         id: model.id,
@@ -76,7 +76,7 @@ export async function POST(req: any, res: any) {
             },
             frameMode
         );
-    // console.log({ test });
+    console.log({ test });
 
     return Response.json(test)
 
