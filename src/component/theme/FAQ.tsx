@@ -74,7 +74,7 @@ export function Ask({ title, value }: Asktype) {
             </div>
             {/* anser */}
             <div className={`flex flex-col justify-between max-w-[90%]  text-xs  text-gray-500 font-medium tap:text-lg mt-2 ${!open ? "hidden" : "flex"}  `}>
-                <ul> {value.map(a => <li className="list-disc">{a}</li>)} </ul>
+                <ul> {value.map(a => <li key={a} className="list-disc">{a}</li>)} </ul>
                 {/* icon */}
             </div>
         </div>
