@@ -128,7 +128,7 @@ export let asksData = {
 
 }
 
-let dataBtns = [
+export let dataBtns = [
     { title: "أسئلة العملاء", slug: "client" },
     { title: "استراتيجيات الفحص", slug: "strategy" },
     { title: "أسئلة الفاحصين", slug: "eng" },

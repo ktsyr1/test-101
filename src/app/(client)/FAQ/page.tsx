@@ -1,5 +1,6 @@
-"use client" 
-import { Ask, asksData } from "@/component/theme/FAQ"
+"use client"
+import { Ask, asksData, dataBtns } from "@/component/theme/FAQ"
+import FAQ from '@/data/FAQ.json'
 
 export default function QA() {
 
@@ -13,12 +14,13 @@ export default function QA() {
 
                     {/* list QA */}
                     <div >
-                        <b className="text-safety-700 lap:my-6 tap:my-4 my-2  flex lap:text-4xl tap:text-2xl text-lg font-black max-[697px]:text-xl text-start w-full  ">  مهندسين</b>
-                        {asksData.eng.map(task => <Ask title={task.question} answer={task.answer} key={task.question} />)}
-                        <b className="text-safety-700 lap:my-6 tap:my-4 my-2 flex lap:text-4xl tap:text-2xl text-lg  font-black max-[697px]:text-xl text-start w-full  ">  عملاء</b>
-                        {asksData.client.map(task => <Ask title={task.question} answer={task.answer} key={task.question} />)}
-                        <b className="text-safety-700 lap:my-6 tap:my-4 my-2 flex lap:text-4xl tap:text-2xl text-lg  font-black max-[697px]:text-xl text-start w-full  ">  عامة</b>
-                        {asksData.public.map(task => <Ask title={task.question} answer={task.answer} key={task.question} />)}
+                        <b className="text-safety-700 lap:my-6 tap:my-4 my-2 flex lap:text-4xl tap:text-2xl text-lg  font-black max-[697px]:text-xl text-start w-full  "> {dataBtns[0].title} </b>
+                        {FAQ.filter(a => a.type == "client").map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
+                        <b className="text-safety-700 lap:my-6 tap:my-4 my-2 flex lap:text-4xl tap:text-2xl text-lg  font-black max-[697px]:text-xl text-start w-full  ">  {dataBtns[1].title}</b>
+                        {FAQ.filter(a => a.type == "strategy").map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
+
+                        <b className="text-safety-700 lap:my-6 tap:my-4 my-2  flex lap:text-4xl tap:text-2xl text-lg font-black max-[697px]:text-xl text-start w-full  ">  {dataBtns[2].title}</b>
+                        {FAQ.filter(a => a.type == "eng").map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
 
                     </div>
                 </div>
