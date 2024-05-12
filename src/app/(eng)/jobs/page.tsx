@@ -40,6 +40,9 @@ function ListJobs() {
                         <p className="text-slate-700 m-4 w-full lap:text-xl tap:text-base text-sm ">اكتشف فرص العمل المثيرة في Inspectex، حيث نقدر الموهبة والابتكار والشغف بخدمة العملاء. انضم إلى فريقنا وكن جزءًا من تشكيل مستقبل أكثر إشراقًا في المجال العماري و الهندسي</p>
                     </div>
                     <div className="w-full tap:w-[80%] lap:w-full">
+                        {/* {data.length== 0&&  */}
+                        <p className="w-full text-center m-4 min-h-[200px]">لا يتوفر حاليا أي فرص عمل، و سيتم نشرها على هذه الصفحة فور توافرها.</p>
+                        {/* } */}
                         {/* {data.map(job => <CardJob data={job} key={job.job_title} />)} */}
                     </div>
                 </div>

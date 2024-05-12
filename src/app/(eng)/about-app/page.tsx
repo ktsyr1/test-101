@@ -43,15 +43,17 @@ function Feature() {
                     </div>
                     <div className="flex flex-col tap:flex-row justify-between items-center mb-6 lap:w-full ">
                         <div className="flex flex-col justify-center w-full lap:w-[450px] tap:w-[350px] lap:m-auto">
-                            {data.slice(0, len / 2).map(one => <FeatureOne data={one} layout="start" key={one.id} set={setCover} />)}
+                            {data.slice(0, len / 2).map(one => <FeatureOne data={one} layout="start" key={one.id} />)}
                         </div>
-                        <img src={cover} alt="" className="  m-auto tap: h-[350px]  " loading="lazy" />
+                        {data.map(one => <img src={one.image} alt=" " key={one.id} className={` m-auto tap: h-[350px] ${!one.active && "hidden"} `} loading="lazy" />)}
+                        {/* <img src={cover} alt="" className="  m-auto tap: h-[350px]  " loading="lazy" /> */}
                         <div className="flex flex-col justify-center w-full lap:w-[450px] tap:w-[350px] lap:m-auto">
-                            {data.slice(len / 2, len).map(one => <FeatureOne data={one} layout="end" key={one.id} set={setCover} />)}
+                            {data.slice(len / 2, len).map(one => <FeatureOne data={one} layout="end" key={one.id} />)}
                         </div>
                     </div>
-                    <div className="flex w-full justify-center ">
-                        <Btn to="/#" title="حمل التطبيق الآن" className="text-white bg-safety-700 rounded-lg" />
+                    <div className="flex justify-start   test-2xl font-semibold text-safety-700 border border-safety-700 p-4 rounded-lg w-max mx-4   ">
+                        التطبيق قيد الإنشاء و سيكون متاحا فور اطلاقه
+                        {/* <Btn to="/#" title="حمل التطبيق الآن" className="text-white bg-safety-700 rounded-lg" /> */}
                     </div>
                 </div>
             </div>
@@ -65,13 +67,12 @@ type FeatureOneType = {
     active: boolean,
     image: string
 }
-function FeatureOne({ data: One, layout, set }: { data: FeatureOneType; layout: string, set: Function }) {
+function FeatureOne({ data: One, layout }: { data: FeatureOneType; layout: string }) {
     const { data, setData } = useContext(AppContext);
     let handle = () => {
         let all = data.map((a: any, i: any) => {
             return { ...a, active: false }
         })
-        set(One.image)
         let filter = all.filter((a: any) => a.id === One.id)[0]
         filter.active = true
         all[One.id - 1] = filter
