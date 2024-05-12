@@ -1,10 +1,50 @@
 [
-    "أسهل نموذج لطلب خدمة الفحص",
-    "تعديل موعد الفحص",
-    "تتبع الفاحصين قبل عملية الفحص",
-    "تتبع حالة التقرير من خلاله",
-    "استلام التقرير من خلاله",
-    "إمكانية التعليق على التقرير او الطعن في أي جزء",
-    "إمكانية طلب إيضاحات او استفسارات",
-    "إمكانية التواصل مع الفاحصين"
+    {
+        "id": 1,
+        "active": true,
+        "title": "أسهل نموذج لطلب خدمة الفحص",
+        "image": "/images/about-app-1.png"
+    },
+    {
+        "id": 2,
+        "active": false,
+        "title": "تعديل موعد الفحص",
+        "image": "/images/about-app-2.png"
+    },
+    {
+        "id": 3,
+        "active": false,
+        "title": "تتبع الفاحصين قبل عملية الفحص",
+        "image": "/images/about-app-3.png"
+    },
+    {
+        "id": 4,
+        "active": false,
+        "title": "تتبع حالة التقرير من خلاله",
+        "image": "/images/about-app-4.png"
+    },
+    {
+        "id": 5,
+        "active": false,
+        "title": "استلام التقرير من خلاله",
+        "image": "/images/about-app-5.png"
+    },
+    {
+        "id": 6,
+        "active": false,
+        "title": "إمكانية التعليق على التقرير او الطعن في أي جزء",
+        "image": "/images/about-app-6.png"
+    },
+    {
+        "id": 7,
+        "active": false,
+        "title": "إمكانية طلب إيضاحات او استفسارات",
+        "image": "/images/about-app-7.png"
+    },
+    {
+        "id": 8,
+        "active": false,
+        "title": " دفع قيمة الفحص من خلاله",
+        "image": "/images/about-app-8.png"
+    }
 ]

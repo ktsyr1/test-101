@@ -5,15 +5,15 @@ import { redirect } from 'next/navigation';
 
 export async function POST(req: any, res: any) {
     console.log("------------------------ start test ------------------------");
-    let Params = new URL(req?.url) 
+    let Params = new URL(req?.url)
     let search = new URLSearchParams(Params.search)
 
     const model = Object.fromEntries(search.entries());
-    console.log({ model }); 
+    console.log({ model });
     let profileID = process.env.profileID || ""
     let serverKey = process.env.serverKey || ""
-    let region = "GLOBAL"
-    // console.log({ profileID, serverKey });
+    let region = process.env.region || ""
+    console.log({ profileID, serverKey });
     const headersList = headers();
     let data = {
         id: model.id,

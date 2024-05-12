@@ -3,11 +3,11 @@ import { useState } from "react"
 import dataServices from '@/data/services.json'
 import OpenServiceOne from "./serviceOne"
 import CardService from "./CardService"
-import { useRouter, useSearchParams } from "next/navigation" 
+import { useRouter, useSearchParams } from "next/navigation"
 
 export default function GroupServices({ data, type }: any) {
     let route = useRouter()
-    const searchParams = useSearchParams()
+    const searchParams: any = useSearchParams()
     let [All, setO] = useState(() => dataServices.map((service, i) => { return { ...service, i } }))
     let Select = (i: number) => {
 
