@@ -30,11 +30,11 @@ function ListJobs() {
         <AppContext.Provider value={{ data, setData, }} >
             <div className="my-10 bg-white">
                 <div className=" items-center w-full max-w-[1360px]    m-auto flex flex-col">
-                    <form className="flex flex-row justify-center   tap:w-[80%] lap:w-full  ">
+                    {/* <form className="flex flex-row justify-center   tap:w-[80%] lap:w-full  ">
                         <Icon.search className={"ml-[-30px] z-10 m-4"} />
                         <input type="text" className="border-2  rounded-l-none  rounded-r-lg pr-10 w-full" placeholder="بحث" onChange={search} />
                         <input type="submit" value={"أبحث"} className="bg-safety-700 py-4 px-6 text-white rounded-l-lg " />
-                    </form>
+                    </form> */}
                     <div className="flex flex-col items-center m-auto w-[90%] tap:my-20 my-6" >
                         <h2 className="w-full text-start lap:text-5xl tap:text-3xl text-xl  font-bold text-safety-700 tap:mr-10 tap:mb-8 ">إنضم إلى فريقنا </h2>
                         <p className="text-slate-700 m-4 w-full lap:text-xl tap:text-base text-sm ">اكتشف فرص العمل المثيرة في Inspectex، حيث نقدر الموهبة والابتكار والشغف بخدمة العملاء. انضم إلى فريقنا وكن جزءًا من تشكيل مستقبل أكثر إشراقًا في المجال العماري و الهندسي</p>
