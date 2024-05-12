@@ -48,17 +48,17 @@ function View() {
     let loginTime: any = cookieStore.get('userloginTime')
     loginTime = loginTime
     let token = auth?.value || ""
-    console.log(token?.length > 20 && loginTime != null);
+    // console.log(token?.length > 20 && loginTime != null);
 
     if (token?.length > 20 && loginTime != null) {
         let newData = new Date().getTime()
         let last = Number(loginTime.value)
         let h = 1000 * 60 * 50
-        console.log(newData - last - h)
-        console.log(newData - last - h > 0);
+        // console.log(newData - last - h)
+        // console.log(newData - last - h > 0);
 
         // if (newData - last - h < 0 && newData - last - h > h)
-         return <Forms />
+        return <Forms />
         // else return <LoginApp required={true} />
     }
     else {

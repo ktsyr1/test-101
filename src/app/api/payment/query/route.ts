@@ -6,25 +6,23 @@ import { redirect } from 'next/navigation';
 // import type { NextApiRequest, NextApiResponse } from 'next';
 // import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers'
+import axios from 'axios';
 
-function GetIp(headersList: any) {
-
-    const ip = headersList.get("x-forwarded-for");
-    let ip_address = ip?.split(":") || [];
-    return ip_address[ip_address.length - 1]
-}
 export async function GET(req: any, res: any) {
     console.log("------------------------ start test ------------------------");
-    const headersList = headers();
-    const cookieStore = cookies()
-    const tran_ref = cookieStore.get('tran_ref')
 
-    let data = {
-        profile_id: process.env.profileID,
-        tran_ref,
-        ip_address: GetIp(headersList)
-    }
-    let result = await validatePayment(data, () => "")
-    return Response.json({ result })
+    let Params = new URL(req?.url)
+    let search = new URLSearchParams(Params.search)
+    const ParamsJson = Object.fromEntries(search.entries());
+
+    let url = `${process.env.NEXT_PUBLIC_API}/Client/PaymentQueryTransaction`
+    url += `?ProjectId=${ParamsJson.id}&Trans_ref=${ParamsJson?.tran_ref}&PromoCode=${ParamsJson?.PromoCode || ""}`
+
+    let { data } = await axios.get(url, { headers: { Authorization: `Bearer ${ParamsJson?.userToken}` } })
+    // .then(({ data }) => data)
+    console.log(data);
+
+
+    return Response.json(data)
 
 } 

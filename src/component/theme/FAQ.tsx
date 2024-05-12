@@ -3,6 +3,7 @@ import Btn from "../btns"
 import { useState } from "react"
 import Icon from "../icons"
 import { usePathname } from 'next/navigation'
+import FAQ from '@/data/FAQ.json'
 
 type LayoutType = {
     children: JSX.Element
@@ -10,7 +11,7 @@ type LayoutType = {
 }
 
 export default function QA() {
-    let [part, setPart] = useState('eng')
+    let [part, setPart] = useState('client')
     const pathname = usePathname()
 
     const Layout = ({ children, slug }: LayoutType) => part === slug ? <>{children}</> : <></>
@@ -35,19 +36,19 @@ export default function QA() {
                     {/* list QA */}
                     <Layout slug="eng">
                         <>
-                            {asksData.eng.map(task => <Ask title={task.question} answer={task.answer} key={task.question} />)}
+                            {FAQ.filter(a => a.type == "eng").map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
                         </>
                     </Layout>
 
                     <Layout slug="client">
                         <>
-                            {asksData.client.map(task => <Ask title={task.question} answer={task.answer} key={task.question} />)}
+                            {FAQ.filter(a => a.type == "client").map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
                         </>
                     </Layout>
 
-                    <Layout slug="public">
+                    <Layout slug="strategy">
                         <>
-                            {asksData.public.map(task => <Ask title={task.question} answer={task.answer} key={task.question} />)}
+                            {FAQ.filter(a => a.type == "strategy").map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
                         </>
                     </Layout>
                 </div>
@@ -57,9 +58,9 @@ export default function QA() {
 }
 type Asktype = {
     title: string,
-    answer: string
+    value: string[]
 }
-export function Ask({ title, answer }: Asktype) {
+export function Ask({ title, value }: Asktype) {
     let [open, setOpen] = useState(false)
 
     function handleOpen() { setOpen(!open) }
@@ -73,7 +74,7 @@ export function Ask({ title, answer }: Asktype) {
             </div>
             {/* anser */}
             <div className={`flex flex-col justify-between max-w-[90%]  text-xs  text-gray-500 font-medium tap:text-lg mt-2 ${!open ? "hidden" : "flex"}  `}>
-                <p>{answer}</p>
+                <ul> {value.map(a => <li className="list-disc">{a}</li>)} </ul>
                 {/* icon */}
             </div>
         </div>
@@ -128,7 +129,10 @@ export let asksData = {
 }
 
 let dataBtns = [
-    { title: "مهندسين", slug: "eng" },
-    { title: "عملاء", slug: "client" },
-    { title: "عامة", slug: "public" },
+    { title: "أسئلة العملاء", slug: "client" },
+    { title: "استراتيجيات الفحص", slug: "strategy" },
+    { title: "أسئلة الفاحصين", slug: "eng" },
 ]
+
+
+

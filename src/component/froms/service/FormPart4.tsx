@@ -8,7 +8,7 @@ import JsCookies from 'js-cookie';
 import GetFatch, { createFatch } from '../get';
 import Link from 'next/link';
 import axios from 'axios';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
 
@@ -18,6 +18,7 @@ const reducer = (state: any, action: any) => {
 // ------------------------------------------
 export default function FormPart4() {
 
+    const router = useRouter()
     let { data, setData, Content, setContent } = useContext(FormDataContext)
     // useReducer start 
     const [state, dispatch] = useReducer(reducer, { defaultData: data });
@@ -64,45 +65,32 @@ export default function FormPart4() {
         console.log(data)
         let userInformation: any = JsCookies.get("userInformation")
         userInformation = JSON.parse(userInformation)
-        // let { addAssessments, assessmentPayment }: any = data.res
+        let { addAssessments, assessmentPayment }: any = data?.res
 
-        // let model = {
-        //     id: addAssessments.id,
-        //     amount: assessmentPayment.netTotal,
-        //     description: `دفع تكاليف الخدمة للمشروع : ${addAssessments.projectTitle}`,
-        //     name: userInformation.loginName,
-        //     email: userInformation.email,
-        //     phone: userInformation.phoneNumber,
-        //     street: addAssessments.realEstateStreet,
-        //     city: Content.workAreaId, //Content
-        //     state: "boqaa",
-        //     zip: "52121",
-        //     currency: "SAR", // default
-        //     country: "SA", // default
-        // }
         let model = {
-            "id": "edf3b619-4887-410e-b6bb-9b333de838aa",
-            "amount": 5750,
-            "description": "دفع تكاليف الخدمة للمشروع : Testing End",
-            "name": "Qotayba Mohammad",
-            "email": "0f76e31016@emailbbox.pro",
-            "phone": "70723177",
-            "street": "123213",
-            "city": "Al-Gwei'iyyah",
-            "state": "boqaa",
-            "zip": "52121",
-            "currency": "SAR",
-            "country": "SA"
+            id: addAssessments.id,
+            amount: assessmentPayment.netTotal,
+            description: `دفع تكاليف الخدمة للمشروع : ${addAssessments.projectTitle}`,
+            name: userInformation.loginName,
+            email: userInformation.email,
+            phone: userInformation.phoneNumber,
+            street: addAssessments.realEstateStreet,
+            city: Content.workAreaId, //Content
+            state: "",
+            zip: "",
         }
-        console.log(model);
-        axios.post("/api/payment", JSON.stringify({model}))
+
+
+        const searchParams: any = encodeURI(`id=${model.id}&amount=${model.amount}&description=${model.description}&name=${model.name}&email=${model.email}&phone=${model.phone}&street=${model.street}&city=${model.city}&state=${model.state}&zip=${model.zip}`)
+
+
+        axios.post(process.env.NEXT_PUBLIC_apis + "/payment?" + searchParams, model)
             .then(({ data }) => {
                 console.log(res)
                 JsCookies.set("tran_ref", data?.tran_ref)
-                // data?.redirect_url && window.open(data?.redirect_url)
+                data?.redirect_url && router.push(data?.redirect_url)
             }
             )
-        // }
     }
 
     const columns = [
@@ -125,8 +113,8 @@ export default function FormPart4() {
             <Table dataSource={calculator} columns={columns2} pagination={false} className="flex flex-col items-center *:w-full my-8" rowKey={(record) => record.title} />
             <div className={`flex flex-row my-4 w-full   `}>
                 <input type={"checkbox"} className='p-2 ml-4 rounded-md' onChange={(e: any) => setSend(!Send)} checked={Send} />
-                <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">الموافقة على
-                    <Link href={"/policies-and-provisions"} target='_blank' > الشروط والأحكام </Link>
+                <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-slate-800 my-2 mr-4">الموافقة على
+                    <Link href={"/policies-and-provisions"} target='_blank' className='text-prussian-500' > الشروط والأحكام </Link>
                 </p>
             </div>
 

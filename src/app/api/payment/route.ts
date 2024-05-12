@@ -5,26 +5,29 @@ import { redirect } from 'next/navigation';
 
 export async function POST(req: any, res: any) {
     console.log("------------------------ start test ------------------------");
-    console.log(req);
+    let Params = new URL(req?.url) 
+    let search = new URLSearchParams(Params.search)
 
+    const model = Object.fromEntries(search.entries());
+    console.log({ model }); 
     let profileID = process.env.profileID || ""
     let serverKey = process.env.serverKey || ""
     let region = "GLOBAL"
-    console.log({ profileID, serverKey });
+    // console.log({ profileID, serverKey });
     const headersList = headers();
     let data = {
-        id: "100001",
+        id: model.id,
         currency: "SAR", // default
-        amount: "1000",
-        description: "dummy description",
-        name: "Qotayba Mohammad",
-        email: "ktsyr1@gmail.com",
-        phone: "+96170723177",
-        street: "dummy street, dummy building, dummy apt",
-        city: "zahla",
-        state: "boqaa",
+        amount: model.amount,
+        description: model.description,
+        name: model.name,
+        email: model.email,
+        phone: model.phone,
+        street: model.street,
+        city: model.city,
+        state: "",
         country: "SA", // default
-        zip: "52121",
+        zip: "",
         IP: GetIp(headersList) // Provide a default IP if null
     }
 

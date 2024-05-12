@@ -115,6 +115,8 @@ function LastPage({ state, dispatch }: any) {
                 .then((res: any) => {
                     if (res.code === 500) message.error("هناك خطاء تاكد من معلوماتك")
                     else {
+                        JsCookies.set("PromoCode", model?.promoCode)
+
                         localStorage.removeItem("additionalFieldsValue")
                         setData({ ...model, res: res?.data })
                         let slug = NextPage(select)
