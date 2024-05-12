@@ -7,6 +7,8 @@ import { Popconfirm, Table, message } from "antd";
 import JsCookies from 'js-cookie';
 import GetFatch, { createFatch } from '../get';
 import Link from 'next/link';
+import axios from 'axios';
+import { redirect } from 'next/navigation';
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
 
@@ -19,7 +21,20 @@ export default function FormPart4() {
     let { data, setData, Content, setContent } = useContext(FormDataContext)
     // useReducer start 
     const [state, dispatch] = useReducer(reducer, { defaultData: data });
-    // useReducer end
+    // useReducer end  
+    let [calculator, setCalculator] = useState(() => {
+
+        let titles: any = {
+            "subtotal": "المجموع الفرعي",
+            "promoCodePrice": "قيمة الكوبون",
+            "totalAmount": "المبلغ الاجمالي",
+            "serviceTax": "ضريبة الخدمة",
+            "tax": "الضريبة",
+            "netTotal": "الإجمالي الصافي"
+        }
+        return Object.keys(titles).map(a => { return { title: titles[a], value: data?.res?.assessmentPayment[a] } })
+    })
+
     let [list, setList] = useState(() => {
 
         let titles: any = {
@@ -40,44 +55,82 @@ export default function FormPart4() {
         };
         return Object.keys(titles).map(a => { return { title: titles[a], value: Content[a] } })
     })
+
     let [Send, setSend] = useState(false)
 
     const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
     const onSubmit = (res: any) => {
+        // if (Send) {
+        console.log(data)
+        let userInformation: any = JsCookies.get("userInformation")
+        userInformation = JSON.parse(userInformation)
+        // let { addAssessments, assessmentPayment }: any = data.res
 
-        dispatch({ type: 'err', payload: {} })
-        let listErr: any = {}
-
-        if (Object.keys(listErr)?.length == 0) {
-
-
-            // let token: any = JsCookies.get("userToken")
-            // createFatch("/Client/Assessment", {}, token)
-            //     .then((res: any) => {
-
-            //         localStorage.removeItem("additionalFieldsValue")
-            //         let slug = NextPage(select)
-            //         setSelect(slug)
-            //         localStorage.setItem("paymonet", JSON.stringify(res?.data?.assessmentPayment))
-            //     })
+        // let model = {
+        //     id: addAssessments.id,
+        //     amount: assessmentPayment.netTotal,
+        //     description: `دفع تكاليف الخدمة للمشروع : ${addAssessments.projectTitle}`,
+        //     name: userInformation.loginName,
+        //     email: userInformation.email,
+        //     phone: userInformation.phoneNumber,
+        //     street: addAssessments.realEstateStreet,
+        //     city: Content.workAreaId, //Content
+        //     state: "boqaa",
+        //     zip: "52121",
+        //     currency: "SAR", // default
+        //     country: "SA", // default
+        // }
+        let model = {
+            "id": "edf3b619-4887-410e-b6bb-9b333de838aa",
+            "amount": 5750,
+            "description": "دفع تكاليف الخدمة للمشروع : Testing End",
+            "name": "Qotayba Mohammad",
+            "email": "0f76e31016@emailbbox.pro",
+            "phone": "70723177",
+            "street": "123213",
+            "city": "Al-Gwei'iyyah",
+            "state": "boqaa",
+            "zip": "52121",
+            "currency": "SAR",
+            "country": "SA"
         }
+        console.log(model);
+        axios.post("/api/payment", JSON.stringify({model}))
+            .then(({ data }) => {
+                console.log(res)
+                JsCookies.set("tran_ref", data?.tran_ref)
+                // data?.redirect_url && window.open(data?.redirect_url)
+            }
+            )
+        // }
     }
 
     const columns = [
         { title: "العنوان", dataIndex: "title", key: "title", },
-        { title: "القيمة", dataIndex: "value", key: "categories", },
+        { title: "القيمة", dataIndex: "value", key: "value", },
     ];
+
+    const columns2 = [
+        { title: "العنوان", dataIndex: "title", key: "title", },
+        {
+            title: "القيمة", dataIndex: "value", key: "value",
+            render: (_: any, record: any) => <p className={record.value && record.title == "قيمة الكوبون" && "text-green-600"}>  {record.value} ر.س </p>
+        }
+    ]
     return (
         <div className='*:py-2 mb-10 '   >
             <Table dataSource={list} columns={columns} pagination={false} className="flex flex-col items-center *:w-full my-8" rowKey={(record) => record.title} />
+            <p className="lap:text-2xl tap:text-lg text-sm font-bold text-prussian-800 my-2 mr-4">التكلفة</p>
+
+            <Table dataSource={calculator} columns={columns2} pagination={false} className="flex flex-col items-center *:w-full my-8" rowKey={(record) => record.title} />
             <div className={`flex flex-row my-4 w-full   `}>
                 <input type={"checkbox"} className='p-2 ml-4 rounded-md' onChange={(e: any) => setSend(!Send)} checked={Send} />
                 <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">الموافقة على
-                    <Link href={"/policies-and-provisions"} > الشروط والأحكام </Link>
+                    <Link href={"/policies-and-provisions"} target='_blank' > الشروط والأحكام </Link>
                 </p>
             </div>
 
-            <input type='submit' value="اتمام عملية الدفع" className={`p-2 mx-4  text-white rounded-lg w-full    ${Send ? "bg-safety-700 cursor-pointer" : "bg-[#6B7B8F]"} `} disabled={Send} />
+            <input type='submit' value="اتمام عملية الدفع" onClick={onSubmit} className={`p-2 mx-4  text-white rounded-lg w-full    ${Send ? "bg-safety-700 cursor-pointer" : "bg-[#6B7B8F]"} `} disabled={!Send} />
             <br />
         </div>
     );

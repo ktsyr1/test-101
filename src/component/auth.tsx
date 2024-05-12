@@ -14,7 +14,7 @@ export const AuthContext = createContext({});
 /* This code snippet defines a functional component called `LoginApp` in TypeScript with React. Here's
 a breakdown of what the code is doing: */
 
-export default function AuthApp({ userType = 2 }: any) {
+export default function AuthApp({ userType = 2, required }: any) {
 
     const authContext = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors }, } = useForm<any>()
@@ -23,7 +23,9 @@ export default function AuthApp({ userType = 2 }: any) {
     let [loading, setLoading] = useState(true)
     useEffect(() => {
         let cookie = Cookies.get("userToken")
-        if (!cookie || cookie.length < 20) {
+        if (required) {
+            setLoading(false) 
+        } else if (!cookie || cookie.length < 20) {
             setLoading(false)
         }
     }, [])
@@ -33,7 +35,7 @@ export default function AuthApp({ userType = 2 }: any) {
         OTP: "التحقق من الايميل"
     }
     function View() {
-        if (mode === "login") return <Login route={setMode} />
+        if (mode === "login") return <Login route={setMode} required={required} />
         if (mode === "Register") return <SignUp route={setMode} />
         if (mode === "OTP") return <OTP route={setMode} />
         else return <></>
@@ -53,7 +55,7 @@ export default function AuthApp({ userType = 2 }: any) {
     )
 }
 
-function Login({ userType = 2, route }: any) {
+function Login({ userType = 2, route, required }: any) {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm<any>()
     let url = process.env.NEXT_PUBLIC_API
@@ -73,6 +75,7 @@ function Login({ userType = 2, route }: any) {
                     Cookies.set("userInformation", JSON.stringify(data?.userInformation))
                     Cookies.set("refreshToken", data?.refreshToken)
                     Cookies.set("userToken", data?.userToken)
+                    Cookies.set("userloginTime", new Date().getTime().toString())
                     location.reload()
                 }
             })

@@ -38,7 +38,7 @@ const FormParrt2 = () => {
 
     }, [data])
 
-    const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
+    const { register, handleSubmit } = useForm({ defaultValues: data });
     const onSubmit = (res: any) => {
         // scan valid
         let { workAreaId } = state.defaultData
@@ -101,22 +101,21 @@ const FormParrt2 = () => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
 
-            <div className='flex tap:flex-row flex-col m-4 p-4'>
-                <Input text="اسم المشروع" name="projectTitle" register={register} err={state?.err?.projectTitle} />
-                <Input text="صورة العقار" name="projectImage" type='file' accept="image/*" register={register} onChange={setProjectImage} err={state?.err?.projectImage} />
-            </div>
-
-            <div className='flex tap:flex-row flex-col p-4'>
-
-                <Field title="منطقة العمل" className='flex flex-col w-full tap:mx-4 '>
+            <div className='flex tap:flex-row flex-col m-4 p-4 justify-between'>
+                <Field title="منطقة العمل" className='flex flex-col w-full  ml-6 min-w-[300px] '>
                     <Select
                         list={state.WorkAreas}
                         title={state?.WorkAreas.filter((A: any) => A?.value === state.defaultData.workAreaId)[0]?.text || "منطقة العمل"}
                         set={(s: any) => setData({ ...state.defaultData, "workAreaId": s.value })}
                         err={state?.err?.workAreaId}
-
                     />
                 </Field>
+                <Input text="صورة العقار" name="projectImage" type='file' accept="image/*" register={register} onChange={setProjectImage} err={state?.err?.projectImage} />
+            </div>
+
+            <div className='flex tap:flex-row flex-col p-4'>
+                <Input text="اسم المشروع" name="projectTitle" register={register} err={state?.err?.projectTitle} />
+
 
                 <Input text="البلدية العقارية" name="realEstateMunicipal" className="mr-4" register={register} err={state?.err?.realEstateMunicipal} />
             </div>

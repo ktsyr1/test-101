@@ -8,6 +8,8 @@ import { cookies } from 'next/headers'
 
 export default async function GetService() {
     const cookieStore = cookies()
+    // cookieStore.remove('userToken')
+
     const auth = cookieStore.get('userToken')
     let token = auth?.value || ""
 
@@ -28,10 +30,39 @@ export default async function GetService() {
                     </div>
                     {/* <LoginApp /> */}
                     {/* <Forms /> */}
-                    {token?.length > 20 ? <Forms /> : <LoginApp />}
+                    <View />
+                    {/* {token?.length > 20 ? <Forms /> : <LoginApp />} */}
                     <br />
                 </div>
             </div>
         </div>
     )
+}
+
+
+function View() {
+    const cookieStore = cookies()
+    // cookieStore.delete('userToken')
+
+    const auth = cookieStore.get('userToken')
+    let loginTime: any = cookieStore.get('userloginTime')
+    loginTime = loginTime
+    let token = auth?.value || ""
+    console.log(token?.length > 20 && loginTime != null);
+
+    if (token?.length > 20 && loginTime != null) {
+        let newData = new Date().getTime()
+        let last = Number(loginTime.value)
+        let h = 1000 * 60 * 50
+        console.log(newData - last - h)
+        console.log(newData - last - h > 0);
+
+        // if (newData - last - h < 0 && newData - last - h > h)
+         return <Forms />
+        // else return <LoginApp required={true} />
+    }
+    else {
+        // cookieStore.delete("userToken")
+        return <LoginApp required={true} />
+    }
 }

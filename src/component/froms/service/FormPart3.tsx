@@ -6,6 +6,7 @@ import AdditionalFieldsValue from './AdditionalFieldsValue';
 
 import JsCookies from 'js-cookie';
 import GetFatch, { createFatch } from '../get';
+import { message } from 'antd';
 // ------------------------------------------ 
 let clean = {
     "projectDate": "3-5-2024",
@@ -102,8 +103,8 @@ function LastPage({ state, dispatch }: any) {
 
             let DB: any = {}
             DB["projectDate"] = model?.projectDate
-            DB["startTime"] = model?.startTime.slice(0,5)
-            DB["endTime"] = model?.endTime.slice(0,5)
+            DB["startTime"] = model?.startTime.slice(0, 5)
+            DB["endTime"] = model?.endTime.slice(0, 5)
             DB["promoCode"] = model?.promoCode
 
             setContent({ ...Content, ...DB })
@@ -112,11 +113,14 @@ function LastPage({ state, dispatch }: any) {
             let token: any = JsCookies.get("userToken")
             createFatch("/Client/Assessment", model, token)
                 .then((res: any) => {
-
-                    localStorage.removeItem("additionalFieldsValue")
-                    let slug = NextPage(select)
-                    setSelect(slug)
-                    localStorage.setItem("paymonet", JSON.stringify(res?.data?.assessmentPayment))
+                    if (res.code === 500) message.error("هناك خطاء تاكد من معلوماتك")
+                    else {
+                        localStorage.removeItem("additionalFieldsValue")
+                        setData({ ...model, res: res?.data })
+                        let slug = NextPage(select)
+                        setSelect(slug)
+                        localStorage.setItem("paymonet", JSON.stringify(res?.data?.assessmentPayment))
+                    }
                 })
         }
     }
