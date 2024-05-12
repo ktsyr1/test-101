@@ -4,6 +4,7 @@ import { useState } from "react"
 import Icon from "../icons"
 import { usePathname } from 'next/navigation'
 import FAQ from '@/data/FAQ.json'
+import Link from "next/link"
 
 type LayoutType = {
     children: JSX.Element
@@ -36,21 +37,26 @@ export default function QA() {
                     {/* list QA */}
                     <Layout slug="eng">
                         <>
-                            {FAQ.filter(a => a.type == "eng").map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
+                            {FAQ.filter(a => a.type == "eng" && a.required).map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
                         </>
                     </Layout>
 
                     <Layout slug="client">
                         <>
-                            {FAQ.filter(a => a.type == "client").map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
+                            {FAQ.filter(a => a.type == "client" && a.required).map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
                         </>
                     </Layout>
 
                     <Layout slug="strategy">
                         <>
-                            {FAQ.filter(a => a.type == "strategy").map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
+                            {FAQ.filter(a => a.type == "strategy" && a.required).map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
                         </>
                     </Layout>
+                    <div className="w-full flex justify-center">
+                        <Link href={"/FAQ"} prefetch={false} className={`flex flex-row items-center justify-center shadow-lg m-3 p-3 px-6 font-bold w-max text-safety-700 border border-safety-700 hover:text-white hover:bg-safety-700 rounded-xl`}  >
+                            المزيد من الاسئلة الشائعة
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
