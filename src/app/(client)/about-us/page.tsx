@@ -47,13 +47,13 @@ function How() {
                     <h1 className="  text-start lap:text-6xl tap:text-4xl text-2xl w-full  font-bold text-safety-700 tap:mr-10 leading-loose tracking-tight">لماذا نحن </h1>
                 </div>
                 <div className="lists w-full tap:mr-12 text-sx flex flex-row mb-4">
-                    {[
+                    {/* {[
                         { title: "الأسباب المالية", i: 1 },
                         { title: "الأسباب المعنوية", i: 2 },
                         { title: "الأسباب الاجتماعية", i: 3 },
                     ].map(item => (
                         <button key={item.i} className="tap:mx-4 mx-2 border-2 p-2     rounded-lg border-prussian-600 text-prussian-600 hover:text-white hover:bg-prussian-600 tap:p-3  lap:text-xl tap:text-base text-xs ">{item.title}</button>
-                    ))}
+                    ))} */}
 
                 </div>
                 <div className="flex flex-wrap justify-center mb-6">
@@ -101,22 +101,25 @@ function Clients() {
     return (
         <div className="my-4 tap:my-8 flex justify-center">
             <SizeBox className="bg-[#F0F0F0] rounded-[50px] lap:w-full flex flex-col  tap:w-[80%] mx-auto ">
-                <div className="flex flex-row items-center m-auto w-[90%] mt-10" >
+                <div className="flex flex-row items-center m-auto w-[90%] my-10 " >
                     <Logo type="semple" />
-                    <h1 className="w-full text-start text-safety-700 mr-10 lap:text-6xl tap:text-4xl text-2xl font-bold leading-loose tracking-tight  ">عملاؤنا </h1>
+                    <h1 className="w-full text-start text-safety-700 mr-10 lap:text-6xl tap:text-4xl text-2xl font-bold leading-loose tracking-tight  ">العملاء السابقين </h1>
                 </div>
-                <div className="flex flex-wrap text-base font-medium leading-loose tracking-normal text-justify  mb-6 p-8">
+                {/* <div className="flex flex-wrap text-base font-medium leading-loose tracking-normal text-justify  mb-6 p-8">
                     <p>نتفهم أن المستثمرين العقاريين يطالبون بمستوى عالٍ من التدقيق عند تقييم الاستثمارات المحتملة ومستشاراً يفهم أهدافهم ومصالحهم الفضلى، يضم فريقنا خبراء متمرسين يركزون على الاحتياجات والأهداف الفريدة لعملائنا </p>
                     <p className="pt-4"> نقدم مجموعة من التقييمات والخدمات المصممة لمساعدة المالكين والمستثمرين على تقليل المخاطر وتعظيم العوائد من خلال </p>
-                </div>
-                <div className="flex tap:flex-row flex-col justify-between w-full">
+                </div> */}
+                <div className="flex tap:flex-row flex-col justify-between w-full pb-5">
                     <div className="flex flex-row tap:m-10 !mt-0 m-auto tap:mx-0 mb-4 overflow-x-scroll tap:flex-col tap:overflow-x-visible w-[90%] tap:w-80 select-none ">
                         {data.map(client => <BtnList data={client} onClick={() => setOne(client)} key={client.title} />)}
                     </div>
                     <div className="flex flex-col items-start tap:flex-row tap:flex-wrap w-full content-start ">
-                        {one.list.map(item => <div key={item}
-                            className={`bg-prussian-800 flex font-bold items-center justify-center lap:text-xl leading-loose h-max tap:min-h-[80px] m-2 p-4 px-6 rounded-[59px] tap:py-6 tap:text-base text-right text-white text-xs tracking-normal tap:w-[45%]  
-                            `}>{item}</div>)}
+                        {one.list.map((item: any) => <div key={item}
+                            className={`bg-prussian-800 flex flex-col px-4 items-center *:-center my-8  font-bold   lap:text-xl leading-loose h-max tap:min-h-[80px] m-2   rounded-[59px] tap:py-6 tap:text-base text-right text-white text-xs tracking-normal tap:w-[45%]  
+                            `}>
+                            {item?.logo && <img src={item.logo} alt=" logo" className="w-16 h-16 rounded-full ml-4 absolute shadow-lg   mt-[-70px]  " />}
+                            <p>{item.title}</p>
+                        </div>)}
                     </div>
                 </div>
             </SizeBox>
@@ -128,7 +131,7 @@ function Expertise() {
     const ref = useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
     const { events } = useDraggable(ref, {
         applyRubberBandEffect: true,
-        isMounted: true, 
+        isMounted: true,
         safeDisplacement: 11, // specify the drag sensitivity
     });
 
@@ -160,7 +163,7 @@ function CardExpertise({ data }: { data: ExpertiseType }) {
             <div className="flex flex-col my-4" >
                 <p className="text-safety-700 mt-8  lap:text-3xl tap:text-xl text-base  font-bold leading-snug tracking-normal text-right">{data.title}</p>
                 <ol className="flex flex-col mx-4 mt-8   lap:text-xl tap:text-base text-sm font-medium leading-loose tracking-tightest text-right">
-                    {data.list.map(a => <li key={a} className="list-disc">{a}</li>)}
+                    {data.list.map((a: any) => <li key={a} className="list-disc">{a}</li>)}
                 </ol>
             </div>
         </div>
@@ -168,51 +171,121 @@ function CardExpertise({ data }: { data: ExpertiseType }) {
 }
 type ExpertiseType = {
     title: string,
-    list: string[]
+    list: any
     icon: string
     top: boolean
     w?: string
 }
 let ListClients = [
     {
-        title: "المستثمرون العقاريون",
+        title: "المكاتب الاستشارية",
         list: [
-            "تحديد المشاكل المحتملة لإلغاء الصفقات أو أحد الأصول ",
-            "توفير المعلومات التي يمكن للمستثمرين استخدامها للتفاوض على سعر الشراء ",
-            "المساعدة في التخطيط لصيانة المباني والنفقات الرأسمالية ",
-            "مساعدة المالكين على الامتثال للوائح / المعايير وحماية صحة الإنسان وسلامته ",
-            "التعرف على فرص تحقيق عائد على الاستثمار ",
-            "زيادة كفاءة الأصول واستدامتها وقابليتها للتسويق ",
+            {
+                title: "مكتب المجموعة الاستشارية للاستشارات الهندسية ",
+                logo: "/images/about/1.png"
+            }, {
+                title: "مكتب مرافق للاستشارات الهندسية ",
+                logo: "/images/about/2.png"
+            }, {
+                title: "شركة المحدد للاستشارات الهندسية ",
+                logo: "/images/about/3.png"
+            }, {
+                title: "مكتب بولد للاستشارات الهندسية ",
+                logo: "/images/about/4.png"
+            }, {
+                title: "مكتب غايات الهندسة للاستشارات الهندسية ",
+                logo: "/images/about/5.png"
+            },
         ]
     }, {
-        title: "أصحاب المنشآت ",
+        title: "مختبرات الفحص ",
         list: [
-            " تقييمات حالة المنشأة ",
-            " تقرير حالة الملكية ",
-            " (MCR) تقرير حالة الصيانة ",
-            " (OCR) تقرير تكلفة التشغيل "
+            {
+                title: "شركة مسار الجودة للتحقق",
+                logo: "/images/about/6.png"
+            }, {
+                title: "مختبر اتقان البناء لفحص التربة والمواد ",
+                logo: "/images/about/8.png"
+            },  {
+                title: "شركة OCA Global ",
+                logo: "/images/about/10.png"
+            }, {
+                title: "مختبر الديار المتخصصة ",
+                // logo: "/images/about/7.png"
+            },{
+                title: "مختبر دار المستوى ",
+                // logo: "/images/about/9.png"
+            },
         ]
     }, {
-        title: "الجهات المانحة ",
-        list: [" تقييمات حالة المنشأة ", " تقرير حالة الملكية ",]
+        title: "شركات التطوير العقاري ",
+        list: [
+            {
+                title: "بيوت الورد للتطوير العقاري ",
+                logo: "/images/about/11.png"
+            }, {
+                title: "شركة خوالد العقارية ",
+                logo: "/images/about/12.png"
+            }, {
+                title: "مجموعة السعد للاستثمار والتنمية ",
+                logo: "/images/about/13.png"
+            }, {
+                title: "الماجدية رزيدنس ",
+                logo: "/images/about/14.png"
+            },]
 
     }, {
-        title: "المباني الحكومية ",
-        list: [" تقييمات حالة المنشأة ", " تقرير حالة الملكية ",]
+        title: "المقاولون ",
+        list: [
+            {
+                title: "شركة مينا ",
+                logo: "/images/about/15.png"
+            },
+            {
+                title: "بيوت المنارة للمقاولات العامة ",
+                logo: "/images/about/16.png"
+            },
+            {
+                title: "نظام البنيان للمقاولات ",
+                logo: "/images/about/17.png"
+            },
+            {
+                title: "شركة تكنولوجيا الخرسانة ",
+                logo: "/images/about/18.png"
+            },
+            {
+                title: "ADBLU international ",
+                logo: "/images/about/19.png"
+            }
+        ]
+    }, {
+        title: "الشركات الاستثمارية ",
+        list: [
+            {
+                title: "اوشن اكس. (المحيط العاشر)",
+                logo: "/images/about/20.png"
+            },
+            {
+                title: "شركة العثيم للاستثمارات ",
+                logo: "/images/about/21.png"
+            },
+            {
+                title: "شركة تبوك الدوائية ",
+                logo: "/images/about/22.png"
+            }
+        ]
 
-    }, {
-        title: "الوسطاء العقاريون ",
-        list: [" تقييمات حالة المنشأة ", " تقرير حالة الملكية ",]
-
-    }, {
-        title: "شركات التأمين ",
-        list: [" تقييمات حالة المنشأة ", " تقرير حالة الملكية ",]
-
-    }, {
-        title: "المطورون العقاريون ",
-        list: [" تقييمات حالة المنشأة ", " تقرير حالة الملكية ",]
-    }, {
-        title: "المؤسسات المالية ",
-        list: [" تقييمات حالة المنشأة ", " تقرير حالة الملكية ",]
     },
+    // {
+    //     title: "شركات التأمين ",
+    //     list: [" تقييمات حالة المنشأة ", " تقرير حالة الملكية ",]
+
+    // }, {
+    //     title: "المطورون العقاريون ",
+    //     list: [" تقييمات حالة المنشأة ", " تقرير حالة الملكية ",]
+    // }, {
+    //     title: "المؤسسات المالية ",
+    //     list: [" تقييمات حالة المنشأة ", " تقرير حالة الملكية ",]
+    // },
 ]
+

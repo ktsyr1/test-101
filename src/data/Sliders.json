@@ -7,7 +7,7 @@
         "bg": "Sliders-bg-1.webp",
         "cover": "Slider.png",
         "btn": {
-            "title": "إقرأ المزيد",
+            "title": "إطلب الخدمة",
             "to": "/get-service"
         },
         "timeLine": {
@@ -23,7 +23,7 @@
         "bg": "Sliders-bg-2.jpg",
         "cover": "Slider.png",
         "btn": {
-            "title": "إقرأ المزيد",
+            "title": "حول التطبيق",
             "to": "/about-app"
         },
         "timeLine": {
@@ -39,7 +39,7 @@
         "bg": "Sliders-bg-3.jpg",
         "cover": "Slider.png",
         "btn": {
-            "title": "إقرأ المزيد",
+            "title": "إنظم الى إنسبكتكس",
             "to": "/join"
         },
         "timeLine": {
