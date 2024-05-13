@@ -5,7 +5,7 @@ import postsData from "@/data/posts.json"
 import MarkdownIt from 'markdown-it'
 
 function getBlogId(url: string) {
-    return dataBlogs.find(post => post?.url == url)
+    return dataBlogs.find((post: any) => post?.url == url)
 }
 export default async function BlogOne({ params: { url }, }: any) {
 
@@ -27,7 +27,7 @@ export default async function BlogOne({ params: { url }, }: any) {
 }
 
 
-export const dataBlogs = [
+export const dataBlogs: any = [
     {
         id: 1,
         title: "استخدام تقنية المسح الراداري في كشف أقطار حديد التسليح",
