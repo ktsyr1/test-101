@@ -49,7 +49,7 @@ export function setConfig(merchantId: string, serverKey: string, region: string,
     } else if (agent == "clickpay") {
         const regions_urls = {
             ARE: 'https://secure.clickpay.com.sa/',
-            SAU: 'https://secure.clickpay.com.sa'
+            SAU: 'https://secure.clickpay.com.sa/'
         }
         config.endPoint = regions_urls[region as keyof typeof regions_urls];
     } else throw new Error(`Unknown agent`)
@@ -137,6 +137,7 @@ function sendPost(url: any, objData: any, callback: any) {
         })
         .catch((error: any) => {
             let result: any = error.response ? error.response.data.message : error.errno
+console.log(error);
 
             // callback({ response_code: 400, result: result });
             return { response_code: 400, result: result }
