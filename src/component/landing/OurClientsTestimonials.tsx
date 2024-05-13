@@ -19,7 +19,7 @@ export default function OurClientsTestimonials() {
                         <div className="flex flex-row mx-2 justify-between w-full overflow-x-scroll lap:overflow-x-hidden  ">
                             {clints.map(clint => clint?.image ?
                                 <img src={clint.image} alt={clint.name} loading="lazy" className={` mx-2 hover:shadow-lg rounded-2xl lap:h-[100px] h-[80px] hover:grayscale-0	cursor-pointer  hover:border-4 hover:border-safety-700  ${clint.name !== one.name && "grayscale"}  `} key={clint.image} onClick={() => setOne(clint)} />
-                                : <p className={` mx-2 hover:shadow-lg rounded-2xl lap:h-[100px] h-[80px] p-4 hover:grayscale-0	cursor-pointer  hover:border-4 hover:border-safety-700 text-safety-700 tap:text-5xl text-3xl w-32 justify-center px-5 bg-[#F0F0F0] flex  items-center font-bold ${clint.name !== one.name && "grayscale"}  `} key={clint.image} onClick={() => setOne(clint)} >{clint.letter}</p>
+                                : <p className={` mx-2 hover:shadow-lg rounded-2xl lap:h-[100px] h-[80px] p-4 hover:grayscale-0	cursor-pointer  hover:border-4 hover:border-safety-700 text-safety-700 tap:text-5xl text-3xl w-32 justify-center px-5 bg-[#F0F0F0] flex  items-center font-bold ${clint.name !== one.name && "grayscale"}  `} key={clint.name} onClick={() => setOne(clint)} >{clint.letter}</p>
 
                             )}
                         </div>

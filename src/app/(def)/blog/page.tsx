@@ -43,8 +43,7 @@ function Content() {
                 <div className=" flex flex-col items-center justify-center  w-full ">
                     {/* <BlogCard data={posts[0]} type={CardType.full} /> */}
                     <div className="flex flex-wrap items-center justify-center my-8">
-                        {/* {posts.slice(0, limit).map(post => <BlogCard data={post} key={post.title} />)} */}
-                        {/* {dataBlogs.slice(0, limit).map(post => <BlogCardBeta data={post} key={post.title} />)} */}
+                        {dataBlogs.slice(0, limit).map(post => <BlogCardBeta data={post} key={post.title} />)}
                     </div>
                     <button type="button" className="flex flex-row text-safety-700 justify-center text-base font-semibold items-center mt-9" onClick={() => setLimit(limit + 3)} >
                         <p>المزيد من المقالات</p>
@@ -56,26 +55,26 @@ function Content() {
     )
 }
 
-// export function BlogCardBeta({ data }: any) {
+function BlogCardBeta({ data }: any) {
 
-//     let [btnHover, SetBtnHover] = useState(false)
-//     let enter = () => SetBtnHover(true)
-//     let leave = () => SetBtnHover(false)
-//     return (
-//         <div className={`flex  m-4 shadow-sm hover:shadow-xl bg-white rounded-3xl flex-col lap:min-w-[350px] min-w-[250px] w-full max-w-[350px] lap:max-w-[421px]"} `}>
-//             <img src={data.image} loading="lazy" alt={data.title}
-//                 className={` rounded-t-3xl min-h-[200px] bg-slate-100 border-safety-700 w-full rounded-b-none card/w-[50%]  border-b `} />
-//             <div className={`flex flex-col max-h-[432px]   `}>
-//                 <div className="flex flex-col p-4 pb-0">
-//                     <b className="text-safety-700 lap:text-xl text-lg font-extrabold   ">{data.title}</b>
-//                     <p className="lap:py-4 py-2 lap:text-sm text-xs font-medium text-slate-500 overflow-hidden text-overflow-ellipsis lap:h-[78px] h-[57px] ">{data.bio}</p>
-//                 </div>
-//                 <div onMouseEnter={enter} onMouseLeave={leave}>
-//                     <Btn to={`/blog/${data.url}`} className="rounded-full border-2 border-safety-700 flex lap:px-8 px-6 text-prussian-600 justify-between shadow-none max-w-[400px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end" title="إقرأالمزيد" >
-//                         <IconArrow color={btnHover ? "#fff" : "#032DA6"} />
-//                     </Btn>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
+    let [btnHover, SetBtnHover] = useState(false)
+    let enter = () => SetBtnHover(true)
+    let leave = () => SetBtnHover(false)
+    return (
+        <div className={`flex  m-4 shadow-sm hover:shadow-xl bg-white rounded-3xl flex-col lap:min-w-[350px] min-w-[250px] w-full max-w-[350px] lap:max-w-[421px]"} `}>
+            <img src={data.image} loading="lazy" alt={data.title}
+                className={` rounded-t-3xl min-h-[200px] bg-slate-100 border-safety-700 w-full rounded-b-none card/w-[50%]  border-b `} />
+            <div className={`flex flex-col max-h-[432px]   `}>
+                <div className="flex flex-col p-4 pb-0">
+                    <b className="text-safety-700 lap:text-xl text-lg font-extrabold   ">{data.title}</b>
+                    <p className="lap:py-4 py-2 lap:text-sm text-xs font-medium text-slate-500 overflow-hidden text-overflow-ellipsis lap:h-[78px] h-[57px] ">{data.bio}</p>
+                </div>
+                <div onMouseEnter={enter} onMouseLeave={leave}>
+                    <Btn to={`/blog/${data.url}`} className="rounded-full border-2 border-safety-700 flex lap:px-8 px-6 text-prussian-600 justify-between shadow-none max-w-[400px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end" title="إقرأالمزيد" >
+                        <IconArrow color={btnHover ? "#fff" : "#032DA6"} />
+                    </Btn>
+                </div>
+            </div>
+        </div>
+    )
+}

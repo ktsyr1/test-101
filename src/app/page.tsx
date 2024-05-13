@@ -18,7 +18,7 @@ export default function Home() {
             <RequestMechanism />
             <InspectionRequest />
             <JobsPart />
-            {/* <BlogPart /> */}
+            <BlogPart />
             <OurClientsTestimonials />
             <Consultation />
         </div>
