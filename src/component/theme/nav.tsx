@@ -16,8 +16,8 @@ export default function Nav() {
         "jobs": "فرص العمل",
         "join": "تقديم لفرصة عمل "
     }
-    const pathname = usePathname()
-    let pathArray = pathname.split("/").filter(a => a.length > 0)
+    const pathname: any = usePathname()
+    let pathArray = pathname?.split("/").filter((a: any) => a.length > 0)
 
     return (
         <nav className="flex flex-wrap fixed z-50 bg-opacity-83 select-none top-0 w-full justify-between border-b-2 border-solid border-orange-500 bg-gradient-to-b from-white via-white to-white  " style={{ backgroundImage: "linear-gradient(180deg, white, #ffffffbd)" }}>
@@ -25,11 +25,11 @@ export default function Nav() {
                 {/* <IconMenu className={'w-[70px]  max-[697px]:w-[50px] '} /> */}
                 <Menu />
                 <Link href={'/'} prefetch={false} className="inline-flex items-center gap-[10px] relative lap:h-[70px] mx-3 p-3 h-[50px] mr-[80px] ">
-                    <Logo type={"ar"} className={'p-2 tap:p-0' } />
+                    <Logo type={"ar"} className={'p-2 tap:p-0'} />
                 </Link>
                 {/* <Logo /> */}
                 <div className="flex flex-row items-center max-[697px]:hidden">
-                    <Link href={'/'}  prefetch={false}>
+                    <Link href={'/'} prefetch={false}>
                         <IconHome className={'m-4  hover:p-1'} />
                     </Link>
                     {pathArray.length > 0 && <div className="flex flex-row items-center mx-6">

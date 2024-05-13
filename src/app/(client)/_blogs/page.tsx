@@ -2,7 +2,7 @@
 import BlogCard from "@/component/blog/cards";
 import Hero from "@/component/hero";
 import Icon from "@/component/icons";
-import BlogPart, { CardType } from "@/component/landing/blog";
+import BlogPart from "@/component/landing/blog";
 import postsData from "@/data/posts.json"
 import { useState } from "react";
 
@@ -33,8 +33,8 @@ export default function BlogAll() {
 
 function Content() {
     let [posts, setPosts] = useState(Array.from([0, 1, 2, 4, 5, 6].map(a => postsData[0])));
-    let [limit, setLimit] = useState(3)  
-    
+    let [limit, setLimit] = useState(3)
+
     return (
         <div className=" flex flex-col items-center w-full   pb-16">
             <div className=" flex flex-col items-center   max-w-[1360px]">

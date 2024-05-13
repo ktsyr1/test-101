@@ -1,11 +1,7 @@
 "use client"
-import BlogCard from "@/component/blog/cards";
 import Hero from "@/component/hero";
-import Icon from "@/component/icons";
-import BlogPart, { CardType } from "@/component/landing/blog";
 import SizeBox from "@/component/size-box";
 import postsData from "@/data/posts.json"
-import { useState } from "react";
 import MarkdownIt from 'markdown-it'
 
 function getBlogId(url: string) {

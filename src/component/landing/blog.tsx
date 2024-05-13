@@ -1,17 +1,14 @@
 "use client"
 import Link from "next/link";
-import { IconArrow } from "../icons";
-import BlogCard from "../blog/cards";
-import postsData from "@/data/posts.json"
-import { useState } from "react";
-import { dataBlogs } from "@/app/(def)/blog/[url]/page";
-import { BlogCard2 } from "@/app/(def)/blog/page";
+import { IconArrow } from "../icons"; 
+// import { dataBlogs } from "@/component/blog/demo";
+// import { BlogCardBeta } from "@/app/(def)/blog/page";
 
-export enum CardType {
-    full = "full"
-}
-export default function BlogPart() {
-    let [posts, setPosts] = useState([postsData[0], postsData[0], postsData[0]])
+type MyPageProps = {
+    BlogCardBeta: ({ data }: any) => Element;
+    // ... other props
+};
+export default function BlogPart({ }: MyPageProps) {
     return (
         <div className=" flex flex-col items-center w-full bg-[#eee] pb-16">
             <div className=" flex flex-col items-center   max-w-[1360px]">
@@ -19,7 +16,7 @@ export default function BlogPart() {
                 <div className=" flex flex-col items-center justify-center  w-full bg-[#eee]">
                     {/* <BlogCard data={posts[0]} type={CardType.full} /> */}
                     <div className="flex flex-wrap items-center justify-center  my-8">
-                        {dataBlogs.slice(0, 3).map(post => <BlogCard2 data={post} key={post.title} />)}
+                        {/* {dataBlogs.slice(0, 3).map(post => <BlogCardBeta data={post} key={post.title} />)} */}
 
                         {/* {posts.map((post, i) => <BlogCard data={post} key={i} />)} */}
                     </div>
