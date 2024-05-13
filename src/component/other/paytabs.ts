@@ -33,7 +33,7 @@ const config = { merchantId: '', serverKey: '', region: '', endPoint: "" }
  * the client making the request, such as a browser or a custom application.
  */
 
-export function setConfig(merchantId: string, serverKey: string, region: string, agent: string) {
+export function setConfig(merchantId: string, serverKey: string, region: string, agent?: string) {
     config.merchantId = merchantId;
     config.serverKey = serverKey;
     config.region = Region[region as keyof typeof Region];

@@ -36,7 +36,7 @@ export async function POST(req: any, res: any) {
         response: "http://localhost:3000/api/payment/order/" + data.id
     }
 
-    setConfig(profileID, serverKey, region);
+    setConfig(profileID, serverKey, region, "clickpay");
 
     // console.log({ data, paytabs });
 
