@@ -109,7 +109,7 @@ function Clients() {
                     <p>نتفهم أن المستثمرين العقاريين يطالبون بمستوى عالٍ من التدقيق عند تقييم الاستثمارات المحتملة ومستشاراً يفهم أهدافهم ومصالحهم الفضلى، يضم فريقنا خبراء متمرسين يركزون على الاحتياجات والأهداف الفريدة لعملائنا </p>
                     <p className="pt-4"> نقدم مجموعة من التقييمات والخدمات المصممة لمساعدة المالكين والمستثمرين على تقليل المخاطر وتعظيم العوائد من خلال </p>
                 </div> */}
-                <div className="flex tap:flex-row flex-col justify-between w-full pb-5">
+                <div className="flex tap:flex-row flex-col justify-between w-full py-5">
                     <div className="flex flex-row tap:m-10 !mt-0 m-auto tap:mx-0 mb-4 overflow-x-scroll tap:flex-col tap:overflow-x-visible w-[90%] tap:w-80 select-none ">
                         {data.map(client => <BtnList data={client} onClick={() => setOne(client)} key={client.title} />)}
                     </div>
