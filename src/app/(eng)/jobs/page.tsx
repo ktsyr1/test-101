@@ -37,7 +37,10 @@ function ListJobs() {
                     </form> */}
                     <div className="flex flex-col items-center m-auto w-[90%] tap:my-20 my-6" >
                         <h2 className="w-full text-start lap:text-5xl tap:text-3xl text-xl  font-bold text-safety-700 tap:mr-10 tap:mb-8 ">إنضم إلى فريقنا </h2>
-                        <p className="text-slate-700 m-4 w-full lap:text-xl tap:text-base text-sm ">اكتشف فرص العمل المثيرة في Inspectex، حيث نقدر الموهبة والابتكار والشغف بخدمة العملاء. انضم إلى فريقنا وكن جزءًا من تشكيل مستقبل أكثر إشراقًا في المجال العماري و الهندسي</p>
+                        <p className="text-slate-700 m-4 w-full lap:text-xl tap:text-base text-sm ">
+                        استكشف العديد من فرص العمل في Inspectex 
+انضم إلى فريقنا و كن جزءًا من تشكيل مستقبل مشرق في المجال الهندسي.
+                            </p>
                     </div>
                     <div className="w-full tap:w-[80%] lap:w-full">
                         {/* {data.length== 0&&  */}

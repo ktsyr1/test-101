@@ -4,6 +4,8 @@ import { IconArrow } from "../icons";
 import BlogCard from "../blog/cards";
 import postsData from "@/data/posts.json"
 import { useState } from "react";
+import { dataBlogs } from "@/app/(def)/blog/[url]/page";
+import { BlogCard2 } from "@/app/(def)/blog/page";
 
 export enum CardType {
     full = "full"
@@ -16,8 +18,10 @@ export default function BlogPart() {
                 <Header />
                 <div className=" flex flex-col items-center justify-center  w-full bg-[#eee]">
                     {/* <BlogCard data={posts[0]} type={CardType.full} /> */}
-                    <div className="flex flex-wrap items-center justify-center">
-                        {posts.map((post, i) => <BlogCard data={post} key={i} />)}
+                    <div className="flex flex-wrap items-center justify-center  my-8">
+                        {dataBlogs.slice(0, 3).map(post => <BlogCard2 data={post} key={post.title} />)}
+
+                        {/* {posts.map((post, i) => <BlogCard data={post} key={i} />)} */}
                     </div>
                 </div>
             </div>
