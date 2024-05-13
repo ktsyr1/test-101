@@ -16,14 +16,14 @@ export enum Region {
     GLOBAL = "GLOBAL",
 }
 
-// 
-
 const config = { merchantId: '', serverKey: '', region: '', endPoint: "" }
 
 export function setConfig(merchantId: string, serverKey: string, region: string) {
     config.merchantId = merchantId;
     config.serverKey = serverKey;
     config.region = Region[region as keyof typeof Region];
+
+    // const regions_urls = {ARE:'https://secure.clickpay.com.sa/',SAU:'https://secure.clickpay.com.sa'};
     const regions_urls = {
         ARE: 'https://secure.paytabs.com/',
         SAU: 'https://secure.paytabs.sa/',

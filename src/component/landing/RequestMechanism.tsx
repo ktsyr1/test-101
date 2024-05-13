@@ -92,7 +92,7 @@ function Header() {
         <>
             <p className="text-safety-700 py-4 tap:text-2xl  text-xl font-semibold">{data.stap}</p>
             <b className="text-blue-800 tap:text-3xl py-8   text-2xl  font-extrabold ">{data.title} </b>
-            <p className="min-h-36  py-8 tap:text-xl font-medium  text-lg  " dangerouslySetInnerHTML={{ __html: data.bio }} />
+            <p className="min-h-36  py-8 tap:text-base font-medium  text-sm mt-10  " dangerouslySetInnerHTML={{ __html: data.bio }} />
         </>
     )
 }

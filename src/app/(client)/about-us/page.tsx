@@ -115,10 +115,10 @@ function Clients() {
                     </div>
                     <div className="flex flex-col items-start tap:flex-row tap:flex-wrap w-full content-start ">
                         {one.list.map((item: any) => <div key={item}
-                            className={`bg-prussian-800 flex flex-col px-4 items-center *:-center my-8  font-bold   lap:text-xl leading-loose h-max tap:min-h-[80px] m-2   rounded-[59px] tap:py-6 tap:text-base text-right text-white text-xs tracking-normal tap:w-[45%]  
+                            className={`bg-prussian-800 flex flex-col px-4 items-center *:-center my-8  font-bold   lap:text-lg leading-loose h-max tap:min-h-[80px] m-2   rounded-[59px] tap:py-6 tap:text-base text-right text-white text-xs tracking-normal tap:w-[45%]  
                             `}>
                             {item?.logo && <img src={item.logo} alt=" logo" className="w-16 h-16 rounded-full ml-4 absolute shadow-lg   mt-[-70px]  " />}
-                            <p>{item.title}</p>
+                            <p className="w-full px-6">{item.title}</p>
                         </div>)}
                     </div>
                 </div>
@@ -243,7 +243,7 @@ let ListClients = [
             },
             {
                 title: "بيوت المنارة للمقاولات العامة ",
-                logo: "/images/about/16.png"
+                // logo: "/images/about/16.png"
             },
             {
                 title: "نظام البنيان للمقاولات ",

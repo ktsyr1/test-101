@@ -18,14 +18,14 @@ export default function OpenServiceOne({ data, set, navigation }: any) {
                     <div className="flex flex-row items-center w-full justify-end cursor-pointer" onClick={() => set({})} ><Icon.close /></div>
                     <Header data={data} />
                     <div className=" min-h-[100px] text-start w-full m-4 px-4">
-                        {typeof data[select] === 'string' ?
-                            data[select] :
+                        {typeof data[select] === 'object' &&
                             <div className="flex flex-wrap">
                                 {data[select].map((item: any, index: number) => {
                                     return <div className="m-4 p-4 border-2 border-[#00A5A5AB] rounded-md w-[46%]" key={index}>{item}</div>
                                 })}
                             </div>
                         }
+                        {select === 'description' && <div className="flex flex-col" dangerouslySetInnerHTML={{ __html: data[select] }} />}
                     </div>
                     <Footer data={data} navigation={navigation} />
 
@@ -48,9 +48,9 @@ function Header({ data }: any) {
             </div>
 
             <div className="flex flex-row w-full" >
-                <Btn title="وصف الخدمة" className={` lap:text-xl tap:text-base *:text-xs  rounded-xl border-2 border-[#F25B06] text-[#F25B06] tap:p-4 p-2  hover:bg-safety-700 hover:text-white   cursor-pointer ${select == "description" ? "bg-safety-700 text-white w-full" : ""}`} onClick={() => set("description")} />
-                <Btn title="لمن التقرير  " className={` lap:text-xl tap:text-base *:text-xs  rounded-xl border-2 border-[#F25B06] text-[#F25B06] tap:p-4 p-2  hover:bg-safety-700 hover:text-white   cursor-pointer ${select == "report" ? "bg-safety-700 text-white w-full" : ""}`} onClick={() => set("report")} />
-                <Btn title="أهداف التقارير" className={` lap:text-xl tap:text-base *:text-xs  rounded-xl border-2 border-[#F25B06] text-[#F25B06] tap:p-4 p-2 hover:bg-safety-700 hover:text-white   cursor-pointer  ${select == "ReportingObjectives" ? "bg-safety-700 text-white w-full" : ""}`} onClick={() => set("ReportingObjectives")} />
+                <Btn title={data.icon != "planet-earth.png" ? "وصف الخدمة" : "الفحوصات الإنشائية والبيئية"} className={`${data.icon == "planet-earth.png" && "!min-w-[200px]"} lap:text-xl tap:text-base *:text-xs  rounded-xl border-2 border-[#F25B06] text-[#F25B06] tap:p-4 p-2  hover:bg-safety-700 hover:text-white   cursor-pointer ${select == "description" ? "bg-safety-700 text-white w-full" : ""}`} onClick={() => set("description")} />
+                <Btn title={data.icon != "planet-earth.png" ? "لمن التقرير  " : "الفحوصات الكهربائية"} className={` lap:text-xl tap:text-base *:text-xs  rounded-xl border-2 border-[#F25B06] text-[#F25B06] tap:p-4 p-2  hover:bg-safety-700 hover:text-white   cursor-pointer ${select == "report" ? "bg-safety-700 text-white w-full" : ""}`} onClick={() => set("report")} />
+                <Btn title={data.icon != "planet-earth.png" ? "أهداف التقارير" : "الفحوصات الميكانيكية"} className={` lap:text-xl tap:text-base *:text-xs  rounded-xl border-2 border-[#F25B06] text-[#F25B06] tap:p-4 p-2 hover:bg-safety-700 hover:text-white   cursor-pointer  ${select == "ReportingObjectives" ? "bg-safety-700 text-white w-full" : ""}`} onClick={() => set("ReportingObjectives")} />
             </div>
         </>
     )
