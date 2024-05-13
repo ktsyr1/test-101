@@ -20,7 +20,7 @@ export default function Home() {
             <JobsPart />
             <BlogPart />
             <OurClientsTestimonials />
-            <Consultation />
+            {/* <Consultation /> */}
         </div>
     );
 }
