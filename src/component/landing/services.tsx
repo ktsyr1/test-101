@@ -100,7 +100,8 @@ export function CardService({ data, set, type }: CardType) {
 
             </div>
             <Link href={`/services?name=${data.ar}`} prefetch={false} className="  flex-col group items-center  hidden group-hover:flex group-hover:m-0 justify-center rounded-3xl py-8 p-6 h-[260px] text-center  text-sm  w-[240px] lap:w-[330px]"  >
-                {data.report.map((a: any) => <p key={a}>{a}</p>)}
+
+                {data.icon == "planet-earth.png" ? <p>تعرف على مجموعة من الفحوصات الغير الإتلافية</p> : data.report.map((a: any) => <p key={a}>{a}</p>)}
                 {/* {data.report.join("  ,  ")} */}
             </Link>
         </div>
