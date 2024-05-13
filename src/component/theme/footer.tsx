@@ -59,7 +59,7 @@ export default function Footer() {
                 </Col>
             </div >
             <div style={{}} className="flex flex-row max-[700px]:flex-col-reverse p-6 md:mr-[140px]  md:ml-[140px] justify-between ">
-                <p className="p-2 lap:text-xl tap:text-lg text-base font-bold text-blue-950 max-[700px]:!text-md">© 2023 شركة إنسبكتكس السعودية</p>
+                <p className="p-2 lap:text-xl tap:text-lg text-base font-bold text-blue-950 max-[700px]:!text-md">©   شركة معايير البناء الحديثة للفحص</p>
                 <Logo size={"260"} type="arOrange" />
             </div>
             <C_Dev_andDes />

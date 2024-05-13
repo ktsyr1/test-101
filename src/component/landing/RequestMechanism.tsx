@@ -32,7 +32,7 @@ export default function RequestMechanism() {
                                 <Header />
                                 <Navigation />
                                 <ListLine />
-                                <div onMouseEnter={enter} onMouseLeave={leave} > 
+                                <div onMouseEnter={enter} onMouseLeave={leave} >
                                     <Btn to={"#"} title=" أطلب الخدمة الآن" childSort="end" className="mt-12 border-2 border-safety-700 hover:bg-safety-700 hover:text-white hover:*:!fill-white  rounded-2xl bg-white text-prussian-800 " >
                                         <IconArrow className={'mr-16'} color={btnHover ? "#fff" : "#032DA6"} />
                                     </Btn>
@@ -92,7 +92,7 @@ function Header() {
         <>
             <p className="text-safety-700 py-4 tap:text-2xl  text-xl font-semibold">{data.stap}</p>
             <b className="text-blue-800 tap:text-3xl py-8   text-2xl  font-extrabold ">{data.title} </b>
-            <p className="min-h-36  py-8 tap:text-xl font-medium  text-lg  ">{data.bio} </p>
+            <p className="min-h-36  py-8 tap:text-xl font-medium  text-lg  " dangerouslySetInnerHTML={{ __html: data.bio }} />
         </>
     )
 }
@@ -100,29 +100,29 @@ let list = [
     {
         id: 1,
         stap: "الخطوة الاولى",
-        title: "الزيارة الميدانية",
-        bio: "  يتم عمل زيارة معاينة لموقع المشروع وإعداد استبيان بالطلبات والخدمات المُحتاجة.",
+        title: "طلب الخدمة",
+        bio: " يمكنك طلب خدمة الفحص المناسبة لاحتياجاتك من خلال الموقع الالكتروني, تطبيق إنسبكتكس أو من خلال التواصل مباشرة معنا على أرقامنا أو مواقع التواصل الإجتماعي الخاصة بنا ",
         icon: "bg-a2.webp",
         link: "",
     }, {
         id: 2,
         stap: "الخطوة الثانية",
-        title: "إعداد العرض الفني والمالي",
-        bio: " يتم إعداد العرض المالي موضحاً به جميع الخدمات المقدمة.",
+        title: "معالجة  الطلب ",
+        bio: "معالجة الطلب بإسناده للفاحصين المتاحين  وتأكيد موعد الفحص يكون من خلال فرقة الفحص",
         icon: "Location 1.webp",
         link: "",
     }, {
         id: 3,
         stap: " الخطوة الثالثة",
         title: "عملية الفحص",
-        bio: "يتم إعداد عملية الفحص وفقاً لخطة العمل المرفقة مع العرض الفني والمالي. ",
+        bio: " يصل فريقنا بالموعد المحدد و ومن ثم الشروع في عملية الفحص التي تستلزم  بمتوسط 3 ساعات، و التي يتم من خلالها تغطية جميع مكونات وأنظمة العقار <br /> ملاحظة: <br /> بإمكانكم تتبع فريقنا  قبل وصوله من خلال خرائط جوجل ",
         icon: "bUILDING 1.webp",
         link: "",
     }, {
         id: 4,
         stap: "الخطوة الرابعة",
         title: " إصدار التقرير",
-        bio: "وهي المرحلة النهائية التي تعكس نتائج الفحوصات وتحليلها وتشمل التوصيات الواجب العمل بها، ويرتبط عادة بها قيم الإصلاحات الواجب تنفيذها، والتي ينبثق عنها تقرير حالة الصيانة PCR (Property Condition Report)",
+        bio: " وهي المرحلة النهائية, التي تعكس نتائج الفحوص والبيانات المجمّعة من خلال الفاحصين يستغرق التقرير 3 أيام عمل بعد الإنتهاء من عملية الفحص.(تسليم التقرير  يتم  من خلال رابط إلكتروني برسالة نصية أو من خلال حسابك على التطبيق )",
         icon: "lIST 1.webp",
         link: "",
     },

@@ -76,7 +76,7 @@ function TimeLine(props: any) {
             <div className="bg-[#001F67]  flex flex-col h-[200px] justify-center mt-[-200px] overflow-x-scroll px-4 select-none z-30" >
                 <div className="flex flex-row  w-[1000px]  justify-start m-auto lap:justify-center" >
 
-                    {timeLine.map(slider => <TimeLineCard data={slider} key={slider.title} />)}
+                    {timeLine.slice(0,3).map(slider => <TimeLineCard data={slider} key={slider.title} />)}
                 </div>
             </div>
         </TimeLineContext.Provider>
