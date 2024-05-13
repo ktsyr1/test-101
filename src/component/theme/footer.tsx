@@ -7,11 +7,11 @@ import dataList from "@/data/footerList.json"
 import PupLinks from "./pup-links"
 
 let sochalmedia = [
-    { Icon: Icon.tiktok, to: "https://www.tiktok.com/@inspectex" },
-    // { Icon: Icon.linkedin, to: "/#1" },
+    { Icon: Icon.linkedin, to: "https://www.linkedin.com/company/inspectex-sa/" },
     { Icon: Icon.x, to: "https://twitter.com/Inspectex_sa" },
     // { Icon: Icon.instagram, to: "/#3" },
     { Icon: Icon.Snapchat, to: "/#4" },
+    { Icon: Icon.tiktok, to: "https://www.tiktok.com/@inspectex" },
 ]
 
 export default function Footer() {
