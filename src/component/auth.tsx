@@ -92,6 +92,26 @@ function Login({ userType = 2, route, required }: any) {
             if (token) headers["Authorization"] = `Bearer ${token}`
             let api = process.env.NEXT_PUBLIC_API
 
+            createFatch("/Authorization/Login", body)
+                .then((data: any) => {
+
+                    if (data?.code === 400) {
+                        let { user } = data
+                        if (!user?.isEmailVerified) message.info(' لم يتم التحقق من البريد الإلكتروني')
+                    }
+                    else if (data.code === 200) {
+                        data = data.data
+                        message.success('تم  تسجيل الدخول  ')
+
+                        Cookies.set("userInformation", JSON.stringify(data?.userInformation))
+                        Cookies.set("refreshToken", data?.refreshToken)
+                        Cookies.set("userToken", data?.userToken)
+                        Cookies.set("userloginTime", new Date().getTime().toString())
+                        location.reload()
+                    }
+                })
+                .catch((error) => Err(error))
+
             axios.post(`${api}/Authorization/Login`, body, { headers })
                 .then(({ data }: any) => {
 
