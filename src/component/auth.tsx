@@ -24,7 +24,7 @@ export default function AuthApp({ userType = 2, required }: any) {
     useEffect(() => {
         let cookie = Cookies.get("userToken")
         if (required) {
-            setLoading(false) 
+            setLoading(false)
         } else if (!cookie || cookie.length < 20) {
             setLoading(false)
         }
@@ -61,25 +61,58 @@ function Login({ userType = 2, route, required }: any) {
     let url = process.env.NEXT_PUBLIC_API
     const onSubmit: SubmitHandler<any> = async (res) => {
         let body = { ...res, userType }
-        createFatch("/Authorization/Login", body)
-            .then((data: any) => {
 
-                if (data?.code === 400) {
-                    let { user } = data
-                    if (!user?.isEmailVerified) message.info(' لم يتم التحقق من البريد الإلكتروني')
-                }
-                else if (data.code === 200) {
-                    data = data.data
-                    message.success('تم  تسجيل الدخول  ')
+        // -------------------- start ----------------
+        let token: any = JsCookies.get("userToken")
 
-                    Cookies.set("userInformation", JSON.stringify(data?.userInformation))
-                    Cookies.set("refreshToken", data?.refreshToken)
-                    Cookies.set("userToken", data?.userToken)
-                    Cookies.set("userloginTime", new Date().getTime().toString())
-                    location.reload()
-                }
-            })
-            .catch((error) => Err(error))
+        if (process.env.NEXT_PUBLIC_ENV == "development") {
+
+            createFatch("/Authorization/Login", body)
+                .then((data: any) => {
+
+                    if (data?.code === 400) {
+                        let { user } = data
+                        if (!user?.isEmailVerified) message.info(' لم يتم التحقق من البريد الإلكتروني')
+                    }
+                    else if (data.code === 200) {
+                        data = data.data
+                        message.success('تم  تسجيل الدخول  ')
+
+                        Cookies.set("userInformation", JSON.stringify(data?.userInformation))
+                        Cookies.set("refreshToken", data?.refreshToken)
+                        Cookies.set("userToken", data?.userToken)
+                        Cookies.set("userloginTime", new Date().getTime().toString())
+                        location.reload()
+                    }
+                })
+                .catch((error) => Err(error))
+
+        } else if (process.env.NEXT_PUBLIC_ENV === "production") {
+            let headers: any = { "Content-Type": "application/json" }
+            if (token) headers["Authorization"] = `Bearer ${token}`
+            let api = process.env.NEXT_PUBLIC_API
+
+            axios.post(`${api}/Authorization/Login`, body, { headers })
+                .then(({ data }: any) => {
+
+                    if (data?.code === 400) {
+                        let { user } = data
+                        if (!user?.isEmailVerified) message.info(' لم يتم التحقق من البريد الإلكتروني')
+                    }
+                    else if (data.code === 200) {
+                        data = data.data
+                        message.success('تم  تسجيل الدخول  ')
+
+                        Cookies.set("userInformation", JSON.stringify(data?.userInformation))
+                        Cookies.set("refreshToken", data?.refreshToken)
+                        Cookies.set("userToken", data?.userToken)
+                        Cookies.set("userloginTime", new Date().getTime().toString())
+                        location.reload()
+                    }
+                })
+                .catch((error) => Err(error))
+        }
+        // -------------------- end ----------------
 
         // refresh
     }

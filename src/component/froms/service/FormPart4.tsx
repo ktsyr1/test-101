@@ -1,14 +1,12 @@
 import React, { useContext, useReducer, useState, } from 'react';
 import { FormDataContext } from '../contextApi';
-import { useForm } from 'react-hook-form';
-import AdditionalFieldsValue from './AdditionalFieldsValue';
-import { Popconfirm, Table, message } from "antd";
+import { Table } from "antd";
 
 import JsCookies from 'js-cookie';
 import GetFatch, { createFatch } from '../get';
 import Link from 'next/link';
 import axios from 'axios';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
 
@@ -19,10 +17,7 @@ const reducer = (state: any, action: any) => {
 export default function FormPart4() {
 
     const router = useRouter()
-    let { data, setData, Content, setContent } = useContext(FormDataContext)
-    // useReducer start 
-    const [state, dispatch] = useReducer(reducer, { defaultData: data });
-    // useReducer end  
+    let { data, Content } = useContext(FormDataContext)
     let [calculator, setCalculator] = useState(() => {
 
         let titles: any = {
@@ -59,7 +54,6 @@ export default function FormPart4() {
 
     let [Send, setSend] = useState(false)
 
-    const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
     const onSubmit = (res: any) => {
         // if (Send) {
         console.log(data)
