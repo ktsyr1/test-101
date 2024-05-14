@@ -50,7 +50,7 @@ export default function AuthApp({ userType = 2, required }: any) {
                 <View />
             </div>
             {mode != "OTP" &&
-                <div className={`!w-full max-w-[400px] m-auto border-safety-700 border-2 my-6 text-safety-700  hover:shadow-lg p-2 text-center font-bold rounded-lg`} onClick={() => setMode(mode === "login" ? "Register" : "login")}  >{title[mode]}</div>}
+                <div className={`!w-full max-w-[400px] m-auto border-safety-700 border-2 my-6 text-safety-700  hover:shadow-lg p-2 text-center font-bold rounded-lg`} onClick={() => setMode(mode === "login" ? "Register" : "login")}  >{title[mode === "login" ? "Register" : "login"]}</div>}
         </AuthContext.Provider>
     )
 }

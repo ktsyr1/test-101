@@ -7,6 +7,7 @@ import { FormContext, FormDataContext } from '../contextApi';
 import Cookies from "js-cookie"
 import GetFatch from '../get';
 import Icon from '@/component/icons';
+import axios from 'axios';
 export default function FormProfile() {
 
     let { data, setData } = useContext(FormDataContext)
@@ -20,6 +21,8 @@ export default function FormProfile() {
     useEffect(() => {
         let token: any = Cookies.get("userToken")
         GetFatch("/Lookup/Cities", token).then(data => setCities(data?.data))
+        axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`)
+            .then(data => setCities(data?.data))
 
     }, [data])
     const onFinish = (values: any) => {
