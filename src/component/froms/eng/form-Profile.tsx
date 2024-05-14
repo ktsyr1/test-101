@@ -20,10 +20,10 @@ export default function FormProfile() {
     let [cities, setCities] = useState<any>([])
     useEffect(() => {
         let token: any = Cookies.get("userToken")
-        console.log(process.env.NODE_ENV )
-        if (process.env.NODE_ENV == "development")
+        console.log(process.env.NEXT_PUBLIC_ENV)
+        if (process.env.NEXT_PUBLIC_ENV == "development")
             GetFatch("/Lookup/Cities", token).then(data => setCities(data?.data))
-        else if (process.env.NODE_ENV === "production")
+        else if (process.env.NEXT_PUBLIC_ENV === "production")
             axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`)
                 .then(({ data }) => setCities(data?.data))
 

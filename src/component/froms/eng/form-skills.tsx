@@ -44,14 +44,14 @@ export default function FormSkills() {
             formData.append('Picture', new Blob([res.Picture], { type: 'image/*' }), `Picture-${new Date().getTime()}.jpeg`);       // Picture      console.log(formData.values());
             let token: any = Cookies.get("userToken")
 
-            if (process.env.NODE_ENV == "development")
+            if (process.env.NEXT_PUBLIC_ENV == "development")
                 createInvester({ data: { formData } })
                     .then(RES => {
                         setDane(true)
                         message.success("تم ارسال الطلب بنجاح")
                     })
                     .catch(error => console.error(error))
-                else if (process.env.NODE_ENV == "production")
+                else if (process.env.NEXT_PUBLIC_ENV == "production")
                 axios.post(`${process.env.NEXT_PUBLIC_API}/Inspector/InspectorJoinRequest`, formData)
                     .then(({ data }) => {
                         setDane(true)
