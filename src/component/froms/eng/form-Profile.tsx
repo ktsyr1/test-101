@@ -95,7 +95,7 @@ export default function FormProfile() {
                         </Form.Item>
                     </div>
                 </div>
-                <div className="flex tap:flex-row flex-col  w-full">
+                {/* <div className="flex tap:flex-row flex-col  w-full">
                     <div className="flex flex-col  w-full">
                         <p className="text-xl  font-bold text-prussian-800 my-2">المعرف الوطني</p>
                         <Form.Item<FieldType> name="NationalId" className='w-full' rules={[{ required: true, message: 'Please input your NationalId!' }]} >
@@ -103,7 +103,7 @@ export default function FormProfile() {
                         </Form.Item>
                     </div>
 
-                </div>
+                </div> */}
 
                 <p className="text-xl  font-bold text-prussian-800 my-2">    هل لديك اقارب</p>
                 <div className=" flex flex-row my-6" >

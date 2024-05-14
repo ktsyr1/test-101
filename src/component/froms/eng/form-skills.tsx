@@ -31,7 +31,7 @@ export default function FormSkills() {
             formData.append('PhoneNumber', data.PhoneNumber || data.PhoneNumber);  // PhoneNumber
             formData.append('CityId', data.cityId || data.CityId);  // CityId
             formData.append('QualificationId', data.QualificationId || data.QualificationId);  // QualificationId
-            formData.append('NationalId', data.NationalId || data.NationalId);  // NationalId
+            // formData.append('NationalId', data.NationalId || data.NationalId);  // NationalId
             formData.append('MemberShip', data.MemberShip || data.MemberShip)  // MemberShip
             formData.append('YearsOfExperience', data.YearsOfExperience || data.YearsOfExperience);  // YearsOfExperience
             formData.append('BankDetails', "0");      // BankDetails
