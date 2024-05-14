@@ -7,6 +7,7 @@ import AdditionalFieldsValue from './AdditionalFieldsValue';
 import JsCookies from 'js-cookie';
 import GetFatch, { createFatch } from '../get';
 import { message } from 'antd';
+import axios from 'axios';
 // ------------------------------------------ 
 let clean = {
     "projectDate": "3-5-2024",
@@ -50,12 +51,27 @@ function LastPage({ state, dispatch }: any) {
 
         const today = new Date();
         const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
-
         let UrlAvailableTimeSlots = `/Client/Project/AvailableTimeSlots?TargetDate=${formattedDate}`
+
+        // -------------------- start ----------------
         let token: any = JsCookies.get("userToken")
-        GetFatch(UrlAvailableTimeSlots, token)
-            .then(data => dispatch({ type: 'AvailableTimeSlots', payload: data?.data }))
-            .catch((error) => Err(error))
+
+        if (process.env.NEXT_PUBLIC_ENV == "development") {
+            GetFatch(UrlAvailableTimeSlots, token)
+                .then(data => dispatch({ type: 'AvailableTimeSlots', payload: data?.data }))
+                .catch((error) => Err(error))
+
+        } else if (process.env.NEXT_PUBLIC_ENV === "production") {
+
+            let headers: any = { "Content-Type": "application/json" }
+            if (token) headers["Authorization"] = `Bearer ${token}`
+            let api = process.env.NEXT_PUBLIC_API
+
+            axios.get(`${api}${UrlAvailableTimeSlots}`, { headers })
+                .then(({ data }) => dispatch({ type: 'AvailableTimeSlots', payload: data?.data }))
+        }
+        // -------------------- end ----------------
+
 
     }, [data])
 
@@ -111,19 +127,37 @@ function LastPage({ state, dispatch }: any) {
             console.log({ ...Content, ...DB });
 
             let token: any = JsCookies.get("userToken")
-            createFatch("/Client/Assessment", model, token)
-                .then((res: any) => {
-                    if (res.code === 500) message.error("هناك خطاء تاكد من معلوماتك")
-                    else {
-                        JsCookies.set("PromoCode", model?.promoCode)
+            if (process.env.NEXT_PUBLIC_ENV == "development") {
 
-                        localStorage.removeItem("additionalFieldsValue")
-                        setData({ ...model, res: res?.data })
-                        let slug = NextPage(select)
-                        setSelect(slug)
-                        localStorage.setItem("paymonet", JSON.stringify(res?.data?.assessmentPayment))
-                    }
-                })
+                createFatch("/Client/Assessment", model, token)
+                    .then((res: any) => {
+                        if (res.code === 500) message.error("هناك خطاء تاكد من معلوماتك")
+                        else {
+                            JsCookies.set("PromoCode", model?.promoCode)
+                            localStorage.removeItem("additionalFieldsValue")
+                            setData({ ...model, res: res?.data })
+                            let slug = NextPage(select)
+                            setSelect(slug)
+                            localStorage.setItem("paymonet", JSON.stringify(res?.data?.assessmentPayment))
+                        }
+                    })
+            } else if (process.env.NEXT_PUBLIC_ENV == "production") {
+                let headers: any = { "Content-Type": "application/json" }
+                if (token) headers["Authorization"] = `Bearer ${token}`
+                let api = process.env.NEXT_PUBLIC_API
+                axios.post(`${api}/Client/Assessment`, model, { headers })
+                    .then(({ data }) => {
+                        if (data.code === 500) message.error("هناك خطاء تاكد من معلوماتك")
+                        else {
+                            JsCookies.set("PromoCode", model?.promoCode)
+                            localStorage.removeItem("additionalFieldsValue")
+                            setData({ ...model, res: data?.data })
+                            let slug = NextPage(select)
+                            setSelect(slug)
+                            localStorage.setItem("paymonet", JSON.stringify(data?.data?.assessmentPayment))
+                        }
+                    })
+            }
         }
     }
     function Loading() {
@@ -138,8 +172,18 @@ function LastPage({ state, dispatch }: any) {
         let el = (document.querySelector('input[name="promoCode"]') as HTMLInputElement)?.value;
         let token: any = JsCookies.get("userToken")
 
-        if (el) GetFatch(`/Client/CheckPromoCode?PromoCode=${el}`, token)
-            .then(res => dispatch({ type: "promoCode", payload: res.data }))
+        if (process.env.NEXT_PUBLIC_ENV == "development") {
+            GetFatch(`/Client/CheckPromoCode?PromoCode=${el}`, token)
+                .then(res => dispatch({ type: "promoCode", payload: res.data }))
+        } else if (process.env.NEXT_PUBLIC_ENV == "production") {
+
+            let headers: any = { "Content-Type": "application/json" }
+            if (token) headers["Authorization"] = `Bearer ${token}`
+            let api = process.env.NEXT_PUBLIC_API
+            if (el) axios.get(`${api}/Client/CheckPromoCode?PromoCode=${el}`, { headers })
+                .then(({ data }) => dispatch({ type: "promoCode", payload: data }))
+
+        }
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >

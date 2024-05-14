@@ -9,6 +9,7 @@ import GetFatch from '../get';
 import backup from './backup.json';
 import AdditionalFieldsValue from './AdditionalFieldsValue';
 import { message } from 'antd';
+import axios from 'axios';
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
     else if (action.type === "WorkAreas") return { ...state, WorkAreas: action.payload };
@@ -29,12 +30,24 @@ const FormParrt2 = () => {
     // useReducer end
     // example ` dispatch({ type: 'WorkAreas', payload: data?.data }) `
 
-    useEffect(() => {
-
+    useEffect(() => { 
+        // -------------------- start ----------------
         let token: any = JsCookies.get("userToken")
-        GetFatch("/Lookup/WorkAreas", token)
-            .then(data => dispatch({ type: 'WorkAreas', payload: data?.data }))
-            .catch((error) => Err(error))
+
+        if (process.env.NEXT_PUBLIC_ENV == "development") {
+            GetFatch("/Lookup/WorkAreas", token)
+                .then(data => dispatch({ type: 'WorkAreas', payload: data?.data }))
+                .catch((error) => Err(error))
+
+        } else if (process.env.NEXT_PUBLIC_ENV === "production") {
+            let headers: any = { "Content-Type": "application/json" }
+            if (token) headers["Authorization"] = `Bearer ${token}`
+            let api = process.env.NEXT_PUBLIC_API
+
+            axios.get(`${api}/Lookup/WorkAreas`, { headers })
+                .then(({ data }) => dispatch({ type: 'WorkAreas', payload: data?.data }))
+        }
+        // -------------------- end ----------------
 
     }, [data])
 

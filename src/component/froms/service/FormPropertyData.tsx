@@ -6,6 +6,7 @@ import backup from './backup.json';
 import AdditionalFieldsValue from './AdditionalFieldsValue';
 import JsCookies from "js-cookie"
 import GetFatch from '../get';
+import axios from 'axios';
 
 const FormPropertyData = () => {
     let { select, setSelect } = useContext(FormContext)
@@ -16,20 +17,39 @@ const FormPropertyData = () => {
     let [ProjectObjectives, setProjectObjectives] = useState<any>([])
 
     useEffect(() => {
+        // -------------------- start ----------------
         let token: any = JsCookies.get("userToken")
 
-        GetFatch("/Lookup/RealEstatType", token)
-            .then(data => setRealEstatTypes(data?.data))
-            .catch((error) => { Err(error); })
+        if (process.env.NEXT_PUBLIC_ENV == "development") { 
+            GetFatch("/Lookup/RealEstatType", token)
+                .then(data => setRealEstatTypes(data?.data))
+                .catch((error) => { Err(error); })
 
-        GetFatch("/Lookup/RealEstatAges", token)
-            .then(data => setRealEstatAges(data?.data))
-            .catch((error) => { Err(error); })
+            GetFatch("/Lookup/RealEstatAges", token)
+                .then(data => setRealEstatAges(data?.data))
+                .catch((error) => { Err(error); })
 
-        GetFatch("/Lookup/ProjectObjectives", token)
-            .then(data => setProjectObjectives(data?.data))
-            .catch((error) => Err(error))
+            GetFatch("/Lookup/ProjectObjectives", token)
+                .then(data => setProjectObjectives(data?.data))
+                .catch((error) => Err(error))
+        } else if (process.env.NEXT_PUBLIC_ENV === "production") {
+            let headers: any = { "Content-Type": "application/json" }
+            if (token) headers["Authorization"] = `Bearer ${token}`
+            let api = process.env.NEXT_PUBLIC_API
 
+            axios.get(`${api}/Lookup/RealEstatType`, { headers })
+                .then(({ data }) => setRealEstatTypes(data?.data))
+                .catch((error) => Err(error))
+
+            axios.get(`${api}/Lookup/RealEstatAges`, { headers })
+                .then(({ data }) => setRealEstatAges(data?.data))
+                .catch((error) => Err(error))
+
+            axios.get(`${api}/Lookup/ProjectObjectives`, { headers })
+                .then(({ data }) => setProjectObjectives(data?.data))
+                .catch((error) => Err(error))
+        }
+        // -------------------- end ----------------
     }, [defaultData])
 
     const { register, handleSubmit } = useForm({ defaultValues: defaultData });
