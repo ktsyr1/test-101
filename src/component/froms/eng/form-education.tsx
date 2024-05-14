@@ -33,7 +33,7 @@ export default function FormEducation() {
         let token: any = Cookies.get("userToken")
         if (process.env.NODE_ENV == "development")
             GetFatch("/Lookup/Qualifications", token).then(data => setOptions(data?.data))
-        else if (process.env.NODE_ENV !== "production")
+        else if (process.env.NODE_ENV == "production")
             axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Qualifications`)
                 .then(({ data }) => setOptions(data?.data))
     }, [data])

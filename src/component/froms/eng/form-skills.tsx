@@ -51,7 +51,7 @@ export default function FormSkills() {
                         message.success("تم ارسال الطلب بنجاح")
                     })
                     .catch(error => console.error(error))
-            else if (process.env.NODE_ENV !== "production")
+            else if (process.env.NODE_ENV == "production")
                 axios.post(`${process.env.NEXT_PUBLIC_API}/Inspector/InspectorJoinRequest`, data.formData)
                     .then(({ data }) => {
                         setDane(true)
