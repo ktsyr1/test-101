@@ -23,7 +23,7 @@ export default function FormProfile() {
         console.log(process.env.NODE_ENV )
         if (process.env.NODE_ENV == "development")
             GetFatch("/Lookup/Cities", token).then(data => setCities(data?.data))
-        else if (process.env.NODE_ENV !== "production")
+        else if (process.env.NODE_ENV === "production")
             axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`)
                 .then(({ data }) => setCities(data?.data))
 
