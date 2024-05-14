@@ -22,7 +22,7 @@ export default function FormProfile() {
         let token: any = Cookies.get("userToken")
         GetFatch("/Lookup/Cities", token).then(data => setCities(data?.data))
         axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`)
-            .then(data => setCities(data?.data))
+            .then({data} => setCities(data?.data))
 
     }, [data])
     const onFinish = (values: any) => {
