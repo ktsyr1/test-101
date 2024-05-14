@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Cookies from "js-cookie"
 import createFatch from '../get';
+import GetFatch from '../get';
 
 type QualificationsTypes = {
     "disabled": Boolean,
@@ -28,9 +29,13 @@ export default function FormEducation() {
 
     let [options, setOptions] = useState<QualificationsTypes[]>([])
     useEffect(() => {
-        let token: any = Cookies.get("userToken")
-        createFatch("/Lookup/Qualifications", token).then(data => setOptions(data?.data))
 
+        let token: any = Cookies.get("userToken")
+        if (process.env.NODE_ENV == "development")
+            GetFatch("/Lookup/Qualifications", token).then(data => setOptions(data?.data))
+        else if (process.env.NODE_ENV !== "production")
+            axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Qualifications`)
+                .then(({ data }) => setOptions(data?.data))
     }, [data])
     const { register, handleSubmit, watch, formState: { errors }, }: any = useForm<FieldType>()
 
@@ -95,7 +100,7 @@ export default function FormEducation() {
                 </div>
             </div>
             <div className=" flex tap:flex-row flex-col my-6" onClick={onChange} >
-                {options.map((a: any, i: any) => <BtnsBol a={a} key={i} />)}
+                {options?.map((a: any, i: any) => <BtnsBol a={a} key={i} />)}
             </div>
 
             <SubmitButton active={nextPart && true} >التالي</SubmitButton>

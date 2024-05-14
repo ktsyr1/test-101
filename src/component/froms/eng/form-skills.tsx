@@ -3,9 +3,10 @@ import { TypeBtn } from '../types';
 import { FormDataContext } from '../contextApi';
 import { message } from 'antd';
 import Icon from '../../icons';
-import { createFatch, createInvester } from '../get';
+import GetFatch, { createFatch, createInvester } from '../get';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import Cookies from "js-cookie"
 
 export default function FormSkills() {
 
@@ -41,12 +42,22 @@ export default function FormSkills() {
             formData.append('RelativePhone', data.RelativePhone || data.RelativePhone);  // RelativePhone
             formData.append('Files', new Blob([res?.Files], { type: 'application/pdf' }), `CV${new Date().getTime()}.pdf`);    // Files
             formData.append('Picture', new Blob([res.Picture], { type: 'image/*' }), `Picture-${new Date().getTime()}.jpeg`);       // Picture      console.log(formData.values());
-            createInvester({ data: { formData } })
-                .then(RES => {
-                    setDane(true)
-                    message.success("تم ارسال الطلب بنجاح")
-                })
-                .catch(error => console.error(error))
+            let token: any = Cookies.get("userToken")
+
+            if (process.env.NODE_ENV == "development")
+                createInvester({ data: { formData } })
+                    .then(RES => {
+                        setDane(true)
+                        message.success("تم ارسال الطلب بنجاح")
+                    })
+                    .catch(error => console.error(error))
+            else if (process.env.NODE_ENV !== "production")
+                axios.post(`${process.env.NEXT_PUBLIC_API}/Inspector/InspectorJoinRequest`, data.formData)
+                    .then(({ data }) => {
+                        setDane(true)
+                        message.success("تم ارسال الطلب بنجاح")
+                    })
+
         }
     }
 
