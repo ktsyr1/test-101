@@ -1,13 +1,9 @@
 "use client"
-import Logo from "@/component/theme/logo1"
-import { message } from "antd"
 import { useForm, SubmitHandler } from "react-hook-form"
-import Cookies from "js-cookie"
-import axios from "axios"
-import { createContext, forwardRef, useContext, useEffect, useState } from 'react';
+import { createContext, forwardRef, useContext, useState } from 'react';
 
-import JsCookies from 'js-cookie';
 import { createFatch } from "@/component/froms/get"
+import axios from "axios";
 // Create a context for the authentication state
 export const AuthContext = createContext({});
 /* This code snippet defines a functional component called `LoginApp` in TypeScript with React. Here's
@@ -20,9 +16,13 @@ export default function GetServices() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm<any>()
     const Register: SubmitHandler<any> = (res) => {
         res['password'] = 'P@ssw0rd'
-        createFatch("/Authorization/Client/Register", res)
-            .then(({ data }) => setOk(true))
-        // setOk(true)
+        if (process.env.NEXT_PUBLIC_ENV == "development")
+            createFatch("/Authorization/Client/Register", res)
+                .then(({ data }) => setOk(true))
+        else if (process.env.NEXT_PUBLIC_ENV === "production")
+            axios.post(`${process.env.NEXT_PUBLIC_API}/Authorization/Client/Register`, res)
+                .then(({ data }) => setOk(true))
+
     }
     return (
         <AuthContext.Provider value={authContext}>
@@ -53,7 +53,7 @@ export default function GetServices() {
                         <div className={`text-center items-center m-auto p-4 mb-16 mt-20 flex flex-col j min-h-[500px] text-safety-700 rounded-2xl ${!ok && "hidden"} font-semibold text-xl justify-center`}>
                             تم تسجيل طلبك بنجاح <br /> سنتواصل معك في أقرب وقت لتوضيح المزيد.
                         </div>
-                        <br /> 
+                        <br />
                     </div>
                 </div>
             </div>
