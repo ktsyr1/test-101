@@ -8,7 +8,7 @@
         "cover": "Slider.png",
         "btn": {
             "title": "إطلب الخدمة",
-            "to": "/get-service"
+            "to": "/services/get"
         },
         "timeLine": {
             "title": " تعرف على إنسبكتكس",
