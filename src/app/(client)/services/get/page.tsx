@@ -1,11 +1,9 @@
 "use client"
 import { useForm, SubmitHandler } from "react-hook-form"
-import { createContext, forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import { createFatch } from "@/component/froms/get"
 import axios from "axios";
-// Create a context for the authentication state
-export const AuthContext = createContext({});
 /* This code snippet defines a functional component called `LoginApp` in TypeScript with React. Here's
 a breakdown of what the code is doing: */
 
