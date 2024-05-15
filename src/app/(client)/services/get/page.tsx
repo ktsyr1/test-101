@@ -15,10 +15,14 @@ export default function GetServices() {
         res['password'] = 'P@ssw0rd'
         if (process.env.NEXT_PUBLIC_ENV == "development")
             createFatch("/Authorization/Client/Register", res)
-                .then(({ data }) => setOk(true))
-        else if (process.env.NEXT_PUBLIC_ENV === "production")
+                .then(() => setOk(true))
+        else if (process.env.NEXT_PUBLIC_ENV === "production") {
+
+            createFatch("/Authorization/Client/Register", res)
+                .then(() => setOk(true))
             axios.post(`${process.env.NEXT_PUBLIC_API}/Authorization/Client/Register`, res)
-                .then(({ data }) => setOk(true))
+                .then(() => setOk(true))
+        }
 
     }
     return (
