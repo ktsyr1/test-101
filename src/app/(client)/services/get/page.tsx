@@ -1,6 +1,6 @@
 "use client"
 import { useForm, SubmitHandler } from "react-hook-form"
-import { createContext, forwardRef, useContext, useState } from 'react';
+import { createContext, forwardRef, useState } from 'react';
 
 import { createFatch } from "@/component/froms/get"
 import axios from "axios";
@@ -11,7 +11,6 @@ a breakdown of what the code is doing: */
 
 export default function GetServices() {
 
-    const authContext = useContext(AuthContext);
     let [ok, setOk] = useState(false)
     const { register, handleSubmit, watch, formState: { errors } } = useForm<any>()
     const Register: SubmitHandler<any> = (res) => {
@@ -25,39 +24,37 @@ export default function GetServices() {
 
     }
     return (
-        <AuthContext.Provider value={authContext}>
-            <div className="flex flex-col justify-center items-center">
-                <div className="h-[100px] w-full bg-slate-100" />
-                <div className=" w-full flex flex-col   items-center max-w-[1200px] p-4 tap:max-w-[90%] ">
-                    <div className="mt-4  bg-white">
-                        <div className=" flex items-center w-full max-w-[1360px]     flex-col">
-                            <div className="flex flex-col items-center m-auto w-[90%] my-20 " >
-                                <div className="flex tap:flex-row flex-col justify-between w-full mb-8 items-center" >
+        <div className="flex flex-col justify-center items-center">
+            <div className="h-[100px] w-full bg-slate-100" />
+            <div className=" w-full flex flex-col   items-center max-w-[1200px] p-4 tap:max-w-[90%] ">
+                <div className="mt-4  bg-white">
+                    <div className=" flex items-center w-full max-w-[1360px]     flex-col">
+                        <div className="flex flex-col items-center m-auto w-[90%] my-20 " >
+                            <div className="flex tap:flex-row flex-col justify-between w-full mb-8 items-center" >
 
-                                    <h2 className="w-full text-start lap:text-5xl tap:text-4xl text-3xl my-4 font-bold text-safety-700 mr-10">طلب الخدمة </h2>
-                                </div>
-                                <p className="text-slate-700 m-4 w-full">اكتشف فرص العمل المثيرة في Inspectex، حيث نقدر الموهبة والابتكار والشغف بخدمة العملاء. انضم إلى فريقنا وكن جزءًا من تشكيل مستقبل أكثر إشراقًا في المجال العماري و الهندسي</p>
+                                <h2 className="w-full text-start lap:text-5xl tap:text-4xl text-3xl my-4 font-bold text-safety-700 mr-10">طلب الخدمة </h2>
                             </div>
+                            <p className="text-slate-700 m-4 w-full">اكتشف فرص العمل المثيرة في Inspectex، حيث نقدر الموهبة والابتكار والشغف بخدمة العملاء. انضم إلى فريقنا وكن جزءًا من تشكيل مستقبل أكثر إشراقًا في المجال العماري و الهندسي</p>
                         </div>
-                        <div className={`max-w-[400px] m-auto p-4 mb-16 mt-20 flex flex-col j min-h-[500px] shadow-lg rounded-2xl ${ok && "hidden"}`}>
-                            {/* <Logo type="ar" className={"m-auto "} /> */}
-                            <h1 className="text-3xl font-bold text-center my-4 text-safety-700  " >تسجيل الطلب</h1>
-
-                            <form onSubmit={handleSubmit(Register)} className="w-full h-auto"  >
-                                <Field title="الاسم الكامل" placeholder="Saad ..." type="text"{...register("fullName")} />
-                                <Field title="الايميل" placeholder="saad@mail.com ..." {...register("email")} type="text" />
-                                <Field title="الجوال" placeholder="7072323324" {...register("phoneNumber")} type="tel" />
-                                <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg cursor-pointer`} value="تقديم الطلب  " />
-                            </form>
-                        </div>
-                        <div className={`text-center items-center m-auto p-4 mb-16 mt-20 flex flex-col j min-h-[500px] text-safety-700 rounded-2xl ${!ok && "hidden"} font-semibold text-xl justify-center`}>
-                            تم تسجيل طلبك بنجاح <br /> سنتواصل معك في أقرب وقت لتوضيح المزيد.
-                        </div>
-                        <br />
                     </div>
+                    <div className={`max-w-[400px] m-auto p-4 mb-16 mt-20 flex flex-col j min-h-[500px] shadow-lg rounded-2xl ${ok && "hidden"}`}>
+                        {/* <Logo type="ar" className={"m-auto "} /> */}
+                        <h1 className="text-3xl font-bold text-center my-4 text-safety-700  " >تسجيل الطلب</h1>
+
+                        <form onSubmit={handleSubmit(Register)} className="w-full h-auto"  >
+                            <Field title="الاسم الكامل" placeholder="Saad ..." type="text"{...register("fullName")} />
+                            <Field title="الايميل" placeholder="saad@mail.com ..." {...register("email")} type="text" />
+                            <Field title="الجوال" placeholder="7072323324" {...register("phoneNumber")} type="tel" />
+                            <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg cursor-pointer`} value="تقديم الطلب  " />
+                        </form>
+                    </div>
+                    <div className={`text-center items-center m-auto p-4 mb-16 mt-20 flex flex-col j min-h-[500px] text-safety-700 rounded-2xl ${!ok && "hidden"} font-semibold text-xl justify-center`}>
+                        تم تسجيل طلبك بنجاح <br /> سنتواصل معك في أقرب وقت لتوضيح المزيد.
+                    </div>
+                    <br />
                 </div>
             </div>
-        </AuthContext.Provider>
+        </div>
     )
 }
 
