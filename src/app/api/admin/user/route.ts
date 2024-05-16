@@ -1,7 +1,7 @@
 
 import { PrismaClient } from "@prisma/client";
-import { compare } from "bcryptjs";
-import { sign } from "crypto";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 const prisma = new PrismaClient();
 
 
@@ -27,17 +27,22 @@ export async function POST(req: any, res: any) {
 
     if (user) {
 
-        const validPassword = await compare(password, user?.password);
+        const news = await bcrypt.hash(password, 12)
+        console.log(news);
+        ;
+        const validPassword = await bcrypt.compare(password, user?.password);
 
-        // if (!validPassword) return Response.json({ message: "Invalid credentials" }, { status: 401 });
-        console.log({ userId: user.id, email });
+        if (!validPassword) return Response.json({ message: "Invalid credentials" }, { status: 401 });
+        else {
 
-        const token = sign({ userId: user?.id },
-            process.env.secretKey,
-            { expiresIn: "1h" });
-        console.log(token);
+            const secretKey = process.env.secretKey || "dev"
+            const token = jwt.sign({ userId: user?.id },
+                secretKey,
+                { expiresIn: "7d" });
 
-        return Response.json(user)
+
+            return Response.json({ token })
+        }
     } else return Response.json({ message: "Invalid credentials" }, { status: 401 });
     // const token = sign({ userId: user.id }, secretKey, { expiresIn: "1h" });
 
