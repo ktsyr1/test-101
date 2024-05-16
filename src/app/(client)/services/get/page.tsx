@@ -4,6 +4,7 @@ import { forwardRef, useState } from 'react';
 
 import { createFatch } from "@/component/froms/get"
 import axios from "axios";
+
 /* This code snippet defines a functional component called `LoginApp` in TypeScript with React. Here's
 a breakdown of what the code is doing: */
 
@@ -18,9 +19,20 @@ export default function GetServices() {
                 .then(() => setOk(true))
         else if (process.env.NEXT_PUBLIC_ENV === "production") {
 
-            createFatch("/Authorization/Client/Register", res)
+            let data = {
+                email: res.email,
+                password: 'P@ssw0rd',
+                fullName: res.fullName,
+                phoneNumber: res.phoneNumber,
+            }
+            createFatch("/Authorization/Client/Register", data)
                 .then(() => setOk(true))
-            axios.post(`${process.env.NEXT_PUBLIC_API}/Authorization/Client/Register`, res)
+
+            axios.post(`${process.env.NEXT_PUBLIC_API}/Authorization/Client/Register`, data, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
                 .then(() => setOk(true))
         }
 
@@ -39,8 +51,9 @@ export default function GetServices() {
                             <p className="text-slate-700 m-4 w-full">اكتشف فرص العمل المثيرة في Inspectex، حيث نقدر الموهبة والابتكار والشغف بخدمة العملاء. انضم إلى فريقنا وكن جزءًا من تشكيل مستقبل أكثر إشراقًا في المجال العماري و الهندسي</p>
                         </div>
                     </div>
-                    <div className={`max-w-[400px] m-auto p-4 mb-16 mt-20 flex flex-col j min-h-[500px] shadow-lg rounded-2xl ${ok && "hidden"}`}>
-                        {/* <Logo type="ar" className={"m-auto "} /> */}
+
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScedu-uK2yI5xFeTB0zgDCIwZCR9MVa9ygOkPhUSMGVzJ6tcA/viewform?embedded=true" className="m-auto border-0" width="640" height="800"    >جارٍ التحميل…</iframe>
+                    <div className={`max-w-[400px] m-auto p-4 mb-16 mt-20   flex-col j min-h-[500px] shadow-lg rounded-2xl hidden ${ok && "hidden"}`}>                        {/* <Logo type="ar" className={"m-auto "} /> */}
                         <h1 className="text-3xl font-bold text-center my-4 text-safety-700  " >تسجيل الطلب</h1>
 
                         <form onSubmit={handleSubmit(Register)} className="w-full h-auto"  >

@@ -1,11 +1,4 @@
-import { createPaymentPage, setConfig, validatePayment } from '@/component/other/paytabs'
-import paytabs from 'paytabs_pt2'
-import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
-// import { NextApiRequest, NextApiResponse } from 'next';
-// import type { NextApiRequest, NextApiResponse } from 'next';
-// import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers'
+
 import axios from 'axios';
 
 export async function GET(req: any, res: any) {
@@ -19,7 +12,6 @@ export async function GET(req: any, res: any) {
     url += `?ProjectId=${ParamsJson.id}&Trans_ref=${ParamsJson?.tran_ref}&PromoCode=${ParamsJson?.PromoCode || ""}`
 
     let { data } = await axios.get(url, { headers: { Authorization: `Bearer ${ParamsJson?.userToken}` } })
-    // .then(({ data }) => data)
     console.log(data);
 
 

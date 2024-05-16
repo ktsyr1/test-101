@@ -1,15 +1,25 @@
 "use client"
 import Logo from "@/component/theme/logo1"
+import { message } from "antd"
+import axios from "axios"
 import { useState } from "react"
+import { SubmitHandler, useForm } from "react-hook-form"
 
 
 export default function LoginPage() {
+
+    const { register, handleSubmit } = useForm<any>()
+
+    const onSubmit: SubmitHandler<any> = (res) => {
+        axios.post(`/api/admin/emailnews`, res)
+            .then(() => message.success('تم إرسال البريد الإلكتروني بنجاح'))
+    }
     let [data, setData] = useState({})
     const Send = () => {
-        console.log(data); 
-    } 
+        console.log(data);
+    }
     return (
-        <form id="form" className="max-w-[400px] m-auto p-4 mb-16 mt-32 flex flex-col j h-[500px] hover:shadow-lg rounded-2xl" >
+        <form id="form" onSubmit={handleSubmit(onSubmit)} className="max-w-[400px] m-auto p-4 mb-16 mt-32 flex flex-col j h-[500px] hover:shadow-lg rounded-2xl" >
             <Logo type="ar" className={"m-auto "} />
             <h1 className="text-3xl font-bold text-center my-4" >تسجيل الدخول</h1>
             <p>الايميل *</p>

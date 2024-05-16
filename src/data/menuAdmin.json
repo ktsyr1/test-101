@@ -6,5 +6,6 @@
     { "to": "#jobs", "title": "الوظائف", "Icon": "job.png" },
     { "to": "#sliders", "title": "السلايدر", "Icon": "sliders.png" },
     { "to": "#services", "title": "الخدمات", "Icon": "services.png" },
-    { "to": "#faqs", "title": "الاسئلة الشائعة", "Icon": "faq.png" }
+    { "to": "#faqs", "title": "الاسئلة الشائعة", "Icon": "faq.png" },
+    { "to": "emailnews", "title": "القائمة البريدية", "Icon": "services.png" }
 ]
