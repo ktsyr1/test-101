@@ -1,5 +1,5 @@
 "use client"
-import BlogForm from "@/component/admin/blog/one"; 
+import BlogForm from "@/component/admin/blog/one";
 import { Blog_Get } from "@/graphql/queries/blog";
 import { useQuery } from "@apollo/client";
 
@@ -10,7 +10,7 @@ import { useQuery } from "@apollo/client";
 
 //     const res: any = mode && useQuery(Blog_Get, { variables: { id } });
 //     let data = res?.data?.blog
-    
+
 //     return (
 //         <div className="m-a   w-full flex justify-start">
 //             {/* <BlogForm data={data} mode={mode} /> */}
@@ -21,12 +21,12 @@ import { useQuery } from "@apollo/client";
 export default function BlogFormEdit({ params: { id } }: { params: { id: string } }) {
     const mode = id !== 'add'; // More descriptive variable name 
 
-    const { data } = useQuery(Blog_Get, { variables: { id }, skip: !mode }); // تجاهل الاستعلام إذا كانت الوضعية غير صحيحة
+    // const { data } = useQuery(Blog_Get, { variables: { id }, skip: !mode }); // تجاهل الاستعلام إذا كانت الوضعية غير صحيحة
 
-    
+
     return (
         <div className="m-a   w-full flex justify-start">
-            {/* <BlogForm data={data} mode={mode} /> */}
+            <BlogForm data={{}} mode={mode} />
         </div>
     )
 }

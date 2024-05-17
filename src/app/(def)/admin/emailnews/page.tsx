@@ -6,8 +6,8 @@ import axios from 'axios';
 
 export default async function AdminUsersPage() {
 
-    const { data }: any = await axios.get(`${process.env.NEXT_PUBLIC_apis}/admin/emailnews`)
-    console.log(data);
+    // const { data }: any = await axios.get(`${process.env.NEXT_PUBLIC_apis}/admin/emailnews`)
+    // console.log(data);
 
     const columns = [
         { title: "الايميل", dataIndex: "email", key: "email", },
@@ -19,13 +19,13 @@ export default async function AdminUsersPage() {
                 <h1 className="font-bold text-2xl"  >الايميلات</h1>
             </div>
 
-            <Table
+            {/* <Table
                 dataSource={data?.emailNews}
                 columns={columns}
                 pagination={false}
                 className="flex flex-col items-center *:w-full my-8"
             // rowKey={(record: any) => record.id}
-            />
+            /> */}
         </div>
     )
 }

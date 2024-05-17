@@ -2,12 +2,16 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import menuAdmin from "@/data/menuAdmin.json";
+import JsCookies from "js-cookie"
+import LoginPage from "../auth/login/page";
 
 export default function LayoutAdmin({ children }: any) {
     // users , blog , jobs , sliders , services , FAQs ,
-
-
-    return (
+    let token = JsCookies.get("--token");
+    console.log(token);
+    
+    if (!token) return <LoginPage />
+    else return (
         <div className="flex flex-row max-[697px]:mt-[128px] mt-[78px] min-h-[700px] ">
             <div className="flex flex-col !w-80 bg-slate-50 ">
                 <b className="w-full text-center font-bold text-4xl my-16">لوحة التحكم</b>

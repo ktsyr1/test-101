@@ -26,13 +26,8 @@ export async function POST(req: any, res: any) {
     })
 
     if (user) {
-
-        const news = await bcrypt.hash(password, 12)
-        console.log(news);
-        ;
         const validPassword = await bcrypt.compare(password, user?.password);
-
-        if (!validPassword) return Response.json({ message: "Invalid credentials" }, { status: 401 });
+        if (!validPassword) return Response.json({ message: "Invalid credentials" });
         else {
 
             const secretKey = process.env.secretKey || "dev"
@@ -43,7 +38,7 @@ export async function POST(req: any, res: any) {
 
             return Response.json({ token })
         }
-    } else return Response.json({ message: "Invalid credentials" }, { status: 401 });
+    } else return Response.json({ message: "Invalid credentials" });
     // const token = sign({ userId: user.id }, secretKey, { expiresIn: "1h" });
 
 

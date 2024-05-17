@@ -1,18 +1,18 @@
 "use client"
- 
+
 import { Blog_Create } from "@/graphql/queries/blog";
 import { useMutation } from "@apollo/client";
-import { message } from "antd"; 
+import { message } from "antd";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-export default function BlogForm({ data: all, mode }: any) {
+export default function BlogForm({ mode }: any) {
     const { register, handleSubmit, watch, formState: { errors } } = useForm<any>()
 
-    const [update, { data: res, loading, error }] = useMutation(Blog_Create);
+    // const [update, { data: res, loading, error }] = useMutation(Blog_Create);
 
     let className = "p-2 border-2 rounded-lg border-slate-300 px-4 my-4"
     const onSubmit: SubmitHandler<any> = (res) => {
-        update({ variables: res })
+        // update({ variables: res })
         message.success('تم تحديث البيانات')
     }
     return (

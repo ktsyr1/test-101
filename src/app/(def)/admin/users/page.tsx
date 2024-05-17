@@ -5,25 +5,24 @@ import { getClient } from '@/graphql/Apollo-client';
 import { GET_USERS } from '@/graphql/queries/user'
 
 
-let getData = async () => {
-    try {
-        console.log("testing");
+// let getData = async () => {
+//     try {
+//         console.log("testing");
 
-        return { data: {} }
-        //await getClient().query({ query: GET_USERS })
-    } catch (error) {
-        console.log(error)
-        return { data: { users: [] } }
-    }
-}
+//         return await getClient().query({ query: GET_USERS })
+//     } catch (error) {
+//         console.log(error)
+//         return { data: { users: [] } }
+//     }
+// }
 
 export default async function AdminUsersPage() {
-    const { data }: any = await getData()
+    // const { data }: any = await getData()
 
     return (
         <div className="m-4 p-4 bg-slate-50 rounded-2xl pr-8" >
             <AdminUsersHeader />
-            <AdminUsersList data={data?.users} />
+            {/* <AdminUsersList data={data?.users} /> */}
         </div>
     )
 }   
