@@ -66,7 +66,7 @@ export default async function BlogOne({ params: { url } }: { params: { url: stri
                 </div>
                 {post && <p className="pt-4 lap:text-sm text-xs font-semibold *:text-wrap  w-[80%] text-end text-prussian-500">{post.date.split("T")[0]}</p>}
                 <div className="flex flex-col items-center lap:text-2xl text-lg justify-between bg-white max-w-[1360px] w-[90%] m-auto mb-8 *:p-4">
-                    {post && <div dangerouslySetInnerHTML={{ __html: post?.content }} />}
+                    {post && <div className=" lap:text-2xl text-lg  mb-8 *:p-4" dangerouslySetInnerHTML={{ __html: post?.content }} />}
                 </div>
             </div>
         </div>
