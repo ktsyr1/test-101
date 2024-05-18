@@ -6,7 +6,7 @@ import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rs
 
 export const { getClient } = registerApolloClient(() => {
     return new ApolloClient({
-        cache: new InMemoryCache({}),
+        cache: new InMemoryCache({resultCacheMaxSize:0}),
         link: new HttpLink({ uri: process.env.NEXT_PUBLIC_GraphQL, }),
     });
 });

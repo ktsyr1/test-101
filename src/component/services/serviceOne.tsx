@@ -6,7 +6,7 @@ import { createContext, useContext, useState } from "react"
 import { loaderProp } from "../lib"
 const AppContext = createContext<any | null>({});
 
-export default function OpenServiceOne({ data, set, navigation }: any) {
+export default function OpenServiceOne({ data, set, navigation, nameQ }: any) {
     let [select, setSelect] = useState("description") // description , report , ReportingObjectives
 
     if (!data?.ar) return <></>

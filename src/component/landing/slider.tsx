@@ -11,7 +11,7 @@ const TimeLineContext = createContext<any | null>({});
 let TimeSec = 15000
 export default function Sliders() {
 
-    let [data, setData] = useState(SlidesData)
+    let [data, setData] = useState(SlidesData.slice(0,3))
     let [One, setOne] = useState(data[0])
 
     useEffect(() => {

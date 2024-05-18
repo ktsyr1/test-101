@@ -25,7 +25,7 @@ export default function QA() {
                 <p className="  lap:text-xl font-semibold text-slate-500  text-sm text-start  w-full   tap:text-lg">لقد أولينا المزيد من الاهتمام لتخصيص الإجابات أدناه، ولتسهيل الأمر عليك، قمنا بتصنيف الأسئلة لك</p>
                 <div className=" w-full max-[697px]:p-1 justify-center">
 
-                    <div className="flex flex-row bg-white max-w-[1000px] lap:max-w-[1360px] rounded-md p-1 m-4">
+                    <div className="flex flex-row bg-white max-w-[1000px] lap:max-w-[1360px] rounded-md p-1 m-4 overflow-x-scroll">
                         {dataBtns.map(btn => <Btn
                             key={btn.slug}
                             title={btn.title}
