@@ -31,7 +31,7 @@ const query = gql`
             }
         }
     }
-`;
+`
 
 let getData = async (slug: string) => {
     try {

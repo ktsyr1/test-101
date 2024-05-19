@@ -2,6 +2,7 @@
 import InspectionRequest from "@/component/landing/InspectionRequest";
 import OurClientsTestimonials from "@/component/landing/OurClientsTestimonials";
 import RequestMechanism from "@/component/landing/RequestMechanism";
+import AllCounters from "@/component/landing/all";
 import BlogPart from "@/component/landing/blog";
 import Consultation from "@/component/landing/consultation";
 import JobsPart from "@/component/landing/jobs";
@@ -14,6 +15,7 @@ export default function Home() {
     return (
         <div className="flex  flex-col items-center justify-between">
             <Sliders />
+            <AllCounters />
             <Services />
             <RequestMechanism />
             <InspectionRequest />

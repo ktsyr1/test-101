@@ -10,7 +10,7 @@ export default function BlogPart() {
     return (
         <div className=" flex flex-col items-center w-full bg-[#eee] pb-16">
             <div className=" flex flex-col items-center   max-w-[1360px]">
-                <Header />
+                <BlogHeader />
                 <div className=" flex flex-col items-center justify-center  w-full bg-[#eee]">
                     {/* <BlogCard data={posts[0]} type={CardType.full} /> */}
                     <div className="flex flex-wrap items-center justify-center  my-8">
@@ -23,7 +23,7 @@ export default function BlogPart() {
         </div>
     )
 }
-function Header() {
+export function BlogHeader() {
     return (
         <div className="flex flex-row items-center justify-between px-4 mt-14 w-full">
             <h2 className="text-safety-700 tap:text-6xl font-black my-4 text-3xl ">المدونة</h2>
@@ -34,8 +34,7 @@ function Header() {
         </div>
     )
 }
-
-function BlogCardBeta({ data }: any) {
+export function BlogCardBeta({ data }: any) {
 
     let [btnHover, SetBtnHover] = useState(false)
     let enter = () => SetBtnHover(true)
