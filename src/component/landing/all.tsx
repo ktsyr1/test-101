@@ -1,18 +1,34 @@
+"use client"
+
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 export default function AllCounters() {
+    let [views, setViews] = useState()
+    useEffect(() => {
+        async function data() {
+            let {data} = await axios.get('/api/ga')
+            console.log(data);
+            console.log(data.rows);
+
+        }
+        data()
+    })
     return (
-        <div className="flex flex-row w-full max-w-[1000px] justify-between my-20 select-none">
-            <Counter name="عميل" conter="120" />
-            <Counter name="تقرير" conter="20" />
-            <Counter name="زائر" conter="200" />
+        <div className=" max-w-[1000px] w-full">
+            <div className="flex flex-row lap:max-w-[1000px] w-[80%] justify-between my-20 select-none px-3 m-auto">
+                <Counter name="عميل" conter="0" />
+                <Counter name="تقرير" conter="0" />
+                <Counter name="زائر" conter="0" />
+            </div>
         </div>
     )
 }
 
 export function Counter({ name, conter }: any) {
     return (
-        <div  className="border-8 border-safety-700 rounded-full">
-            <div className="flex flex-col rounded-full bg-gradient-to-r from-[#013035] to-[#0694A2] w-44 h-44 items-center justify-center text-center *:text-4xl text-white font-bold m-1" >
+        <div className="lap:border-8 tap:border-6 border-4 border-safety-700 rounded-full">
+            <div className="flex flex-col rounded-full bg-gradient-to-r from-[#013035] to-[#0694A2] lap:w-44 tap:w-28 w-16 lap:h-44 tap:h-28  h-16 items-center justify-center text-center lap:*:text-4xl tap:*:text-xl *:text-sm text-white font-bold m-1" >
                 <p className="">{conter}</p>
                 <p className="">{name}</p>
             </div>

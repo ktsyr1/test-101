@@ -5,12 +5,11 @@ import Nav from "@/component/theme/nav"
 import localFont from 'next/font/local'
 import Footer from "@/component/theme/footer";
 import FAQ from "@/component/theme/FAQ";
-import Landing from "@/component/loading";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { ApolloWrapper } from "./ApolloWrapper";
-import Head from "next/head";
+import Landing from "@/component/loading"; 
+import { ApolloWrapper } from "./ApolloWrapper"; 
+import GoogleAnalytics from "@/component/other/GoogleAnalytics";
 
-const inter =// localFont({ src: './fonts/ArbFONTS-LamaSans-BoldCondensed.ttf', display: 'swap' }) 
+const inter =
     localFont({
         src: [
             { path: './fonts/ArbFONTS-LamaSans-Black.ttf', weight: '900', style: 'normal', },
@@ -31,13 +30,10 @@ export const metadata: Metadata = {
 type Children = Readonly<{ children: React.ReactNode }>
 
 export default function RootLayout({ children }: Children) {
-    const client = new ApolloClient({
-        cache: new InMemoryCache(),
-        uri: process.env.NEXT_PUBLIC_GraphQL,
-    });
 
     return (
         <html lang="ar">
+            <GoogleAnalytics />
             <body className={inter.className} >
                 <Landing />
                 <Nav />

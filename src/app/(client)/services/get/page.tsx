@@ -53,12 +53,8 @@ export default function GetServices() {
                         </div>
                     </div>
 
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScedu-uK2yI5xFeTB0zgDCIwZCR9MVa9ygOkPhUSMGVzJ6tcA/viewform?embedded=true" className="m-auto border-0" width="640" height="800"    >جارٍ التحميل…</iframe>
-
-                    <div className={`text-center items-center m-auto p-4 mb-16 mt-20 flex flex-col j min-h-[500px] text-safety-700 rounded-2xl ${!ok && "hidden"} font-semibold text-xl justify-center`}>
-                        تم تسجيل طلبك بنجاح <br /> سنتواصل معك في أقرب وقت لتوضيح المزيد.
-                    </div>
-                    <br />
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScedu-uK2yI5xFeTB0zgDCIwZCR9MVa9ygOkPhUSMGVzJ6tcA/viewform?embedded=true" className="m-auto border-0 max-w-[640px]" height="800"    >جارٍ التحميل…</iframe>
+ 
                 </div>
             </div>
         </div>

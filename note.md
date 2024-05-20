@@ -1,32 +1,4 @@
-query Posts {
-  posts {
-    nodes {
-      content
-      date
-      author {
-        node {
-          name
-          avatar {
-            url
-          }
-        }
-      }
-      categories {
-        nodes {
-          name
-          slug
-        }
-      }
-      featuredImage {
-        node {
-          altText
-          mediaItemUrl
-          uri
-        }
-      }
-    }
-  }
-}
+260601965
 
 {
   "projectTitle": "string",
