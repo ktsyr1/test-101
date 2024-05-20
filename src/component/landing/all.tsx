@@ -7,9 +7,10 @@ export default function AllCounters() {
     let [views, setViews] = useState()
     useEffect(() => {
         async function data() {
-            let {data} = await axios.get('/api/ga')
+            let { data } = await axios.get('/api/ga')
             console.log(data);
             console.log(data.rows);
+            console.log(data.rows[0].metrics[0].values[0]);
 
         }
         data()
