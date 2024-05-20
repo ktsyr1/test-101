@@ -11,7 +11,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 //     },
 // });
 // export async function GET(req: Request, res: NextApiResponse) { 
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async (req: Request, res: NextApiResponse) => {
     // 👇 Running a simple report
     // const [response] = await analyticsDataClient.runReport({
     //     property: `properties/${propertyId}`,
