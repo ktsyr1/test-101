@@ -18,19 +18,6 @@ export default function FormPart4() {
 
     const router = useRouter()
     let { data, Content } = useContext(FormDataContext)
-    let [calculator, setCalculator] = useState(() => {
-
-        let titles: any = {
-            "subtotal": "المجموع الفرعي",
-            "promoCodePrice": "قيمة الكوبون",
-            "totalAmount": "المبلغ الاجمالي",
-            "serviceTax": "ضريبة الخدمة",
-            "tax": "الضريبة",
-            "netTotal": "الإجمالي الصافي"
-        }
-        return Object.keys(titles).map(a => { return { title: titles[a], value: data?.res?.assessmentPayment[a] } })
-    })
-
     let [list, setList] = useState(() => {
 
         let titles: any = {
@@ -51,6 +38,20 @@ export default function FormPart4() {
         };
         return Object.keys(titles).map(a => { return { title: titles[a], value: Content[a] } })
     })
+
+    let [calculator, setCalculator] = useState(() => {
+
+        let titles: any = {
+            "subtotal": "المجموع الفرعي",
+            "promoCodePrice": "قيمة الكوبون",
+            "totalAmount": "المبلغ الاجمالي",
+            "serviceTax": "ضريبة الخدمة",
+            "tax": "الضريبة",
+            "netTotal": "الإجمالي الصافي"
+        }
+        return Object.keys(titles).map(a => { return { title: titles[a], value: data?.res?.assessmentPayment[a] } })
+    })
+
 
     let [Send, setSend] = useState(false)
 
@@ -87,27 +88,14 @@ export default function FormPart4() {
             )
     }
 
-    const columns = [
-        { title: "العنوان", dataIndex: "title", key: "title", },
-        { title: "القيمة", dataIndex: "value", key: "value", },
-    ];
-
-    const columns2 = [
-        { title: "العنوان", dataIndex: "title", key: "title", },
-        {
-            title: "القيمة", dataIndex: "value", key: "value",
-            render: (_: any, record: any) => <p className={record.value && record.title == "قيمة الكوبون" && "text-green-600"}>  {record.value} ر.س </p>
-        }
-    ]
     return (
         <div className='*:py-2 mb-10 '   >
-            <Table dataSource={list} columns={columns} pagination={false} className="flex flex-col items-center *:w-full my-8" rowKey={(record) => record.title} />
-            <p className="lap:text-2xl tap:text-lg text-sm font-bold text-prussian-800 my-2 mr-4">التكلفة</p>
 
-            <Table dataSource={calculator} columns={columns2} pagination={false} className="flex flex-col items-center *:w-full my-8" rowKey={(record) => record.title} />
+            <TableView data={list} title="معلومات الفحص" />
+            <TableView data={calculator} title="التكلفة" aded="ر.س " />
             <div className={`flex flex-row my-4 w-full   `}>
                 <input type={"checkbox"} className='p-2 ml-4 rounded-md' onChange={(e: any) => setSend(!Send)} checked={Send} />
-                <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-slate-800 my-2 mr-4">الموافقة على
+                <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-slate-800 my-2 mr-4 ">الموافقة على
                     <Link href={"/policies-and-provisions"} target='_blank' className='text-prussian-500' > الشروط والأحكام </Link>
                 </p>
             </div>
@@ -116,4 +104,20 @@ export default function FormPart4() {
             <br />
         </div>
     );
+}
+
+function TableView({ data, title, aded }: any) {
+    return (
+        <div className='flex flex-col'>
+            <p className='p-2 w-full text-center rounded-md rounded-t-3xl border-2 border-prussian-800 text-prussian-800 m-1 lap:text-xl tap:text-base text-sm font-bold'>{title}</p>
+            {data?.map((row: any, i: number) => {
+                return (
+                    <div key={i} className="flex flex-row m-1 w-full *:rounded-md *:flex *:items-center ">
+                        <p className="lap:text-base tap:w-[40%] w-[50%] tap:text-sm text-xs font-bold text-white bg-prussian-800 p-2 m-1">{row.title}</p>
+                        <p className="lap:text-base w-full tap:text-sm text-xs font-bold text-slate-800 bg-white p-2 m-1">  {row.value} {aded}</p>
+                    </div>
+                )
+            })}
+        </div >
+    )
 }

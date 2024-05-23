@@ -4,13 +4,11 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 export default function AllCounters() {
-    let [views, setViews] = useState()
+    let [views, setViews] = useState(0)
     useEffect(() => {
         async function data() {
-            let { data } = await axios.get('/api/ga')
-            console.log(data);
-            console.log(data.rows);
-            console.log(data.rows[0].metrics[0].values[0]);
+            // let { data } = await axios.get('/api/ga')
+            // setViews(data?.rows[0]?.metricValues[0]?.value);
 
         }
         data()
@@ -20,7 +18,7 @@ export default function AllCounters() {
             <div className="flex flex-row lap:max-w-[1000px] w-[80%] justify-between my-20 select-none px-3 m-auto">
                 <Counter name="عميل" conter="0" />
                 <Counter name="تقرير" conter="0" />
-                <Counter name="زائر" conter="0" />
+                <Counter name="زائر" conter={views ? views : 0} />
             </div>
         </div>
     )

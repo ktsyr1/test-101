@@ -5,9 +5,10 @@ import Nav from "@/component/theme/nav"
 import localFont from 'next/font/local'
 import Footer from "@/component/theme/footer";
 import FAQ from "@/component/theme/FAQ";
-import Landing from "@/component/loading"; 
-import { ApolloWrapper } from "./ApolloWrapper"; 
+import Landing from "@/component/loading";
+import { ApolloWrapper } from "./ApolloWrapper";
 import GoogleAnalytics from "@/component/other/GoogleAnalytics";
+import { useEffect } from "react";
 
 const inter =
     localFont({
@@ -30,7 +31,10 @@ export const metadata: Metadata = {
 type Children = Readonly<{ children: React.ReactNode }>
 
 export default function RootLayout({ children }: Children) {
+    // useEffect(() => {
+        console.log("analyzing layout...");
 
+    // }, [])
     return (
         <html lang="ar">
             <GoogleAnalytics />
@@ -39,8 +43,6 @@ export default function RootLayout({ children }: Children) {
                 <Nav />
                 <main className={"max-[697px]:mt-[128px] mt-[78px]  *:text-slate-900 "} >
                     <ApolloWrapper>{children}</ApolloWrapper>
-
-                    {/* {children} */}
                 </main>
                 <FAQ />
                 <Footer />
