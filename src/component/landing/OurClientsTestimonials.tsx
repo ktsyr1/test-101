@@ -35,7 +35,7 @@ function Gallery({ data }: { data: OurClientsTestimonialsCardType }) {
         <div className="flex mt-4 px-8 flex-col  tap:flex-row justify-center ">
             {data?.image ?
                 <img src={data.image} alt={`صورة ${data.name}`} className="w-96 h-max rounded-3xl m-auto hover:shadow-lg" loading="lazy" />
-                : <p className={`bg-[#F0F0F0]   flex font-bold h-[200px] items-center justify-center mx-2 px-5 rounded-3xl text-6xl text-center text-safety-700 w-96 min-w-[250px] `}  >{data.letter}</p>
+                : <p className={`bg-[#F0F0F0]   flex font-bold h-[200px] items-center justify-center mx-2 px-5 rounded-3xl text-6xl text-center text-safety-700 tap:w-96 min-w-[250px] `}  >{data.letter}</p>
             }
             <Icon.Coteshen className={'mt-[-33px] mr-[-50px] hidden md:flex m-4'} />
             <div className="flex flex-col px-4">

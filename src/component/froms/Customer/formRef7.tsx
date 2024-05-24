@@ -31,7 +31,7 @@ export default function FormRef7() {
 
     return (
         <Layout slug={7}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px]  *:w-[48%]   *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] tap:*:w-[45%] *:w-full *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
                 <FormElm.Title >هل واجهت أي صعوبات في فهم خطوات طلب الخدمة؟</FormElm.Title>
                 <textarea className="!w-full !my-12" defaultValue={value} onChange={e => setValue(e.target.value)} placeholder="اقترح تحسينات..." />
                 <FormElm.Send title="ارسال" />

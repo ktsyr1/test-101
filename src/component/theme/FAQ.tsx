@@ -25,12 +25,15 @@ export default function QA() {
                 <p className="  lap:text-xl font-semibold text-slate-500  text-sm text-start  w-full   tap:text-lg">لقد أولينا المزيد من الاهتمام لتخصيص الإجابات أدناه، ولتسهيل الأمر عليك، قمنا بتصنيف الأسئلة لك</p>
                 <div className=" w-full max-[697px]:p-1 justify-center">
 
-                    <div className="flex flex-row bg-white max-w-[1000px] lap:max-w-[1360px] rounded-md p-1 m-4 overflow-x-scroll">
+                    <div className="flex flex-row bg-white max-w-[1000px] lap:max-w-[1360px] justify-between rounded-md p-1 my-4 text-center ">
                         {dataBtns.map(btn => <Btn
                             key={btn.slug}
                             title={btn.title}
                             onClick={() => setPart(btn.slug)}
-                            className={`rounded-md shadow-none cursor-pointer   hover:bg-safety-700 hover:text-white   !p-2 !m-1 text-sm max-[697px]:w-full w-full ${part === btn.slug ? "border-2 border-safety-700 text-safety-700 " : " text-slate-900 "}   `}
+                            style={{ 
+                                display: 'ruby-text'
+                            }}
+                            className={`rounded-md shadow-none cursor-pointer   hover:bg-safety-700 hover:text-white w-[100px]   !p-2 !m-1 text-sm max-[697px]:w-full tap:w-full ${part === btn.slug ? "border-2 border-safety-700 text-safety-700 " : " text-slate-900 "}   `}
                         />)}
                     </div>
 
@@ -79,7 +82,9 @@ export function Ask({ title, value }: Asktype) {
                 {open ? <Icon.arrowUp /> : <Icon.arrowDown />}
             </div>
             {/* anser */}
-            <div className={`flex flex-col justify-between max-w-[90%]  text-xs  text-gray-500 font-medium tap:text-lg mt-2 ${!open ? "hidden" : "flex"}  `}>
+            <div className={` flex-col justify-between max-w-[90%]  text-xs  text-gray-500 font-medium tap:text-lg mt-2 ${!open ? "hidden " : "flex transition-[height] ease-in-out delay-1000"}  `} style={{
+                transition: "display 1s ease-in-out"
+            }}>
                 <ul> {value.map(a => <li key={a} className="list-disc">{a}</li>)} </ul>
                 {/* icon */}
             </div>
@@ -89,7 +94,7 @@ export function Ask({ title, value }: Asktype) {
 
 export let dataBtns = [
     { title: "أسئلة العملاء", slug: "client" },
-    { title: "استراتيجيات الفحص", slug: "strategy" },
+    { title: "استراتيجيات الفحص", slug: "strategy" },
     { title: "أسئلة الفاحصين", slug: "eng" },
 ]
 

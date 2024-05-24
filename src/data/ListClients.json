@@ -1,0 +1,111 @@
+[	{
+		"title": "المكاتب الاستشارية",
+		"list": [
+			{
+				"title": "مكتب المجموعة الاستشارية للاستشارات الهندسية ",
+				"logo": "/images/about/1.png"
+			},
+			{
+				"title": "مكتب مرافق للاستشارات الهندسية ",
+				"logo": "/images/about/2.png"
+			},
+			{
+				"title": "شركة المحدد للاستشارات الهندسية ",
+				"logo": "/images/about/3.png"
+			},
+			{
+				"title": "مكتب بولد للاستشارات الهندسية ",
+				"logo": "/images/about/4.png"
+			},
+			{
+				"title": "مكتب غايات الهندسة للاستشارات الهندسية ",
+				"logo": "/images/about/5.png"
+			}
+		]
+	},
+	{
+		"title": "مختبرات الفحص ",
+		"list": [
+			{
+				"title": "شركة مسار الجودة للتحقق",
+				"logo": "/images/about/6.png"
+			},
+			{
+				"title": "مختبر اتقان البناء لفحص التربة والمواد ",
+				"logo": "/images/about/8.png"
+			},
+			{
+				"title": "شركة OCA Global ",
+				"logo": "/images/about/10.png"
+			},
+			{
+				"title": "مختبر الديار المتخصصة "
+			},
+			{
+				"title": "مختبر دار المستوى "
+			}
+		]
+	},
+	{
+		"title": "المقاولون ",
+		"list": [
+			{
+				"title": "شركة مينا ",
+				"logo": "/images/about/15.png"
+			},
+			{
+				"title": "بيوت المنارة للمقاولات العامة "
+			},
+			{
+				"title": "نظام البنيان للمقاولات ",
+				"logo": "/images/about/17.png"
+			},
+			{
+				"title": "شركة تكنولوجيا الخرسانة ",
+				"logo": "/images/about/18.png"
+			},
+			{
+				"title": "ADBLU international ",
+				"logo": "/images/about/19.png"
+			}
+		]
+	},
+	{
+		"title": "الشركات الاستثمارية ",
+		"list": [
+			{
+				"title": "اوشن اكس. (المحيط العاشر)",
+				"logo": "/images/about/20.png"
+			},
+			{
+				"title": "شركة العثيم للاستثمارات ",
+				"logo": "/images/about/21.png"
+			},
+			{
+				"title": "شركة تبوك الدوائية ",
+				"logo": "/images/about/22.png"
+			}
+		]
+	},
+	{
+		"title": "التطوير العقاري ",
+		"list": [
+			{
+				"title": "بيوت الورد للتطوير العقاري ",
+				"logo": "/images/about/11.png"
+			},
+			{
+				"title": "شركة خوالد العقارية ",
+				"logo": "/images/about/12.png"
+			},
+			{
+				"title": "مجموعة السعد للاستثمار والتنمية ",
+				"logo": "/images/about/13.png"
+			},
+			{
+				"title": "الماجدية رزيدنس ",
+				"logo": "/images/about/14.png"
+			}
+		]
+	}
+]

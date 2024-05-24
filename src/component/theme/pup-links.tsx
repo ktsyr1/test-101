@@ -14,13 +14,28 @@ export default function PupLinks() {
 
     return (
         <>
+            <GoToTop />
             <WhatsAppBtn />
             <PupServie />
             <Links />
         </>
     )
 }
+function GoToTop() {
+    let [loding, setLoding] = useState(false);
 
+    useEffect(() => setLoding(true))
+    function toTop() {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+    return (
+        <div onClick={toTop} className="flex justify-end shadow-lg w-full">
+            <div className={` ${!loding ? "hidden" : "flex"} mb-28 mx-8 cursor-pointer bg-white border bottom-0 fixed   h-12 items-center justify-center p-3 rounded-md shadow-lg   w-12   z-50  hover:border-safety-700 `}>
+                <Icon.arrowUp className={'group-hover:*:fill-white  group-hover:*:stroke-white'} />
+            </div>
+        </div>
+    )
+}
 function WhatsAppBtn() {
     let [hover, setHover] = useState(false);
     return (

@@ -24,7 +24,7 @@ export default function FormRef2() {
 
     return (
         <Layout slug={2}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] *:w-[45%] *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
                 <FormElm.Title > هل انت </FormElm.Title>
                 {list.map(a => <FormElm.Select value={value} one={a} key={a} onClick={() => setValue(a)} />)}
                 <FormElm.Send />

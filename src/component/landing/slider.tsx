@@ -24,7 +24,7 @@ export default function Sliders() {
     // console.log(One);
     return (
         <ThemeContext.Provider value={{ data, setOne, One }}>
-            <div className=" w-full flex flex-col h-min bg-no-repeat bg-contain min-h-[800px] select-none" >
+            <div className=" w-full flex flex-col h-min bg-no-repeat bg-contain min-h-[700pxpx] select-none" >
                 <SliderFullData />
                 <TimeLine />
             </div>
@@ -47,9 +47,9 @@ function SliderFullData() {
 
     if (!data?.title) return <></>
     return (
-        <div className="w-full  min-h-[800px] " >
+        <div className="w-full min-h-[600px] tap:min-h-[700px] " >
             <Image src={`/images/${data.bg}`} alt={'Background slide'} fill={true} className="lap:!h-screen !relative" loading="lazy" loader={loaderProp} />
-            <div className="flex flex-col m-4 absolute lg:mr-36 sm:mr-10 max-[697px]:top-[228px] tap:top-[178px] " >
+            <div className="flex flex-col m-4 absolute lg:mr-36   max-[697px]:top-[228px] tap:top-[178px] " >
 
                 <p className=" text-prussian-800 lap:text-6xl tap:text-3xl text-xl "> {data.title}</p>
                 <p className="font-black text-safety-700 my-4 lap:text-6xl tap:text-3xl text-xl  "> {data.titleBold}</p>
@@ -73,7 +73,7 @@ function TimeLine(props: any) {
 
     return (
         <TimeLineContext.Provider value={{ "data": "" }}>
-            <div className="bg-[#001F67]  flex flex-col h-[200px] justify-center mt-[-200px] overflow-x-scroll px-4 select-none z-30" >
+            <div className="bg-[#001F67]  flex flex-col h-[200px] justify-center mt-[-200px] overflow-x-scroll tap:overflow-hidden px-4 select-none z-30" >
                 <div className="flex flex-row  w-[1000px]  justify-start m-auto lap:justify-center" >
 
                     {timeLine.slice(0,3).map(slider => <TimeLineCard data={slider} key={slider.title} />)}

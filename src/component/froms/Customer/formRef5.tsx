@@ -24,7 +24,7 @@ export default function FormRef5() {
 
     return (
         <Layout slug={5}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] *:w-[45%] *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
                 <FormElm.Title >   ما هي انطباعاتك العامة حول سهولة الوصول للمعلومات على هذا الموقع؟</FormElm.Title>
                 {list.map(a => <FormElm.Select value={value} one={a} key={a} onClick={() => setValue(a)} />)}
                 {other && <textarea className="!w-full" defaultValue={value !== list[-1] ? value : ""} onChange={e => setValue(e.target.value)} placeholder="ممتاز ..." />}

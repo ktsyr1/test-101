@@ -32,7 +32,7 @@ type Children = Readonly<{ children: React.ReactNode }>
 
 export default function RootLayout({ children }: Children) {
     // useEffect(() => {
-        console.log("analyzing layout...");
+        // console.log("analyzing layout...");
 
     // }, [])
     return (

@@ -35,7 +35,7 @@ const query = gql`
 
 let getData = async (slug: string) => {
     try {
-        return await getClient().query({ query, variables: { slug } })
+        return await getClient().query({ query, variables: { slug }, fetchPolicy: "no-cache" })
     } catch (error) {
         console.log(error)
         return { data: { post: [] } }

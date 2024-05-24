@@ -131,7 +131,7 @@ let getData = async ({ cat, q }: any) => {
         if (q) query = { query: Search, variables: { search: q } }
         else if (cat) query = { query: postsBycat, variables: { slug: cat } }
         else query = { query: allposts }
-        return await getClient().query(query)
+        return await getClient().query({ ...query, fetchPolicy: "no-cache" })
     } catch (error) {
         return { data: { posts: [] } }
     }
@@ -147,7 +147,7 @@ export default async function BlogAll({ searchParams: { cat, q } }: any) {
     else if (cat) posts = data.category.posts.nodes
     else posts = data.posts.nodes
     console.log(posts);
-    
+
     return (
         <div className="bg-white">
             <Hero className={" bg-[url(/images/pinsel.webp)] min-h-[400px]"} >

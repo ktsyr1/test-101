@@ -26,7 +26,7 @@ export default function FormRef3() {
 
     return (
         <Layout slug={3}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] *:w-[45%] *:m-2 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-2 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
                 <FormElm.Title >كيف عرفت عن إنسبكتكس؟</FormElm.Title>
                 {list.map(a => <FormElm.Select value={value} one={a} key={a} onClick={() => setValue(a)} />)}
                 {other && <input type="text" onChange={e => setValue(e.target.value)} defaultValue={value} placeholder="في موتمر او غيرها ..." />}

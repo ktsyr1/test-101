@@ -3,6 +3,10 @@ module.exports = {
     content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
     theme: {
         extend: {
+            transitionProperty: {
+                'display': 'display',
+                'spacing': 'margin, padding',
+            },
             colors: {
                 "prussian-25": "#EBF5FF",
                 "prussian-100": "#C3DDFD",
@@ -95,11 +99,11 @@ module.exports = {
                 'lap': '1400px'
                 // => @media (min-width: 1024px) { ... }
 
-            //     'xl': '1280px',
-            //     // => @media (min-width: 1280px) { ... }
+                //     'xl': '1280px',
+                //     // => @media (min-width: 1280px) { ... }
 
-            //     '2xl': '1536px',
-            //     // => @media (min-width: 1536px) { ... }
+                //     '2xl': '1536px',
+                //     // => @media (min-width: 1536px) { ... }
             },
             fontFamily: {
                 "text-s-medium": "var(--text-s-medium-font-family)",
