@@ -7,6 +7,10 @@ import Btn from "../btns";
 // import { BlogCardBeta } from "@/app/(def)/blog/page";
 
 export default function BlogPart() {
+
+    let [btnHover, SetBtnHover] = useState(false)
+    let enter = () => SetBtnHover(true)
+    let leave = () => SetBtnHover(false)
     return (
         <div className=" flex flex-col items-center w-full bg-[#eee] pb-16">
             <div className=" flex flex-col items-center   max-w-[1360px]">
@@ -18,6 +22,11 @@ export default function BlogPart() {
 
                         {/* {posts.map((post, i) => <BlogCard data={post} key={i} />)} */}
                     </div>
+                    <div onMouseEnter={enter} onMouseLeave={leave} className="rounded-full w-full bg-white border-2 border-safety-700 flex lap:px-8 px-6 text-prussian-600 justify-between shadow-none max-w-[500px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white ">
+                        <Btn title="استكشف المدونة" to={`/blog`} className="rounded-full w-full flex  p-0 !m-0 text-prussian-600 justify-between shadow-none max-w-[500px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end"  >
+                            <IconArrow color={btnHover ? "#fff" : "#032DA6"} />
+                        </Btn>
+                    </div>
                 </div>
             </div>
         </div>
@@ -27,10 +36,10 @@ export function BlogHeader() {
     return (
         <div className="flex flex-row items-center justify-between px-4 mt-14 w-full">
             <h2 className="text-safety-700 tap:text-6xl font-black my-4 text-3xl ">المدونة</h2>
-            <Link href="blog" prefetch={false} className="flex flex-row justify-center items-center" >
+            {/* <Link href="blog" prefetch={false} className="flex flex-row justify-center items-center" >
                 <p className="p-4 text-emerald-400 lap:text-2xl text-base font-normal">استكشف المدونة </p>
                 <IconArrow color={"#34d399"} className={"fill-emerald-400 p-1"} />
-            </Link>
+            </Link> */}
         </div>
     )
 }

@@ -50,30 +50,7 @@ function Row({ title, Icon, to, }: Row) {
         </Link>
     )
 }
-
-// export function Menu2() {
-//     let [open, setOpen] = useState(false)
-//     let Icon = open ? IconClose : IconMenu
-//     const handleOpen = () => {
-//         setOpen(!open)
-//     }
-//     return (
-//         <div className="flex flex-col fixed z-[60] top-0" >
-//             {/* menu */}
-//             <div onClick={handleOpen}>
-//                 <Icon className={' tap:w-[75px] w-[55px] tap:h-[75px] h-[55px] hover:mr-1 '} />
-//             </div>
-//             <div className={`fixed flex flex-col tap:top-[78px] top-[55px] w-full bg-gradient-to-r from-[#0043cecc] to-[#032da6cc] h-full ${!open ? "!hidden" : " "}`} >
-//                 <div className="h-full lap:w-[75px] w-[55px] bg-white fixed"> </div>
-//                 <div className="h-70 w-full fixed z-20 top-[100px] lap:top-[200px] " onClick={handleOpen}>
-//                     {list.map(a => <Row {...a} key={a.title} />)}
-//                 </div>
-
-//             </div>
-
-//         </div >
-//     )
-// }
+ 
 let list = [
     {
         title: "عن الشركة",
@@ -102,6 +79,6 @@ let list = [
     }, {
         title: "الاسئلة الشائعة",
         to: "/FAQ",
-        Icon: "about-app.png"
+        Icon: "QAF.png"
     }
 ]
