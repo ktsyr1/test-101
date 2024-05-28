@@ -1,7 +1,5 @@
-import { createPaymentPage, setConfig } from '@/component/other/paytabs'
-import paytabs from 'paytabs_pt2'
-import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { createPaymentPage, setConfig } from "clickpay_ts" 
+import { headers } from 'next/headers'; 
 
 export async function POST(req: any, res: any) {
     console.log("------------------------ start test ------------------------");
