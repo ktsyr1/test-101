@@ -43,7 +43,7 @@ let allposts = gql`
                 }
                 featuredImage {
                     node { 
-                    mediaItemUrl
+                        mediaItemUrl
                     }
                 }
             }
@@ -131,6 +131,8 @@ let getData = async ({ cat, q }: any) => {
         if (q) query = { query: Search, variables: { search: q } }
         else if (cat) query = { query: postsBycat, variables: { slug: cat } }
         else query = { query: allposts }
+        console.log(query)
+
         return await getClient().query({ ...query, fetchPolicy: "no-cache" })
     } catch (error) {
         return { data: { posts: [] } }
@@ -141,12 +143,12 @@ let getData = async ({ cat, q }: any) => {
 export default async function BlogAll({ searchParams: { cat, q } }: any) {
 
     const { data }: any = await getData({ cat, q })
-    let categories = data.categories.nodes
+    // console.log(data)
+    let categories = data.categories?.nodes
     let posts: any //= !cat ? data.posts.nodes : 
     if (q) posts = data.posts.nodes
-    else if (cat) posts = data.category.posts.nodes
-    else posts = data.posts.nodes
-    console.log(posts);
+    else if (cat) posts = data.category?.posts?.nodes
+    else posts = data.posts.nodes 
 
     return (
         <div className="bg-white">
@@ -162,11 +164,13 @@ export default async function BlogAll({ searchParams: { cat, q } }: any) {
                 <div className="flex flex-row items-center overflow-x-scroll tap:overflow-hidden w-full my-8 select-none">
 
                     <Link href={`/blogs`} className={`py-2 bg-slate-100 tap:text-sm text-sx  border-2 border-slate-100 cursor-pointer ${!cat ? "!text-white !bg-safety-700" : "hover:text-safety-700  hover:border-safety-700 "} font-medium rounded-md px-4 mx-2 text-nowrap`}> الكل</Link>
-                    {categories.map((a: any) => {
-
-                        return <Link href={`/blogs?cat=${a.slug}`} key={a} className={`py-2 bg-slate-100 tap:text-sm text-sx  border-2 border-slate-100 cursor-pointer  font-medium rounded-md px-4 mx-2 text-nowrap ${cat == a.slug ? "text-white !bg-safety-700" : "hover:text-safety-700  hover:border-safety-700 "}`}> {a.name}</Link>
-                    }
-                    )}
+                    {categories
+                        ?.map((a: any) => <Link
+                            href={`/blogs?cat=${a.slug}`}
+                            key={a}
+                            className={`py-2 bg-slate-100 tap:text-sm text-sx  border-2 border-slate-100 cursor-pointer  font-medium rounded-md px-4 mx-2 text-nowrap ${cat == a.slug ? "text-white !bg-safety-700" : "hover:text-safety-700  hover:border-safety-700 "}`}
+                        > {a.name}</Link>
+                        )}
                 </div>
             </div>
             <Content data={posts} />
