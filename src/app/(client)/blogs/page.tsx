@@ -7,84 +7,52 @@ import Link from "next/link";
 let cats = `
 categories {
     nodes {
-    name
-    slug
+        name
+        slug
     }
 }
 `
-let allposts = gql`
-    query Posts { 
+let post = ` 
+    nodes { 
+        title
+        date
+        slug
+        excerpt
+        author {
+            node {
+                name
+                avatar {
+                    url
+                }
+            }
+        }
         categories {
             nodes {
                 name
                 slug
             }
         }
-        posts {
-            nodes {
-                title
-                content
-                date
-                slug
-                excerpt
-                author {
-                    node {
-                    name
-                    avatar {
-                        url
-                    }
-                    }
-                }
-                categories {
-                    nodes {
-                    name
-                    slug
-                    }
-                }
-                featuredImage {
-                    node { 
-                        mediaItemUrl
-                    }
-                }
+        featuredImage {
+            node { 
+                mediaItemUrl
             }
+        }
+    } 
+`
+let allposts = gql`
+    query Posts { 
+        ${cats} 
+        posts {
+            ${post} 
         }
     }
 `
 let postsBycat = gql`
     query postsBycat($slug: ID!) {
-        categories {
-            nodes {
-                name
-                slug
-                }
-            }
+        ${cats}
         category(idType: SLUG, id: $slug) {
             posts {
-                nodes {
-                    title
-                    date
-                    slug
-                    excerpt
-                    author {
-                        node {
-                            name
-                            avatar {
-                                url
-                            }
-                        }
-                    }
-                    categories {
-                        nodes {
-                            name
-                            slug
-                        }
-                    }
-                    featuredImage {
-                        node {
-                            mediaItemUrl
-                        }
-                    }
-                }
+                ${post} 
             }
         }
     }
@@ -94,35 +62,9 @@ let Search = gql`
     query Search( $search: String  ) {
         ${cats}
         posts(where: { search: $search}) {
-            nodes { 
-                title
-                date
-                slug
-                excerpt
-                author {
-                    node {
-                        name
-                        avatar {
-                            url
-                        }
-                    }
-                }
-                categories {
-                    nodes {
-                        name
-                        slug
-                    }
-                }
-                featuredImage {
-                    node {
-                        mediaItemUrl
-                    }
-                }
-            }
+            ${post} 
         }
     }
-
-
 `
 let getData = async ({ cat, q }: any) => {
 
@@ -131,8 +73,6 @@ let getData = async ({ cat, q }: any) => {
         if (q) query = { query: Search, variables: { search: q } }
         else if (cat) query = { query: postsBycat, variables: { slug: cat } }
         else query = { query: allposts }
-        console.log(query)
-
         return await getClient().query({ ...query, fetchPolicy: "no-cache" })
     } catch (error) {
         return { data: { posts: [] } }
@@ -143,12 +83,11 @@ let getData = async ({ cat, q }: any) => {
 export default async function BlogAll({ searchParams: { cat, q } }: any) {
 
     const { data }: any = await getData({ cat, q })
-    // console.log(data)
     let categories = data.categories?.nodes
     let posts: any //= !cat ? data.posts.nodes : 
     if (q) posts = data.posts.nodes
     else if (cat) posts = data.category?.posts?.nodes
-    else posts = data.posts.nodes 
+    else posts = data.posts.nodes
 
     return (
         <div className="bg-white">
