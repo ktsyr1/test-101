@@ -32,6 +32,15 @@ const FormPropertyData = () => {
             GetFatch("/Lookup/ProjectObjectives", token)
                 .then(data => setProjectObjectives(data?.data))
                 .catch((error) => Err(error))
+                console.log(ProjectObjectives);
+                
+            // let headers: any = { "Content-Type": "application/json" }
+            // if (token) headers["Authorization"] = `Bearer ${token}`
+            // let api = process.env.NEXT_PUBLIC_API
+
+            // axios.get(`${api}/Lookup/ProjectObjectives`, { headers })
+            //     .then(({ data }) => setProjectObjectives(data?.data))
+            //     .catch((error) => Err(error))
         } else if (process.env.NEXT_PUBLIC_ENV === "production") {
             let headers: any = { "Content-Type": "application/json" }
             if (token) headers["Authorization"] = `Bearer ${token}`

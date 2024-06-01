@@ -81,7 +81,7 @@ function LastPage({ state, dispatch }: any) {
 
         let additionalFieldsValue: any = localStorage.getItem("additionalFieldsValue")
         if (additionalFieldsValue) additionalFieldsValue = JSON.parse(additionalFieldsValue);
-        else additionalFieldsValue = [{ id: "12", value: "12" }] // or set to a default value as needed
+        else additionalFieldsValue = [{ id: "8d640e91-a215-41e7-b5e4-08dc61472637", value: "12" }] // or set to a default value as needed
 
 
         let model = {
