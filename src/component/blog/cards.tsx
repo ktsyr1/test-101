@@ -93,7 +93,7 @@ export function ToBlogs() {
     let leave = () => SetBtnHover(false)
     return (
         <div onMouseEnter={enter} onMouseLeave={leave} className="rounded-full w-full bg-white border-2 border-safety-700 flex lap:px-8 px-6 text-prussian-600 justify-between shadow-none max-w-[500px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white ">
-            <Btn title="استكشف المدونة" to={`/blog`} className="rounded-full w-full flex  p-0 !m-0 text-prussian-600 justify-between shadow-none max-w-[500px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end"  >
+            <Btn title="استكشف المدونة" to={`/blogs`} className="rounded-full w-full flex  p-0 !m-0 text-prussian-600 justify-between shadow-none max-w-[500px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end"  >
                 <IconArrow color={btnHover ? "#fff" : "#032DA6"} />
             </Btn>
         </div>
