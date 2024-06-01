@@ -82,6 +82,8 @@ export default function FormPart4() {
         createFatch("/payment?" + searchParams, model, token)
             .then((data) => {
                 JsCookies.set("tran_ref", data?.tran_ref)
+                console.log(data?.redirect_url);
+                
                 data?.redirect_url && router.push(data?.redirect_url)
             }
             )
