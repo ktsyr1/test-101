@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "i": "rm -rf /c/Program Files/iisnode/www/www; git clone https://github.com/ktsyr1/test-101.git",
     "lint": "next lint"
   },
   "dependencies": {
