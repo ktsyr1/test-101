@@ -57,7 +57,7 @@ export default function FormPart4() {
 
     const onSubmit = (res: any) => {
         // if (Send) {
-        console.log(data)
+        // console.log(data)
         let userInformation: any = JsCookies.get("userInformation")
         userInformation = JSON.parse(userInformation)
         let { addAssessments, assessmentPayment }: any = data?.res
@@ -80,8 +80,7 @@ export default function FormPart4() {
         let token: any = JsCookies.get("userToken")
 
         createFatch("/payment?" + searchParams, model, token)
-            .then(({ data }) => {
-                console.log(res)
+            .then((data) => {
                 JsCookies.set("tran_ref", data?.tran_ref)
                 data?.redirect_url && router.push(data?.redirect_url)
             }

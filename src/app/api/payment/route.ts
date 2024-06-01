@@ -7,11 +7,11 @@ export async function POST(req: any, res: any) {
     let search = new URLSearchParams(Params.search)
 
     const model = Object.fromEntries(search.entries());
-    console.log({ model });
+    // console.log({ model });
     let profileID = process.env.profileID || ""
     let serverKey = process.env.serverKey || ""
     let region = process.env.region || ""
-    console.log({ profileID, serverKey, region });
+    // console.log({ profileID, serverKey, region });
     const headersList = headers();
     let data = {
         id: model.id,
@@ -74,7 +74,7 @@ export async function POST(req: any, res: any) {
             },
             frameMode
         );
-    console.log({ test });
+    // console.log({ test });
 
     return Response.json(test)
 
