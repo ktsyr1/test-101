@@ -34,19 +34,19 @@ const FormParrt2 = () => {
         // -------------------- start ----------------
         let token: any = JsCookies.get("userToken")
 
-        if (process.env.NEXT_PUBLIC_ENV == "development") {
+        // if (process.env.NEXT_PUBLIC_ENV == "development") {
             GetFatch("/Lookup/WorkAreas", token)
                 .then(data => dispatch({ type: 'WorkAreas', payload: data?.data }))
                 .catch((error) => Err(error))
 
-        } else if (process.env.NEXT_PUBLIC_ENV === "production") {
-            let headers: any = { "Content-Type": "application/json" }
-            if (token) headers["Authorization"] = `Bearer ${token}`
-            let api = process.env.NEXT_PUBLIC_API
+        // } else if (process.env.NEXT_PUBLIC_ENV === "production") {
+        //     let headers: any = { "Content-Type": "application/json" }
+        //     if (token) headers["Authorization"] = `Bearer ${token}`
+        //     let api = process.env.NEXT_PUBLIC_API
 
-            axios.get(`${api}/Lookup/WorkAreas`, { headers })
-                .then(({ data }) => dispatch({ type: 'WorkAreas', payload: data?.data }))
-        }
+        //     axios.get(`${api}/Lookup/WorkAreas`, { headers })
+        //         .then(({ data }) => dispatch({ type: 'WorkAreas', payload: data?.data }))
+        // }
         // -------------------- end ----------------
 
     }, [data])

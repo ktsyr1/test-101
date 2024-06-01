@@ -127,7 +127,7 @@ function LastPage({ state, dispatch }: any) {
             console.log({ ...Content, ...DB });
 
             let token: any = JsCookies.get("userToken")
-            if (process.env.NEXT_PUBLIC_ENV == "development") {
+            // if (process.env.NEXT_PUBLIC_ENV == "development") {
 
                 createFatch("/Client/Assessment", model, token)
                     .then((res: any) => {
@@ -141,23 +141,23 @@ function LastPage({ state, dispatch }: any) {
                             localStorage.setItem("paymonet", JSON.stringify(res?.data?.assessmentPayment))
                         }
                     })
-            } else if (process.env.NEXT_PUBLIC_ENV == "production") {
-                let headers: any = { "Content-Type": "application/json" }
-                if (token) headers["Authorization"] = `Bearer ${token}`
-                let api = process.env.NEXT_PUBLIC_API
-                axios.post(`${api}/Client/Assessment`, model, { headers })
-                    .then(({ data }) => {
-                        if (data.code === 500) message.error("هناك خطاء تاكد من معلوماتك")
-                        else {
-                            JsCookies.set("PromoCode", model?.promoCode)
-                            localStorage.removeItem("additionalFieldsValue")
-                            setData({ ...model, res: data?.data })
-                            let slug = NextPage(select)
-                            setSelect(slug)
-                            localStorage.setItem("paymonet", JSON.stringify(data?.data?.assessmentPayment))
-                        }
-                    })
-            }
+            // } else if (process.env.NEXT_PUBLIC_ENV == "production") {
+            //     let headers: any = { "Content-Type": "application/json" }
+            //     if (token) headers["Authorization"] = `Bearer ${token}`
+            //     let api = process.env.NEXT_PUBLIC_API
+            //     axios.post(`${api}/Client/Assessment`, model, { headers })
+            //         .then(({ data }) => {
+            //             if (data.code === 500) message.error("هناك خطاء تاكد من معلوماتك")
+            //             else {
+            //                 JsCookies.set("PromoCode", model?.promoCode)
+            //                 localStorage.removeItem("additionalFieldsValue")
+            //                 setData({ ...model, res: data?.data })
+            //                 let slug = NextPage(select)
+            //                 setSelect(slug)
+            //                 localStorage.setItem("paymonet", JSON.stringify(data?.data?.assessmentPayment))
+            //             }
+            //         })
+            // }
         }
     }
     function Loading() {
