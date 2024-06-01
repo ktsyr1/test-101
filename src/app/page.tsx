@@ -1,4 +1,5 @@
 // "use client" 
+import BlogAll from "@/component/blog/home";
 import InspectionRequest from "@/component/landing/InspectionRequest";
 import OurClientsTestimonials from "@/component/landing/OurClientsTestimonials";
 import RequestMechanism from "@/component/landing/RequestMechanism";
@@ -20,7 +21,8 @@ export default function Home() {
             <RequestMechanism />
             <InspectionRequest />
             <JobsPart />
-            <BlogPart />
+            {/* <BlogPart /> */}
+            <BlogAll />
             <OurClientsTestimonials />
             {/* <Consultation /> */}
         </div>

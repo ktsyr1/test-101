@@ -10,12 +10,22 @@ export default async function GetService({ searchParams: { id } }: any) {
     if (userToken?.value) {
         let tran_ref: any = store.get("tran_ref")
         let url = `/payment/query?id=${id}&userToken=${userToken?.value}&tran_ref=${tran_ref?.value}`
-        let data = await GetFatch(url)
-        return (
-            <div className="flex flex-col justify-center items-center min-h-[600px]">
-                <View data={data} />
-            </div>
-        )
+
+        try {
+
+            let data = await GetFatch(url)
+            return (
+                <div className="flex flex-col justify-center items-center min-h-[600px]">
+                    <View data={data} />
+                </div>
+            )
+        } catch (error) {
+            return (
+                <div className="flex flex-col justify-center items-center min-h-[600px]">
+                    <p className="font-medium text-red-600 text-xl"> 0x300 يؤسفنا إبلاغك بأن عملية الدفع لم تكن ناجحة.</p>
+                </div>
+            )
+        }
     } else return (
         <div className="flex flex-col justify-center items-center min-h-[600px]">
             <p className="font-medium text-red-600 text-xl">لم تقم بتسجيل الدخول</p>
@@ -24,11 +34,11 @@ export default async function GetService({ searchParams: { id } }: any) {
 }
 
 function View({ data }: any) {
-    if (data.code == 400) return <p className="font-medium text-red-600 text-xl"> يؤسفنا إبلاغك بأن عملية الدفع لم تكن ناجحة.</p>
-    if (data.code == 200) {
-        if (data.data.payment_result.response_message == 'Cancelled') {
+    if (data?.code == 400) return <p className="font-medium text-red-600 text-xl"> 0x100 يؤسفنا إبلاغك بأن عملية الدفع لم تكن ناجحة.</p>
+    if (data?.code == 200) {
+        if (data?.data.payment_result.response_message == 'Cancelled') {
             return <p className="font-medium text-red-600 text-xl"> عملية الدفع تم الغائها.</p>
         } else return <p className="font-medium text-green-500 text-xl">  تم اتمام عملية الدفع بنجاح </p>
+    } else return <p className="font-medium text-red-600 text-xl"> انتهت صلاحية هذه الصفحة. 0x400</p>
 
-    }
 }
