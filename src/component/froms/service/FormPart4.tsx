@@ -3,10 +3,10 @@ import { FormDataContext } from '../contextApi';
 import { Table } from "antd";
 
 import JsCookies from 'js-cookie';
-import GetFatch, { createFatch } from '../get';
 import Link from 'next/link';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { createFatch } from './sendpaymonet';
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
 
@@ -77,9 +77,9 @@ export default function FormPart4() {
 
 
         const searchParams: any = encodeURI(`id=${model.id}&amount=${model.amount}&description=${model.description}&name=${model.name}&email=${model.email}&phone=${model.phone}&street=${model.street}&city=${model.city}&state=${model.state}&zip=${model.zip}`)
+        let token: any = JsCookies.get("userToken")
 
-
-        axios.post(process.env.NEXT_PUBLIC_apis + "/payment?" + searchParams, model)
+        createFatch("/payment?" + searchParams, model, token)
             .then(({ data }) => {
                 console.log(res)
                 JsCookies.set("tran_ref", data?.tran_ref)
