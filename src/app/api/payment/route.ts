@@ -1,5 +1,5 @@
-import { createPaymentPage, setConfig } from "clickpay_ts" 
-import { headers } from 'next/headers'; 
+import { createPaymentPage, setConfig } from "clickpay_ts"
+import { headers } from 'next/headers';
 
 export async function POST(req: any, res: any) {
     console.log("------------------------ start test ------------------------");
@@ -30,8 +30,8 @@ export async function POST(req: any, res: any) {
     }
 
     let url = {
-        callback: `http://localhost:3000/get-service/payment?id=${data.id}`,
-        response: "http://localhost:3000/api/payment/order/" + data.id
+        callback: `${process.env.NEXT_PUBLIC_apis?.replace("/api", "")}/get-service/payment?id=${data.id}`,
+        response: `${process.env.NEXT_PUBLIC_apis}/payment/order/${data.id}`
     }
 
     setConfig(profileID, serverKey, region, "clickpay");
