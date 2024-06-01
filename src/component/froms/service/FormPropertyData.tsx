@@ -20,7 +20,7 @@ const FormPropertyData = () => {
         // -------------------- start ----------------
         let token: any = JsCookies.get("userToken")
 
-        if (process.env.NEXT_PUBLIC_ENV == "development") {
+        // if (process.env.NEXT_PUBLIC_ENV == "development") {
             GetFatch("/Lookup/RealEstatType", token)
                 .then(data => setRealEstatTypes(data?.data))
                 .catch((error) => { Err(error); })
@@ -41,37 +41,37 @@ const FormPropertyData = () => {
             // axios.get(`${api}/Lookup/ProjectObjectives`, { headers })
             //     .then(({ data }) => setProjectObjectives(data?.data))
             //     .catch((error) => Err(error))
-        } else if (process.env.NEXT_PUBLIC_ENV === "production") {
-            let headers: any = { "Content-Type": "application/json" }
-            if (token) headers["Authorization"] = `Bearer ${token}`
-            let api = process.env.NEXT_PUBLIC_API
-            try {
+        // } else if (process.env.NEXT_PUBLIC_ENV === "production") {
+        //     let headers: any = { "Content-Type": "application/json" }
+        //     if (token) headers["Authorization"] = `Bearer ${token}`
+        //     let api = process.env.NEXT_PUBLIC_API
+        //     try {
 
-                axios.get(`${api}/Lookup/RealEstatType`, { headers })
-                    .then(({ data }) => setRealEstatTypes(data?.data))
-                    .catch((error) => Err(error))
+        //         axios.get(`${api}/Lookup/RealEstatType`, { headers })
+        //             .then(({ data }) => setRealEstatTypes(data?.data))
+        //             .catch((error) => Err(error))
 
-                axios.get(`${api}/Lookup/RealEstatAges`, { headers })
-                    .then(({ data }) => setRealEstatAges(data?.data))
-                    .catch((error) => Err(error))
+        //         axios.get(`${api}/Lookup/RealEstatAges`, { headers })
+        //             .then(({ data }) => setRealEstatAges(data?.data))
+        //             .catch((error) => Err(error))
 
-                axios.get(`${api}/Lookup/ProjectObjectives`, { headers })
-                    .then(({ data }) => setProjectObjectives(data?.data))
-                    .catch((error) => Err(error))
-            } catch (error) {
-                GetFatch("/Lookup/RealEstatType", token)
-                    .then(data => setRealEstatTypes(data?.data))
-                    .catch((error) => { Err(error); })
+        //         axios.get(`${api}/Lookup/ProjectObjectives`, { headers })
+        //             .then(({ data }) => setProjectObjectives(data?.data))
+        //             .catch((error) => Err(error))
+        //     } catch (error) {
+        //         GetFatch("/Lookup/RealEstatType", token)
+        //             .then(data => setRealEstatTypes(data?.data))
+        //             .catch((error) => { Err(error); })
 
-                GetFatch("/Lookup/RealEstatAges", token)
-                    .then(data => setRealEstatAges(data?.data))
-                    .catch((error) => { Err(error); })
+        //         GetFatch("/Lookup/RealEstatAges", token)
+        //             .then(data => setRealEstatAges(data?.data))
+        //             .catch((error) => { Err(error); })
 
-                GetFatch("/Lookup/ProjectObjectives", token)
-                    .then(data => setProjectObjectives(data?.data))
-                    .catch((error) => Err(error))
-            }
-        }
+        //         GetFatch("/Lookup/ProjectObjectives", token)
+        //             .then(data => setProjectObjectives(data?.data))
+        //             .catch((error) => Err(error))
+        //     }
+        // }
         // -------------------- end ----------------
     }, [defaultData])
 
