@@ -24,7 +24,7 @@ export default function Home() {
             <BlogPart />
             {/* <BlogAll /> */}
             <OurClientsTestimonials />
-            {/* <Consultation /> */}
+            <Consultation />
         </div>
     );
 }

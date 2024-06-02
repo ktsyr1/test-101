@@ -2,12 +2,15 @@
 import { message } from "antd";
 import axios from "axios";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { createFatch } from "../froms/get";
 
 export default function Consultation() {
     const { register, handleSubmit } = useForm<any>()
 
     const onSubmit: SubmitHandler<any> = (res) => {
-        axios.post(`/api/admin/emailnews`, res)
+        // https://app.inspectex.sa/Guest/ConsultationRequest?Email=were%40sdf.com
+        let api = process.env.NEXT_PUBLIC_API
+        createFatch(`/Guest/ConsultationRequest?Email=${res.email}`, {})
             .then(() => message.success('تم إرسال البريد الإلكتروني بنجاح'))
     }
     return (
