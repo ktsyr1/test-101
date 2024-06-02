@@ -7,10 +7,7 @@ const prisma = new PrismaClient();
 
 export async function GET(req: any, res: any) {
     // find all  
-
     let all = await prisma.emailNews.findMany()
-    console.log(all);
-
     return Response.json({ emailNews: all })
 
 }
@@ -31,16 +28,10 @@ export async function POST(req: any, res: any) {
         else {
 
             const secretKey = process.env.secretKey || "dev"
-            const token = jwt.sign({ userId: user?.id },
-                secretKey,
-                { expiresIn: "7d" });
-
+            const token = jwt.sign({ userId: user?.id }, secretKey, { expiresIn: "7d" });
 
             return Response.json({ token })
         }
     } else return Response.json({ message: "Invalid credentials" });
-    // const token = sign({ userId: user.id }, secretKey, { expiresIn: "1h" });
-
-
 
 } 

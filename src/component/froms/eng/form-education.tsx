@@ -25,7 +25,6 @@ export default function FormEducation() {
     let [defaultData, setDD] = useState(data)
     const [study, setStudy] = useState<QualificationsTypes>();
     const [nextPart, setNextPart] = useState(false);
-    const [active, setActive] = useState(false);
 
     let [options, setOptions] = useState<QualificationsTypes[]>([])
     useEffect(() => {
@@ -40,12 +39,8 @@ export default function FormEducation() {
     const { register, handleSubmit, watch, formState: { errors }, }: any = useForm<FieldType>()
 
     const onChange = () => {
-        // console.clear()
         let MemberShip = watch("MemberShip")
         let YearsOfExperience = watch("MemberShip")
-        // let MemberShip = watch("MemberShip")
-
-        console.log([MemberShip, YearsOfExperience]);
 
         if (MemberShip?.length > 3 && YearsOfExperience > 0) {
             if (study && study?.value) {
@@ -58,8 +53,6 @@ export default function FormEducation() {
 
     const onSubmit = () => {
         let NewData = { MemberShip: watch("MemberShip"), YearsOfExperience: watch("YearsOfExperience"), QualificationId: study?.value }
-        console.log(NewData);
-
         if (nextPart) {
             setData({ ...data, ...NewData })
             let slug = NextPage(select)

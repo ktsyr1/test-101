@@ -2,8 +2,6 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function users(parent: any, args: any, contextValue: any) {
-    console.log(Object.keys(contextValue,  ))
-
     let data = await prisma.user.findMany({
         select: {
             id: true,
@@ -56,7 +54,6 @@ export async function UserUpdate(parent: any, args: any) {
 
 export async function UserDelete(parent: any, args: any) {
     let id = Number(args.id)
-    console.log({ args, id })
     let data: any = await prisma.user.delete({
         where: { id },
     })

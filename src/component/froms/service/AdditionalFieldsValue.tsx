@@ -68,7 +68,7 @@ const AdditionalFieldsValue = ({ page }: any) => {
 
     };
     const setSelect = (data: any, a: any) => {
-        console.log(data);
+        
 
         let body: any = { id: a.id, value: data.value }
         let additionalFieldsValue: any = Get()
@@ -78,8 +78,6 @@ const AdditionalFieldsValue = ({ page }: any) => {
         if (index == undefined) additionalFieldsValue = additionalFieldsValue
         else if (index === -1) additionalFieldsValue = [...additionalFieldsValue, body]
         else additionalFieldsValue[index] = body
-        console.log(additionalFieldsValue);
-
         localStorage.setItem("additionalFieldsValue", JSON.stringify(additionalFieldsValue))
 
     }

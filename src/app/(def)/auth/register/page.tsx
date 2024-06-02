@@ -7,10 +7,10 @@ export default function VerificationPage() {
     let [data, setData] = useState({})
 
     const Send = () => {
-        console.log(data);
+        
     }
     const upload = () => {
-        console.log(data);
+        
     }
     return (
         <form id="form" className="max-w-[400px] m-auto p-4 mb-16 mt-32 flex flex-col j h-full  shadow-lg rounded-2xl" >

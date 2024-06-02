@@ -45,7 +45,6 @@ export function Line({ alt, i }: any) {
 }
 export function Header() {
     let { select, setSelect, list } = useContext(FormContext)
-    console.log({ select });
 
     return (
         <div className="flex flex-col items-center justify-center bg-[#001F67]

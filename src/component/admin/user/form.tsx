@@ -16,7 +16,7 @@ export default function FormUserOne({ data: one }: any) {
     }
 
     const upload = () => {
-        console.log(data);
+        
     }
     // onChange={upload}
     return (

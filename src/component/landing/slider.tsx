@@ -11,7 +11,7 @@ const TimeLineContext = createContext<any | null>({});
 let TimeSec = 15000
 export default function Sliders() {
 
-    let [data, setData] = useState(SlidesData.slice(0,3))
+    let [data, setData] = useState(SlidesData.slice(0, 3))
     let [One, setOne] = useState(data[0])
 
     useEffect(() => {
@@ -21,7 +21,6 @@ export default function Sliders() {
         }, TimeSec)
         return () => clearInterval(interval);
     }, [One, data]);
-    // console.log(One);
     return (
         <ThemeContext.Provider value={{ data, setOne, One }}>
             <div className=" w-full flex flex-col h-min bg-no-repeat bg-contain min-h-[700pxpx] select-none" >
@@ -76,7 +75,7 @@ function TimeLine(props: any) {
             <div className="bg-[#001F67]  flex flex-col h-[200px] justify-center mt-[-200px] overflow-x-scroll tap:overflow-hidden px-4 select-none z-30" >
                 <div className="flex flex-row  w-[1000px]  justify-start m-auto lap:justify-center" >
 
-                    {timeLine.slice(0,3).map(slider => <TimeLineCard data={slider} key={slider.title} />)}
+                    {timeLine.slice(0, 3).map(slider => <TimeLineCard data={slider} key={slider.title} />)}
                 </div>
             </div>
         </TimeLineContext.Provider>

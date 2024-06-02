@@ -13,7 +13,6 @@ export default function LoginPage() {
     const onSubmit: SubmitHandler<any> = (res) => {
         axios.post(`/api/admin/user`, res)
             .then(({ data }) => {
-                console.log(data)
                 if (data?.token) {
                     JsCookies.set('--token', data.token)
                     message.success('تم إرسال البريد الإلكتروني بنجاح')

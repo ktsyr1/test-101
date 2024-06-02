@@ -20,7 +20,6 @@ export default function FormProfile() {
     let [cities, setCities] = useState<any>([])
     useEffect(() => {
         let token: any = Cookies.get("userToken")
-        console.log(process.env.NEXT_PUBLIC_ENV)
         if (process.env.NEXT_PUBLIC_ENV == "development")
             GetFatch("/Lookup/Cities", token).then(data => setCities(data?.data))
         else if (process.env.NEXT_PUBLIC_ENV === "production")
@@ -39,7 +38,6 @@ export default function FormProfile() {
     }
 
     const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
     };
 
     function BtnsBol({ a, v, set }: any) {

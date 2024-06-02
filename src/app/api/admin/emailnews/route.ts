@@ -7,8 +7,6 @@ export async function GET(req: any, res: any) {
     // find all  
 
     let all = await prisma.emailNews.findMany()
-    console.log(all);
-
     return Response.json({ emailNews: all })
 
 }

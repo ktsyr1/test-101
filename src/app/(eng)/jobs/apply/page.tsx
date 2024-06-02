@@ -13,7 +13,6 @@ export default function LoginPage() {
     const onSubmit: SubmitHandler<any> = (res) => {
         // axios.post(`/api/admin/user`, res)
         //     .then(({ data }) => {
-        //         console.log(data)
         //         if (data?.token) {
         //             JsCookies.set('--token', data.token)
         message.success('تم تقديم الطلب البريد الإلكتروني بنجاح')
@@ -38,18 +37,3 @@ export default function LoginPage() {
         </form>
     )
 }
-
-function verifyPhoneNumber(phoneNumber: string) {
-    // يمكنك تعديل هذا النمط حسب التنسيق المطلوب
-    const phonePattern = /^(\+?961)?(3|70|71|76|78|79)\d{6}$/;
-
-    if (phonePattern.test(phoneNumber)) {
-        console.log("تنسيق رقم الهاتف صحيح.");
-    } else {
-        console.log("تنسيق رقم الهاتف غير صحيح.");
-    }
-}
-
-// اختبار الشيفرة البرمجية
-verifyPhoneNumber("+96171234567"); // تنسيق رقم الهاتف صحيح.
-verifyPhoneNumber("71234567"); // تنسيق رقم الهاتف غير صحيح.

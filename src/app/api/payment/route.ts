@@ -1,17 +1,14 @@
-import { createPaymentPage, setConfig } from "clickpay_ts"
-import { headers } from 'next/headers';
+import { createPaymentPage, setConfig } from "clickpay_ts" 
+import { headers } from 'next/headers'; 
 
 export async function POST(req: any, res: any) {
-    console.log("------------------------ start test ------------------------");
     let Params = new URL(req?.url)
     let search = new URLSearchParams(Params.search)
 
     const model = Object.fromEntries(search.entries());
-    // console.log({ model });
     let profileID = process.env.profileID || ""
     let serverKey = process.env.serverKey || ""
     let region = process.env.region || ""
-    // console.log({ profileID, serverKey, region });
     const headersList = headers();
     let data = {
         id: model.id,
@@ -30,14 +27,11 @@ export async function POST(req: any, res: any) {
     }
 
     let url = {
-        callback: `${process.env.NEXT_PUBLIC_apis?.replace("/api", "")}/get-service/payment?id=${data.id}`,
+        callback: `${process.env.NEXT_PUBLIC_apis?.replace("/api","")}/get-service/payment?id=${data.id}`,
         response: `${process.env.NEXT_PUBLIC_apis}/payment/order/${data.id}`
     }
 
     setConfig(profileID, serverKey, region, "clickpay");
-
-    // console.log({ data, paytabs });
-
 
     let paymentMethods = ["all"];
     let transaction = { type: "sale", class: "ecom" };
@@ -64,18 +58,10 @@ export async function POST(req: any, res: any) {
             response_URLs,
             lang,
             function (results: any) {
-                console.log({ results });
                 Result = results
-                // return results
-                // if (results?.redirect_url)
-                // redirect(results?.redirect_url)
-
-                // return Response.json(results)
             },
             frameMode
         );
-    // console.log({ test });
-
     return Response.json(test)
 
 }

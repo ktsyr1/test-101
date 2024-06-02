@@ -7,8 +7,6 @@ import { dataBlogs } from "@/component/blog/demo";
 export default async function BlogOne({ params: { url }, }: any) {
 
     const post: any = dataBlogs?.find((post: any) => post?.url == url)
-    // const post = null
-    console.log(post);
     
     if (!post) return <>404</>
     else return (

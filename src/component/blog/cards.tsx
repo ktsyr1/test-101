@@ -45,9 +45,7 @@ export default function BlogCard({ data, type }: any) {
 }
 
 export function Content({ data }: any) {
-
-    let [posts, setPosts] = useState(Array.from([0, 1, 2, 4, 5, 6].map(a => postsData[0])));
-    let [limit, setLimit] = useState(3)
+    let [limit, setLimit] = useState(6)
 
     return (
         <div className=" flex flex-col items-center w-full   pb-16">
@@ -56,7 +54,7 @@ export function Content({ data }: any) {
                     {/* <BlogCard data={posts[0]} type={CardType.full} /> */}
                     <div className="flex flex-wrap items-center justify-center">
                         {data.length == 0 && <div className="flex flex-wrap items-center justify-center min-h-[200px]" > لا تتوفر نتائج  </div>}
-                        {data?.map((post: any) => <BlogCard data={post} key={post?.title} />)}
+                        {data?.slice(0, limit).map((post: any) => <BlogCard data={post} key={post?.title} />)}
                     </div>
                     {data.length > 3 && <button type="button" className="flex flex-row text-safety-700 justify-center text-base font-semibold items-center mt-9" onClick={() => setLimit(limit + 3)} >
                         <p>المزيد من المقالات</p>
@@ -72,10 +70,8 @@ export function SearchBlog() {
 
     let route = useRouter()
     const { register, handleSubmit } = useForm()
-    const onSubmit: SubmitHandler<any> = (res) => {
-        console.log(res);
-        route.push(`/blogs?q=${res.q}`)
-    }
+    const onSubmit: SubmitHandler<any> = (res) => route.push(`/blogs?q=${res.q}`)
+
     return (
         <form className="flex flex-row justify-end w-full tap:p-4 p-2 max-w-[500px]" onSubmit={handleSubmit(onSubmit)} >
             <Icon.search className={"ml-[-30px] z-10 m-4"} />

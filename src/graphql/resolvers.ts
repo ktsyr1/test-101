@@ -43,7 +43,6 @@ const resolvers = {
 export default resolvers;
 
 async function defFun(parent: any, args: any) {
-    console.log(args);
     return true;
 }
 

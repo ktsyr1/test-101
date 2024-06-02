@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Err, Field, Input, NextPage, Select, } from './form';
 import { FormContext, FormDataContext } from '../contextApi';
 import { useForm } from 'react-hook-form';
-import backup from './backup.json';
 import AdditionalFieldsValue from './AdditionalFieldsValue';
 import JsCookies from "js-cookie"
 import GetFatch from '../get';
@@ -32,15 +31,14 @@ const FormPropertyData = () => {
             GetFatch("/Lookup/ProjectObjectives", token)
                 .then(data => setProjectObjectives(data?.data))
                 .catch((error) => Err(error))
-                console.log(ProjectObjectives);
                 
-            // let headers: any = { "Content-Type": "application/json" }
-            // if (token) headers["Authorization"] = `Bearer ${token}`
-            // let api = process.env.NEXT_PUBLIC_API
+            let headers: any = { "Content-Type": "application/json" }
+            if (token) headers["Authorization"] = `Bearer ${token}`
+            let api = process.env.NEXT_PUBLIC_API
 
-            // axios.get(`${api}/Lookup/ProjectObjectives`, { headers })
-            //     .then(({ data }) => setProjectObjectives(data?.data))
-            //     .catch((error) => Err(error))
+            axios.get(`${api}/Lookup/ProjectObjectives`, { headers })
+                .then(({ data }) => setProjectObjectives(data?.data))
+                .catch((error) => Err(error))
         // } else if (process.env.NEXT_PUBLIC_ENV === "production") {
         //     let headers: any = { "Content-Type": "application/json" }
         //     if (token) headers["Authorization"] = `Bearer ${token}`

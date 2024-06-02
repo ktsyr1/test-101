@@ -7,11 +7,8 @@ import { GET_USERS } from '@/graphql/queries/user'
 
 // let getData = async () => {
 //     try {
-//         console.log("testing");
-
 //         return await getClient().query({ query: GET_USERS })
 //     } catch (error) {
-//         console.log(error)
 //         return { data: { users: [] } }
 //     }
 // }

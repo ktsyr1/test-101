@@ -7,7 +7,6 @@ import axios from 'axios';
 export default async function AdminUsersPage() {
 
     // const { data }: any = await axios.get(`${process.env.NEXT_PUBLIC_apis}/admin/emailnews`)
-    // console.log(data);
 
     const columns = [
         { title: "الايميل", dataIndex: "email", key: "email", },

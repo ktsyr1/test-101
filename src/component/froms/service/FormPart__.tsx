@@ -38,7 +38,6 @@ const FormPart3 = () => {
         let listErr: any = {}
  
         if (Object.keys(listErr)?.length == 0) {
-            console.log({ ...state?.defaultData, ...res, });
 
             // setData({ ...state?.defaultData, projectTitle: res.projectTitle })
             // let slug = NextPage(select)

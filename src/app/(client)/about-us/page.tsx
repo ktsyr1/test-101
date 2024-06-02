@@ -62,7 +62,6 @@ function HowMenu({ open, setOpen }: { open: string, setOpen: Function }) {
     )
 }
 function HowBody({ open }: { open: OpenType }) {
-    console.log(data[open]);
 
     return (
         <div className="flex flex-wrap justify-center mb-6">

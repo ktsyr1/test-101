@@ -6,7 +6,7 @@ let where = (i: any) => {
 }
 export async function blogs(parent: any, args: any) {
     let data = await prisma.blog.findMany()
-    console.log(data);
+    
     
     return data
 }

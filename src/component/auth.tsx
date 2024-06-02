@@ -185,7 +185,7 @@ function OTP({ route }: any) {
             let body = { userId: userData.userId, code: res.code }
             createFatch("/Authorization/EmailVerification", body)
                 .then(({ data }) => {
-                    console.log(data);
+                    
                     if (data.code === 200) {
                         localStorage.setItem("userData", JSON.stringify(data))
                         message.success('تم التحقق من الايميل')

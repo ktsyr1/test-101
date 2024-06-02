@@ -10,12 +10,8 @@ export default function AdminSurveysList({ data: All }: any) {
     let [data, setData] = useState(All);
 
     function handleDelete(id: any) {
-        console.log(id);
-        
         deleteSurvey({ variables: { id } })
             .then(response => {
-                console.log(response);
-                
                 let filter = data.filter((survey: any) => survey.id !== id);
                 setData(filter);
                 message.success('تم حذف الاستبيان');

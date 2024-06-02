@@ -35,11 +35,8 @@ const query = gql`
 
 let getData = async (slug: string) => {
     try {
-        console.log({ query, variables: { slug } });
-
         return await getClient().query({ query, variables: { slug }, fetchPolicy: "no-cache" })
     } catch (error) {
-        console.log(error)
         return { data: { post: [] } }
     }
 }
@@ -47,7 +44,6 @@ let getData = async (slug: string) => {
 export default async function BlogOne({ params: { url } }: { params: { url: string } }) {
 
     const { data }: any = await getData(decodeURI(url))
-    console.log(data)
     let post: any = data?.postBy
     let author = post?.author?.node
     let cat = post?.categories?.nodes

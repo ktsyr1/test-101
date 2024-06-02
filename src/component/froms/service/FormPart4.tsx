@@ -57,7 +57,6 @@ export default function FormPart4() {
 
     const onSubmit = (res: any) => {
         // if (Send) {
-        // console.log(data)
         let userInformation: any = JsCookies.get("userInformation")
         userInformation = JSON.parse(userInformation)
         let { addAssessments, assessmentPayment }: any = data?.res
@@ -84,7 +83,6 @@ export default function FormPart4() {
                 if (data?.redirect_url) {
 
                     JsCookies.set("tran_ref", data?.tran_ref)
-                    console.log(data?.redirect_url);
                     location.href = data?.redirect_url
                 }
             }

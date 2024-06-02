@@ -76,7 +76,6 @@ function FeatureOne({ data: One, layout }: { data: FeatureOneType; layout: strin
         let filter = all.filter((a: any) => a.id === One.id)[0]
         filter.active = true
         all[One.id - 1] = filter
-        console.log(all);
         setData(all)
     }
     return (

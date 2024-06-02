@@ -129,17 +129,11 @@ function sendPost(url: any, objData: any, callback: any) {
         data: objData
     };
     return axios(sendData)
-        // .then((res: any) => callback(res.data))
         .then((res: any) => {
-            console.log(res);
-
             return res.data
         })
         .catch((error: any) => {
             let result: any = error.response ? error.response.data.message : error.errno
-console.log(error);
-
-            // callback({ response_code: 400, result: result });
             return { response_code: 400, result: result }
         });
 } 

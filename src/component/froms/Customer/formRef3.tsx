@@ -13,7 +13,6 @@ export default function FormRef3() {
     let [value, setValue] = useState<string>(data?.AccessChannels || "")
     let list = ["انستغرام", "سنابشات", "فيسبوك", "تويتر", " لينكد إن", "تيك توك", "جوجل", "عن طريق صديق", "آخر"]
     let other = list.slice(0, -1).filter(x => x == value).length == 0
-    console.log(other);
 
     const { handleSubmit } = useForm<any>({ defaultValues: data })
     const onSubmit: SubmitHandler<any> = (res) => {

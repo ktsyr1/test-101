@@ -21,8 +21,6 @@ export default function FormSkills() {
     const { register, handleSubmit, formState: { errors }, watch } = useForm({ defaultValues: data })
     const onSubmit = (res: any) => {
         if (!Files && typeof IsFullTime === "boolean" && PassingCourse && typeof Picture !== "undefined") {
-            console.log("Send data");
-
             const formData = new FormData();
             formData.append('Firstname', data.firstname || data.Firstname);  // Firstname
             formData.append('MiddleName', data.middleName || data.MiddleName);  // MiddleName
@@ -41,7 +39,7 @@ export default function FormSkills() {
             formData.append('RelativeName', data.RelativeName || data.RelativeName);  // RelativeName
             formData.append('RelativePhone', data.RelativePhone || data.RelativePhone);  // RelativePhone
             formData.append('Files', new Blob([res?.Files], { type: 'application/pdf' }), `CV${new Date().getTime()}.pdf`);    // Files
-            formData.append('Picture', new Blob([res.Picture], { type: 'image/*' }), `Picture-${new Date().getTime()}.jpeg`);       // Picture      console.log(formData.values());
+            formData.append('Picture', new Blob([res.Picture], { type: 'image/*' }), `Picture-${new Date().getTime()}.jpeg`);       // Picture 
             let token: any = Cookies.get("userToken")
 
             if (process.env.NEXT_PUBLIC_ENV == "development")
@@ -51,7 +49,7 @@ export default function FormSkills() {
                         message.success("تم ارسال الطلب بنجاح")
                     })
                     .catch(error => console.error(error))
-                else if (process.env.NEXT_PUBLIC_ENV == "production")
+            else if (process.env.NEXT_PUBLIC_ENV == "production")
                 axios.post(`${process.env.NEXT_PUBLIC_API}/Inspector/InspectorJoinRequest`, formData)
                     .then(({ data }) => {
                         setDane(true)
@@ -111,19 +109,15 @@ export default function FormSkills() {
     )
 
     function Valid() {
-        setTimeout(() => {
-
+        setTimeout(() => { 
             let Picture = watch("Picture")
             let Files = watch("Files")
-            // console.log([Files, IsFullTime, PassingCourse, Picture?.length])
-            // console.log([Files, IsFullTime, PassingCourse, Picture])
             if (!Files && typeof IsFullTime === "boolean" && PassingCourse && typeof Picture !== "undefined") setValid(true)
             else setValid(false)
         }, 200);
     }
 
     let Picture = watch("Picture")
-    console.log([!Files, typeof IsFullTime === "boolean", PassingCourse, typeof Picture !== "undefined"])
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onClick={Valid}   >

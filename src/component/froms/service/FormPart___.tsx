@@ -95,7 +95,6 @@ function LastPage({ state, dispatch }: any) {
         if (!model.projectDate) listErr["projectDate"] = { text: "لم تقم بتحديد الموعد " }
         dispatch({ type: 'err', payload: listErr })
         if (Object.keys(listErr)?.length == 0) {
-            console.log("test");
 
             // let token: any = JsCookies.get("userToken")
             // createFatch("/Client/Assessment", model, token)
@@ -152,7 +151,6 @@ function LastPage({ state, dispatch }: any) {
 
 function EndPage({ state, dispatch }: any) {
     let { data, setData } = useContext(FormDataContext)
-    console.log(state?.Bill);
 
     let assessmentPayment = {
         "assessmentId": "51c68a97-2680-4664-b1ab-ff3d055601ac",
