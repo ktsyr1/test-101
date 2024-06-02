@@ -3,15 +3,16 @@ import { message } from "antd";
 import axios from "axios";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { createFatch } from "../froms/get";
+import { useState } from "react";
 
 export default function Consultation() {
     const { register, handleSubmit } = useForm<any>()
-
+    let [se, setSe] = useState('ارسال')
+    let [forms, setF] = useState('true')
     const onSubmit: SubmitHandler<any> = (res) => {
-        // https://app.inspectex.sa/Guest/ConsultationRequest?Email=were%40sdf.com
-        let api = process.env.NEXT_PUBLIC_API
+        setSe("جاري الارسال")
         createFatch(`/Guest/ConsultationRequest?Email=${res.email}`, {})
-            .then(() => message.success('تم إرسال البريد الإلكتروني بنجاح'))
+            .then(() => setF('تم إرسال البريد الإلكتروني بنجاح'))
     }
     return (
         <>
@@ -20,10 +21,11 @@ export default function Consultation() {
                 <div className="border-4 border-safety-700 tap:rounded-xl tap:p-6 w-full p-3 rounded-none ">
                     <div className="bg-gradient-to-l from-[#0694A2] to-[#003035] rounded-xl p-4 text-white flex flex-wrap justify-between items-center">
                         <h2 className="lap:text-4xl lap:w-[350px] p-2  w-full text-xl text-center mb-4  tap:w-[200px] "> سجل و احصل على إستشارة مجانية </h2>
-                        <form className="flex tap:flex-row w-full tap:max-w-[500px] flex-col items-center " onSubmit={handleSubmit(onSubmit)}>
-                            <input type="email" {...register("email")} className="p-2 lap:w-[500px] w-full h-[50px] rounded-xl mx-4 max-w-[400px] text-[#032DA6]" required />
-                            <input type="submit" className="bg-safety-700 rounded-md mx-0 w-full tap:max-w-[100px] cursor-pointer hover:mx-1 p-3 my-2  max-w-[400px] " />
-                        </form>
+                        {forms == "true" ?
+                            <form className="flex tap:flex-row w-full tap:max-w-[500px] flex-col items-center " onSubmit={handleSubmit(onSubmit)}>
+                                <input type="email" {...register("email")} className="p-2 lap:w-[500px] w-full h-[50px] rounded-xl mx-4 max-w-[400px] text-[#032DA6]" required />
+                                <input type="submit" className="bg-safety-700 rounded-md mx-0 w-full tap:max-w-[100px] cursor-pointer hover:mx-1 p-3 my-2  max-w-[400px] " value={se} />
+                            </form> : <p className="mx-8 p-4 rounded-lg border-2 border-safety-700" >{forms}</p>}
                     </div>
                 </div>
             </div>
