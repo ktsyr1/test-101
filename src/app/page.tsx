@@ -21,8 +21,8 @@ export default function Home() {
             <RequestMechanism />
             <InspectionRequest />
             <JobsPart />
-            {/* <BlogPart /> */}
-            <BlogAll />
+            <BlogPart />
+            {/* <BlogAll /> */}
             <OurClientsTestimonials />
             {/* <Consultation /> */}
         </div>
