@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "i": "rm -rf /c/Program Files/iisnode/www/www; git clone https://github.com/ktsyr1/test-101.git",
+    "i": "powershell.exe -Command \"Remove-Item -Recurse -Force 'C:\\Program Files\\iisnode\\www\\www'; git clone https://github.com/ktsyr1/test-101.git 'C:\\Program Files\\iisnode\\www\\www'\"",
     "lint": "next lint"
   },
   "dependencies": {
