@@ -56,11 +56,13 @@ export default function AuthApp({ userType = 2, required }: any) {
 }
 
 function Login({ userType = 2, route, required }: any) {
+    let [se, setSe] = useState("تسجيل الدخول ")
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm<any>()
     let url = process.env.NEXT_PUBLIC_API
     const onSubmit: SubmitHandler<any> = async (res) => {
         let body = { ...res, userType }
+        setSe("جاري تسجيل الدخول ...")
 
         // -------------------- start ----------------
         let token: any = JsCookies.get("userToken")
@@ -142,15 +144,16 @@ function Login({ userType = 2, route, required }: any) {
             <input type="email"  {...register("email")} placeholder="user@mail.com" className="p-2 border-2 rounded-lg border-slate-300 px-6 my-4 w-full" />
             <p>كلمة السر *</p>
             <input type="password"  {...register("password")} placeholder="*********" className="p-2 border-2 rounded-lg border-slate-300 px-6 my-4 w-full" />
-            <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg`} value="تسجيل الدخول" />
+            <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg`} value={se} />
         </form>
     )
 }
 
 function SignUp({ route }: any) {
-
+    let [se, setSe] = useState("تسجيل  ")
     const { register, handleSubmit, watch, formState: { errors } } = useForm<any>()
     const Register: SubmitHandler<any> = (res) => {
+        setSe("جاري التسجيل ...")
         createFatch("/Authorization/Client/Register", res)
             .then(({ data }) => {
                 if (data?.code === 200) {
@@ -169,7 +172,7 @@ function SignUp({ route }: any) {
             <Field title="كلمة السر" placeholder="*********" {...register("password")} type="password" />
             <Field title="الجوال" placeholder="7072323324" {...register("phoneNumber")} type="tel" />
             {/* <Field title="الصورة الشخصية" placeholder="string" {...register("profileImage")} type="file" accept="image/png, image/gif, image/jpeg" /> */}
-            <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg`} value="تسجيل  " />
+            <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg`} value={se} />
         </form>
     )
 }
@@ -185,7 +188,7 @@ function OTP({ route }: any) {
             let body = { userId: userData.userId, code: res.code }
             createFatch("/Authorization/EmailVerification", body)
                 .then(({ data }) => {
-                    
+
                     if (data.code === 200) {
                         localStorage.setItem("userData", JSON.stringify(data))
                         message.success('تم التحقق من الايميل')
