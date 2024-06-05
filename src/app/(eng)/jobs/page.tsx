@@ -79,7 +79,7 @@ function CardJob({ data: One }: { data: CardJobType; }) {
                 <p className={`${open ? "text-safety-700" : " text-white"} lap:text-2xl tap:text-lg text-lg flex items-center`}>{One.jobTitle} </p>
                 <div className={`flex flex-row ${open ? "*:text-white *:rounded-full *:bg-prussian-800" : " *:bg-white *:rounded-full *:text-prussian-800 "} `}>
                     <p className="p-4 py-2 my-4 w-full  lap:text-2xl tap:text-lg text-sx flex items-center">{One.departmentName} </p>
-                    <p className="  p-4 py-2 m-4 w-max text-nowrap">{One.workAreaName} </p>
+                    <p className="  p-4 py-2 m-4 w-max text-nowrap flex items-center">{One.workAreaName} </p>
                 </div>
                 {open ? <>
                     <p className="text-safety-700  lap:text-3xl tap:text-xl text-base mt-8 mb-6">عن الوظيفة</p>
