@@ -1,7 +1,7 @@
 
 # API docx
 
-### 1- Register and get a consultation
+### 1- Register and get a consultation ✅
 سجل واحصل على استشارة
 ```js
 type = "POST" 
@@ -16,7 +16,7 @@ type = "POST"
 bodyData ={ email: "me@mail.com" , Fullname:"", PhoneNumber:"" ,cv: File } 
 ```
   
-### 3- Jobs view all
+### 3- Jobs view all ✅
   عرض الوضائف المتاحة
 ```js
 type = "GET" 
@@ -37,7 +37,7 @@ res = [
 ]
 ``` 
 
-### 4- count visit
+### 4- count visit ✅
 عرض عدد الزيارات 
 تحديث الرقم في backend 
 مثلا على كل طلب يزداد واحد على عدد الزيارات
@@ -46,7 +46,7 @@ type = "GET"
 res = { count : 200 }
 ```
 
-### 5- counter reports 
+### 5- counter reports  ✅
 عدد التقارير و العملاء
 ```js
 type = "GET" 
@@ -70,7 +70,7 @@ res = [
 ]
 ```
 
-### 7- FAQ 
+### 7- FAQ  ✅
 
 تقديم طلب السيرفاي
 

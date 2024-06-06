@@ -35,7 +35,6 @@ function ListJobs() {
             setData(data.data)
             setT("لا يتوفر حاليا أي فرص عمل، و سيتم نشرها على هذه الصفحة فور توافرها.")
         })
-
     }, [])
     return (
         <AppContext.Provider value={{ data, setData, }} >
@@ -64,6 +63,7 @@ function ListJobs() {
 }
 
 type CardJobType = {
+    id: any
     jobTitle: string
     workAreaName: string
     departmentName: string
@@ -91,7 +91,8 @@ function CardJob({ data: One }: { data: CardJobType; }) {
                             <p className={'my-4'} >{queueMicrotask?.qualificationName}</p>
                         </div>
                     ))}
-                    <Btn title={"تقدم بالطلب"} childSort="end" className="bg-white m-20 rounded-full hover:bg-safety-700 hover:text-white *:hover:fill-white group border-2 border-safety-700 justify-between text-prussian-800"  >
+
+                    <Btn title={"تقدم بالطلب"} childSort="end" to={`/jobs/apply?id=${One?.id}`} className="bg-white m-20 rounded-full hover:bg-safety-700 hover:text-white *:hover:fill-white group border-2 border-safety-700 justify-between text-prussian-800"  >
                         <IconArrow color={"#032DA6"} className={'  *:group-hover:fill-white'} />
                     </Btn>
                 </> : <></>}

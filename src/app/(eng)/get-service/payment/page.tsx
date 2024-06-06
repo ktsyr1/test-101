@@ -1,34 +1,33 @@
-"use server"
+"use client"
 import GetFatch from "@/component/froms/service/sendpaymonet";
-import axios from "axios";
-import { cookies } from 'next/headers'
+import JsCookis from 'js-cookie'
+import { useEffect, useState } from "react";
 
 
-export default async function GetService({ searchParams: { id } }: any) {
-    let store = cookies()
-    let userToken: any = store.get("userToken")
-    if (userToken?.value) {
-        let tran_ref: any = store.get("tran_ref")
-        let url = `/payment/query?id=${id}&userToken=${userToken?.value}&tran_ref=${tran_ref?.value}`
-
-        try {
-
-            let data = await GetFatch(url)
-            return (
-                <div className="flex flex-col justify-center items-center min-h-[600px]">
-                    <View data={data} />
-                </div>
-            )
-        } catch (error) {
-            return (
-                <div className="flex flex-col justify-center items-center min-h-[600px]">
-                    <p className="font-medium text-red-600 text-xl"> 0x300 يؤسفنا إبلاغك بأن عملية الدفع لم تكن ناجحة.</p>
-                </div>
-            )
+export default function GetService({ searchParams: { id } }: any) {
+    let [loading, setLoading] = useState(true)
+    let [data, setData] = useState(true)
+    useEffect(() => {
+        async function api() { 
+            let userToken: any = JsCookis.get("userToken") 
+            if (userToken) {
+                let tran_ref: any = JsCookis.get("tran_ref")
+                let url = `/payment/query?id=${id}&userToken=${userToken}&tran_ref=${tran_ref}`
+                let data = await GetFatch(url)
+                setData(data)
+                setLoading(false)
+            }
         }
-    } else return (
+        api()
+    }, [])
+    if (loading) return (
         <div className="flex flex-col justify-center items-center min-h-[600px]">
-            <p className="font-medium text-red-600 text-xl">لم تقم بتسجيل الدخول</p>
+            جاري تحميل الصفحة
+        </div>
+    )
+    else return (
+        <div className="flex flex-col justify-center items-center min-h-[600px]">
+            <View data={data} />
         </div>
     )
 }

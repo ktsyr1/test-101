@@ -30,7 +30,7 @@ export default function QA() {
                             key={btn.slug}
                             title={btn.title}
                             onClick={() => setPart(btn.slug)}
-                            style={{ 
+                            style={{
                                 display: 'ruby-text'
                             }}
                             className={`rounded-md shadow-none cursor-pointer   hover:bg-safety-700 hover:text-white w-[100px]   !p-2 !m-1 text-sm max-[697px]:w-full tap:w-full ${part === btn.slug ? "border-2 border-safety-700 text-safety-700 " : " text-slate-900 "}   `}

@@ -26,3 +26,13 @@ export const createInvester = async ({ data }: any): Promise<any> => {
         })
         .catch((error: Function) => console.log({ error }))
 }
+
+export const JobsApply = async ({ data }: any): Promise<any> => {
+    return axios.post(`${process.env.NEXT_PUBLIC_API}/Guest/JobsApply`, data.formData)
+        .then(({ data }) => {
+            console.log(data);
+            
+            return data
+        })
+        .catch((error: Function) => console.log({ error }))
+}

@@ -1,0 +1,26 @@
+[
+    {
+        "TitleAr": "لماذا انسبكتكس؟",
+        "TitleEn": "Why InspectX?",
+        "ValueAr": "تقدم انسبكتكس خدمة الفحص والتفتيش بأعلى معايير الجودة وحسب الأسس وأنظمة الفحص العالمية وفق استراتيجيات مدروسة لتقديم تقرير شامل يبين أوجه الفشل والضعف وكيفية علاجها والتكلفة التقريبية للعلاج.",
+        "ValueEn": "InspectX provides inspection services at the highest quality standards and according to international inspection systems and strategies, to provide a comprehensive report showing the areas of failure and weakness, how to address them, and the approximate cost of treatment.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ما هي الخدمة المقدمة؟",
+        "TitleEn": "What Service is Provided?",
+        "ValueAr": "تقدم انسبكتس خدمة فحص المباني والمنشآت السكنية والتجارية فحصاً دقيقا لكي تزود متلقي الخدمة بتقرير شامل عن كافة المشاكل الحالية والمتوقعة خلال فتره قادمه محددة وكيفية علاج المشاكل والتكاليف التقديرية لهذه الإصلاحات, كما تقدم تقرير يبين الحالة العاملة للمبنى من جميع النواحي الهندسية مما يساعد في اتخاذ القرارات اللازمة للاستثمار سواء كانت بالبيع او الشراء او الترميم.",
+        "ValueEn": "InspectX provides building and facility inspection services, conducting a thorough inspection to provide the service recipient with a comprehensive report on all current and expected problems over a specified future period, how to address these problems, and the estimated costs of these repairs. It also provides a report showing the overall condition of the building from all engineering aspects, which helps in making the necessary investment decisions, whether by selling, buying, or renovating.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ما حاجتي من الخدمة المقدمة؟",
+        "TitleEn": "What Do I Need from the Service Provided?",
+        "ValueAr": "بناء تصور كامل وشامل عن الحالة العامة للمبنى بجميع اقسامه الهندسية. المساعدة في اتخاذ قرار الاستثمار (البيع والشراء والترميم). المحافظة على ديمومة المباني وزيادة العمر الافتراضي لصلاحيته. توفير الوقت والجهد والمال فيما يتعلق بأمور الصيانة الدورية.",
+        "ValueEn": "Building a comprehensive and comprehensive view of the general condition of the building in all its engineering sections. Assisting in making investment decisions (selling, buying, renovating). Maintaining the durability of buildings and increasing their assumed lifespan. Saving time, effort, and money regarding periodic maintenance matters.",
+        "FAQType": 2,
+        "IsFooter": false
+    }
+]

@@ -10,30 +10,30 @@ import { FormElm, Layout } from "./form";
 export default function FormRef6() {
     let { select, setSelect, } = useContext(FormContext)
     let { data, setData } = useContext(FormDataContext)
-    let [value, setValue] = useState<string>(data?.problem || "")
-    let list = [
-        "كانت متطلبات طلب الخدمة واضحة ومباشرة",
-        "كان شرح متطلبات طلب الخدمة كافيًا، لكن يمكن تحسينه لجعله أكثر وضوحًا",
-        "نعم، واجهت بعض الصعوبات في فهم متطلبات طلب الخدمة "
+    let [value, setValue] = useState<any>(data?.problemType)
+    let list = [ 
+        { i: 0, text: "نعم، واجهت بعض الصعوبات في فهم متطلبات طلب الخدمة " },
+        { i: 1, text: "كانت متطلبات طلب الخدمة واضحة ومباشرة" },
+        { i: 2, text: "كان شرح متطلبات طلب الخدمة كافيًا، لكن يمكن تحسينه لجعله أكثر وضوحًا" },
     ]
-    let other = list.slice(0, -1).filter(x => x == value).length == 0
-    const { handleSubmit } = useForm<any>({ defaultValues: data })
-    const onSubmit: SubmitHandler<any> = (res) => {
-
-        if (value?.length > 1) {
-            setData({ ...data, problem: value })
+    const { handleSubmit, register } = useForm<any>({ defaultValues: data })
+    const onSubmit: SubmitHandler<any> = (res) => { 
+        if (typeof value == 'number') {
+            let model = { ...data, problemType: value }
+            model["problemDescription"] = res?.problemDescription
+            setData(model)
             setSelect(select + 1)
         }
     }
+    let Select = ({ one, onClick, className }: any) => <div className={`p-4 rounded-full lap:text-base tap:text-sm text-xs  font-semibold ${value == one ? "bg-[#001D6C] text-white" : "text-[#001D6C] bg-white"} !pr-6 hover:shadow-lg ${className} `} onClick={onClick} >{list[one]?.text} </div>
 
     return (
         <Layout slug={6}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-2 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
-                <FormElm.Title >هل واجهت أي صعوبات في فهم خطوات طلب الخدمة؟</FormElm.Title>
-                <div className="flex flex-row flex-wrap" >
-                    {list.map(a => <FormElm.Select value={value} one={a} key={a} onClick={() => setValue(a)} className="tap:*:w-[45%] *:w-full my-2" />)}
-                </div>
-                {other && <textarea className="!w-full" defaultValue={value !== list[-1] ? value : "."} onChange={e => setValue(e.target.value)} placeholder="هناك مشكلة في  ..." />}
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
+                <FormElm.Title >هل واجهت أي صعوبات في فهم خطوات طلب الخدمة؟</FormElm.Title> 
+                {list.slice(1).map((a: any,) => <Select one={a.i} key={a} onClick={() => setValue(a.i)} />)}
+                <Select one={0} onClick={() => setValue(0)} /> 
+                {value == 0 && <textarea className="!w-full" {...register("problemDescription")} defaultValue={data?.problemDescription} placeholder="..." />}
                 <FormElm.Send />
             </form>
         </Layout>
