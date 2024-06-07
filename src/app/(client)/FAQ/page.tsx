@@ -1,28 +1,63 @@
 "use client"
 
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import FAQ from '@/data/FAQ.json'
 import Btn from "@/component/btns"
 import { Ask } from "@/component/theme/FAQ"
+import cookies from "js-cookie"
+import GetFatch from "@/component/froms/get"
 
 type LayoutType = {
     children: JSX.Element
     slug: string
 }
 
+type FQA = {
+    title: string
+    value: string
+    FAQType: number
+    IsFooter: Boolean
+}
 export default function QA() {
     let [part, setPart] = useState('client')
 
     const Layout = ({ children, slug }: LayoutType) => part === slug ? <>{children}</> : <></>
 
-    function ColData({ slug }: any) {
+    let slug: any = {
+        strategy: 1,
+        client: 2,
+        eng: 3
+    }
+    function ColData({ Slug }: { Slug: any }) {
         return (
-            <Layout slug={slug}>
-                <> {FAQ.filter(a => a.type == slug).map(task => <Ask title={task.title} value={task.value} key={task.title} />)} </>
+            <Layout slug={Slug}>
+                <>
+                    {list?.filter((a: any) => a.faqType == slug[Slug]).map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
+                </>
             </Layout>
         )
     }
+
+
+    let [list, setList] = useState<FQA[]>([])
+    useEffect(() => {
+        async function GET() {
+            // find cash
+            let cashList: any = cookies.get("cashListFAQ")
+            if (cashList) {
+                setList(JSON.parse(cashList))
+            } else {
+                // get data
+                let data = await GetFatch("/Guest/FAQ")
+                // set cash
+                setList(data?.data)
+                cookies.set("cashListFAQ", JSON.stringify(data?.data))
+            }
+
+        }
+        GET()
+    }, [])
     return (
         <div className="flex flex-col py-14  max-[697px]:p-4 tap:p-20 bg-[#F0F0F0]  select-none justify-center items-center  " id="faq">
             {/* add map */}
@@ -32,9 +67,9 @@ export default function QA() {
                 <div className=" w-full max-[697px]:p-1 justify-center">
                     <Header setPart={setPart} part={part} />
                     {/* list QA */}
-                    <ColData slug="eng" />
-                    <ColData slug="client" />
-                    <ColData slug="strategy" />
+                    <ColData Slug="eng" />
+                    <ColData Slug="client" />
+                    <ColData Slug="strategy" />
                 </div>
             </div>
         </div >

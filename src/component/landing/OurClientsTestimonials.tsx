@@ -32,15 +32,15 @@ export default function OurClientsTestimonials() {
 }
 function Gallery({ data }: { data: OurClientsTestimonialsCardType }) {
     return (
-        <div className="flex mt-4 px-8 flex-col  tap:flex-row justify-center ">
-            {data?.image ?
-                <img src={data.image} alt={`صورة ${data.name}`} className="w-96 h-max rounded-3xl m-auto hover:shadow-lg" loading="lazy" />
-                : <p className={`bg-[#F0F0F0]   flex font-bold h-[200px] items-center justify-center mx-2 px-5 rounded-3xl text-6xl text-center text-safety-700 tap:w-96 min-w-[250px] `}  >{data.letter}</p>
-            }
-            <Icon.Coteshen className={'mt-[-33px] mr-[-50px] hidden md:flex m-4'} />
+        <div className="flex mt-4 px-8 flex-col justify-center lap:flex-row tap:flex-col tap:justify-center ">
+            <div className="flex justify-center">
+
+                <p className={`bg-[#F0F0F0] shadow-xl  flex font-bold h-[200px] items-center justify-center mx-2 px-5 rounded-3xl text-6xl text-center text-safety-700 tap:w-96 min-w-[250px] `}  >{data.letter}</p>
+                <Icon.Coteshen className={'mt-[-33px] mr-[-50px] hidden md:flex m-4'} />
+            </div>
             <div className="flex flex-col px-4">
-                <div className="flex flex-row items-center tap:mb-8 w-full my-4 justify-between max-w-[500px]">
-                    <h2 className="lap:px-4 text-xl font-bold text-safety-700 tap:mr-16 ml-10 ">{data.name}</h2>
+                <div className="flex flex-row items-center tap:mb-8 w-full my-4 m-auto lap:mx-4 justify-between max-w-[500px]">
+                    <h2 className="lap:px-4 text-xl font-bold text-safety-700  ml-10 ">{data.name}</h2>
                     <Rank data={data.rank} />
                 </div>
                 <p className="tap:py-8 py-4 lap:text-xl text-base w-full" dangerouslySetInnerHTML={{ __html: data.content }} />

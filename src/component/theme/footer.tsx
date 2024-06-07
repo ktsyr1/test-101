@@ -25,7 +25,7 @@ export default function Footer() {
         >
             {/* add map */}
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d572.4348198944405!2d46.69394306528545!3d24.804518960971865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd097e7e9681%3A0xcf6a844114dfed61!2sBuilding%20Rank%20SA!5e0!3m2!1sar!2slb!4v1708619809636!5m2!1sar!2slb" width={'100%'} height="450" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-            <div className="flex flex-wrap items-center justify-evenly  py-14 " >
+            <div className="flex flex-wrap justify-evenly  py-14 " >
                 <PupLinks />
                 <div className="flex tap:flex-col justify-end tap:*:m-[20px] *:m-[10px] lap:min-w-[250px]  flex-row m-4 " >
                     {sochalmedia.map(Item => <Link href={Item.to} prefetch={false} key={Item.to}  > <Item.Icon className="hover:p-2 m-2 w-6" /> </Link>)}

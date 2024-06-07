@@ -6,10 +6,10 @@ const nextConfig = {
     experimental: {
         taint: true,
         serverActions: {
-            allowedOrigins: ['https://inspectex.sa', "http://localhost:3000", `https://secure.clickpay.com.sa`],
-            allowedForwardedHosts: ['https://inspectex.sa', "http://localhost:3000", `https://secure.clickpay.com.sa`],
+            allowedOrigins: ['inspectex.sa', "localhost:3000", `secure.clickpay.com.sa`],
+            allowedForwardedHosts: ['inspectex.sa', "localhost:3000", `secure.clickpay.com.sa`],
         }
-    }
+    }, 
 };
 
 export default nextConfig; 
