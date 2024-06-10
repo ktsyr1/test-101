@@ -3,11 +3,9 @@ import Btn from "../btns"
 import { useEffect, useState } from "react"
 import Icon from "../icons"
 import { usePathname } from 'next/navigation'
-import FAQ from '@/data/FAQ.json'
 import Link from "next/link"
 import GetFatch from "../froms/get"
-import cookies from "js-cookie"
-
+import "@/component/styles/style.css"
 type LayoutType = {
     children: JSX.Element
     slug: string
@@ -18,27 +16,24 @@ type FQA = {
     FAQType: number
     IsFooter: Boolean
 }
+export async function GetFAQ() {
+    // find cash
+    let cashList: any = sessionStorage.getItem("ListFAQ")
+    if (cashList) return JSON.parse(cashList)
+    else GetFatch("/Guest/FAQ")
+        .then(({ data }) => {
+            let testData = JSON.stringify(data)
+            sessionStorage.setItem("ListFAQ", testData)
+            return testData
+        })
+}
+
 export default function QA() {
     let [part, setPart] = useState('client')
     const pathname = usePathname()
     let [list, setList] = useState<FQA[]>([])
     useEffect(() => {
-        async function GET() {
-            // find cash
-            let cashList: any = cookies.get("cashListFAQ")
-            if (cashList) {
-                setList(JSON.parse(cashList))
-            } else {
-
-                // get data
-                let data = await GetFatch("/Guest/FAQ")
-                // set cash
-                setList(data?.data)
-                cookies.set("cashListFAQ", JSON.stringify(data?.data))
-            }
-
-        }
-        GET()
+        if (pathname != "/FAQ") GetFAQ().then(res => setList(res))
     }, [])
     let slug = {
         strategy: 1,
@@ -68,25 +63,8 @@ export default function QA() {
                                 className={`rounded-md shadow-none cursor-pointer   hover:bg-safety-700 hover:text-white w-[100px]   !p-2 !m-1 text-sm max-[697px]:w-full tap:w-full ${part === btn.slug ? "border-2 border-safety-700 text-safety-700 " : " text-slate-900 "}   `}
                             />)}
                         </div>
-
+                        {list?.length == 0 && <div className="loader m-auto my-8  border-[6px] border-safety-700 "></div>}
                         {/* list QA */}
-                        {/* <Layout slug="eng">
-                            <>
-                               {FAQ.filter(a => a.type == "eng" && a.required).map(task => <Ask title={task.title} value={task.value} key={task.title} />)} 
-                            </>
-                        </Layout>
-
-                        <Layout slug="client">
-                            <>
-                                {FAQ.filter(a => a.type == "client" && a.required).map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
-                            </>
-                        </Layout>
-
-                        <Layout slug="strategy">
-                            <>
-                                {FAQ.filter(a => a.type == "strategy" && a.required).map(task => <Ask title={task.title} value={task.value} key={task.title} />)}
-                            </>
-                        </Layout> */}
 
                         {/* start api  */}
                         <Layout slug="eng">
@@ -129,19 +107,17 @@ export function Ask({ title, value }: Asktype) {
     return (
         <div className="flex flex-col border-b-1 text-slate-700 w-full" >
             {/* ask */}
-            <div className="flex flex-row justify-between w-full items-center cursor-pointer group" onClick={handleOpen}>
+            <div className="flex flex-row justify-between w-full items-center cursor-pointer group transition duration-300 delay-150 fo:delay-300" onClick={handleOpen}>
                 <p className={`tap:text-xl lap:text-2xl font-medium text-[#1B2E45] text-sm max-w-[92%] py-6  group-hover:text-safety-700 ${open ? "!text-safety-700" : " "}  `}>{title}</p>
                 {/* icon */}
                 {open ? <Icon.arrowUp /> : <Icon.arrowDown />}
             </div>
+
             {/* anser */}
-            <div className={` flex-col justify-between max-w-[90%]  text-xs  text-gray-500 font-medium tap:text-lg mt-2 ${!open ? "hidden " : "flex transition-[height] ease-in-out delay-1000"}  `} style={{
-                transition: "display 1s ease-in-out"
-            }}>
-                {/* <ul> {typeof value == "string" ? value : value.map(a => <li key={a} className="list-disc">{a}</li>)} </ul> */}
-                {value}
-                {/* icon */}
-            </div>
+            <div className={`overflow-hidden transition-max-height duration-500 flex-col justify-between max-w-[90%]  text-xs  text-gray-500 font-medium tap:text-lg mt-2 ${!open ? "hidden max-h-0" : " max-h-screen flex transition-[height] ease-in-out delay-1000"}  `} style={{
+                transition: 'max-height 5s ease-in-out',
+                maxHeight: open ? '500px' : '0',
+            }}> {value} </div>
         </div>
     )
 }

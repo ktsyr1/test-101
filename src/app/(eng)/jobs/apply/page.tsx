@@ -48,7 +48,7 @@ export default function JobsApplyPage({ searchParams: { id } }: any) {
             <input type="email" {...register("Email")} placeholder="user@mail.com" className="p-2 border-2 rounded-lg border-slate-300 px-6 my-4" />
             <p>رقم الهاتف *</p>
             <input type="text" {...register("PhoneNumber")} placeholder="12333223" className="p-2 border-2 rounded-lg border-slate-300 px-6 my-4" />
-            <p>  السيرة الذاتية </p>
+            <p>   السيرة الذاتية و المستندات ذات صلة </p>
             <input type="file" {...register("Files")} className="p-2 border-2 rounded-lg border-slate-300 px-6 my-4 h-12" multiple />
 
             <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg`} value="تقديم الطلب" />

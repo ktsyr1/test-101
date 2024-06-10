@@ -1,5 +1,5 @@
 "use server"
-import Forms from "@/component/froms/eng/form"; 
+import Forms from "@/component/froms/eng/form";
 
 export default async function Jobs() {
 

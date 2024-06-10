@@ -1,12 +1,8 @@
 "use client"
-
-"use client"
 import { useEffect, useState } from "react"
-import FAQ from '@/data/FAQ.json'
 import Btn from "@/component/btns"
-import { Ask } from "@/component/theme/FAQ"
-import cookies from "js-cookie"
-import GetFatch from "@/component/froms/get"
+import { Ask, GetFAQ } from "@/component/theme/FAQ"
+import "@/component/styles/style.css"
 
 type LayoutType = {
     children: JSX.Element
@@ -21,9 +17,12 @@ type FQA = {
 }
 export default function QA() {
     let [part, setPart] = useState('client')
-
     const Layout = ({ children, slug }: LayoutType) => part === slug ? <>{children}</> : <></>
 
+    let [list, setList] = useState<FQA[]>([])
+    useEffect(() => {
+        GetFAQ().then(res => setList(res))
+    }, [])
     let slug: any = {
         strategy: 1,
         client: 2,
@@ -40,24 +39,6 @@ export default function QA() {
     }
 
 
-    let [list, setList] = useState<FQA[]>([])
-    useEffect(() => {
-        async function GET() {
-            // find cash
-            let cashList: any = cookies.get("cashListFAQ")
-            if (cashList) {
-                setList(JSON.parse(cashList))
-            } else {
-                // get data
-                let data = await GetFatch("/Guest/FAQ")
-                // set cash
-                setList(data?.data)
-                cookies.set("cashListFAQ", JSON.stringify(data?.data))
-            }
-
-        }
-        GET()
-    }, [])
     return (
         <div className="flex flex-col py-14  max-[697px]:p-4 tap:p-20 bg-[#F0F0F0]  select-none justify-center items-center  " id="faq">
             {/* add map */}
@@ -66,7 +47,7 @@ export default function QA() {
                 <p className="  lap:text-xl font-semibold text-slate-500  text-sm text-start  w-full   tap:text-lg">لقد أولينا المزيد من الاهتمام لتخصيص الإجابات أدناه، ولتسهيل الأمر عليك، قمنا بتصنيف الأسئلة لك</p>
                 <div className=" w-full max-[697px]:p-1 justify-center">
                     <Header setPart={setPart} part={part} />
-                    {/* list QA */}
+                    {list.length == 0 && <div className="loader m-auto my-8  border-[6px] border-safety-700 "></div>}
                     <ColData Slug="eng" />
                     <ColData Slug="client" />
                     <ColData Slug="strategy" />

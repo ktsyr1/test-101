@@ -7,7 +7,7 @@ export async function POST(req: any, res: any) {
 
     const model = Object.fromEntries(search.entries());
     let profileID = process.env.profileID || ""
-    let serverKey = process.env.serverKey || ""
+    let NEXT_PUBLIC_serverKey = process.env.NEXT_PUBLIC_serverKey || ""
     let region = process.env.region || ""
     const headersList = headers();
     let data = {
@@ -31,7 +31,7 @@ export async function POST(req: any, res: any) {
         response: `${process.env.NEXT_PUBLIC_apis}/payment/order/${data.id}`
     }
 
-    setConfig(profileID, serverKey, region, "clickpay");
+    setConfig(profileID, NEXT_PUBLIC_serverKey, region, "clickpay");
 
     let paymentMethods = ["all"];
     let transaction = { type: "sale", class: "ecom" };

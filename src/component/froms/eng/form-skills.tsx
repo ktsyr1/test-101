@@ -109,7 +109,7 @@ export default function FormSkills() {
     )
 
     function Valid() {
-        setTimeout(() => { 
+        setTimeout(() => {
             let Picture = watch("Picture")
             let Files = watch("Files")
             if (!Files && typeof IsFullTime === "boolean" && PassingCourse && typeof Picture !== "undefined") setValid(true)
@@ -141,9 +141,12 @@ export default function FormSkills() {
                                 <input type='file' accept="image/*" {...register('Picture', { required: "الصورة مطلوبة ", })} aria-invalid={errors.Picture ? "true" : "false"} className='bg-white p-3 rounded-lg cursor-pointer' />
                                 <p className='p-4 text-red-600'>{errors?.Picture?.message?.toString() || ""}</p>
                             </div>
+                            <p className="text-xl  font-bold text-prussian-800 my-2">   السيرة الذاتية  </p>
                             <App />
                         </>
                     }
+
+
                     <div className='flex justify-center'>
                         {nextPart
                             ? <input type='submit' className={`text-center rounded-md max-w-[600px] text-white w-full m-auto p-2 ${valid ? "!bg-safety-700 " : "bg-[#6B7B8F] "}`} value={"إنهاء تقديم الطلب"} disabled={!valid} />

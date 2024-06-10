@@ -1,9 +1,11 @@
 "use server"
 import axios from "axios"
-import { cookies } from "next/headers"
 
 export default async function GetFatch(url: string, token?: string): Promise<any> {
-    let headers: any = { "Content-Type": "application/json" }
+    let headers: any = {
+        "Content-Type": "application/json",
+        "Accept-Language": "ar-SA"
+    }
     if (token) headers["Authorization"] = `Bearer ${token}`
 
     return axios.get(`${process.env.NEXT_PUBLIC_apis}${url}`, { headers })

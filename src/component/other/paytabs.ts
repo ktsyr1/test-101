@@ -16,13 +16,13 @@ export enum Region {
     GLOBAL = "GLOBAL",
 }
 
-const config = { merchantId: '', serverKey: '', region: '', endPoint: "" }
+const config = { merchantId: '', NEXT_PUBLIC_serverKey: '', region: '', endPoint: "" }
 /**
  * This function sets configuration values for a merchant, server key, region, and agent.
  * @param {string} merchantId - The `merchantId` parameter is a string that represents the unique
  * identifier of a merchant or seller. It is typically used in payment processing systems to identify
  * the merchant associated with a transaction.
- * @param {string} serverKey - A server key is a unique identifier used to authenticate requests made
+ * @param {string} NEXT_PUBLIC_serverKey - A server key is a unique identifier used to authenticate requests made
  * to a server. It is typically a long string of characters that is kept confidential and used to
  * verify the identity of the client making the request.
  * @param {string} region - Region is a parameter that specifies the geographical region where the
@@ -33,9 +33,9 @@ const config = { merchantId: '', serverKey: '', region: '', endPoint: "" }
  * the client making the request, such as a browser or a custom application.
  */
 
-export function setConfig(merchantId: string, serverKey: string, region: string, agent?: string) {
+export function setConfig(merchantId: string, NEXT_PUBLIC_serverKey: string, region: string, agent?: string) {
     config.merchantId = merchantId;
-    config.serverKey = serverKey;
+    config.NEXT_PUBLIC_serverKey = NEXT_PUBLIC_serverKey;
     config.region = Region[region as keyof typeof Region];
     if (agent === "paytap") {
         const regions_urls = {
@@ -125,7 +125,7 @@ function sendPost(url: any, objData: any, callback: any) {
     var sendData = {
         method: 'post',
         url: url,
-        headers: { authorization: config.serverKey },
+        headers: { authorization: config.NEXT_PUBLIC_serverKey },
         data: objData
     };
     return axios(sendData)

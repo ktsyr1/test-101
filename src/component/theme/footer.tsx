@@ -5,6 +5,7 @@ import Logo from "./logo1"
 
 import dataList from "@/data/footerList.json"
 import PupLinks from "./pup-links"
+import Image from "next/image"
 
 let sochalmedia = [
     { Icon: Icon.linkedin, to: "https://www.linkedin.com/company/inspectex-sa/" },
@@ -34,10 +35,8 @@ export default function Footer() {
                 <Col title={'معلومات الإتصال'} >
                     <p className="text-safety-500 text-base font-bold">العنوان</p>
                     <p className="text-slate-500 my-2 text-sm">الرياض - شارع عثمان بن عفان </p>
-                    <p className="text-safety-500  mt-2  text-sm font-bold">الايميل</p>
+                    <p className="text-safety-500  mt-2  text-sm font-bold">  الايميل وارقام الهاتف</p>
                     <a href="mailto:info@inspectex.sa" className="py-4 text-slate-500 text-sm font-bold hover:text-safety-700">info@inspectex.sa</a>
-
-                    <p className="text-safety-500 mt-2 text-base font-bold">ارقام هواتف </p>
                     <a href="tel:+966533344735" className="py-2 text-slate-500 lap:text-sm text-xs font-bold hover:text-safety-700 "> 00966-533344735</a>
                     <a href="tel:+966536800408" className="py-2 text-slate-500 lap:text-sm text-xs font-bold hover:text-safety-700"> 00966-536800408</a>
                     <a href="tel:+966920005543" className="py-2 text-slate-500 lap:text-sm text-xs font-bold hover:text-safety-700"> 00966-920005543</a>
@@ -49,9 +48,16 @@ export default function Footer() {
                 </Col>
 
                 <Col title={'طرق الدفع'}   >
-                    {[Icon.masterCard, Icon.visa, Icon.Troy].map((IconOne, i) => (
-                        <div key={i} className="w-[50px] h-[50px] flex items-center justify-center"> <IconOne /></div>
-                    ))}
+                    <div className="w-[50px] h-[50px] flex items-center justify-center">
+                        <Icon.visa />
+                    </div>
+                    <div className="w-[50px] h-[50px] flex items-center justify-center">
+                        <Icon.applePay />
+                    </div>
+                    <div className="w-[50px] h-[50px] flex items-center justify-center">
+                        <Image src={"/images/Mada_Logo.png"} width={50} height={50} alt="" />
+                    </div>
+
                 </Col>
 
                 <Col title={dataList.policies.title}  >
@@ -62,6 +68,9 @@ export default function Footer() {
                 <p className="p-2 lap:text-xl tap:text-lg text-base font-bold text-blue-950 max-[700px]:!text-md">©   شركة معايير البناء الحديثة للفحص</p>
                 <Logo size={"260"} type="arOrange" />
             </div>
+            <div className="flex flex-row m-auto p-4 font-semibold" style={{ direction: 'ltr' }} >
+            <p>Company MAAIER AL-BANNA AL-HADITHA For Inspections </p>
+        </div>
             <C_Dev_andDes />
         </footer >
     )

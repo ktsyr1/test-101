@@ -67,7 +67,7 @@ export default function FormEducation() {
 
         return (
             <button type="button" onClick={setS}
-                className={`w-full rounded-md max-w-[300px] my-2 p-4 ml-10 bg-white flex flex-row justify-between ${study?.text == a.text && "!bg-prussian-800 text-white"}`}
+                className={`w-full items-center rounded-md max-w-[300px] my-2 p-4 ml-10 bg-white flex flex-row justify-between ${study?.text == a.text && "!bg-prussian-800 text-white"}`}
             >
                 <p>{a.text} </p>
                 {study?.value == a.value ? <Icon.okBorder /> : <Icon.c01 size={20} />}
@@ -92,7 +92,7 @@ export default function FormEducation() {
 
                 </div>
             </div>
-            <div className=" flex tap:flex-row flex-col my-6" onClick={onChange} >
+            <div className=" flex flex-col tap:flex-row justify-center my-6 tap:flex-wrap" onClick={onChange} >
                 {options?.map((a: any, i: any) => <BtnsBol a={a} key={i} />)}
             </div>
 

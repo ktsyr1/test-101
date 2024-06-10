@@ -13,11 +13,10 @@
     {
         "title": "سياسات وأحكام",
         "list": [
-            { "title": "إشعارات ملفات", "to": "/#file-notices" },
-            { "title": "إشعار الخصوصية", "to": "/privacy-policy" },
+            { "title": "سياسة الفاحصين", "to": "/examiner-policy" },
+            { "title": "سياسة الخصوصية", "to": "/privacy-policy" },
             { "title": "الشروط والأحكام", "to": "/policies-and-provisions" },
-            { "title": "تنبيه من الاحتيال والفش", "to": "#-alert" },
-            { "title": "الملكية الفكرية", "to": "/#intellectual-property" }
+            { "title": "الملكية الفكرية", "to": "/intellectual-property" }
         ]
     }
 }

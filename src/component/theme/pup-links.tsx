@@ -2,7 +2,6 @@
 import Icon from "../icons";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Cookies from "js-cookie"
 import SizeBox from "../size-box";
 import Image from "next/image";
 import { loaderProp } from "../lib";

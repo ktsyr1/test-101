@@ -22,736 +22,813 @@
         "ValueEn": "Building a comprehensive and comprehensive concept about the general condition of the building with all its engineering sections. | Help in making investment decisions (selling, buying, or renovating). | Maintaining the sustainability of buildings and increasing their expected lifespan. | Saving time, effort, and money regarding periodic maintenance issues.",
         "FAQType": 2,
         "IsFooter": false
-    }
-      
+    },
     {
-        "TitleAr": " ما هي مراحل الفحص؟ ",
+        "TitleAr": "ما هي مراحل الفحص؟",
+        "TitleEn": "What are the Inspection Stages?",
+        "ValueAr": "يتم حجز الموعد واعتماده من خلال طرق الدفع الالكترونية او الدفع نقداً في مقر الشركة. | يتم ارسال فريق فحص يضم على مهندسين اكفاء لكل تخصص هندسي (مدني، كهرباء، ميكانيك) | يقوم المهندسين الفاحصين بفحص جميع العناصر الأساسية في المبنى لبناء تصور شامل عن نقاط القوة والضعف وذلك باستخدام التكنولوجيا وأحدث أجهزة الفحص وحسب الأسس العالمية للفحص والتفتيش. | يتم الفحص لكل فراغ معماري على حدى ليتم بناء تقرير يسهل على المستخدم التنقل فيه بكل سهولة. | يقوم المهندسين الفاحصين بتزويد مهندسي المستوى الثاني بالبيانات ونتائج الأجهزة والفحص التي تم جمعها من الموقع ليقوموا بدورهم بتحليل هذه البيانات ودراستها حسب أسس علمية وهندسية وبناء على كود البناء السعودي والكود العالمي للفحص والتفتيش. | يقوم مهندسي المستوى الثاني بإعداد التقرير باستخدام برمجية متطورة تعتمد على المعلومات المدخلة التي قاموا باستنتاجها | يتم توجيه التقرير لمهندسي المرحلة الثالثة بعمل التوصيات اللازمة للمشاكل التي يتم تحليلها من قبل مهندسي المستوى الثاني. | يتم مراجعة التقرير وتدقيقه من الأخطاء الهندسية واللغوية إن وجدت من خلال قسم التدقيق الداخلي، ومن ثم مرحلة اعتماد التقرير وتوجيهه الى العميل من خلال المنصة المستخدمة.",
+        "ValueEn": "Appointment booking and approval through electronic payment methods or cash payment at the company's headquarters. | A team of competent engineers specialized in each engineering discipline (civil, electrical, mechanical) is sent for inspection. | The inspecting engineers examine all the fundamental elements of the building to build a comprehensive understanding of its strengths and weaknesses using technology and the latest inspection devices, according to international inspection standards. | Each architectural space is inspected individually to create a report that is easy for the user to navigate. | The inspecting engineers provide Level 2 engineers with the data and results of the devices and inspections collected from the site, so they can analyze and study this data based on scientific and engineering principles and according to the Saudi Building Code and international inspection standards. | Level 2 engineers prepare the report using sophisticated software based on the input information they have inferred. | The report is directed to Level 3 engineers to make necessary recommendations for the problems analyzed by Level 2 engineers. | The report is reviewed and audited for engineering and linguistic errors, if any, through the internal auditing department, and then the report is approved and directed to the client through the platform used.",
+        "FAQType": 1,
+        "IsFooter": true
+    },
+    {
+        "TitleAr": "سابقة الأعمال؟",
+        "TitleEn": "Portfolio of Work?",
+        "ValueAr": "يتم حجز الموعد واعتماده من خلال طرق الدفع الالكترونية او الدفع نقداً في مقر الشركة. | يتم ارسال فريق فحص يضم على مهندسين اكفاء لكل تخصص هندسي (مدني، كهرباء، ميكانيك) | يقوم المهندسين الفاحصين بفحص جميع العناصر الأساسية في المبنى لبناء تصور شامل عن نقاط القوة والضعف وذلك باستخدام التكنولوجيا وأحدث أجهزة الفحص وحسب الأسس العالمية للفحص والتفتيش. | يتم الفحص لكل فراغ معماري على حدى ليتم بناء تقرير يسهل على المستخدم التنقل فيه بكل سهولة. | يقوم المهندسين الفاحصين بتزويد مهندسي المستوى الثاني بالبيانات ونتائج الأجهزة والفحص التي تم جمعها من الموقع ليقوموا بدورهم بتحليل هذه البيانات ودراستها حسب أسس علمية وهندسية وبناء على كود البناء السعودي والكود العالمي للفحص والتفتيش. | يقوم مهندسي المستوى الثاني بإعداد التقرير باستخدام برمجية متطورة تعتمد على المعلومات المدخلة التي قاموا باستنتاجها | يتم توجيه التقرير لمهندسي المرحلة الثالثة بعمل التوصيات اللازمة للمشاكل التي يتم تحليلها من قبل مهندسي المستوى الثاني. | يتم مراجعة التقرير وتدقيقه من الأخطاء الهندسية واللغوية إن وجدت من خلال قسم التدقيق الداخلي، ومن ثم مرحلة اعتماد التقرير وتوجيهه الى العميل من خلال المنصة المستخدمة.",
+        "ValueEn": "Appointment booking and approval through electronic payment methods or cash payment at the company's headquarters. | A team of competent engineers specialized in each engineering discipline (civil, electrical, mechanical) is sent for inspection. | The inspecting engineers examine all the fundamental elements of the building to build a comprehensive understanding of its strengths and weaknesses using technology and the latest inspection devices, according to international inspection standards. | Each architectural space is inspected individually to create a report that is easy for the user to navigate. | The inspecting engineers provide Level 2 engineers with the data and results of the devices and inspections collected from the site, so they can analyze and study this data based on scientific and engineering principles and according to the Saudi Building Code and international inspection standards. | Level 2 engineers prepare the report using sophisticated software based on the input information they have inferred. | The report is directed to Level 3 engineers to make necessary recommendations for the problems analyzed by Level 2 engineers. | The report is reviewed and audited for engineering and linguistic errors, if any, through the internal auditing department, and then the report is approved and directed to the client through the platform used.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "title": "ما هي أسس الفحص المعتمدة لديكم؟",
+        "TitleEn": "What are your Accredited Inspection Standards?",
+        "ValueAr": "ASTM | ACI | SBC",
+        "ValueEn": "ASTM | ACI | SBC",
+        "FAQType": 2,
+        "IsFooter": true
+    },
+    {
+        "TitleAr": "ما هي أنواع الخدمات والفحوصات المقدمة؟",
+        "TitleEn": "What are the types of services and inspections offered?",
+        "ValueAr": "الفحص الشامل | فحص الكهرباء الشامل | فحص الميكانيك الشامل | فحص إنشائي شامل | فحص ارتفاع فاتورة الكهرباء | فحص التسريبات وارتفاع فاتورة المياه | فحص العزل المائي والحراري | فحص التشققات الهبوطات | المسح الراداري لتحديد خدمات البنية التحتية | رسم حالة الواقع للمباني والمنشآت | دراسة الحالة الإنشائية للمباني | خدمات الإشراف وضبط الجودة",
+        "ValueEn": "Comprehensive inspection | Comprehensive electrical inspection | Comprehensive mechanical inspection | Comprehensive structural inspection | High electricity bill inspection | Leak inspection and high water bill inspection | Waterproofing and thermal insulation inspection | Cracks and subsidence inspection | Radar survey to identify infrastructure services | As-built drawing for buildings and structures | Structural condition study for buildings | Supervision and quality control services",
+        "FAQType": 1,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ما هي المخرجات المقدمة؟",
+        "TitleEn": "What are the provided outputs?",
+        "ValueAr": "تقرير شامل يبين أوجه الفشل والضعف في المبنى ولكل نظام على حدى مبيناً فيه طرق العلاج الهندسية الصحيحة والتكاليف التقديرية لعملية الإصلاح | شهادات سلامة إنشائية | مخططات حالة واقع للمبنى (انشائية، معمارية، كهربائية، ميكانيكية) | مخططات مساحية مبين عليها خدمات البنية التحتية | ملاحظة: يتم تقديم المخرجات حسب نوع الفحص المطلوب ولا يشترط تقديم جميع المخرجات لأي خدمه مطلوبة",
+        "ValueEn": "A comprehensive report showing the points of failure and weakness in the building for each system individually, indicating the correct engineering treatment methods and the estimated costs of the repair process | Structural safety certificates | As-built drawings for the building (structural, architectural, electrical, mechanical) | Survey drawings showing infrastructure services | Note: The outputs are provided according to the type of inspection required and not all outputs are necessarily provided for any requested service",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل يتم معايرة الأجهزة المستخدمة حسب متطلبات وأسس الفحص؟",
+        "TitleEn": "Are the devices used calibrated according to inspection requirements and standards?",
+        "ValueAr": "يتم معايرة الأجهزة بشكل دوري وحسب أسس ومتطلبات اعتماد جهات التفتيش على كود البناء السعودي.",
+        "ValueEn": "The devices are calibrated periodically according to the standards and requirements of inspection agencies based on the Saudi Building Code.",
+        "FAQType": 1,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ما هي الضمانات على صحة نتائج الفحص؟",
+        "TitleEn": "What guarantees are there on the accuracy of inspection results?",
+        "ValueAr": "تضمن انسبكتكس دقة المعلومات الموجودة في التقارير والمخرجات المقدمة وتقدم كافة التكاليف المادية المترتبة على أي خطأ وارد في تقاريرها ومن خلال شركات تأمين معتمدة.",
+        "ValueEn": "InspecTech guarantees the accuracy of the information in the reports and outputs provided and covers all financial costs resulting from any errors in their reports through accredited insurance companies.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل يتم الإشراف على أعمال الصيانة بعد الفحص؟",
+        "TitleEn": "Is maintenance work supervised after the inspection?",
+        "ValueAr": "يمكن طلب خدمة الإشراف والمتابعة وضبط الجودة.",
+        "ValueEn": "Supervision and quality control services can be requested.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل يتم العمل على إصلاح المشاكل من قبلكم؟",
+        "TitleEn": "Do you handle the repair of issues?",
+        "ValueAr": "لا تقوم انسبكتس بعمليات الصيانة والمقاولة وانما تقدم خدمة الإشراف وضبط الجودة.",
+        "ValueEn": "Inspects does not handle maintenance and contracting, but provides supervision and quality control services.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " ما هي خبرات الطاقم الهندسي والفني؟",
+        "TitleEn": "What are the experiences of the engineering and technical team?",
+        "ValueAr": "الحد الادنى لخبرات الفاحصين هي 3 سنوات والحد الادنى لخبرات مهندسي التدقيق الداخلي والتحليل هي 5 سنوات.",
+        "ValueEn": "The minimum experience for inspectors is 3 years, and the minimum experience for internal audit and analysis engineers is 5 years.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "المدة المستغرقة التي يتطلبها الفحص؟",
+        "TitleEn": "How long does the inspection take?",
+        "ValueAr": "تعتمد مدة الفحص على مساحة المبنى بحيث لا تقل مدة الفحص عن 3 ساعات.",
+        "ValueEn": "The duration of the inspection depends on the size of the building, with a minimum of 3 hours.",
+        "FAQType": 1,
+        "IsFooter": true
+    },
+    {
+        "TitleAr": "المدة المستغرقة لإعداد التقرير؟",
+        "TitleEn": "How long does it take to prepare the report?",
+        "ValueAr": "تعتمد المدة المستغرقة لإعداد التقرير على حجم المشروع ونوع المخرجات المطلوبة بحيث لا تقل عن 3 أيام عمل.",
+        "ValueEn": "The time required to prepare the report depends on the size of the project and the type of outputs required, with a minimum of 3 working days.",
+        "FAQType": 1,
+        "IsFooter": true
+    },
+    {
+        "TitleAr": " هل يتطلب الفحص أكثر من زيارة؟ ",
+        "TitleEn": "Does the inspection require more than one visit?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "يمكن أن يتطلب الفحص أكثر من زيارة في حال تطلب الموقع وطبيعة الفحص. | في حالة الفحص الشامل يتم تحديد زيارة أخرى لأخذ نتائج فحص الغمر المائي لفحص التسريبات.",
+        "ValueEn": "The inspection may require more than one visit depending on the site and the nature of the inspection. | In the case of a comprehensive inspection, another visit is scheduled to take the results of the immersion test for leak inspection."
+    },
+    {
+        "TitleAr": " كم عدد نقاط التقييم؟  ",
+        "TitleEn": "How many evaluation points are there?",
         "FAQType": 1,
         "IsFooter": true,
-        "ValueAr": [
-            "بناء تصور كامل وشامل عن الحالة العامة للمبنى بجميع اقسامه الهندسية. ",
-            "المساعدة في اتخاذ قرار الاستثمار (البيع والشراء والترميم). ",
-            "المحافظة على ديمومة المباني وزيادة العمر الافتراضي لصلاحيته. ",
-            "توفير الوقت والجهد والمال فيما يتعلق بأمور الصيانة الدورية."
-        ]
+        "ValueAr": "يتم فحص وتقييم أكثر من 700 نقطة. ",
+        "ValueEn": "More than 700 points are inspected and evaluated."
     },
     {
-        "TitleAr": "سابقة الأعمال؟  ",
+        "TitleAr": " هل يتطلب الفحص إخلاء المبنى؟ ",
+        "TitleEn": "Does the inspection require evacuation of the building?",
         "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "لا يتطلب الفحص إخلاء المبنى. ",
+        "ValueEn": "The inspection does not require evacuation of the building."
+    },
+    {
+        "TitleAr": "هل يتطلب الفحص إتلاف أي عنصر من عناصر المبنى؟  ",
+        "TitleEn": "Does the inspection require the destruction of any element of the building?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "جميع الفحوصات المقدمة هي فحوصات لا إتلافيه الا إذا تطلب الموقع عكس ذلك وسيتم اخذ موافقة العميل لاي فحص اتلافي وتحديد حجم الإتلاف المطلوب وإعادة الوضع الى ما كان علية وبناء على الاتفاق المبرم.",
+        "ValueEn": "All inspections provided are non-destructive inspections unless the site requires otherwise. The client's approval will be obtained for any destructive inspection, and the extent of the required damage will be determined, restoring the situation to its previous state based on the agreement reached."
+    },
+    {
+        "TitleAr": " هل يتم فحص العناصر الإنشائية المخفية؟  ",
+        "TitleEn": "Are hidden structural elements inspected?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "لا يمكن فحص العناصر الإنشائية المخفية مثل القواعد والميدات الا بالكشف عليها حتى الوصول لسطح هذه العناصر",
+        "ValueEn": "Hidden structural elements such as foundations and beams cannot be inspected without exposing them to the surface."
+    },
+    {
+        "TitleAr": " هل يوجد فحص تربه (هل أنتم مختبر فحص)؟  ",
+        "TitleEn": "Is there a soil inspection (are you a testing laboratory)?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "لا يعتبر فحص التربة من الفحوصات التي تندرج ضمن الخدمات المقدمة ولكن يمكن اجراء الفحص من خلال مختبرات فحص تربة مختصة يتم التعامل معها بعد ابرام الاتفاق مع العميل. ",
+        "ValueEn": "Soil inspection is not considered one of the services provided, but the inspection can be carried out through specialized soil testing laboratories, which are dealt with after reaching an agreement with the client."
+    },
+    {
+        "TitleAr": " ما هي النقاط الرئيسية لفحص الكهرباء الشامل؟ ",
+        "TitleEn": "What are the key points of comprehensive electrical inspection?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "فحص عازلية الكوابل الرئيسية. | فحص توزيع الأحمال. | فحص فرق الجهد الكهربائي. | فحص نظام التأريض. | فحص شدة الإنارة. | فحص شدة المجالات الكهرومغناطيسية. | فحص أنظمة التيار المنخفض وأنظمة السلامة. | فحص نظام المصاعد والسلالم الكهربائية. | تقييم التشطيبات الكهربائية وجودة المواد المستخدمة. | الفحص البصري لكامل العناصر النهائية. ",
+        "ValueEn": "Inspection of main cable insulation. | Load distribution inspection. | Voltage difference inspection. | Grounding system inspection. | Illumination intensity inspection. | Electromagnetic field intensity inspection. | Inspection of low voltage systems and safety systems. | Inspection of elevator and escalator systems. | Evaluation of electrical finishes and the quality of materials used. | Visual inspection of all final elements."
+    },
+    {
+        "TitleAr": "ما هي النقاط الرئيسية لفحص الميكانيك الشامل؟ ",
+        "TitleEn": "What are the key points of comprehensive mechanical inspection?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "فحص نظام تزويد المياه. | فحص نظام الصرف الصحي. | فحص نظام التكييف. | فحص نظام التهوية والشفط. | فحص العزل الحراري. | فحص العزل المائي. | فحص الرطوبة. | فحص أنظمة السلامة. | فحص التشطيبات الميكانيكية وأنظمة السباكة. | الفحص البصري لكامل العناصر الميكانيكية. ",
+        "ValueEn": "Water supply system inspection. | Sewage system inspection. | Air conditioning system inspection. | Ventilation and suction system inspection. | Thermal insulation inspection. | Waterproofing inspection. | Moisture inspection. | Safety systems inspection. | Mechanical finishes and plumbing systems inspection. | Visual inspection of all mechanical elements."
+    },
+    {
+        "TitleAr": " ما هي النقاط الرئيسية للفحص الإنشائي والمعماري؟ ",
+        "TitleEn": "What are the key points of structural and architectural inspection?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "فحص قوة الخرسانة. | فحص تجانس الخرسانة. | فحص جودة التشطيبات وجودة المواد المستخدمة. | الفحص البصري لكامل العناصر الإنشائية والمعمارية.",
+        "ValueEn": "Concrete strength inspection. | Concrete uniformity inspection. | Inspection of finishing quality and quality of materials used. | Visual inspection of all structural and architectural elements."
+    },
+    {
+        "TitleAr": "ما هي النقاط الرئيسية لفحص البيئة؟  ",
+        "TitleEn": "What are the key points of environmental inspection?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "فحص غاز أول أكسيد الكربون في الوسط. | فحص غاز ثاني أكسيد الكربون في الوسط. | فحص نسبة الرطوبة. | فحص درجة الحرارة. | فحص مستوى الضوضاء. | دراسة الموقع العام والبعد عن الخدمات.",
+        "ValueEn": "Examination of carbon monoxide gas in the environment. | Examination of carbon dioxide gas in the environment. | Examination of humidity level. | Examination of temperature. | Examination of noise level. | Study of the general site and distance from services."
+    },
+    {
+        "TitleAr": "هل ممكن استثناء فحص البيئة؟  ",
+        "TitleEn": "Is it possible to exempt environmental inspection?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "يعتبر فحص البيئة عنصر أساسي لاستكمال عناصر الفحص. | لا يمكن استثناء الفحص لأهمية العناصر التي يتم فحصها وتأثيرها على جودة الحياه البشرية على المدى القريب أو البعيد. ",
+        "ValueEn": "Environmental inspection is considered a fundamental element to complete the inspection elements. | The inspection cannot be exempted due to the importance of the elements being inspected and their impact on the quality of human life in the short or long term."
+    },
+    {
+        "TitleAr": " كيف يتم الكشف عن التسريبات؟ ",
+        "TitleEn": "How are leaks detected?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "يتم الكشف عن التسريبات باستخدام أحدث الأجهزة التكنولوجية والتي تبين سبب التسريب وموقعه بدقة عالية جداً. | يتم استخدام كاميرات مايكروسكوبية وأجهزة السمع الدقيقة ومقاييس نسبة الرطوبة والكاميرات الحرارية لتتبع موقع التسريب. ",
+        "ValueEn": "Leaks are detected using the latest technological devices, which accurately determine the cause and location of the leak. | Microscopic cameras, sensitive listening devices, moisture meters, and thermal cameras are used to trace the location of the leak."
+    },
+    {
+        "TitleAr": " هل يحتاج الفحص أي معلومات من قبل العميل عن تاريخ المبنى؟ ",
+        "TitleEn": "Does the inspection require any information from the client about the building's history?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تعتبر دراسة معلومات تاريخ المبنى اساساً مهما واولى خطوات الفحص حسب المعايير والأسس العالمية للفحص والتفتيش. ",
+        "ValueEn": "Studying the building's history information is considered a fundamentally important and primary step in the inspection process according to international standards and inspection principles."
+    },
+    {
+        "TitleAr": "كيف يتم حساب تكلفة الفحص؟  ",
+        "TitleEn": "How is the inspection cost calculated?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تعتمد تكلفة الفحص على المساحة والموقع ونوع الخدمة المطلوبة. | يمكن التوجه الى بوابة حاسبة التكاليف لمعرفة تكلفة الفحص. ",
+        "ValueEn": "The cost of the inspection depends on the area, location, and type of service required. | You can visit the cost calculator portal to find out the inspection cost."
+    },
+    {
+        "TitleAr": "في حال وجود خطأ في التقرير كيف يتم معالجته وما هو التعويض في حال تكلف العميل مبالغ نتيجة الخطأ؟   ",
+        "TitleEn": "If there is an error in the report, how is it addressed and what compensation is provided if the client incurs costs due to the error?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تتحمل انسبكتس مسؤولية دقة المعلومات المقدمة وفي حال وجود أي خطاْ تتحمل انسبكتس المسؤولية الكاملة لإعادة الفحص وتعويض جميع الخسائر المترتبة نتيجة الخطأ وذلك من خلال شركات تأمين معتمدة.",
+        "ValueEn": "Inspectors bear responsibility for the accuracy of the information provided, and in the event of any errors, Inspects assumes full responsibility for re-inspection and compensation for all losses resulting from the error, through accredited insurance companies."
+    },
+    {
+        "TitleAr": "كيف يتم تقديم الشكاوى؟  ",
+        "TitleEn": "How can complaints be submitted?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "يمكن التوجه لبوابة الشكاوى وتقديم أي شكوى سواء كانت قبل الفحص أو بعده كما تسعد وتتقبل انسبكتكس جميع الشكاوى والمقترحات لهدف تطوير وتحسين خدماتها. ",
+        "ValueEn": "You can visit the complaints portal and submit any complaint, whether before or after the inspection. Inspects welcomes and accepts all complaints and suggestions to improve and develop its services."
+    },
+    {
+        "TitleAr": "كيف يمكنني تغيير موعد الفحص؟  ",
+        "TitleEn": "How can I change the inspection appointment?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "يمكن تغيير أو الغاء موعد الفحص قبل 48 ساعة من الموعد المعتمد وفقا للشروط والأحكام. | يجب قراءة الشروط والأحكام قبل الدخول للموقع وطلب الخدمة. ",
+        "ValueEn": "The inspection appointment can be changed or canceled up to 48 hours before the scheduled appointment, according to the terms and conditions. | Terms and conditions must be read before accessing the website and requesting the service."
+    },
+    {
+        "TitleAr": "هل يوجد التزام بالمواعيد؟ وهل يوجد تعويض في حال تغيير موعد الفحص أو التأخر في اعداد التقرير؟  ",
+        "TitleEn": "Is there a commitment to appointments? Is there compensation in case of rescheduling the inspection appointment or delay in preparing the report?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "يحق لانسبكتكس تعديل الموعد في حال وجود امر طارئ وقبل 48 ساعة من موعد الفحص ويتم توضيح الأسباب للعميل ويتم ترتيب موعد جديد ويحق للعميل في هذه الحالة الغاء الموعد واسترداد كامل المبلغ المدفوع.",
+        "ValueEn": "Inspectors have the right to reschedule the appointment in case of an emergency and up to 48 hours before the inspection appointment. The reasons are explained to the client, and a new appointment is arranged. In this case, the client has the right to cancel the appointment and receive a full refund."
+    },
+    {
+        "TitleAr": " كيف يتم حجز الموعد وإنجاز عملية الدفع؟ ",
+        "TitleEn": "How to schedule an appointment and complete the payment process?",
+        "FAQType": 2,
+        "IsFooter": true,
+        "ValueAr": "يمكن الاطلاع على المواعيد المتاحة من خلال بوابة الحجز. | يمكن إنجاز عملية الدفع الإلكتروني وتأكيد الموعد من خلال قنوات الدفع الرقمية (يرجى قراءة الشروط والاحكام). ",
+        "ValueEn": "Available appointments can be viewed through the booking portal. | The payment process can be completed electronically, and the appointment can be confirmed through digital payment channels (please read the terms and conditions)."
+    },
+    {
+        "TitleAr": " هل التقرير معتمد لدى الجهات الحكومية والبنك؟",
+        "TitleEn": "Is the report accredited by government agencies and banks?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "نعم، من خلال اعتمادنا كجهة تفتيش على متطلبات كود البناء السعودي والصادر من قبل هيئة المواصفات والمقاييس السعودية.",
+        "ValueEn": "Yes, through our accreditation as an inspection entity to the requirements of the Saudi Building Code issued by the Saudi Standards, Metrology and Quality Organization (SASO)."
+    },
+    {
+        "TitleAr": "هل يعتبر التقرير حجة قانونية؟  ",
+        "TitleEn": "Is the report a legal proof?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "يعتبر تقرير انسبكتس حجة قانونية معترف بها في المحاكم والجهات الحكومية. ",
+        "ValueEn": "The report by Inspekts is a legal proof recognized by courts and government authorities."
+    },
+    {
+        "TitleAr": "ما هي المناطق التي يتم تغطيتها بالخدمة؟  ",
+        "TitleEn": "Which areas are covered by the service?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "يمكن الذهاب لبوابة الحجز واختيار خيار التغطية لمعرفة ما إذا كانت منطقتك ضمن المناطق المشمولة بتقديم الخدمات. | تسعى انسبكتس لتوسعة نطاق خدماتها بحيث تشمل كامل المملكة لذا في حال لم تكن منطقتك مشمولة يرجى ترك ملاحظة بعنوانك ليتم دراسة الملاحظات وتغطية جميع المناطق. ",
+        "ValueEn": "You can visit the booking portal and select the coverage option to see if your area is included in the service coverage. | Inspekts seeks to expand its service coverage to include the entire kingdom. Therefore, if your area is not covered, please leave a note with your address for review and inclusion of all areas."
+    },
+    {
+        "TitleAr": "ما هي خدمة ضبط الجودة؟  ",
+        "TitleEn": "What is Quality Control service?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "تقدم انسبكتس خدمة ضبط الجودة بحيث تضمن لك الطريق الصحيح لإتمام عقارك وفق متطلبات وأسس هندسية وحسب الكود السعودي للبناء. | تكون خدمة ضبط الجودة من خلال متابعة أعمال التشييد والبناء بجميع مراحله من التأسيس حتى الانتهاء من مرحلة التشطيبات. | تراقب انسبكتس عمل الموردين والمنفذين للمحافظة على جودة البناء. ",
+        "ValueEn": "Inspekts provides a quality control service to ensure the correct completion of your property according to engineering requirements and the Saudi Building Code. | The quality control service involves monitoring construction activities at all stages from foundation to finishing. | Inspekts monitors the work of suppliers and contractors to maintain the quality of construction."
+    },
+    {
+        "TitleAr": "كيف يتم حساب تكلفة خدمة ضبط الجودة؟ ",
+        "TitleEn": "How is the cost of the Quality Control service calculated?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تعتمد تكلفة ضبط الجودة حسب المساحة ومدة المشروع والمراحل المطلوب الإشراف عليها. | يمكن التوجه الى بوابة حساب التكاليف واختيار خدمة ضبط الجودة.",
+        "ValueEn": "The cost of the Quality Control service depends on the area, duration of the project, and the stages that require supervision. | You can visit the cost calculator portal and select the Quality Control service."
+    },
+    {
+        "TitleAr": "هل يتم تقديم شهادة سلامة إنشائية؟",
+        "TitleEn": "Is a Structural Safety Certificate provided?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "يتطلب اصدار شهادة السلامة الإنشائية عمل دراسة إنشائية شاملة للمبنى ويتطلب الأمر إجراء فحوصات إتلافيه",
+        "ValueEn": "Issuing a Structural Safety Certificate requires a comprehensive structural study of the building and may require destructive testing."
+    },
+    {
+        "TitleAr": "من هم شركاء العمل؟",
+        "TitleEn": "Who are the partners?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "المطورون العقاريون | مكاتب الاستشارات الهندسية | مختبرات فحص التربة والمواد | المصممون الداخليون | الجهات المانحة | الهيئات والجهات الرسمية",
+        "ValueEn": "Real estate developers | Engineering consulting offices | Soil and material testing laboratories | Interior designers | Donor organizations | Governmental and official entities"
+    },
+    {
+        "TitleAr": "هل يمكن فحص العزل المائي والحراري في المباني السكنية؟  ",
+        "TitleEn": "Can waterproofing and thermal insulation be inspected in residential buildings?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "تقوم انسبكتكس بفحص العزل المائي والحراري بأحدث الطرق التكنولوجية ولا يتطلب الفحص إتلاف أي عنصر من عناصر المبنى. ",
+        "ValueEn": "Inspectors inspect waterproofing and thermal insulation using the latest technological methods, and the inspection does not require any element of the building to be damaged."
+    },
+    {
+        "TitleAr": "هل يمكن تقديم التقرير بلغات أخرى؟  ",
+        "TitleEn": "Can the report be provided in other languages?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تقدم انسبكتس التقرير باللغتين العربية أو الإنجليزية وحسب طلب العميل. ",
+        "ValueEn": "Inspectors provide the report in either Arabic or English, as requested by the client."
+    },
+    {
+        "TitleAr": "هل يوجد عينة تقرير سابق؟  ",
+        "TitleEn": "Is there a sample of a previous report?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "يمكن الحصول على عينات تقرير سابقة من خلال بوابة سايقة الأعمال. ",
+        "ValueEn": "Samples of previous reports can be obtained through the business gateway."
+    },
+    {
+        "TitleAr": " هل يمكنني الاطلاع على الأجهزة المستخدمة بالفحص؟  ",
+        "TitleEn": "Can I see the devices used in the inspection?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "يمكن الحضور لمقر الشركة قبل الحجز للاطلاع على الأجهزة المستخدمة بالفحص. ",
+        "ValueEn": "You can visit the company's premises before booking to see the devices used in the inspection."
+    },
+    {
+        "TitleAr": "هل يتم الكشف عن مواقع الأنابيب والاعمدة؟ ",
+        "TitleEn": "Are the locations of pipes and columns detected?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "تستخدم انسبكتس التكنولوجيا الحديثة من خلال أجهزة متطورة تعتمد على الموجات الرادارية والكهرومغناطيسية لتحديد مواقع وأعداد وأقطار حديد التسليح والأنابيب المخفية. ",
+        "ValueEn": "InspectX uses modern technology with advanced devices that rely on radar and electromagnetic waves to detect the locations, quantities, and diameters of concealed reinforcement bars and pipes."
+    },
+    {
+        "TitleAr": "هل يتم الكشف عن عناصر البنية التحتية؟",
+        "TitleEn": "Are underground structures detected?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "تستخدم انسبكتس التكنولوجيا الحديثة من خلال أجهزة متطورة تعتمد على الموجات الرادارية والكهرومغناطيسية لتحديد مواقع أعماق البنية التحتية. ",
+        "ValueEn": "Inspectors use modern technology with advanced devices that rely on radar and electromagnetic waves to determine the locations of underground structures."
+    },
+    {
+        "TitleAr": "هل يوجد خدمة تقييم الأصول الثابتة؟",
+        "TitleEn": "Is there a fixed asset appraisal service?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "لا تقوم انسبكتس بتقديم هذه الخدمة. ",
+        "ValueEn": "Inspectors do not provide this service."
+    },
+    {
+        "TitleAr": "هل يتم الكشف عن جودة المواد المستخدمة في البناء؟",
+        "TitleEn": "Is the quality of materials used in construction inspected?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "تعتبر انسبكتس جودة المواد المستخدمة جزء مهم لديمومة المباني وبالتالي تعطي اهتمامها بتحديد جودة المواد المستخدمة لتبني عليه قرارات أثناء عملية الفحص. ",
+        "ValueEn": "Inspectors consider the quality of materials used essential for the durability of buildings and therefore pay attention to determining the quality of materials used to base decisions on during the inspection process."
+    },
+    {
+        "TitleAr": "هل يمكن اجراء فحص ثاني للتأكد من عملية الصيانة؟ ",
+        "TitleEn": "Can a second inspection be conducted to ensure maintenance?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "يمكن طلب خدمة الفحص ما بعد الصيانة من خلال بوابة حجز المواعيد. ",
+        "ValueEn": "The post-maintenance inspection service can be requested through the appointment booking portal."
+    },
+    {
+        "TitleAr": "هل احتاج شرح التقرير؟ ",
+        "TitleEn": "Do I need an explanation of the report?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تقوم انسبكتس بإعداد التقرير بلغة واضحة للجميع ولا يحتاج التقرير الى أي شرح. | تسعد انسبكتكس باستقبال الاستفسارات والأسئلة وتقديم أي شروحات من خلال الاتصال مع خدمة العملاء. ",
+        "ValueEn": "Inspectors prepare the report in clear language for everyone, and the report does not need any explanation. | Inspectors are happy to receive inquiries and questions and provide any explanations through contacting customer service."
+    },
+    {
+        "TitleAr": "هل يوجد فحص لبنود الأعمال؟",
+        "TitleEn": "Is there an inspection for work items?",
+        "FAQType": 1,
+        "IsFooter": false,
+        "ValueAr": "تقدم انسبكتس دراسة لبنود الأعمال المنجزة والمتبقية لأي مشروع ومطابقة المخططات بالواقع وتقدير نسبة الإنجاز.",
+        "ValueEn": "Inspectors provide a study of the completed and remaining work items for any project, comparing the plans to the actual work and estimating the completion percentage."
+    },
+    {
+        "TitleAr": "هل يوجد معاينة قبل الفحص؟",
+        "TitleEn": "Is there a pre-inspection survey?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "يمكن أن يقوم فريق من المهندسين بمعاينة المواقع التي تتطلب ذلك وحسب الشروط والمحددات التي تراها انسبكتكس.",
+        "ValueEn": "A team of engineers can conduct a survey of sites that require it, according to the terms and conditions set by Inspectors."
+    },
+    {
+        "TitleAr": "هل الفحص يتطلب وجود مخططات المبنى؟",
+        "TitleEn": "Does the inspection require building plans?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "وجود المخططات يسهل عملية الفحص والتفتيش ولكن لا يعتبر شرط أساسي للفحص.",
+        "ValueEn": "Having building plans facilitates the inspection process, but it is not considered a fundamental requirement for the inspection."
+    },
+    {
+        "TitleAr": "هل الفحص يتطلب وجود مخططات المبنى؟",
+        "TitleEn": "Does the inspection require building plans?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "وجود المخططات يسهل عملية الفحص والتفتيش ولكن لا يعتبر شرط أساسي للفحص.",
+        "ValueEn": "Having building plans facilitates the inspection process, but it is not considered a fundamental requirement for the inspection."
+    },
+    {
+        "TitleAr": "هل ممكن اقتراح شراكة تعاون مع الشركة؟",
+        "TitleEn": "Is it possible to propose a partnership with the company?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تعتبر انسبكتس جميع العملاء شركاء نجاح وتسعد بإبرام أي اتفاقية تعاون هدفها تطوير منظومة العمل والخدمة المقدمة.",
+        "ValueEn": "Ansbects considers all customers as partners in success and is happy to enter into any cooperation agreement aimed at developing the work system and the service provided."
+    },
+    {
+        "TitleAr": "هل يوجد خدمة دراسة حالة إنشائية لغرض إضافة أدوار على المبنى؟",
+        "TitleEn": "Is there a service for studying a structural case for the purpose of adding floors to the building?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تقدم انسبكتس خدمة دراسة الحالة الإنشائية للمبنى ويمكن طلب الخدمة من خلال بوابة الحجوزات.",
+        "ValueEn": "Ansbects offers a service for studying the structural condition of the building, and the service can be requested through the booking portal."
+    },
+    {
+        "TitleAr": "ما هي أيام وأوقات الدوام الرسمية؟",
+        "TitleEn": "What are the official working days and hours?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تعمل انسبكتس على خدمتكم من السبت للخميس من الساعة 8:30 صباحًا وحتى الخامسة والنصف مساءً.",
+        "ValueEn": "Ansbects operates from Saturday to Thursday from 8:30 AM to 5:30 PM."
+    },
+    {
+        "TitleAr": "هل يوجد فحص لتحديد سبب ارتفاع فاتورة الكهرباء؟",
+        "TitleEn": "Is there an inspection to determine the reason for the high electricity bill?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تقدم انسبكتس خدمة فحص سبب ارتفاع فاتورة الكهرباء ويمكن طلب الخدمة من خلال بوابة الحجوزات.",
+        "ValueEn": "Ansbects provides a service to inspect the reason for the high electricity bill, and the service can be requested through the reservations portal."
+    },
+    {
+        "TitleAr": "هل يوجد فحص لتحديد سبب ارتفاع فاتورة المياه؟",
+        "TitleEn": "Is there an inspection to determine the reason for the high water bill?",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تقدم انسبكتس خدمة فحص سبب ارتفاع فاتورة الكهرباء ويمكن طلب الخدمة من خلال بوابة الحجوزات.",
+        "ValueEn": "Ansbects provides a service to inspect the reason for the high electricity bill, and the service can be requested through the reservations portal."
+    },
+    {
+        "TitleAr": " في حال الرغبة في الشراء ما هو الوقت المناسب للفحص؟ ",
+        "TitleEn": "Title Ar to En 1",
+        "FAQType": 2,
+        "IsFooter": false,
+        "ValueAr": "تنصح انسبكتكس بطلب خدمة الفحص قبل الشراء لتشاركك القرار في عملية الشراء وتحديد نقاط الفشل والضعف. | يفضل أن يتم الاتفاق مع البائع بشرط إعادة العربون إذا ما تبين من تقرير انسبكتس أن العقار يتوافق مع متطلبات الكود السعودي للبناء. ",
+        "ValueEn": "ValueArToEN[0] | ValueArToEN[1] |"
+    },
+    {
+        "TitleAr": " كيف يمكنني التواصل معكم؟ ",
+        "TitleEn": "How can I contact you?",
+        "ValueAr": "تسعد انسبكتكس بتلقي رسائلكم من خلال ايقونة الدردشة أسفل الشاشة أو من خلال قنواتها الرقمية الموجودة في بوابة اتصل بنا أو من خلال الاتصال على رقم هاتف خدمة العملاء.",
+        "ValueEn": "InspectX is pleased to receive your messages through the chat icon at the bottom of the screen or through its digital channels available in the contact us portal or by calling the customer service phone number.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " هل يتم حساب تكلفة الترميم؟",
+        "TitleEn": "Is the cost of restoration calculated?",
+        "ValueAr": "تقوم انسبكتس بحساب التكلفة التقديرية لعملية الترميم بعد فحص الموقع ودراسة متطلبات العميل الحالية والمستقبلية.",
+        "ValueEn": "InspectX calculates the estimated cost of restoration after inspecting the site and studying the current and future requirements of the client.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " ما هي التفاصيل التي تشملها تقاريركم؟",
+        "TitleEn": "What details are included in your reports?",
+        "ValueAr": "تشتمل التقارير على تقييم الحالة الفنية للعناصر المعمارية والإنشائية والكهروميكانيكية وذلك بمطابقتها بالاشتراطات والمتطلبات الفنية في الكود السعودي والأكواد العالمية مصحوبة بنتائج الاختبارات الغير إتلافية والإتلافية التي تم إجراؤها على عناصر المبنى مع دلائل تلك النتائج، وتقدم التقارير التوصيات التي من الواجب اتباعها لحل المشاكل الهندسية في المبنى، كما تقدم التكلفة التقديرية لطريقة الحل المقترحة للمشكلات واخيراً تُقدم التقارير بيان منهجية مُفصل لطريقة العلاج للمشاكل بالرجوع للاشتراطات والمتطلبات الفنية في الكود السعودي والأكواد العالمية.",
+        "ValueEn": "The reports include an assessment of the technical condition of architectural, structural, and electromechanical elements by comparing them with the requirements and technical specifications in the Saudi code and international codes, accompanied by the results of non-destructive and destructive tests conducted on building elements with evidence of those results. The reports provide recommendations that must be followed to solve engineering problems in the building. They also provide an estimated cost for the proposed solution method for the problems and finally, the reports provide a detailed methodological statement for the treatment method for the problems by referring to the requirements and technical specifications in the Saudi code and international codes.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل لديكم خبرة سابقة في العمل مع أنواع معينة من الصناعات أو الأنشطة التجارية؟",
+        "TitleEn": "Do you have previous experience working with specific industries or business activities?",
+        "ValueAr": "يوجد لدينا سوابق أعمال مع العديد من الشركاء القائمين على الاستثمار في المنشآت الصناعية والتجارية.",
+        "ValueEn": "We have a track record with many partners who are involved in investing in industrial and commercial facilities.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "كيفية تحديد الأعطال والمشاكل في المباني؟",
+        "TitleEn": "How are faults and problems in buildings identified?",
+        "ValueAr": "يتم تحديد المشاكل في المبنى من خلال عدة أنشطة تفتيشية يتم إجراؤها على المبنى وتشمل ولا تقتصر على: | 1 . المعاينة البصرية. | 2 . الفحوصات غير الإتلافية باستخدام الأجهزة الدقيقة المخصصة لهذا الغرض. | 3 . الفحوصات الإتلافية وتظهر الحاجة إلى إجراؤها حسب الحالة وحسب نتائج الفحوصات غير الإتلافية ودلالات تلك النتائج.",
+        "ValueEn": "Faults in the building are identified through several inspection activities carried out on the building, including but not limited to: | 1. Visual inspection. | 2. Non-destructive testing using specialized devices for this purpose. | 3. Destructive testing, which is needed according to the condition and the results of non-destructive testing and the implications of those results.",
+        "FAQType": 1,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل يمكنكم تقديم تقدير مبدئي لتكاليف الإصلاحات المقترحة؟",
+        "TitleEn": "Can you provide a preliminary estimate for the proposed repairs?",
+        "ValueAr": "نعم، وذلك من خلال تقييم مقدار الضرر في العناصر المطلوب إصلاحها، وحصر الكميات المُراد إصلاحها ومن ثم يتم تسعير تلك الأعمال وفقاً لمتوسط أسعار التنفيذ عالي الجودة.",
+        "ValueEn": "Yes, this is done by assessing the extent of damage to the elements that need to be repaired, quantifying the quantities to be repaired, and then pricing these works according to the average prices of high-quality execution.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "  هل تقدمون استشارات أو توجيهات بشأن التحسينات الممكنة؟",
+        "TitleEn": "Do you provide consultations or guidance on possible improvements?",
+        "ValueAr": "يتم ذكر كافة التوصيات التي من شأنها أن تُحسن أداء العناصر في المبنى، مصحوبةً بطريقة التنفيذ المُفصلة ومعقولة التكلفة.",
+        "ValueEn": "All recommendations that can improve the performance of the elements in the building are mentioned, accompanied by a detailed and cost-effective implementation method.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " كيفية تعاملكم مع المواصفات واللوائح البنائية المحلية؟",
+        "TitleEn": "How do you deal with local building specifications and regulations?",
+        "ValueAr": "كافة أنشطة التفتيش التي تتم لعناصر المبنى بما في ذلك الفحوصات الإتلافية وغير الإتلافية ونتائجها ودلالات تلك النتائج تخضع بالدرجة الأولى للمتطلبات والاشتراطات الخاصة بالأكواد السعودية في شتى المجالات الهندسية.",
+        "ValueEn": "All inspection activities carried out on building elements, including destructive and non-destructive testing, their results, and the implications of those results, are primarily subject to the requirements and regulations of the Saudi codes in various engineering fields.",
+        "FAQType": 1,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " هل لديكم شهادات أو تراخيص معترف بها في مجال الفحص العقاري؟",
+        "TitleEn": "Do you have certificates or licenses recognized in the field of property inspection?",
+        "ValueAr": "نمتلك العديد من الاعتمادات من الجهات المعترف بها في هذا المجال، وهي على سبيل المثال لا الحصر: | 1 . الهيئة السعودية للمواصفات والمقاييس والجودة (SASO). | 2 . تقييم المطابقة لمتطلبات تشغيل أنواع مختلفة من الهيئات التي تقوم بالتفتيش (ISO 1720). | 3 . المركز السعودي للاعتماد (SAAC).",
+        "ValueEn": "We have several accreditations from recognized entities in this field, including but not limited to: | 1. Saudi Standards, Metrology, and Quality Organization (SASO). | 2. Assessment of conformity to the requirements of operating various types of inspection bodies (ISO 1720). | 3. Saudi Accreditation Center (SAAC).",
+        "FAQType": 2,
+        "IsFooter": true
+    },
+    {
+        "TitleAr": " هل لديكم خبرة في تقديم الخدمات لمباني تاريخية أو معمارية ذات قيمة تراثية؟",
+        "FAQType": 2,
+        "IsFooter": false,
         "ValueAr": [
-            "يتم حجز الموعد واعتماده من خلال طرق الدفع الالكترونية او الدفع نقداً في مقر الشركة. ",
-            "يتم ارسال فريق فحص يضم على مهندسين اكفاء لكل تخصص هندسي (مدني، كهرباء، ميكانيك) ",
-            "يقوم المهندسين الفاحصين بفحص جميع العناصر الأساسية في المبنى لبناء تصور شامل عن نقاط القوة والضعف وذلك باستخدام التكنولوجيا وأحدث أجهزة الفحص وحسب الأسس العالمية للفحص والتفتيش. ",
-            "يتم الفحص لكل فراغ معماري على حدى ليتم بناء تقرير يسهل على المستخدم التنقل فيه بكل سهولة. ",
-            "يقوم المهندسين الفاحصين بتزويد مهندسي المستوى الثاني بالبيانات ونتائج الأجهزة والفحص التي تم جمعها من الموقع ليقوموا بدورهم بتحليل هذه البيانات ودراستها حسب أسس علمية وهندسية وبناء على كود البناء السعودي والكود العالمي للفحص والتفتيش. ",
-            "يقوم مهندسي المستوى الثاني بإعداد التقرير باستخدام برمجية متطورة تعتمد على المعلومات المدخلة التي قاموا باستنتاجها",
-            "يتم توجيه التقرير لمهندسي المرحلة الثالثة بعمل التوصيات اللازمة للمشاكل التي يتم تحليلها من قبل مهندسي المستوى الثاني.",
-            " يتم مراجعة التقرير وتدقيقه من الأخطاء الهندسية واللغوية إن وجدت من خلال قسم التدقيق الداخلي، ومن ثم مرحلة اعتماد التقرير وتوجيهه الى العميل من خلال المنصة المستخدمة."
+            "نعم، يوجد لدينا سوابق أعمال في تقييم الأبنية التراثية في المملكة ونملك الأدوات والخبرات المختصة لتقييم هذا النوع من الأبنية."
         ]
     },
     {
-        "TitleAr": "ما هي أسس الفحص المعتمدة لديكم؟  ",
+        "TitleAr": " هل لديكم خبرة في تقديم الخدمات لمباني تاريخية أو معمارية ذات قيمة تراثية؟",
+        "TitleEn": "Do you have experience in providing services for historical or architectural buildings with heritage value?",
+        "ValueAr": "نعم، يوجد لدينا سوابق أعمال في تقييم الأبنية التراثية في المملكة ونملك الأدوات والخبرات المختصة لتقييم هذا النوع من الأبنية.",
+        "ValueEn": "Yes, we have previous work records in evaluating heritage buildings in the Kingdom, and we have the specialized tools and expertise to evaluate this type of buildings.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " كيف يتم تقييم مستوى السلامة والأمان في المباني التي تقومون بفحصها؟",
+        "TitleEn": "How is the level of safety and security assessed in the buildings you inspect?",
+        "ValueAr": "يتم تحديد مستوى سلامة وأمان المبنى من خلال الفحوصات المتخصصة ويتم التركيز بشكل كبير على التفتيش الإنشائي والكهروميكانيكي وتختلف آلية الفحص وطبيعة خبرة الفاحص في هذا النوع من الفحوصات عن الفحص المَعني بفحص المبنى من الناحية التشغيلية.",
+        "ValueEn": "The level of safety and security of the building is determined through specialized inspections, with a significant focus on structural and electro-mechanical inspections. The inspection process and the inspector's expertise in this type of inspection differ from the inspection that focuses on the operational aspects of the building.",
         "FAQType": 1,
-        "ValueAr": "ASTM",
-        "ACI",
-        "SBC"
-    ]
-},
-{
-    "TitleAr": "ما هي أنواع الخدمات والفحوصات المقدمة؟  ",
-    "FAQType": 1,
-    "ValueAr": " الفحص الشامل. ",
-    " فحص الكهرباء الشامل.",
-    " فحص الميكانيك الشامل.",
-    " فحص إنشائي شامل. ",
-    " فحص ارتفاع فاتورة الكهرباء. ",
-    " فحص التسريبات وارتفاع فاتورة المياه. ",
-    " فحص العزل المائي والحراري. ",
-    " فحص التشققات الهبوطات. ",
-    " المسح الراداري لتحديد خدمات البنية التحتية.",
-    " رسم حالة الواقع للمباني والمنشآت. ",
-    " دراسة الحالة الإنشائية للمباني. ",
-    " خدمات الإشراف وضبط الجودة. "
-]
-},
-{
-"TitleAr": " ما هي المخرجات المقدمة؟ ",
-"FAQType": 2,
-"ValueAr": "تقرير شامل يبين أوجه الفشل والضعف في المبنى ولكل نظام على حدى مبيناً فيه طرق العلاج الهندسية الصحيحة والتكاليف التقديرية لعملية الإصلاح. ",
-"شهادات سلامة إنشائية. ",
-"مخططات حالة واقع للمبنى (انشائية، معمارية، كهربائية، ميكانيكية). ",
-"مخططات مساحية مبين عليها خدمات البنية التحتية. ",
-"ملاحظة: يتم تقديم المخرجات حسب نوع الفحص المطلوب ولا يشترط تقديم جميع المخرجات لأي خدمه مطلوبة. "
-]
-},
-{
-"TitleAr": "هل يتم معايرة الأجهزة المستخدمة حسب متطلبات وأسس الفحص؟  ",
-"FAQType": 1,
-"ValueAr": "يتم معايرة الأجهزة بشكل دوري وحسب أسس ومتطلبات اعتماد جهات التفتيش على كود البناء السعودي."
-]
-},
-{
-"TitleAr": "ما هي الضمانات على صحة نتائج الفحص؟ ",
-"FAQType": 2,
-"ValueAr": "تضمن انسبكتكس دقة المعلومات الموجودة في التقارير والمخرجات المقدمة وتقدم كافة التكاليف المادية المترتبة على أي خطأ وارد في تقاريرها ومن خلال شركات تأمين معتمدة. "
-]
-},
-{
-"TitleAr": "هل يتم الإشراف على أعمال الصيانة بعد الفحص؟  ",
-"FAQType": 2,
-"ValueAr": "يمكن طلب خدمة الإشراف والمتابعة وضبط الجودة."
-]
-},
-{
-"TitleAr": "هل يتم العمل على إصلاح المشاكل من قبلكم؟  ",
-"FAQType": 2,
-"ValueAr": "لا تقوم انسبكتس بعمليات الصيانة والمقاولة وانما تقدم خدمة الإشراف وضبط الجودة."
-]
-},
-{
-"TitleAr": " ما هي خبرات الطاقم الهندسي والفني؟",
-"FAQType": 2,
-"ValueAr": "الحد الادنى لخبرات الفاحصين هي 3 سنوات",
-"والحد الادنى لخبرات مهندسي التدقيق الداخلي والتحليل هي 5 سنوات"
-]
-},
-{
-"TitleAr": "المدة المستغرقة التي يتطلبها الفحص؟  ",
-"FAQType": 1,
-"IsFooter": true,
-"ValueAr": "تعتمد مدة الفحص على مساحة المبنى بحيث لا تقل مدة الفحص عن 3 ساعات."
-]
-},
-{
-"TitleAr": "المدة المستغرقة لإعداد التقرير؟ ",
-"FAQType": 1,
-"IsFooter": true,
-"ValueAr": "تعتمد المدة المستغرقة لإعداد التقرير على حجم المشروع ونوع المخرجات المطلوبة بحيث لا تقل عن 3 أيام عمل. "
-]
-},
-{
-"TitleAr": " هل يتطلب الفحص أكثر من زيارة؟  ",
-"FAQType": 1,
-"ValueAr": "يمكن أن يتطلب الفحص أكثر من زيارة في حال تطلب الموقع وطبيعة الفحص. ",
-"في حالة الفحص الشامل يتم تحديد زيارة أخرى لأخذ نتائج فحص الغمر المائي لفحص التسريبات. "
-]
-},
-{
-"TitleAr": " كم عدد نقاط التقييم؟  ",
-"FAQType": 1,
-"IsFooter": true,
-"ValueAr": "يتم فحص وتقييم أكثر من 700 نقطة. "
-]
-},
-{
-"TitleAr": " هل يتطلب الفحص إخلاء المبنى؟ ",
-"FAQType": 2,
-"ValueAr": "لا يتطلب الفحص إخلاء المبنى. "
-]
-},
-{
-"TitleAr": "هل يتطلب الفحص إتلاف أي عنصر من عناصر المبنى؟  ",
-"FAQType": 1,
-"ValueAr": "جميع الفحوصات المقدمة هي فحوصات لا إتلافيه الا إذا تطلب الموقع عكس ذلك وسيتم اخذ موافقة العميل لاي فحص اتلافي وتحديد حجم الإتلاف المطلوب وإعادة الوضع الى ما كان علية وبناء على الاتفاق المبرم."
-]
-},
-{
-"TitleAr": " هل يتم فحص العناصر الإنشائية المخفية؟  ",
-"FAQType": 1,
-"ValueAr": "لا يمكن فحص العناصر الإنشائية المخفية مثل القواعد والميدات الا بالكشف عليها حتى الوصول لسطح هذه العناصر"
-]
-},
-{
-"TitleAr": " هل يوجد فحص تربه (هل أنتم مختبر فحص)؟  ",
-"FAQType": 1,
-"ValueAr": "لا يعتبر فحص التربة من الفحوصات التي تندرج ضمن الخدمات المقدمة ولكن يمكن اجراء الفحص من خلال مختبرات فحص تربة مختصة يتم التعامل معها بعد ابرام الاتفاق مع العميل. "
-]
-},
-{
-"TitleAr": " ما هي النقاط الرئيسية لفحص الكهرباء الشامل؟ ",
-"FAQType": 1,
-"ValueAr": "فحص عازلية الكوابل الرئيسية. ",
-"فحص توزيع الأحمال. ",
-"فحص فرق الجهد الكهربائي. ",
-"فحص نظام التأريض. ",
-"فحص شدة الإنارة. ",
-"فحص شدة المجالات الكهرومغناطيسية. ",
-"فحص أنظمة التيار المنخفض وأنظمة السلامة. ",
-"فحص نظام المصاعد والسلالم الكهربائية. ",
-"تقييم التشطيبات الكهربائية وجودة المواد المستخدمة. ",
-"الفحص البصري لكامل العناصر النهائية. "
-]
-},
-{
-"TitleAr": "ما هي النقاط الرئيسية لفحص الميكانيك الشامل؟ ",
-"FAQType": 1,
-"ValueAr": "فحص نظام تزويد المياه. ",
-"فحص نظام الصرف الصحي. ",
-"فحص نظام التكييف. ",
-"فحص نظام التهوية والشفط. ",
-"فحص العزل الحراري.",
-"فحص العزل المائي. ",
-"فحص الرطوبة. ",
-"فحص أنظمة السلامة. ",
-"فحص التشطيبات الميكانيكية وأنظمة السباكة.",
-"الفحص البصري لكامل العناصر الميكانيكية.  "
-]
-},
-{
-"TitleAr": " ما هي النقاط الرئيسية للفحص الإنشائي والمعماري؟ ",
-"FAQType": 1,
-"ValueAr": "فحص قوة الخرسانة. ",
-"فحص تجانس الخرسانة.",
-"فحص جودة التشطيبات وجودة المواد المستخدمة. ",
-" الفحص البصري لكامل العناصر الإنشائية والمعمارية. "
-]
-},
-{
-"TitleAr": "ما هي النقاط الرئيسية لفحص البيئة؟  ",
-"FAQType": 1,
-"ValueAr": "فحص غاز أول أكسيد الكربون في الوسط. ",
-"فحص غاز ثاني أكسيد الكربون في الوسط. ",
-"فحص نسبة الرطوبة. ",
-"فحص درجة الحرارة. ",
-"فحص مستوى الضوضاء.",
-"دراسة الموقع العام والبعد عن الخدمات. "
-]
-},
-{
-"TitleAr": "هل ممكن استثناء فحص البيئة؟  ",
-"FAQType": 1,
-"ValueAr": "يعتبر فحص البيئة عنصر أساسي لاستكمال عناصر الفحص. ",
-"لا يمكن استثناء الفحص لأهمية العناصر التي يتم فحصها وتأثيرها على جودة الحياه البشرية على المدى القريب أو البعيد. "
-]
-},
-{
-"TitleAr": " كيف يتم الكشف عن التسريبات؟ ",
-"FAQType": 1,
-"ValueAr": "يتم الكشف عن التسريبات باستخدام أحدث الأجهزة التكنولوجية والتي تبين سبب التسريب وموقعه بدقة عالية جداً. ",
-"يتم استخدام كاميرات مايكروسكوبية وأجهزة السمع الدقيقة ومقاييس نسبة الرطوبة والكاميرات الحرارية لتتبع موقع التسريب. "
-]
-},
-{
-"TitleAr": " هل يحتاج الفحص أي معلومات من قبل العميل عن تاريخ المبنى؟ ",
-"FAQType": 2,
-"ValueAr": "تعتبر دراسة معلومات تاريخ المبنى اساساً مهما واولى خطوات الفحص حسب المعايير والأسس العالمية للفحص والتفتيش. "
-]
-},
-{
-"TitleAr": "كيف يتم حساب تكلفة الفحص؟  ",
-"FAQType": 2,
-"ValueAr": "تعتمد تكلفة الفحص على المساحة والموقع ونوع الخدمة المطلوبة. ",
-"يمكن التوجه الى بوابة حاسبة التكاليف لمعرفة تكلفة الفحص. "
-]
-},
-{
-"TitleAr": "في حال وجود خطأ في التقرير كيف يتم معالجته وما هو التعويض في حال تكلف العميل مبالغ نتيجة الخطأ؟   ",
-"FAQType": 2,
-"ValueAr": "تتحمل انسبكتس مسؤولية دقة المعلومات المقدمة وفي حال وجود أي خطاْ تتحمل انسبكتس المسؤولية الكاملة لإعادة الفحص وتعويض جميع الخسائر المترتبة نتيجة الخطأ وذلك من خلال شركات تأمين معتمدة."
-]
-},
-{
-"TitleAr": "كيف يتم تقديم الشكاوى؟  ",
-"FAQType": 2,
-"ValueAr": "يمكن التوجه لبوابة الشكاوى وتقديم أي شكوى سواء كانت قبل الفحص أو بعده كما تسعد وتتقبل انسبكتكس جميع الشكاوى والمقترحات لهدف تطوير وتحسين خدماتها. "
-]
-},
-{
-"TitleAr": "كيف يمكنني تغيير موعد الفحص؟  ",
-"FAQType": 2,
-"ValueAr": "يمكن تغيير أو الغاء موعد الفحص قبل 48 ساعة من الموعد المعتمد وفقا للشروط والأحكام. ",
-"يجب قراءة الشروط والأحكام قبل الدخول للموقع وطلب الخدمة. "
-]
-},
-{
-"TitleAr": "هل يوجد التزام بالمواعيد؟ وهل يوجد تعويض في حال تغيير موعد الفحص أو التأخر في اعداد التقرير؟  ",
-"FAQType": 2,
-"ValueAr": "يحق لانسبكتكس تعديل الموعد في حال وجود امر طارئ وقبل 48 ساعة من موعد الفحص ويتم توضيح الأسباب للعميل ويتم ترتيب موعد جديد ويحق للعميل في هذه الحالة الغاء الموعد واسترداد كامل المبلغ المدفوع."
-]
-},
-{
-"TitleAr": " كيف يتم حجز الموعد وإنجاز عملية الدفع؟ ",
-"FAQType": 2,
-"IsFooter": true,
-"ValueAr": "يمكن الاطلاع على المواعيد المتاحة من خلال بوابة الحجز.",
-"يمكن إنجاز عملية الدفع الإلكتروني وتأكيد الموعد من خلال قنوات الدفع الرقمية (يرجى قراءة الشروط والاحكام). "
-]
-},
-{
-"TitleAr": " هل التقرير معتمد لدى الجهات الحكومية والبنك؟",
-"FAQType": 2,
-"ValueAr": "نعم، من خلال اعتمادنا كجهة تفتيش على متطلبات كود البناء السعودي والصادر من قبل هيئة المواصفات والمقاييس السعودية."
-]
-},
-{
-"TitleAr": "هل يعتبر التقرير حجة قانونية؟  ",
-"FAQType": 2,
-"ValueAr": "يعتبر تقرير انسبكتس حجة قانونية معترف بها في المحاكم والجهات الحكومية. "
-]
-},
-{
-"TitleAr": "ما هي المناطق التي يتم تغطيتها بالخدمة؟  ",
-"FAQType": 2,
-"ValueAr": "يمكن الذهاب لبوابة الحجز واختيار خيار التغطية لمعرفة ما إذا كانت منطقتك ضمن المناطق المشمولة بتقديم الخدمات. ",
-"تسعى انسبكتس لتوسعة نطاق خدماتها بحيث تشمل كامل المملكة لذا في حال لم تكن منطقتك مشمولة يرجى ترك ملاحظة بعنوانك ليتم دراسة الملاحظات وتغطية جميع المناطق. "
-]
-},
-{
-"TitleAr": "ما هي خدمة ضبط الجودة؟  ",
-"FAQType": 1,
-"ValueAr": "تقدم انسبكتس خدمة ضبط الجودة بحيث تضمن لك الطريق الصحيح لإتمام عقارك وفق متطلبات وأسس هندسية وحسب الكود السعودي للبناء. ",
-"تكون خدمة ضبط الجودة من خلال متابعة أعمال التشييد والبناء بجميع مراحله من التأسيس حتى الانتهاء من مرحلة التشطيبات. ",
-"تراقب انسبكتس عمل الموردين والمنفذين للمحافظة على جودة البناء. "
-]
-},
-{
-"TitleAr": "كيف يتم حساب تكلفة خدمة ضبط الجودة؟ ",
-"FAQType": 2,
-"ValueAr": "تعتمد تكلفة ضبط الجودة حسب المساحة ومدة المشروع والمراحل المطلوب الإشراف عليها. ",
-"يمكن التوجه الى بوابة حساب التكاليف واختيار خدمة ضبط الجودة."
-]
-},
-{
-"TitleAr": " هل يتم تقديم شهادة سلامة إنشائية؟  ",
-"FAQType": 2,
-"ValueAr": "يتطلب اصدار شهادة السلامة الإنشائية عمل دراسة إنشائية شاملة للمبنى ويتطلب الأمر إجراء فحوصات إتلافيه "
-]
-},
-{
-"TitleAr": " من هم شركاء العمل؟",
-"FAQType": 2,
-"ValueAr": "المطورون العقاريون",
-"مكاتب الاستشارات الهندسية",
-"مختبرات فحص التربة والمواد",
-"المصممون الداخليون",
-"الجهات المانحة",
-"الهيئات والجهات الرسمية"
-]
-},
-{
-"TitleAr": " هل يمكن فحص العزل المائي والحراري في المباني السكنية؟  ",
-"FAQType": 1,
-"ValueAr": "تقوم انسبكتكس بفحص العزل المائي والحراري بأحدث الطرق التكنولوجية ولا يتطلب الفحص إتلاف أي عنصر من عناصر المبنى. "
-]
-},
-{
-"TitleAr": "هل يمكن تقديم التقرير بلغات أخرى؟  ",
-"FAQType": 2,
-"ValueAr": "تقدم انسبكتس التقرير باللغتين العربية أو الإنجليزية وحسب طلب العميل. "
-]
-},
-{
-"TitleAr": "هل يوجد عينة تقرير سابق؟  ",
-"FAQType": 2,
-"ValueAr": "يمكن الحصول على عينات تقرير سابقة من خلال بوابة سايقة الأعمال. "
-]
-},
-{
-"TitleAr": " هل يمكنني الاطلاع على الأجهزة المستخدمة بالفحص؟  ",
-"FAQType": 2,
-"ValueAr": "يمكن الحضور لمقر الشركة قبل الحجز للاطلاع على الأجهزة المستخدمة بالفحص. "
-]
-},
-{
-"TitleAr": "هل يتم الكشف عن مواقع الأنابيب والاعمدة؟ ",
-"FAQType": 1,
-"ValueAr": "تستخدم انسبكتس التكنولوجيا الحديثة من خلال أجهزة متطورة تعتمد على الموجات الرادارية والكهرومغناطيسية لتحديد مواقع وأعداد وأقطار حديد التسليح والأنابيب المخفية. "
-]
-},
-{
-"TitleAr": " هل يتم الكشف عن عناصر البنية التحتية؟",
-"FAQType": 1,
-"ValueAr": "تستخدم انسبكتس التكنولوجيا الحديثة من خلال أجهزة متطورة تعتمد على الموجات الرادارية والكهرومغناطيسية لتحديد مواقع أعماق البنية التحتية. "
-]
-},
-{
-"TitleAr": "هل يوجد خدمة تقييم الأصول الثابتة؟ ",
-"FAQType": 2,
-"ValueAr": "لا تقوم انسبكتس بتقديم هذه الخدمة. "
-]
-},
-{
-"TitleAr": "هل يتم الكشف عن جودة المواد المستخدمة في البناء؟  ",
-"FAQType": 1,
-"ValueAr": "تعتبر انسبكتس جودة المواد المستخدمة جزء مهم لديمومة المباني وبالتالي تعطي اهتمامها بتحديد جودة المواد المستخدمة لتبني عليه قرارات أثناء عملية الفحص. "
-]
-},
-{
-"TitleAr": " هل يمكن اجراء فحص ثاني للتأكد من عملية الصيانة؟ ",
-"FAQType": 2,
-"ValueAr": "يمكن طلب خدمة الفحص ما بعد الصيانة من خلال بوابة حجز المواعيد. "
-]
-},
-{
-"TitleAr": " هل احتاج شرح التقرير؟ ",
-"FAQType": 2,
-"ValueAr": "تقوم انسبكتس بإعداد التقرير بلغة واضحة للجميع ولا يحتاج التقرير الى أي شرح. ",
-"تسعد انسبكتكس باستقبال الاستفسارات والأسئلة وتقديم أي شروحات من خلال الاتصال مع خدمة العملاء. "
-]
-},
-{
-"TitleAr": "هل يوجد فحص لبنود الأعمال؟  ",
-"FAQType": 1,
-"ValueAr": "تقدم انسبكتس دراسة لبنود الأعمال المنجزة والمتبقية لأي مشروع ومطابقة المخططات بالواقع وتقدير نسبة الإنجاز."
-]
-},
-{
-"TitleAr": "  هل يوجد معاينة قبل الفحص؟ ",
-"FAQType": 2,
-"ValueAr": "يمكن أن يقوم فريق من المهندسين بمعاينة المواقع التي تتطلب ذلك وحسب الشروط والمحددات التي تراها انسبكتكس."
-]
-},
-{
-"TitleAr": "هل الفحص يتطلب وجود مخططات المبنى؟  ",
-"FAQType": 2,
-"ValueAr": "وجود المخططات يسهل عملية الفحص والتفتيش ولكن لا يعتبر شرط أساسي للفحص."
-]
-},
-{
-"TitleAr": " هل يتطلب الحضور لموقع الشركة لحجز موعد؟ ",
-"FAQType": 2,
-"ValueAr": "يمكن إتمام عملية حجز الموعد والدفع من خلال بوابة الحجوزات. "
-]
-},
-{
-"TitleAr": "هل ممكن اقتراح شراكة تعاون مع الشركة؟  ",
-"FAQType": 2,
-"ValueAr": "تعتبر انسبكتس جميع العملاء شركاء نجاح وتسعد بإبرام أي اتفاقية تعاون هدفها تطوير منظومة العمل والخدمة المقدمة."
-]
-},
-{
-"TitleAr": "هل يوجد خدمة دراسة حالة إنشائية لغرض إضافة أدوار على المبنى؟  ",
-"FAQType": 2,
-"ValueAr": "تقدم انسبكتس خدمة دراسة الحالة الإنشائية للمبنى ويمكن طلب الخدمة من خلال بوابة الحجوزات. "
-]
-},
-{
-"TitleAr": " ما هي أيام وأوقات الدوام الرسمية؟",
-"FAQType": 2,
-"ValueAr": "تعمل انسبكتس على خدمتكم من السبت للخميس من الساعة 8: 30 صباحاً وحتى الخامسة والنصف مساءً."
-]
-},
-{
-"TitleAr": " هل يوجد فحص لتحديد سبب ارتفاع فاتورة الكهرباء؟ ",
-"FAQType": 2,
-"ValueAr": "تقدم انسبكتس خدمة فحص سبب ارتفاع فاتورة الكهرباء ويمكن طلب الخدمة من خلال بوابة الحجوزات."
-]
-},
-{
-"TitleAr": "هل يوجد فحص لتحديد سبب ارتفاع فاتورة المياه؟  ",
-"FAQType": 2,
-"ValueAr": "تقدم انسبكتس خدمة فحص سبب ارتفاع فاتورة الكهرباء ويمكن طلب الخدمة من خلال بوابة الحجوزات."
-]
-},
-{
-"TitleAr": " في حال الرغبة في الشراء ما هو الوقت المناسب للفحص؟ ",
-"FAQType": 2,
-"ValueAr": "تنصح انسبكتكس بطلب خدمة الفحص قبل الشراء لتشاركك القرار في عملية الشراء وتحديد نقاط الفشل والضعف.",
-"يفضل أن يتم الاتفاق مع البائع بشرط إعادة العربون إذا ما تبين من تقرير انسبكتس أن العقار يتوافق مع متطلبات الكود السعودي للبناء. "
-]
-},
-{
-"TitleAr": " كيف يمكنني التواصل معكم؟ ",
-"FAQType": 2,
-"ValueAr": "تسعد انسبكتكس بتلقي رسائلكم من خلال ايقونة الدردشة أسفل الشاشة أو من خلال قنواتها الرقمية الموجودة في بوابة اتصل بنا أو من خلال الاتصال على رقم هاتف خدمة العملاء. "
-]
-},
-{
-"TitleAr": " هل يتم حساب تكلفة الترميم؟",
-"FAQType": 2,
-"ValueAr": "تقوم انسبكتس بحساب التكلفة التقديرية لعملية الترميم بعد فحص الموقع ودراسة متطلبات العميل الحالية والمستقبلية.  "
-]
-},
-{
-"TitleAr": " ما هي التفاصيل التي تشملها تقاريركم؟",
-"FAQType": 2,
-"ValueAr": "تشتمل التقارير على تقييم الحالة الفنية للعناصر المعمارية والإنشائية والكهروميكانيكية وذلك بمطابقتها بالاشتراطات والمتطلبات الفنية في الكود السعودي والأكواد العالمية مصحوبة بنتائج الاختبارات الغير إتلافية والإتلافية التي تم إجراؤها على عناصر المبنى مع دلائل تلك النتائج، وتقدم التقارير التوصيات التي من الواجب اتباعها لحل المشاكل الهندسية في المبنى، كما تقدم التكلفة التقديرية لطريقة الحل المقترحة للمشكلات واخيراً تُقدم التقارير بيان منهجية مُفصل لطريقة العلاج للمشاكل بالرجوع للاشتراطات والمتطلبات الفنية في الكود السعودي والأكواد العالمية."
-]
-},
-{
-"TitleAr": "هل لديكم خبرة سابقة في العمل مع أنواع معينة من الصناعات أو الأنشطة التجارية؟",
-"FAQType": 2,
-"ValueAr": "يوجد لدينا سوابق أعمال مع العديد من الشركاء القائمين على الاستثمار في المنشآت الصناعية والتجارية. "
-]
-},
-{
-"TitleAr": "كيفية تحديد الأعطال والمشاكل في المباني؟ ",
-"FAQType": 1,
-"ValueAr": "يتم تحديد المشاكل في المبنى من خلال عدة أنشطة تفتيشية يتم إجراؤها على المبنى وتشمل ولا تقتصر على:",
-"1 . المعاينة البصرية.",
-"2 . الفحوصات غير الإتلافية باستخدام الأجهزة الدقيقة المخصصة لهذا الغرض.",
-"3 . الفحوصات الإتلافية وتظهر الحاجة إلى إجراؤها حسب الحالة وحسب نتائج الفحوصات غير الإتلافية ودلالات تلك النتائج."
-]
-},
-{
-"TitleAr": "هل يمكنكم تقديم تقدير مبدئي لتكاليف الإصلاحات المقترحة؟",
-"FAQType": 2,
-"ValueAr": "نعم، وذلك من خلال تقييم مقدار الضرر في العناصر المطلوب إصلاحها، وحصر الكميات المُراد إصلاحها ومن ثم يتم تسعير تلك الأعمال وفقاً لمتوسط أسعار التنفيذ عالي الجودة."
-]
-},
-{
-"TitleAr": "  هل تقدمون استشارات أو توجيهات بشأن التحسينات الممكنة؟",
-"FAQType": 2,
-"ValueAr": "يتم ذكر كافة التوصيات التي من شأنها أن تُحسن أداء العناصر في المبنى، مصحوبةً بطريقة التنفيذ المُفصلة ومعقولة التكلفة."
-]
-},
-{
-"TitleAr": " كيفية تعاملكم مع المواصفات واللوائح البنائية المحلية؟",
-"FAQType": 1,
-"ValueAr": "كافة أنشطة التفتيش التي تتم لعناصر المبنى بما في ذلك الفحوصات الإتلافية وغير الإتلافية ونتائجها ودلالات تلك النتائج تخضع بالدرجة الأولى للمتطلبات والاشتراطات الخاصة بالأكواد السعودية في شتى المجالات الهندسية."
-]
-},
-{
-"TitleAr": " هل لديكم شهادات أو تراخيص معترف بها في مجال الفحص العقاري؟",
-"FAQType": 2,
-"IsFooter": true,
-"ValueAr": "نمتلك العديد من الاعتمادات من الجهات المعترف بها في هذا المجال، وهي على سبيل المثال لا الحصر:",
-"1 . الهيئة السعودية للمواصفات والمقاييس والجودة (SASO).",
-"2 . تقييم المطابقة لمتطلبات تشغيل أنواع مختلفة من الهيئات التي تقوم بالتفتيش (ISO 1720).",
-"3 . المركز السعودي للاعتماد (SAAC)."
-]
-},
-{
-"TitleAr": " هل لديكم خبرة في تقديم الخدمات لمباني تاريخية أو معمارية ذات قيمة تراثية؟",
-"FAQType": 2,
-"ValueAr": "نعم، يوجد لدينا سوابق أعمال في تقييم الأبنية التراثية في المملكة ونملك الأدوات والخبرات المختصة لتقييم هذا النوع من الأبنية."
-]
-},
-{
-"TitleAr": " كيف يتم تقييم مستوى السلامة والأمان في المباني التي تقومون بفحصها؟",
-"FAQType": 1,
-"ValueAr": "يتم تحديد مستوى سلامة وأمان المبنى من خلال الفحوصات المتخصصة ويتم التركيز بشكل كبير على التفتيش الإنشائي والكهروميكانيكي وتختلف آلية الفحص وطبيعة خبرة الفاحص في هذا النوع من الفحوصات عن الفحص المَعني بفحص المبنى من الناحية التشغيلية."
-]
-},
-{
-"TitleAr": " هل تقدمون تقارير عن تحليل الأضرار الناجمة عن الكوارث الطبيعية مثل الفيضانات أو الزلازل؟",
-"FAQType": 2,
-"ValueAr": "يوجد لدينا مختصون وأجهزة وأدوات تؤدي هذه الوظيفة، ويتم ذلك من خلال التحليل الإنشائي للمبنى بالمقام الأول ومن ثم يتم فحص كافة العناصر الكهروميكانيكية وقياس أثر وقوع الكارثة على المبنى وتقديم التوصيات التي من شأنها معالجة هذه الآثار في حال وقوع كارثة لا قدر الله."
-]
-},
-{
-"TitleAr": "هل لديكم تجربة في تقديم تقارير لأغراض التأمين أو القضايا القانونية؟",
-"FAQType": 2,
-"ValueAr": "يوجد لدينا العديد من سوابق الأعمال التي تندرج تحت هذا الإطار، حيث يتم التحقيق في العيوب الظاهرة في المبنى والرجوع لأسباب ظهورها، وتقديم تقرير يبين الجهة المتسببة بالضرر وعلاقتها بالمنشأة، ويتم الاستناد على التقرير في عملية التحكيم الهندسي."
-]
-},
-{
-"TitleAr": "  كيفية تحديد الأولويات في الإصلاحات المقترحة بناءً على مدى الخطورة؟",
-"FAQType": 1,
-"ValueAr": "يتم تحليل نتائج الفحوصات من خلال مهندسين ذوي خبرة عالية بمهنة التقييم الهندسي وتحديد أثر العيوب على سلامة المبنى أولاً ومن ثم تشغيلية المبنى، ويتم بناءً عليه ترتيب أولويات الإصلاح بوضع سلامة مستخدمي المبنى في المقام الأول ومن ثم يتم التوصية بإصلاح بقية المشاكل تباعاُ حسب تأثيرها على المبنى."
-]
-},
-{
-"TitleAr": " هل تستطيعون تقديم تقارير عن الجدوى الاقتصادية للإصلاحات المقترحة؟",
-"FAQType": 2,
-"ValueAr": "بالتأكيد، يتم إصدار تقارير دراسة الجدوى والتي تشتمل على التكلفة التقديرية والزمن المُقدر للإصلاحات الموجودة في المبنى ومقارنتها بتكلفة وزمن الهدم وإعادة الإنشاء طبقاً للمواصفات والاشتراطات الفنية المعتمدة في الكود السعودي والأكواد العالمية ويُترك للعميل اتخاذ القرار المناسب."
-]
-},
-{
-"TitleAr": " هل لديكم خبرة في التعامل مع مشاكل الأمان والامتثال لقوانين السلامة والبناء؟",
-"FAQType": 2,
-"ValueAr": "يوجد لدينا قسم هندسي يضم نخبة من المهندسين المختصين بالسلامة الإنشائية ويشتمل عملهم على تطبيق لوائح وأنظمة السلامة أثناء مراحل تنفيذ المشروع فيما يخص أعمال ضبط جودة للمشاريع قيد الإنشاء، كما يتجلى دورهم في تقديم بيان منهجية مطابق لتلك اللوائح والأنظمة لإصلاح العيوب في الأبنية القائمة."
-]
-},
-{
-"TitleAr": " هل تقدمون خدمات التقييم الفني للمباني لأغراض البنوك أو التمويل؟",
-"FAQType": 2,
-"ValueAr": "لا يتم تقديم هذه الخدمة، ويقتصر عملنا على التقييم الفني وتقديم الحلول الهندسية للعيوب مع التكلفة التقديرية لإصلاح العيوب ويُترك القرار في الشراء من عدمه للعميل."
-]
-},
-{
-"TitleAr": " ما المستندات المطلوبة لإجراء عملية الفحص؟",
-"FAQType": 2,
-"ValueAr": "عند طلب العميل لخدمة الفحص يُفضل وجود بعض الوثائق الخاصة بالمبنى لرفع جودة الفحص وهذه الوثائق تشتمل على:",
-"1 . حُزمة مخططات المبنى.",
-"2 . فحص تربة للأرض المنشأ عليها المبنى.",
-"3 . صك ملكية الأرض.",
-"4 . رخصة البناء.",
-"5 . شهادة إتمام بناء."
-]
-},
-{
-"TitleAr": " من يقوم بعملية الفحص؟",
-"FAQType": 2,
-"ValueAr": "يتم إجراء الفحص من خلال فريق يضم نخبة من المهندسين ذوي الخبرة والكفاءة الفنية والقدرة العالية على القيام بالإجراءات الصحيحة لفحص كافة عناصر المبنى وتحديد الفحص المطلوب لكل عنصر ويشتمل هذا الفريق على:",
-"1 . مهندس إنشائي.",
-"2 . مهندس ميكانيك.",
-"3 . مهندس كهرباء."
-]
-},
-{
-"TitleAr": "  ماذا لو كان العقار غير متصل بعد بالكهرباء او الماء؟",
-"FAQType": 2,
-"ValueAr": "يتم فحص الأنظمة الكهربائية من خلال أجهزة مختصة يتمكن الفاحص من خلالها بتزويد التمديدات الموجودة في المبنى بمقدار من التيار الكهربائي لأخذ قراءات فيما يخص التسريب الكهربائي وعمل الأفياش من عدمه، أما فيما يخص الفحص الميكانيكي فلا بد من توصيل المبنى بالماء ليتمكن الفاحص من تحديد حالة النظام."
-]
-},
-{
-"TitleAr": " ما الذي يميز إنسبكتكس عن جهات الفحص الأخرى؟",
-"FAQType": 2,
-"ValueAr": "تتميز إنسبكتكس بكونها جهة الفحص الأكثر شمولية، وتستند بشكل أساسي في عملية الفحص على المتطلبات والاشتراطات الموجودة في كود البناء السعودي، كما تَولدت رؤية إنسبكتكس من رؤية المملكة 2030 فيما يخص الاستدامة، كما يحرص فريق العمل في إنسبكتكس على تبني مشكلة العميل وحلها بكافة السُبل ووضع مصلحة العميل في المقام الأول."
-]
-},
-{
-"TitleAr": " كيف يمكنني التسجيل والانضمام للفريق؟  ",
-"FAQType": 3,
-"IsFooter": true,
-"ValueAr": "يكون التسجيل من خلال بوابة الكترونية مخصصة لذلك، ويتم ارفاق كافة المستندات المطلوبة وبعد مراجعتها يتم توثيق حساب الفاحص ومنحه رقم مرجعي."
-]
-},
-{
-"TitleAr": "ما هي الشهادات العلمية المطلوبة من الفاحص؟ ",
-"FAQType": 3,
-"IsFooter": true,
-"ValueAr": "ان يكون الفاحص حاصل على شهادة البكالوريوس بالهندسة (المدنية، الكهربائية، والميكانيكية) ",
-"أن يكون الفاحص حاصل على شهادة دورة فحص المباني الجاهزة من المعهد العقاري السعودي.",
-"شاهدة دورة كود البناء السعودي العام SBC 201"
-]
-},
-{
-"TitleAr": " ما هي الخبرة العملية المطلوبة؟ ",
-"FAQType": 3,
-"IsFooter": true,
-"ValueAr": "أن يكون الفاحص يمتلك خبرة عملية لا تقل عن 3 سنوات في مجال الفحص. "
-]
-},
-{
-"TitleAr": "كيف يتم احتساب نسبة الفاحص؟ ",
-"FAQType": 3,
-"IsFooter": true,
-"ValueAr": "يتم احتساب نسبة 55% من قيمة الفحص لفريق الفحص، ومقسمة عليهم وفقاً للتخصص بحيث تكون 20% مدني، 15% ميكانيك وكهرباء، و5% إضافية لقائد فريق الفحص",
-"في حال تم إحالة عميل من قبل أحد الفاحصين، فيكون له نسبة 10% من قيمة الفحص تضاف لرصيده سواء كان هو الفاحص أم لا، ويكون ذلك من خلال وضع الرقم المرجعي للفاحص أثناء عملية الطلب."
-]
-},
-{
-"TitleAr": " كيف يتم تحويل نسبة الفاحص؟ ",
-"FAQType": 3,
-"ValueAr": "يتم تحويل مبالغ الفاحصين مع نهاية كل شهر ميلادي، وبعد أن يكون مضى ما لا يقل عن أسبوع عن آخر تقرير تم تسليمه للعميل."
-]
-},
-{
-"TitleAr": "هل يمكن للفاحص الاطلاع على قيمة الفحص للتأكد من النسبة؟ ",
-"FAQType": 3,
-"ValueAr": "يتمكن الفاحص من الاطلاع على قيمة وتفاصيل الفحص من خلال الحساب الخاص فيه."
-]
-},
-{
-"TitleAr": "ما هو الحد الأدنى من المواعيد التفرغ المطلوبة اسبوعياً؟  ",
-"FAQType": 3,
-"ValueAr": "يترتب على الفاحص إضافة ثلاث مواعيد تفرغ على الأقل اسبوعياً. "
-]
-},
-{
-"TitleAr": "ما هي المحددات والشروط المترتبة على الفاحص؟ ",
-"FAQType": 3,
-"ValueAr": "موافقة الفاحص على قبول سند لأمر (كمبيالة الكترونية) بمبلغ وقدره 35 ألف ريال مقابل قيمة الأجهزة، ينتهي السند بمجرد اكتمال سداد قيمة الأجهزة.",
-"عدم الحضور الكلي عن موعد الفحص يعني انسحاب الفاحص من النظام ويصبح السند لأمر الوارد في البند رقم 4 نافذ التطبيق",
-"في حال عدم الالتزام بالزي الرسمي للفحص (فيزت حماية الرئيسي للمنشأة + بطاقة تعريف الفاحص)، فيتم تغريمه مبلغ 500 ريال تعود إلى العميل ومقتطعةً من قيمة فحصه.",
-"حجب الاتصال بالأنترنت أو حجب تتبع الموقع ابتداءً من قبل وقت الفحص بنصف ساعة وحتى اكتمال الفحص بنصف ساعة يتم تغريم الفاحص مبلغ 200 ريال.",
-"جميع المقتنيات التي يتم تسليمها إلى الفاحص هي في عهدته الشخصية، ويتم تطبيق قيمة التلف وفقاً لقيمته، مع تسجيل غرامة مقدارها 200 ريال لكل تلف.",
-"يتعهد الفاحص بعدم إفشاء أي معلومات تخص نظام العمل أو الأجهزة أو الآلية المتبعة في الفحص، أو أي معلومات متعلقة بالعملاء سواء أسماؤهم أو عناوينهم أو الحالة التي كانت عليها عقاراتهم، ويُغرّم مبلغ وقدره 50 ألف ريال إذا ثبت عكس ذلك.",
-"يُمنع على الفاحص ترشيح مقاول، أو فني، أو كيان، أو من في حكمهم لأي من عملاء سبر، ويُغرّم مبلغ 50 ألف ريال إذا ثبت عكس ذلك",
-"منع على الفاحص منح معلومات مباشرة من شأنها أن تدفع طالب الفحص إلى شراء أو العدول عن العقار مكان الفحص."
-]
-},
-{
-"TitleAr": "هل يتحمل الفاحص تكلفة الأجهزة؟ ",
-"FAQType": 3,
-"ValueAr": "يتم اقتطاع نسبة 20% من قيمة الفحص على جميع الفاحصين لغايات سداد قيمة الأجهزة الخاصة بهم."
-]
-},
-{
-"TitleAr": "هل يوجد تدريب يتطلب الفاحص انهائه؟ ",
-"FAQType": 3,
-"ValueAr": "يتعين على الفاحص حضور ورشة عمل إما عن بعد او بشكل وجاهي لتدريب الفاحص على منهجية إتمام الفحص واستخدام الأجهزة (صيغها)"
-]
-},
-{
-"TitleAr": "هل اعداد التقارير من مهام الفاحص؟ ",
-"FAQType": 3,
-"ValueAr": "لا يعتبر اعداد التقارير من مهام الفاحص وانما يترتب عليه تزويد مهندسيه المستوى الثاني بكافة البيانات والمعلومات اللتي يتطلبها اعداد التقرير. "
-]
-},
-{
-"TitleAr": "ماذا يترتب على الفاحص في حال تغيب او تأخر عن الفحص؟",
-"FAQType": 3,
-"ValueAr": "في حال عدم حضور الفاحص إلى موعد الفحص فيتم استبعاده من النظام وتطبيق مبلغ سند لأمر.",
-"في حال عصي على الفاحص التواجد في الفحص، فهو المسؤول الوحيد عن تأمين بديل لإتمام الفحص",
-"في حال تأخر الفاحص عن موعد الفحص مدة 5 - 10 دقائق، يتم خصم مبلغ 100 ريال.",
-"في حال تأخر الفاحص عن موعد الفحص مدة تزيد عن 10 د وحتى 15 دقيقة، يتم خصم مبلغ 200 ريال.",
-"عدم الحضور الكلي عن موعد الفحص يعني انسحاب الفاحص من النظام ويصبح السند لأمر الوارد في البند رقم 4 نافذ التطبيق"
-]
-},
-{
-"TitleAr": "كيف يمكن للفاحص تحديد مواعيد التفرغ؟",
-"FAQType": 3,
-"ValueAr": "يمكن للفاحص تحديد مواعيد التفرغ من خلال منصة الفاحص وحسابه الشخصي وذلك بالذهاب الى بوابة التقويم.",
-"بعد جدولة مواعيد الفاحص الأسبوعية، فلا يحق له التعديل عليها إلا بعد تقديم طلب استرحام، ويكون ذلك بمدة لا تقل عن 48 ساعة من الوقت المراد تعديله.",
-"يكتسب الجدول صفة النفاذية بمجرد تعبئته من قبل الفاحص."
-]
-},
-{
-"TitleAr": "ماذا يترتب على الفاحص في حال قدم معلومات غير متكلمة وتطلب العودة للموقع مره أخرى؟ ",
-"FAQType": 3,
-"ValueAr": "ذا استدعى الفحص زيارة أخرى للعقار نتيجة نقص البيانات المطلوبة، فتكون على نفقة الفاحص، ويتم تغريمه مبلغ 200 ريال."
-]
-},
-{
-"TitleAr": "ماذا يترتب على الفاحص اثناء وجوده في الموقع؟ ",
-"FAQType": 3,
-"ValueAr": "يجب على الفاحص انهاء الفحص بكامل عناصره ومتطلباته كل حسب تخصصه. ",
-"يجب على قائد الفريق تسمية جميع الفراغات المعمارية ليتسنى له ولباقي افراد الفريق الدخول الى النظام ووضع الملاحظات حسب الفراغ المعماري. ",
-"يجب رفع صور لكامل العناصر المفحوصة وقراءات الأجهزة. ",
-"يجب أن يبين الفاحص احترامه للعميل وعدم القيام بأي أعمال تتنافى مع القيم والمبادئ الأخلاقية.",
-"يُمنع على الفاحص منح معلومات مباشرة من شأنها أن تدفع طالب الفحص إلى شراء أو العدول عن العقار مكان الفحص."
-]
-},
-{
-"TitleAr": "ما هو نظام الغرامات والاستبعاد؟ ",
-"FAQType": 3,
-"ValueAr": "في حال عدم حضور الفاحص إلى موعد الفحص فيتم استبعاده من النظام وتطبيق مبلغ سند لأمر.",
-"في حال تأخر الفاحص عن موعد الفحص مدة 5 - 10 دقائق، يتم تغريمه مبلغ 100 ريال.",
-"في حال تأخر الفاحص عن موعد الفحص مدة تزيد عن 10 د وحتى 15 دقيقة، يتم تغريمه مبلغ 200 ريال.",
-"عدم الحضور الكلي عن موعد الفحص يعني انسحاب الفاحص من النظام ويصبح السند لأمر الوارد في البند رقم 4 نافذ التطبيق",
-"إذا استدعى الفحص زيارة أخرى للعقار نتيجة نقص البيانات المطلوبة، فتكون على نفقة الفاحص، ويتم تغريمه مبلغ 200 ريال.",
-"في حال عدم الالتزام بالزي الرسمي للفحص (فيزت حماية الرئيسي للمنشأة + بطاقة تعريف الفاحص)، فيتم تغريمه مبلغ 500 ريال تعود إلى العميل ومقتطعةً من قيمة فحصه.",
-"حجب الاتصال بالأنترنت أو حجب تتبع الموقع ابتداءً من قبل وقت الفحص بنصف ساعة وحتى اكتمال الفحص بنصف ساعة يتم تغريم الفاحص مبلغ 200 ريال.",
-"جميع المقتنيات التي يتم تسليمها إلى الفاحص هي في عهدته الشخصية، ويتم تطبيق قيمة التلف وفقاً لقيمته، مع تسجيل غرامة مقدارها 200 ريال لكل تلف.",
-"في حال تجاوز الفاحص مقدار غرامات 1000 ريال، يتم استبعاده من النظام، ويصبح السند لأمر سند نافذ تطبيقه.",
-"يتعهد الفاحص بعدم إفشاء أي معلومات تخص نظام العمل أو الأجهزة أو الآلية المتبعة في الفحص، أو أي معلومات متعلقة بالعملاء سواء أسماؤهم أو عناوينهم أو الحالة التي كانت عليها عقاراتهم، ويُغرّم مبلغ وقدره 50 ألف ريال إذا ثبت عكس ذلك.",
-"يُمنع على الفاحص ترشيح مقاول، أو فني، أو كيان، أو من في حكمهم لأي من عملاء سبر، ويُغرّم مبلغ 50 ألف ريال إذا ثبت عكس ذلك."
-]
-},
-{
-"TitleAr": "ما هو نظام المحافظة على سرية المعلومات؟ ",
-"FAQType": 3,
-"ValueAr": "يُمنع على الفاحص منح معلومات مباشرة من شأنها أن تدفع طالب الفحص إلى شراء أو العدول عن العقار مكان الفحص.",
-"يتعهد الفاحص بعدم إفشاء أي معلومات تخص نظام العمل أو الأجهزة أو الآلية المتبعة في الفحص، أو أي معلومات متعلقة بالعملاء سواء أسماؤهم أو عناوينهم أو الحالة التي كانت عليها عقاراتهم، ويُغرّم مبلغ وقدره 50 ألف ريال إذا ثبت عكس ذلك."
-]
-},
-{
-"TitleAr": "هل يمكن للفاحص العمل مع جهات فحص أخرى؟ ",
-"FAQType": 3,
-"ValueAr": "يمكن للفاحص العمل مع جهات فحص أخرى بما لا يشكل تعاضا مع مصالح انسبكترز والالتزام ببنود سرية المعلومات"
-]
-},
-{
-"TitleAr": "متى يتطلب حضور الفاحص لمقر الشركة؟ ",
-"FAQType": 3,
-"ValueAr": "لا يتطلب العمل تواجد أو حضور الفاحص لمقر الشركة الا اذا استدعى الامر عكس ذلك وتتحمل الشركة تكاليف التنقلات والإقامة. "
-]
-},
-{
-"TitleAr": "ما هي الية التقييم الدورية للفاحصين؟ ",
-"FAQType": 3,
-"ValueAr": "يخضع الفاحصين لتقييم شهري يتضمن امتحانات الكترونية وتقييم لعدد وجودة الفحوصات المنجزة. ",
-"يتبع عملية الفحص تعديل (اما بالزيادة أول النقصان) على النسبة المستحقة على كل فحص. ",
-"يتم وضع أسماء الفاحصين العشرة الأوائل في كل شهر على شاشة النظام ويتم تقديم مبالغ مالية تقديرا لجهودهم. "
-]
-},
-{
-"TitleAr": "هل يتحمل الفاحص تكاليف التنقلات من والى الفحص؟ ",
-"FAQType": 3,
-"ValueAr": "تعتبر تكاليف التنقلات من والى الفحص من ضمن النسبة التي يأخذها الفاحص من كل عملية فحص. "
-]
-}
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " هل تقدمون تقارير عن تحليل الأضرار الناجمة عن الكوارث الطبيعية مثل الفيضانات أو الزلازل؟",
+        "TitleEn": "Do you provide reports on analyzing damages caused by natural disasters such as floods or earthquakes?",
+        "ValueAr": "يوجد لدينا مختصون وأجهزة وأدوات تؤدي هذه الوظيفة، ويتم ذلك من خلال التحليل الإنشائي للمبنى بالمقام الأول ومن ثم يتم فحص كافة العناصر الكهروميكانيكية وقياس أثر وقوع الكارثة على المبنى وتقديم التوصيات التي من شأنها معالجة هذه الآثار في حال وقوع كارثة لا قدر الله.",
+        "ValueEn": "We have specialists, devices, and tools that perform this function. This is done through structural analysis of the building first, then examining all electro-mechanical elements and measuring the impact of the disaster on the building. Recommendations are provided to address these effects in case of a disaster, may it never happen.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل لديكم تجربة في تقديم تقارير لأغراض التأمين أو القضايا القانونية؟",
+        "TitleEn": "Do you have experience in providing reports for insurance purposes or legal issues?",
+        "ValueAr": "يوجد لدينا العديد من سوابق الأعمال التي تندرج تحت هذا الإطار، حيث يتم التحقيق في العيوب الظاهرة في المبنى والرجوع لأسباب ظهورها، وتقديم تقرير يبين الجهة المتسببة بالضرر وعلاقتها بالمنشأة، ويتم الاستناد على التقرير في عملية التحكيم الهندسي.",
+        "ValueEn": "We have many work records in this regard, where defects in the building are investigated, their causes are determined, and a report is provided showing the party responsible for the damage and its relationship to the facility. The report is then used in the engineering arbitration process.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "  كيفية تحديد الأولويات في الإصلاحات المقترحة بناءً على مدى الخطورة؟",
+        "TitleEn": "How are priorities determined in proposed repairs based on the degree of danger?",
+        "ValueAr": "يتم تحليل نتائج الفحوصات من خلال مهندسين ذوي خبرة عالية بمهنة التقييم الهندسي وتحديد أثر العيوب على سلامة المبنى أولاً ومن ثم تشغيلية المبنى، ويتم بناءً عليه ترتيب أولويات الإصلاح بوضع سلامة مستخدمي المبنى في المقام الأول ومن ثم يتم التوصية بإصلاح بقية المشاكل تباعاً حسب تأثيرها على المبنى.",
+        "ValueEn": "The results of the inspections are analyzed by highly experienced engineers in the field of engineering assessment. The impact of defects on the safety of the building and its operability are determined first. Based on this, the priorities of the repairs are arranged, prioritizing the safety of the building's occupants first. Then, recommendations are made to repair the remaining problems sequentially according to their impact on the building.",
+        "FAQType": 1,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " هل تستطيعون تقديم تقارير عن الجدوى الاقتصادية للإصلاحات المقترحة؟",
+        "TitleEn": "Can you provide reports on the economic feasibility of proposed repairs?",
+        "ValueAr": "بالتأكيد، يتم إصدار تقارير دراسة الجدوى والتي تشتمل على التكلفة التقديرية والزمن المُقدر للإصلاحات الموجودة في المبنى ومقارنتها بتكلفة وزمن الهدم وإعادة الإنشاء طبقاً للمواصفات والاشتراطات الفنية المعتمدة في الكود السعودي والأكواد العالمية ويُترك للعميل اتخاذ القرار المناسب.",
+        "ValueEn": "Certainly, we issue feasibility study reports that include the estimated cost and time for the repairs in the building and compare them with the cost and time of demolition and reconstruction according to the specifications and technical requirements adopted in the Saudi code and international codes. The client is left to make the appropriate decision.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " هل لديكم خبرة في التعامل مع مشاكل الأمان والامتثال لقوانين السلامة والبناء؟",
+        "TitleEn": "Do you have experience in dealing with safety and compliance issues with safety and construction laws?",
+        "ValueAr": "يوجد لدينا قسم هندسي يضم نخبة من المهندسين المختصين بالسلامة الإنشائية ويشتمل عملهم على تطبيق لوائح وأنظمة السلامة أثناء مراحل تنفيذ المشروع فيما يخص أعمال ضبط جودة للمشاريع قيد الإنشاء، كما يتجلى دورهم في تقديم بيان منهجية مطابق لتلك اللوائح والأنظمة لإصلاح العيوب في الأبنية القائمة.",
+        "ValueEn": "We have an engineering department that includes a group of engineers specialized in construction safety. Their work includes applying safety regulations and systems during project execution regarding quality control for projects under construction. Their role also involves providing a compliance methodology statement for these regulations and systems to repair defects in existing buildings.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " هل تقدمون خدمات التقييم الفني للمباني لأغراض البنوك أو التمويل؟",
+        "TitleEn": "Do you offer technical evaluation services for buildings for banking or financing purposes?",
+        "ValueAr": "لا يتم تقديم هذه الخدمة، ويقتصر عملنا على التقييم الفني وتقديم الحلول الهندسية للعيوب مع التكلفة التقديرية لإصلاح العيوب ويُترك القرار في الشراء من عدمه للعميل.",
+        "ValueEn": "We do not provide this service. Our work is limited to technical evaluation and providing engineering solutions for defects along with the estimated cost for their repair. The decision to purchase or not is left to the client.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " ما المستندات المطلوبة لإجراء عملية الفحص؟",
+        "TitleEn": "What documents are required for the inspection process?",
+        "ValueAr": "عند طلب العميل لخدمة الفحص يُفضل وجود بعض الوثائق الخاصة بالمبنى لرفع جودة الفحص وهذه الوثائق تشتمل على: | 1 . حُزمة مخططات المبنى. | 2 . فحص تربة للأرض المنشأ عليها المبنى. | 3 . صك ملكية الأرض. | 4 . رخصة البناء. | 5 . شهادة إتمام بناء.",
+        "ValueEn": "When the client requests an inspection service, it is preferred to have some documents related to the building to enhance the quality of the inspection. These documents include: | 1. Building plans package. | 2. Soil inspection for the building foundation. | 3. Land ownership deed. | 4. Building permit. | 5. Completion certificate of construction.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " من يقوم بعملية الفحص؟",
+        "TitleEn": "Who performs the inspection process?",
+        "ValueAr": "يتم إجراء الفحص من خلال فريق يضم نخبة من المهندسين ذوي الخبرة والكفاءة الفنية والقدرة العالية على القيام بالإجراءات الصحيحة لفحص كافة عناصر المبنى وتحديد الفحص المطلوب لكل عنصر ويشتمل هذا الفريق على: | 1 . مهندس إنشائي. | 2 . مهندس ميكانيك. | 3 . مهندس كهرباء.",
+        "ValueEn": "The inspection is carried out by a team of experienced engineers with technical competence and high ability to perform the correct procedures to inspect all elements of the building and determine the required inspection for each element. This team includes: | 1. Structural engineer. | 2. Mechanical engineer. | 3. Electrical engineer.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "  ماذا لو كان العقار غير متصل بعد بالكهرباء او الماء؟",
+        "TitleEn": "What if the property is not yet connected to electricity or water?",
+        "ValueAr": "يتم فحص الأنظمة الكهربائية من خلال أجهزة مختصة يتمكن الفاحص من خلالها بتزويد التمديدات الموجودة في المبنى بمقدار من التيار الكهربائي لأخذ قراءات فيما يخص التسريب الكهربائي وعمل الأفياش من عدمه، أما فيما يخص الفحص الميكانيكي فلا بد من توصيل المبنى بالماء ليتمكن الفاحص من تحديد حالة النظام.",
+        "ValueEn": "The electrical systems are inspected using specialized devices that allow the inspector to provide the existing installations in the building with a certain amount of electric current to take readings regarding electrical leakage and the operation of the outlets. As for the mechanical inspection, it is necessary to connect the building to water so that the inspector can determine the condition of the system.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " ما الذي يميز إنسبكتكس عن جهات الفحص الأخرى؟",
+        "TitleEn": "What sets Inspektex apart from other inspection agencies?",
+        "ValueAr": "تتميز إنسبكتكس بكونها جهة الفحص الأكثر شمولية، وتستند بشكل أساسي في عملية الفحص على المتطلبات والاشتراطات الموجودة في كود البناء السعودي، كما تَولدت رؤية إنسبكتكس من رؤية المملكة 2030 فيما يخص الاستدامة، كما يحرص فريق العمل في إنسبكتكس على تبني مشكلة العميل وحلها بكافة السُبل ووضع مصلحة العميل في المقام الأول.",
+        "ValueEn": "Inspektex is distinguished as the most comprehensive inspection agency, primarily basing its inspection process on the requirements and regulations in the Saudi Building Code. Inspektex's vision is aligned with Vision 2030 concerning sustainability. The Inspektex team is committed to adopting the client's problem and solving it in every possible way, prioritizing the client's interest above all.",
+        "FAQType": 2,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": " كيف يمكنني التسجيل والانضمام للفريق؟  ",
+        "TitleEn": "How can I register and join the team?",
+        "ValueAr": "يكون التسجيل من خلال بوابة الكترونية مخصصة لذلك، ويتم ارفاق كافة المستندات المطلوبة وبعد مراجعتها يتم توثيق حساب الفاحص ومنحه رقم مرجعي.",
+        "ValueEn": "Registration is done through a dedicated online portal, where all required documents are attached. After review, the inspector's account is authenticated, and a reference number is issued.",
+        "FAQType": 3,
+        "IsFooter": true
+    },
+    {
+        "TitleAr": "ما هي الشهادات العلمية المطلوبة من الفاحص؟ ",
+        "TitleEn": "What are the required academic certificates for the inspector?",
+        "ValueAr": "ان يكون الفاحص حاصل على شهادة البكالوريوس بالهندسة (المدنية، الكهربائية، والميكانيكية) | أن يكون الفاحص حاصل على شهادة دورة فحص المباني الجاهزة من المعهد العقاري السعودي. | شاهدة دورة كود البناء السعودي العام SBC 201",
+        "ValueEn": "The inspector must hold a bachelor's degree in engineering (civil, electrical, and mechanical) | The inspector must hold a certificate from the Saudi Real Estate Institute for the pre-built buildings inspection course. | Certificate of the Saudi Building Code General SBC 201 course.",
+        "FAQType": 3,
+        "IsFooter": true
+    },
+    {
+        "TitleAr": " ما هي الخبرة العملية المطلوبة؟ ",
+        "TitleEn": "What is the required practical experience?",
+        "ValueAr": "أن يكون الفاحص يمتلك خبرة عملية لا تقل عن 3 سنوات في مجال الفحص.",
+        "ValueEn": "The inspector must have at least 3 years of practical experience in the inspection field.",
+        "FAQType": 3,
+        "IsFooter": true
+    },
+    {
+        "TitleAr": "كيف يتم احتساب نسبة الفاحص؟ ",
+        "TitleEn": "How is the inspector's percentage calculated?",
+        "ValueAr": "يتم احتساب نسبة 55% من قيمة الفحص لفريق الفحص، ومقسمة عليهم وفقاً للتخصص بحيث تكون 20% مدني، 15% ميكانيك وكهرباء، و5% إضافية لقائد فريق الفحص | في حال تم إحالة عميل من قبل أحد الفاحصين، فيكون له نسبة 10% من قيمة الفحص تضاف لرصيده سواء كان هو الفاحص أم لا، ويكون ذلك من خلال وضع الرقم المرجعي للفاحص أثناء عملية الطلب.",
+        "ValueEn": "55% of the inspection value is allocated to the inspection team, divided according to specialization: 20% for civil, 15% for mechanical and electrical, and an additional 5% for the inspection team leader | If a client is referred by an inspector, they receive 10% of the inspection value added to their account, whether they are the inspector or not, by entering the inspector's reference number during the order process.",
+        "FAQType": 3,
+        "IsFooter": true
+    },
+    {
+        "TitleAr": " كيف يتم تحويل نسبة الفاحص؟ ",
+        "TitleEn": "How is the inspector's percentage transferred?",
+        "ValueAr": "يتم تحويل مبالغ الفاحصين مع نهاية كل شهر ميلادي، وبعد أن يكون مضى ما لا يقل عن أسبوع عن آخر تقرير تم تسليمه للعميل.",
+        "ValueEn": "The inspectors' amounts are transferred at the end of each Gregorian month, after at least a week has passed since the last report was delivered to the client.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل يمكن للفاحص الاطلاع على قيمة الفحص للتأكد من النسبة؟ ",
+        "TitleEn": "Can the inspector view the inspection value to verify the percentage?",
+        "ValueAr": "يتمكن الفاحص من الاطلاع على قيمة وتفاصيل الفحص من خلال الحساب الخاص فيه.",
+        "ValueEn": "The inspector can view the inspection value and details through their personal account.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ما هو الحد الأدنى من المواعيد التفرغ المطلوبة اسبوعياً؟  ",
+        "TitleEn": "What is the minimum number of weekly availability appointments required?",
+        "ValueAr": "يترتب على الفاحص إضافة ثلاث مواعيد تفرغ على الأقل اسبوعياً.",
+        "ValueEn": "The inspector is required to add at least three availability appointments per week.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ما هي المحددات والشروط المترتبة على الفاحص؟ ",
+        "TitleEn": "What are the constraints and conditions imposed on the inspector?",
+        "ValueAr": "موافقة الفاحص على قبول سند لأمر (كمبيالة الكترونية) بمبلغ وقدره 35 ألف ريال مقابل قيمة الأجهزة، ينتهي السند بمجرد اكتمال سداد قيمة الأجهزة. | عدم الحضور الكلي عن موعد الفحص يعني انسحاب الفاحص من النظام ويصبح السند لأمر الوارد في البند رقم 4 نافذ التطبيق. | في حال عدم الالتزام بالزي الرسمي للفحص (فيزت حماية الرئيسي للمنشأة + بطاقة تعريف الفاحص)، فيتم تغريمه مبلغ 500 ريال تعود إلى العميل ومقتطعةً من قيمة فحصه. | حجب الاتصال بالأنترنت أو حجب تتبع الموقع ابتداءً من قبل وقت الفحص بنصف ساعة وحتى اكتمال الفحص بنصف ساعة يتم تغريم الفاحص مبلغ 200 ريال. | جميع المقتنيات التي يتم تسليمها إلى الفاحص هي في عهدته الشخصية، ويتم تطبيق قيمة التلف وفقاً لقيمته، مع تسجيل غرامة مقدارها 200 ريال لكل تلف. | يتعهد الفاحص بعدم إفشاء أي معلومات تخص نظام العمل أو الأجهزة أو الآلية المتبعة في الفحص، أو أي معلومات متعلقة بالعملاء سواء أسماؤهم أو عناوينهم أو الحالة التي كانت عليها عقاراتهم، ويُغرّم مبلغ وقدره 50 ألف ريال إذا ثبت عكس ذلك. | يُمنع على الفاحص ترشيح مقاول، أو فني، أو كيان، أو من في حكمهم لأي من عملاء سبر، ويُغرّم مبلغ 50 ألف ريال إذا ثبت عكس ذلك. | منع على الفاحص منح معلومات مباشرة من شأنها أن تدفع طالب الفحص إلى شراء أو العدول عن العقار مكان الفحص.",
+        "ValueEn": "The inspector agrees to accept a promissory note (electronic bill) worth 35,000 SAR for the value of the equipment, and the note expires upon full payment of the equipment. | Complete absence from the inspection appointment means the inspector's withdrawal from the system and the promissory note in clause No. 4 becomes effective. | In case of non-compliance with the official inspection uniform (main facility protection vest + inspector's ID card), a fine of 500 SAR is imposed, which goes to the client and is deducted from the inspection value. | Blocking internet access or location tracking starting half an hour before the inspection time until half an hour after the inspection is completed results in a fine of 200 SAR. | All items handed over to the inspector are under their personal custody, and the value of damage is applied according to its value, with a fine of 200 SAR for each damage. | The inspector undertakes not to disclose any information related to the work system, devices, inspection mechanism, or any information related to clients such as their names, addresses, or the condition of their properties, and a fine of 50,000 SAR is imposed if proven otherwise. | The inspector is prohibited from recommending a contractor, technician, entity, or similar to any of Saber’s clients, and a fine of 50,000 SAR is imposed if proven otherwise. | The inspector is prohibited from providing direct information that may lead the inspection applicant to buy or refrain from buying the inspected property.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل يتحمل الفاحص تكلفة الأجهزة؟ ",
+        "TitleEn": "Does the inspector bear the cost of the equipment?",
+        "ValueAr": "يتم اقتطاع نسبة 20% من قيمة الفحص على جميع الفاحصين لغايات سداد قيمة الأجهزة الخاصة بهم.",
+        "ValueEn": "20% of the inspection value is deducted from all inspectors for the purpose of paying for their equipment.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل يوجد تدريب يتطلب الفاحص انهائه؟ ",
+        "TitleEn": "Is there training that the inspector is required to complete?",
+        "ValueAr": "يتعين على الفاحص حضور ورشة عمل إما عن بعد او بشكل وجاهي لتدريب الفاحص على منهجية إتمام الفحص واستخدام الأجهزة (صيغها)",
+        "ValueEn": "The inspector is required to attend a workshop either remotely or in-person to train on the methodology of completing inspections and using the equipment (and their formats).",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل اعداد التقارير من مهام الفاحص؟ ",
+        "TitleEn": "Is report preparation part of the inspector's duties?",
+        "ValueAr": "لا يعتبر اعداد التقارير من مهام الفاحص وانما يترتب عليه تزويد مهندسيه المستوى الثاني بكافة البيانات والمعلومات اللتي يتطلبها اعداد التقرير.",
+        "ValueEn": "Report preparation is not part of the inspector's duties; rather, they must provide their Level 2 engineers with all the data and information required for report preparation.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ماذا يترتب على الفاحص في حال تغيب او تأخر عن الفحص؟",
+        "TitleEn": "What are the consequences for the inspector if they miss or are late for an inspection?",
+        "ValueAr": "في حال عدم حضور الفاحص إلى موعد الفحص فيتم استبعاده من النظام وتطبيق مبلغ سند لأمر. | في حال عصي على الفاحص التواجد في الفحص، فهو المسؤول الوحيد عن تأمين بديل لإتمام الفحص. | في حال تأخر الفاحص عن موعد الفحص مدة 5 - 10 دقائق، يتم خصم مبلغ 100 ريال. | في حال تأخر الفاحص عن موعد الفحص مدة تزيد عن 10 د وحتى 15 دقيقة، يتم خصم مبلغ 200 ريال. | عدم الحضور الكلي عن موعد الفحص يعني انسحاب الفاحص من النظام ويصبح السند لأمر الوارد في البند رقم 4 نافذ التطبيق.",
+        "ValueEn": "If the inspector does not attend the inspection appointment, they are excluded from the system and the promissory note amount is applied. | If the inspector is unable to attend the inspection, they are solely responsible for securing a replacement to complete the inspection. | If the inspector is late for the inspection by 5-10 minutes, a 100 SAR deduction is applied. | If the inspector is late for the inspection by more than 10 minutes up to 15 minutes, a 200 SAR deduction is applied. | Complete absence from the inspection appointment means the inspector's withdrawal from the system and the promissory note in clause No. 4 becomes effective.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "كيف يمكن للفاحص تحديد مواعيد التفرغ؟",
+        "TitleEn": "How can the inspector set availability appointments?",
+        "ValueAr": "يمكن للفاحص تحديد مواعيد التفرغ من خلال منصة الفاحص وحسابه الشخصي وذلك بالذهاب الى بوابة التقويم. | بعد جدولة مواعيد الفاحص الأسبوعية، فلا يحق له التعديل عليها إلا بعد تقديم طلب استرحام، ويكون ذلك بمدة لا تقل عن 48 ساعة من الوقت المراد تعديله. | يكتسب الجدول صفة النفاذية بمجرد تعبئته من قبل الفاحص.",
+        "ValueEn": "The inspector can set availability appointments through the inspector's platform and their personal account by accessing the calendar portal. | Once the inspector's weekly appointments are scheduled, they cannot be modified except by submitting a plea request at least 48 hours before the desired modification time. | The schedule becomes effective once filled out by the inspector.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ماذا يترتب على الفاحص في حال قدم معلومات غير متكلمة وتطلب العودة للموقع مره أخرى؟ ",
+        "TitleEn": "What are the consequences for the inspector if incomplete information is provided and a return visit is required?",
+        "ValueAr": "إذا استدعى الفحص زيارة أخرى للعقار نتيجة نقص البيانات المطلوبة، فتكون على نفقة الفاحص، ويتم تغريمه مبلغ 200 ريال.",
+        "ValueEn": "If the inspection requires another visit to the property due to incomplete data, it will be at the inspector's expense, and a 200 SAR fine will be imposed.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ماذا يترتب على الفاحص اثناء وجوده في الموقع؟ ",
+        "TitleEn": "What is required of the inspector while on-site?",
+        "ValueAr": "يجب على الفاحص انهاء الفحص بكامل عناصره ومتطلباته كل حسب تخصصه. | يجب على قائد الفريق تسمية جميع الفراغات المعمارية ليتسنى له ولباقي افراد الفريق الدخول الى النظام ووضع الملاحظات حسب الفراغ المعماري. | يجب رفع صور لكامل العناصر المفحوصة وقراءات الأجهزة. | يجب أن يبين الفاحص احترامه للعميل وعدم القيام بأي أعمال تتنافى مع القيم والمبادئ الأخلاقية. | يُمنع على الفاحص منح معلومات مباشرة من شأنها أن تدفع طالب الفحص إلى شراء أو العدول عن العقار مكان الفحص.",
+        "ValueEn": "The inspector must complete the inspection in full, covering all elements and requirements according to their specialty. | The team leader must name all architectural spaces to allow themselves and other team members to enter the system and make notes according to the architectural space. | Photos of all inspected elements and device readings must be uploaded. | The inspector must show respect to the client and refrain from any actions contrary to ethical values and principles. | The inspector is prohibited from providing direct information that may lead the inspection applicant to buy or refrain from buying the inspected property.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ما هو نظام الغرامات والاستبعاد؟ ",
+        "TitleEn": "What is the penalties and exclusion system?",
+        "ValueAr": "في حال عدم حضور الفاحص إلى موعد الفحص فيتم استبعاده من النظام وتطبيق مبلغ سند لأمر. | في حال تأخر الفاحص عن موعد الفحص مدة 5 - 10 دقائق، يتم تغريمه مبلغ 100 ريال. | في حال تأخر الفاحص عن موعد الفحص مدة تزيد عن 10 د وحتى 15 دقيقة، يتم تغريمه مبلغ 200 ريال. | عدم الحضور الكلي عن موعد الفحص يعني انسحاب الفاحص من النظام ويصبح السند لأمر الوارد في البند رقم 4 نافذ التطبيق. | إذا استدعى الفحص زيارة أخرى للعقار نتيجة نقص البيانات المطلوبة، فتكون على نفقة الفاحص، ويتم تغريمه مبلغ 200 ريال. | في حال عدم الالتزام بالزي الرسمي للفحص (فيزت حماية الرئيسي للمنشأة + بطاقة تعريف الفاحص)، فيتم تغريمه مبلغ 500 ريال تعود إلى العميل ومقتطعةً من قيمة فحصه. | حجب الاتصال بالأنترنت أو حجب تتبع الموقع ابتداءً من قبل وقت الفحص بنصف ساعة وحتى اكتمال الفحص بنصف ساعة يتم تغريم الفاحص مبلغ 200 ريال. | جميع المقتنيات التي يتم تسليمها إلى الفاحص هي في عهدته الشخصية، ويتم تطبيق قيمة التلف وفقاً لقيمته، مع تسجيل غرامة مقدارها 200 ريال لكل تلف. | في حال تجاوز الفاحص مقدار غرامات 1000 ريال، يتم استبعاده من النظام، ويصبح السند لأمر سند نافذ تطبيقه. | يتعهد الفاحص بعدم إفشاء أي معلومات تخص نظام العمل أو الأجهزة أو الآلية المتبعة في الفحص، أو أي معلومات متعلقة بالعملاء سواء أسماؤهم أو عناوينهم أو الحالة التي كانت عليها عقاراتهم، ويُغرّم مبلغ وقدره 50 ألف ريال إذا ثبت عكس ذلك. | يُمنع على الفاحص ترشيح مقاول، أو فني، أو كيان، أو من في حكمهم لأي من عملاء سبر، ويُغرّم مبلغ 50 ألف ريال إذا ثبت عكس ذلك.",
+        "ValueEn": "If the inspector does not attend the inspection appointment, they are excluded from the system and the promissory note amount is applied. | If the inspector is late for the inspection by 5-10 minutes, a 100 SAR fine is imposed. | If the inspector is late for the inspection by more than 10 minutes up to 15 minutes, a 200 SAR fine is imposed. | Complete absence from the inspection appointment means the inspector's withdrawal from the system and the promissory note in clause No. 4 becomes effective. | If the inspection requires another visit to the property due to incomplete data, it will be at the inspector's expense, and a 200 SAR fine will be imposed. | In case of non-compliance with the official inspection uniform (main facility protection vest + inspector's ID card), a 500 SAR fine is imposed, which goes to the client and is deducted from the inspection value. | Blocking internet access or location tracking starting half an hour before the inspection time until half an hour after the inspection is completed results in a 200 SAR fine. | All items handed over to the inspector are under their personal custody, and the value of damage is applied according to its value, with a fine of 200 SAR for each damage. | If the inspector's fines exceed 1000 SAR, they are excluded from the system, and the promissory note becomes effective. | The inspector undertakes not to disclose any information related to the work system, devices, inspection mechanism, or any information related to clients such as their names, addresses, or the condition of their properties, and a 50,000 SAR fine is imposed if proven otherwise. | The inspector is prohibited from recommending a contractor, technician, entity, or similar to any of Saber's clients, and a 50,000 SAR fine is imposed if proven otherwise.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ما هو نظام المحافظة على سرية المعلومات؟ ",
+        "TitleEn": "What is the information confidentiality system?",
+        "ValueAr": "يُمنع على الفاحص منح معلومات مباشرة من شأنها أن تدفع طالب الفحص إلى شراء أو العدول عن العقار مكان الفحص. | يتعهد الفاحص بعدم إفشاء أي معلومات تخص نظام العمل أو الأجهزة أو الآلية المتبعة في الفحص، أو أي معلومات متعلقة بالعملاء سواء أسماؤهم أو عناوينهم أو الحالة التي كانت عليها عقاراتهم، ويُغرّم مبلغ وقدره 50 ألف ريال إذا ثبت عكس ذلك.",
+        "ValueEn": "The inspector is prohibited from providing direct information that may lead the inspection applicant to buy or refrain from buying the inspected property. | The inspector undertakes not to disclose any information related to the work system, devices, inspection mechanism, or any information related to clients such as their names, addresses, or the condition of their properties, and a 50,000 SAR fine is imposed if proven otherwise.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل يمكن للفاحص العمل مع جهات فحص أخرى؟ ",
+        "TitleEn": "Can the inspector work with other inspection entities?",
+        "ValueAr": "يمكن للفاحص العمل مع جهات فحص أخرى بما لا يشكل تعارضًا مع مصالح انسبكترز والالتزام ببنود سرية المعلومات.",
+        "ValueEn": "The inspector can work with other inspection entities as long as it does not conflict with the interests of Inspectors and complies with the confidentiality terms.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "متى يتطلب حضور الفاحص لمقر الشركة؟ ",
+        "TitleEn": "When does the inspector need to attend the company's headquarters?",
+        "ValueAr": "لا يتطلب العمل تواجد أو حضور الفاحص لمقر الشركة الا اذا استدعى الامر عكس ذلك وتتحمل الشركة تكاليف التنقلات والإقامة.",
+        "ValueEn": "Work does not require the inspector's presence or attendance at the company's headquarters unless otherwise required, in which case the company covers the transportation and accommodation costs.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "ما هي الية التقييم الدورية للفاحصين؟ ",
+        "TitleEn": "What is the periodic evaluation mechanism for inspectors?",
+        "ValueAr": "يخضع الفاحصين لتقييم شهري يتضمن امتحانات الكترونية وتقييم لعدد وجودة الفحوصات المنجزة. | يتبع عملية الفحص تعديل (اما بالزيادة أول النقصان) على النسبة المستحقة على كل فحص. | يتم وضع أسماء الفاحصين العشرة الأوائل في كل شهر على شاشة النظام ويتم تقديم مبالغ مالية تقديرا لجهودهم.",
+        "ValueEn": "Inspectors undergo monthly evaluation, including electronic exams and assessment of the number and quality of completed inspections. | The inspection process is followed by adjusting (either increasing or decreasing) the percentage due for each inspection. | The names of the top ten inspectors each month are displayed on the system screen, and financial rewards are provided to appreciate their efforts.",
+        "FAQType": 3,
+        "IsFooter": false
+    },
+    {
+        "TitleAr": "هل يتحمل الفاحص تكاليف التنقلات من والى الفحص؟ ",
+        "TitleEn": "Does the inspector bear the costs of transportation to and from the inspection?",
+        "ValueAr": "تعتبر تكاليف التنقلات من والى الفحص من ضمن النسبة التي يأخذها الفاحص من كل عملية فحص.",
+        "ValueEn": "The costs of transportation to and from the inspection are included in the percentage that the inspector takes from each inspection.",
+        "FAQType": 3,
+        "IsFooter": false
+    }
 ]
