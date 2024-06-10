@@ -6,7 +6,7 @@ export async function POST(req: any, res: any) {
     let search = new URLSearchParams(Params.search)
 
     const model = Object.fromEntries(search.entries());
-    let profileID = process.env.profileID || ""
+    let NEXT_PUBLIC_profileID = process.env.NEXT_PUBLIC_profileID || ""
     let NEXT_PUBLIC_serverKey = process.env.NEXT_PUBLIC_serverKey || ""
     let region = process.env.region || ""
     const headersList = headers();
@@ -31,7 +31,7 @@ export async function POST(req: any, res: any) {
         response: `${process.env.NEXT_PUBLIC_apis}/payment/order/${data.id}`
     }
 
-    setConfig(profileID, NEXT_PUBLIC_serverKey, region, "clickpay");
+    setConfig(NEXT_PUBLIC_profileID, NEXT_PUBLIC_serverKey, region, "clickpay");
 
     let paymentMethods = ["all"];
     let transaction = { type: "sale", class: "ecom" };

@@ -23,7 +23,7 @@ let readmap: TypeReadmap[] = [
 // end config setup
 
 export default function Forms() {
-    console.log(process.env.NEXT_PUBLIC_serverKey);
+    console.log(process.env.NEXT_PUBLIC_serverKey, process.env.NEXT_PUBLIC_profileID);
     // let defaultPage = 3
     let [data, setData] = useState({})
     let [Content, setContent] = useState({})
