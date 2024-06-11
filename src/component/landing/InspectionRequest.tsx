@@ -19,7 +19,7 @@ export default function InspectionRequest() {
                     <div className="flex flex-col justify-between h-full">
                         <p className="lap:text-xl  tap:text-base text-sm lap:m-7 tap:m-5 m-2 font-medium">تجنب العديد من المشاكل التي تؤدي إلى زيادة مصاريف الصيانة, إرتفاع مستوى الخطر و غيرها من المخالفات عبر خدمة الكشف على العقار و احصل على تقرير مفصل لمساعدتك بإتخاذ قرار واضح و موثوق به.</p>
                         <div onMouseEnter={enter} onMouseLeave={leave} >
-                            <Btn title={"أطلب الخدمة الآن"} to={"/services/get"} className="bg-white lap:text-2xl tap:p-5 border-2 border-safety-700 font-bold tap:text-lg text-sm !justify-between  text-prussian-800 rounded-full m-4 hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end" >
+                            <Btn title={"أطلب الخدمة الآن"} to={"/get-service"} className="bg-white lap:text-2xl tap:p-5 border-2 border-safety-700 font-bold tap:text-lg text-sm !justify-between  text-prussian-800 rounded-full m-4 hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end" >
                                 <IconArrow className={'fill-prussian-800'} color={btnHover ? "#fff" : "#032DA6"} />
                             </Btn>
                         </div>

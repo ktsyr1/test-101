@@ -8,7 +8,7 @@
         "cover": "Slider.png",
         "btn": {
             "title": "إطلب الخدمة",
-            "to": "/services/get"
+            "to": "/get-service"
         },
         "timeLine": {
             "title": " تعرف على إنسبكتكس",
@@ -59,7 +59,7 @@
             "to": "#Consultation"
         },
         "timeLine": {
-            "title": "النصيحة بجمل, أما عنا فهي مجانا",
+            "title": "النصيحة بجمل, اما عندنا فهي مجانا",
             "about": "احصل على إستشارة مجانية مقابل كبسة زر"
         }
     }

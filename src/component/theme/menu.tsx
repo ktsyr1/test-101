@@ -50,7 +50,7 @@ function Row({ title, Icon, to, }: Row) {
         </Link>
     )
 }
- 
+
 let list = [
     {
         title: "عن الشركة",
@@ -79,6 +79,10 @@ let list = [
     }, {
         title: "الاسئلة الشائعة",
         to: "/FAQ",
+        Icon: "QAF.png"
+    }, {
+        title: "الاسئلة الشائعة",
+        to: "/surveies",
         Icon: "QAF.png"
     }
 ]

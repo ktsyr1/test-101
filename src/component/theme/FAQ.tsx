@@ -19,13 +19,15 @@ type FQA = {
 export async function GetFAQ() {
     // find cash
     let cashList: any = sessionStorage.getItem("ListFAQ")
+
     if (cashList) return JSON.parse(cashList)
-    else GetFatch("/Guest/FAQ")
-        .then(({ data }) => {
-            let testData = JSON.stringify(data)
-            sessionStorage.setItem("ListFAQ", testData)
-            return testData
-        })
+    else {
+
+        let { data } = await GetFatch("/Guest/FAQ")
+        let testData = JSON.stringify(data)
+        sessionStorage.setItem("ListFAQ", testData)
+        return data
+    }
 }
 
 export default function QA() {
@@ -33,7 +35,12 @@ export default function QA() {
     const pathname = usePathname()
     let [list, setList] = useState<FQA[]>([])
     useEffect(() => {
-        if (pathname != "/FAQ") GetFAQ().then(res => setList(res))
+        async function get() {
+            let res = await GetFAQ()
+            setList(res)
+        }
+        if (pathname != "/FAQ") get()
+
     }, [])
     let slug = {
         strategy: 1,

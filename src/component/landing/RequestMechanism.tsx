@@ -33,7 +33,7 @@ export default function RequestMechanism() {
                                 <Navigation />
                                 <ListLine />
                                 <div onMouseEnter={enter} onMouseLeave={leave} >
-                                    <Btn to={"#"} title=" أطلب الخدمة الآن" childSort="end" className="mt-12 border-2 border-safety-700 hover:bg-safety-700 hover:text-white hover:*:!fill-white  rounded-2xl bg-white text-prussian-800 " >
+                                    <Btn to={"/get-service"} title=" أطلب الخدمة الآن" childSort="end" className="mt-12 border-2 border-safety-700 hover:bg-safety-700 hover:text-white hover:*:!fill-white  rounded-2xl bg-white text-prussian-800 " >
                                         <IconArrow className={'mr-16'} color={btnHover ? "#fff" : "#032DA6"} />
                                     </Btn>
                                 </div>

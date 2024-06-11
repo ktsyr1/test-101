@@ -7,11 +7,20 @@ import { createContext, useContext, useState } from "react";
 type ThemeContextType = any | null
 
 const AppContext = createContext<ThemeContextType>({});
-
+/**
+ * مثال عن videoId
+ * https://youtu.be/2yuIByK7BSw
+ * videoId = 2yuIByK7BSw
+ */
+// (1) تغيير الرابط 
+// let videoId = "2yuIByK7BSw"
+// let link = `https://www.youtube-nocookie.com/embed/${videoId}?si=YmTGkrS1nwy-hg6v&amp;controls=0`
+let link = "https://drive.google.com/file/d/1YT411oe-7TOAG-TZfdkCchI3EWQa5wYm/preview"
+// (2) uncomment line 17    <Hero /> 
 export default function Aobut_us() {
     return (
         <div className="flex flex-col select-none">
-            {/* <Hero /> */}
+            <Hero />
             <div className="  flex items-center   max-w-[1360px]  max-w-[1000px]:m-4 m-auto tap:w-full   flex-col">
                 <Feature />
                 <SaveAndGet />
@@ -24,7 +33,7 @@ function Hero() {
     return (
         <_init_Hero className=" text-start !h-max " >
             <div className="m-auto my-10 *:rounded-3xl w-full flex justify-center">
-                <iframe className="tap:w-full h-[168px] max-w-[560px]  min-[700px]:h-72" src="https://www.youtube-nocookie.com/embed/2yuIByK7BSw?si=YmTGkrS1nwy-hg6v&amp;controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>            </div>
+                <iframe className="tap:w-full h-[168px] max-w-[560px]  min-[700px]:h-72" src={link} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>            </div>
         </_init_Hero>
     )
 }

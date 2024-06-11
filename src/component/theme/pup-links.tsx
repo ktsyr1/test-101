@@ -6,9 +6,6 @@ import SizeBox from "../size-box";
 import Image from "next/image";
 import { loaderProp } from "../lib";
 
-
-
-
 export default function PupLinks() {
 
     return (
@@ -23,7 +20,16 @@ export default function PupLinks() {
 function GoToTop() {
     let [loding, setLoding] = useState(false);
 
-    useEffect(() => setLoding(true))
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.pageYOffset <= 900) setLoding(false)
+            else setLoding(true)
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [])
     function toTop() {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }

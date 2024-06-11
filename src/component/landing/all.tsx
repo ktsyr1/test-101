@@ -1,19 +1,30 @@
 "use server"
 
 import axios from "axios"
-import GetFatch from "../froms/get"
-// import { useEffect, useState } from "react"
+import { cookies } from 'next/headers'
+async function GetData(token?: string): Promise<any> {
 
+    const cookieStore = cookies()
+    const all = cookieStore.getAll()
+    console.log(all);
+    let Cookie = `${all.map(a => `${a.name}=${a.value}; `)}`.replaceAll(" ,", " ")
+    let headers: any = { "Content-Type": "application/json", "Accept-Language": "ar-SA", Cookie }
+    console.log(headers);
+
+    return axios.get(`${process.env.NEXT_PUBLIC_API}/Guest/Counters`, { headers })
+        .then(({ data }) => data)
+        .catch((error: Function) => console.log(error))
+}
 export default async function AllCounters() {
-    let views = 0
-    let {data} = await GetFatch("/Guest/Counters")
+    let data = await GetData()
+    data = data?.data
 
     return (
         <div className=" max-w-[1000px] w-full">
             <div className="flex flex-row lap:max-w-[1000px] w-[80%] justify-between my-20 select-none px-3 m-auto">
-                <Counter name="عميل" conter={data.clientsCounter} />
-                <Counter name="تقرير" conter={data.assessmentsCounter} />
-                <Counter name="زائر" conter={data.visitsCounter} />
+                <Counter name="عميل" conter={data?.clientsCounter} />
+                <Counter name="تقرير" conter={data?.assessmentsCounter} />
+                <Counter name="زائر" conter={data?.visitsCounter} />
             </div>
         </div>
     )
