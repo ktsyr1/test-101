@@ -81,8 +81,8 @@ let list = [
         to: "/FAQ",
         Icon: "QAF.png"
     }, {
-        title: "الاسئلة الشائعة",
+        title: "الاستطلاع",
         to: "/surveies",
-        Icon: "QAF.png"
+        Icon: "surveies.png"
     }
 ]

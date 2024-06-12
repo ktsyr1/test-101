@@ -8,7 +8,7 @@ async function GetData(token?: string): Promise<any> {
     const all = cookieStore.getAll()
     console.log(all);
     let Cookie = `${all.map(a => `${a.name}=${a.value}; `)}`.replaceAll(" ,", " ")
-    let headers: any = { "Content-Type": "application/json", "Accept-Language": "ar-SA", Cookie }
+    let headers: any = { "Content-Type": "application/json", "Accept-Language": "ar-SA", "Cookie": Cookie }
     console.log(headers);
 
     return axios.get(`${process.env.NEXT_PUBLIC_API}/Guest/Counters`, { headers })

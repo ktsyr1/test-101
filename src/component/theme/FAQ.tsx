@@ -1,6 +1,6 @@
 "use client"
 import Btn from "../btns"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Icon from "../icons"
 import { usePathname } from 'next/navigation'
 import Link from "next/link"
@@ -109,8 +109,18 @@ type Asktype = {
 }
 export function Ask({ title, value }: Asktype) {
     let [open, setOpen] = useState(false)
-
-    function handleOpen() { setOpen(!open) }
+    let ef: any = useRef(null)
+    function handleOpen() {
+        console.log(["test", ef]);
+        setOpen(!open)
+        if (ef.current && ef.current.style) {
+            ef.current.style.maxHeight = open ? '0' : '500px';  // تعديل max-height
+            ef.current.style.overflow = 'hidden';
+            ef.current.style.transition = 'max-height 0.5s ease-in-out';
+            // ef.current.style.display = !open ? 'flex' : "none"
+            // ef.current.style.transition = 'display 5s ease-in-out';
+        }
+    }
     return (
         <div className="flex flex-col border-b-1 text-slate-700 w-full" >
             {/* ask */}
@@ -121,10 +131,11 @@ export function Ask({ title, value }: Asktype) {
             </div>
 
             {/* anser */}
-            <div className={`overflow-hidden transition-max-height duration-500 flex-col justify-between max-w-[90%]  text-xs  text-gray-500 font-medium tap:text-lg mt-2 ${!open ? "hidden max-h-0" : " max-h-screen flex transition-[height] ease-in-out delay-1000"}  `} style={{
-                transition: 'max-height 5s ease-in-out',
-                maxHeight: open ? '500px' : '0',
-            }}> {value} </div>
+            <div
+                ref={ef}
+                className={`overflow-hidden transition-max-height duration-500 flex-col justify-between max-w-[90%] text-xs text-gray-500 font-medium tap:text-lg mt-2 max-h-screen `}
+                style={{ maxHeight: '0', transition: 'max-height 0.5s ease-in-out' }}
+            > {value} </div>
         </div>
     )
 }
