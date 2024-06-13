@@ -4,7 +4,7 @@
         "list": [
             { "title": "عن الشركة", "to": "/about-us" },
             { "title": "خدماتنا", "to": "/services" },
-            { "title": "المدونة", "to": "/blog" },
+            { "title": "المدونة", "to": "/blogs" },
             { "title": "عن التطبيق", "to": "/about-app" },
             { "title": "التقديم لفرصة عمل", "to": "/jobs" }
         ]

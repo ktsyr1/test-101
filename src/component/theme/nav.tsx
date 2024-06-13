@@ -2,22 +2,14 @@
 import React from "react";
 import { IconHome, IconPlay } from "@/component/icons"
 import Link from "next/link";
-import Menu from "./menu";
+import Menu, { MenuData } from "./menu";
 import Logo from "../theme/logo1";
 import { usePathname } from "next/navigation";
 
 export default function Nav() {
 
-    let paths: any = {
-        "about-us": "من نحن",
-        "about-app": "حول التطبيق",
-        "services": "الخدمات",
-        "blog": "المدونة",
-        "jobs": "فرص العمل",
-        "join": "تقديم لفرصة عمل "
-    }
     const pathname: any = usePathname()
-    let pathArray = pathname?.split("/").filter((a: any) => a.length > 0)
+    let pathArray = MenuData.filter(a => pathname.includes(a.to))
 
     return (
         <nav className="flex flex-wrap fixed z-50 bg-opacity-83 select-none top-0 w-full justify-between border-b-2 border-solid border-orange-500 bg-gradient-to-b from-white via-white to-white  " style={{ backgroundImage: "linear-gradient(180deg, white, #ffffffbd)" }}>
@@ -34,7 +26,7 @@ export default function Nav() {
                     </Link>
                     {pathArray.length > 0 && <div className="flex flex-row items-center mx-6">
                         <IconPlay color={"#00A5A5"} className={'m-4 mx-6'} />
-                        <p className="text-sm font-bold text-slate-800">{paths[pathArray[0]]} </p>
+                        <p className="text-sm font-bold text-slate-800">{pathArray[0].title} </p>
                     </div>}
                 </div>
             </div>

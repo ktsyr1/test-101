@@ -31,6 +31,13 @@ export default function OurClientsTestimonials() {
     )
 }
 function Gallery({ data }: { data: OurClientsTestimonialsCardType }) {
+    let [more, setMore] = useState(225)
+
+    let body
+    if (data.content.length > 225) body = <p className="tap:py-8 py-4 lap:text-xl text-base w-full" onClick={() => setMore(1000)} dangerouslySetInnerHTML={{ __html: `${data.content.slice(0, more)}...<b>اقراء المزيد</b>` }} />
+    else if (data.content.length > 225) body = <p className="tap:py-8 py-4 lap:text-xl text-base w-full" onClick={() => setMore(1000)} dangerouslySetInnerHTML={{ __html: `${data.content.slice(0, more)}...<b>اقراء المزيد</b>` }} />
+    else body = <p className="tap:py-8 py-4 lap:text-xl text-base w-full" dangerouslySetInnerHTML={{ __html: data.content }} />
+
     return (
         <div className="flex mt-4 px-8 flex-col justify-center lap:flex-row tap:flex-col tap:justify-center ">
             <div className="flex justify-center">
@@ -43,7 +50,7 @@ function Gallery({ data }: { data: OurClientsTestimonialsCardType }) {
                     <h2 className="lap:px-4 text-xl font-bold text-safety-700  ml-10 ">{data.name}</h2>
                     <Rank data={data.rank} />
                 </div>
-                <p className="tap:py-8 py-4 lap:text-xl text-base w-full" dangerouslySetInnerHTML={{ __html: data.content }} />
+                {body}
             </div>
         </div>
     )

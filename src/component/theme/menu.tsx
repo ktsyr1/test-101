@@ -50,7 +50,6 @@ function Row({ title, Icon, to, }: Row) {
         </Link>
     )
 }
-
 let list = [
     {
         title: "عن الشركة",
@@ -62,7 +61,7 @@ let list = [
         Icon: "services.png"
     }, {
         title: "المدونة ",
-        to: "/blog",
+        to: "/blogs",
         Icon: "blog.png"
     }, {
         title: "فرصة عمل",
@@ -70,7 +69,7 @@ let list = [
         Icon: "job.png"
     }, {
         title: "إنضم إلى فريقنا",
-        to: "/join",
+        to: "/join-eng",
         Icon: "join.png"
     }, {
         title: "حول التطبيق",
@@ -86,3 +85,4 @@ let list = [
         Icon: "surveies.png"
     }
 ]
+export const MenuData = list

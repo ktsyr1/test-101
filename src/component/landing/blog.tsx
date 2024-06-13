@@ -23,7 +23,7 @@ export default function BlogPart() {
                         {/* {posts.map((post, i) => <BlogCard data={post} key={i} />)} */}
                     </div>
                     <div onMouseEnter={enter} onMouseLeave={leave} className="rounded-full w-full bg-white border-2 border-safety-700 flex lap:px-8 px-6 text-prussian-600 justify-between shadow-none max-w-[500px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white ">
-                        <Btn title="استكشف المدونة" to={`/blog`} className="rounded-full w-full flex  p-0 !m-0 text-prussian-600 justify-between shadow-none max-w-[500px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end"  >
+                        <Btn title="استكشف المدونة" to={`/blogs`} className="rounded-full w-full flex  p-0 !m-0 text-prussian-600 justify-between shadow-none max-w-[500px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end"  >
                             <IconArrow color={btnHover ? "#fff" : "#032DA6"} />
                         </Btn>
                     </div>
@@ -58,7 +58,7 @@ export function BlogCardBeta({ data }: any) {
                     <p className="lap:py-4 py-2 lap:text-sm text-xs font-medium text-slate-500 overflow-hidden text-overflow-ellipsis lap:h-[78px] h-[57px] ">{data.bio}</p>
                 </div>
                 <div onMouseEnter={enter} onMouseLeave={leave}>
-                    <Btn to={`/blog/${data.url}`} className="rounded-full border-2 border-safety-700 flex lap:px-8 px-6 text-prussian-600 justify-between shadow-none max-w-[400px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end" title="إقرأالمزيد" >
+                    <Btn to={`/blogs/${data.url}`} className="rounded-full border-2 border-safety-700 flex lap:px-8 px-6 text-prussian-600 justify-between shadow-none max-w-[400px] lap:text-xl text-base hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end" title="إقرأالمزيد" >
                         <IconArrow color={btnHover ? "#fff" : "#032DA6"} />
                     </Btn>
                 </div>
