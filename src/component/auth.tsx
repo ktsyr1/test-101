@@ -155,7 +155,9 @@ function SignUp({ route }: any) {
     const Register: SubmitHandler<any> = (res) => {
         setSe("جاري التسجيل ...")
         createFatch("/Authorization/Client/Register", res)
-            .then(({ data }) => {
+            .then((data) => {
+                console.log(data);
+
                 if (data?.code === 200) {
                     localStorage.setItem("userData", JSON.stringify(data?.data))
                     message.success('تم تسجيل الحساب')
@@ -180,14 +182,13 @@ function SignUp({ route }: any) {
 
 function OTP({ route }: any) {
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<any>()
+    const { register, handleSubmit } = useForm<any>()
     const Register: SubmitHandler<any> = (res) => {
-        let url = process.env.NEXT_PUBLIC_API
         let userData = JSON.parse(localStorage.getItem("userData") || 'null');
         if (userData) {
             let body = { userId: userData.userId, code: res.code }
             createFatch("/Authorization/EmailVerification", body)
-                .then(({ data }) => {
+                .then((data) => {
 
                     if (data.code === 200) {
                         localStorage.setItem("userData", JSON.stringify(data))
@@ -199,10 +200,14 @@ function OTP({ route }: any) {
     }
     const resendOTP = () => {
         message.info('جاري طلب كود جديد')
-        let url = process.env.NEXT_PUBLIC_API
         let userData = JSON.parse(localStorage.getItem("userData") || 'null');
-        if (userData) axios.post(`${url}/Authorization/ResendOTP`, { email: userData.createdBy })
-            .then(({ data }) => data.code === 200 ? message.success('تم طلب كود جديد') : message.error('حدث خطأ ما'))
+        if (userData) createFatch(`/Authorization/ResendOTP`, { email: userData.createdBy })
+            .then((data) => {
+                console.log({ data });
+
+                if (data?.code === 200) message.success('تم طلب كود جديد')
+                else message.error('حدث خطأ ما')
+            })
     }
     return (
         <form onSubmit={handleSubmit(Register)} className="w-full h-auto"  >

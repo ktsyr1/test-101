@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import SetupForms from "../setupForm";
 import { LayoutType, SubmitButtonProps, TypeReadmap } from "../types";
 import FormProfile from "./form-Profile";
@@ -88,5 +88,31 @@ export function Input({ text, name, type = "test", className, register, err, ...
             {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}
 
         </div>
+    )
+}
+
+
+export function Select({ list = [], title, name, set, className, err }: any) {
+    let m: any = useRef(null)
+
+    return (
+        <div className={`  ${className}`}>
+            <button onClick={(e: any) => m.current?.classList.toggle("hidden")} className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 lap:text-xl tap:text-sm text-xs font-medium text-center text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-white focus:ring-4 focus:outline-none focus:ring-gray-100 w-full rounded-lg`} type="button">
+                {title}
+            </button>
+            {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}
+
+            <ul ref={m} className="py-2 hidden text-sm text-gray-700 dark:text-gray-200 absolute bg-white   rounded-lg z-40 w-full max-w-[500px]">
+                {list?.map((a: any) => (
+                    <li key={a}>
+                        <button type="button" onClick={(() => {
+                            set(a);
+                            m.current?.classList.toggle("hidden")
+                        })} className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white items-center" > {a.text} </button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+
     )
 }

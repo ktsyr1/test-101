@@ -6,7 +6,6 @@ import Icon from '../../icons';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Cookies from "js-cookie"
-import createFatch from '../get';
 import GetFatch from '../get';
 
 type QualificationsTypes = {

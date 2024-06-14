@@ -6,13 +6,14 @@ async function GetData(token?: string): Promise<any> {
 
     const cookieStore = cookies()
     const all = cookieStore.getAll()
-    console.log(all);
     let Cookie = `${all.map(a => `${a.name}=${a.value}; `)}`.replaceAll(" ,", " ")
     let headers: any = { "Content-Type": "application/json", "Accept-Language": "ar-SA", "Cookie": Cookie }
-    console.log(headers);
-
     return axios.get(`${process.env.NEXT_PUBLIC_API}/Guest/Counters`, { headers })
-        .then(({ data }) => data)
+        .then(({ data }) => {
+
+            cookies().set("Counter", new Date().toUTCString())
+            data
+        })
         .catch((error: Function) => console.log(error))
 }
 export default async function AllCounters() {
