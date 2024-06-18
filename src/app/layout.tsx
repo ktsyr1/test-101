@@ -8,7 +8,7 @@ import FAQ from "@/component/theme/FAQ";
 import Landing from "@/component/loading";
 import { ApolloWrapper } from "./ApolloWrapper";
 import GoogleAnalytics from "@/component/other/GoogleAnalytics";
-import { useEffect } from "react";
+import "@/component/styles/style.css";
 
 const inter =
     localFont({
@@ -31,10 +31,7 @@ export const metadata: Metadata = {
 type Children = Readonly<{ children: React.ReactNode }>
 
 export default function RootLayout({ children }: Children) {
-    // useEffect(() => {
-        // console.log("analyzing layout...");
 
-    // }, [])
     return (
         <html lang="ar">
             <GoogleAnalytics />

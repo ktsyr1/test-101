@@ -107,6 +107,7 @@ module.exports = {
             },
             fontFamily: {
                 "text-s-medium": "var(--text-s-medium-font-family)",
+                'ds': ['DS_Digital' ]
             },
             boxShadow: {
                 "2xl": "var(--2xl)",

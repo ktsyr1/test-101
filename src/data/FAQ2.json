@@ -1,8 +1,8 @@
 [
     {
-        "TitleAr": "لماذا انسبكتكس؟",
+        "TitleAr": "لماذا إنسبكتكس؟",
         "TitleEn": "Why InspectX?",
-        "ValueAr": "تقدم انسبكتكس خدمة الفحص والتفتيش بأعلى معايير الجودة وحسب الأسس وأنظمة الفحص العالمية وفق استراتيجيات مدروسة لتقديم تقرير شامل يبين أوجه الفشل والضعف وكيفية علاجها والتكلفة التقريبية للعلاج.",
+        "ValueAr": "تقدم إنسبكتكس خدمة الفحص والتفتيش بأعلى معايير الجودة وحسب الأسس وأنظمة الفحص العالمية وفق استراتيجيات مدروسة لتقديم تقرير شامل يبين أوجه الفشل والضعف وكيفية علاجها والتكلفة التقريبية للعلاج.",
         "ValueEn": "InspectX provides inspection and inspection services to the highest quality standards, according to international inspection standards and systems, according to carefully studied strategies to provide a comprehensive report showing the aspects of failure and weakness and how to treat them and the approximate cost of treatment.",
         "FAQType": 2,
         "IsFooter": true
@@ -74,7 +74,7 @@
     {
         "TitleAr": "ما هي الضمانات على صحة نتائج الفحص؟",
         "TitleEn": "What guarantees are there on the accuracy of inspection results?",
-        "ValueAr": "تضمن انسبكتكس دقة المعلومات الموجودة في التقارير والمخرجات المقدمة وتقدم كافة التكاليف المادية المترتبة على أي خطأ وارد في تقاريرها ومن خلال شركات تأمين معتمدة.",
+        "ValueAr": "تضمن إنسبكتكس دقة المعلومات الموجودة في التقارير والمخرجات المقدمة وتقدم كافة التكاليف المادية المترتبة على أي خطأ وارد في تقاريرها ومن خلال شركات تأمين معتمدة.",
         "ValueEn": "InspecTech guarantees the accuracy of the information in the reports and outputs provided and covers all financial costs resulting from any errors in their reports through accredited insurance companies.",
         "FAQType": 2,
         "IsFooter": false
@@ -244,7 +244,7 @@
         "TitleEn": "How can complaints be submitted?",
         "FAQType": 2,
         "IsFooter": false,
-        "ValueAr": "يمكن التوجه لبوابة الشكاوى وتقديم أي شكوى سواء كانت قبل الفحص أو بعده كما تسعد وتتقبل انسبكتكس جميع الشكاوى والمقترحات لهدف تطوير وتحسين خدماتها. ",
+        "ValueAr": "يمكن التوجه لبوابة الشكاوى وتقديم أي شكوى سواء كانت قبل الفحص أو بعده كما تسعد وتتقبل إنسبكتكس جميع الشكاوى والمقترحات لهدف تطوير وتحسين خدماتها. ",
         "ValueEn": "You can visit the complaints portal and submit any complaint, whether before or after the inspection. Inspects welcomes and accepts all complaints and suggestions to improve and develop its services."
     },
     {
@@ -260,7 +260,7 @@
         "TitleEn": "Is there a commitment to appointments? Is there compensation in case of rescheduling the inspection appointment or delay in preparing the report?",
         "FAQType": 2,
         "IsFooter": false,
-        "ValueAr": "يحق لانسبكتكس تعديل الموعد في حال وجود امر طارئ وقبل 48 ساعة من موعد الفحص ويتم توضيح الأسباب للعميل ويتم ترتيب موعد جديد ويحق للعميل في هذه الحالة الغاء الموعد واسترداد كامل المبلغ المدفوع.",
+        "ValueAr": "يحق لإنسبكتكس تعديل الموعد في حال وجود امر طارئ وقبل 48 ساعة من موعد الفحص ويتم توضيح الأسباب للعميل ويتم ترتيب موعد جديد ويحق للعميل في هذه الحالة الغاء الموعد واسترداد كامل المبلغ المدفوع.",
         "ValueEn": "Inspectors have the right to reschedule the appointment in case of an emergency and up to 48 hours before the inspection appointment. The reasons are explained to the client, and a new appointment is arranged. In this case, the client has the right to cancel the appointment and receive a full refund."
     },
     {
@@ -332,7 +332,7 @@
         "TitleEn": "Can waterproofing and thermal insulation be inspected in residential buildings?",
         "FAQType": 1,
         "IsFooter": false,
-        "ValueAr": "تقوم انسبكتكس بفحص العزل المائي والحراري بأحدث الطرق التكنولوجية ولا يتطلب الفحص إتلاف أي عنصر من عناصر المبنى. ",
+        "ValueAr": "تقوم إنسبكتكس بفحص العزل المائي والحراري بأحدث الطرق التكنولوجية ولا يتطلب الفحص إتلاف أي عنصر من عناصر المبنى. ",
         "ValueEn": "Inspectors inspect waterproofing and thermal insulation using the latest technological methods, and the inspection does not require any element of the building to be damaged."
     },
     {
@@ -404,7 +404,7 @@
         "TitleEn": "Do I need an explanation of the report?",
         "FAQType": 2,
         "IsFooter": false,
-        "ValueAr": "تقوم انسبكتس بإعداد التقرير بلغة واضحة للجميع ولا يحتاج التقرير الى أي شرح. | تسعد انسبكتكس باستقبال الاستفسارات والأسئلة وتقديم أي شروحات من خلال الاتصال مع خدمة العملاء. ",
+        "ValueAr": "تقوم انسبكتس بإعداد التقرير بلغة واضحة للجميع ولا يحتاج التقرير الى أي شرح. | تسعد إنسبكتكس باستقبال الاستفسارات والأسئلة وتقديم أي شروحات من خلال الاتصال مع خدمة العملاء. ",
         "ValueEn": "Inspectors prepare the report in clear language for everyone, and the report does not need any explanation. | Inspectors are happy to receive inquiries and questions and provide any explanations through contacting customer service."
     },
     {
@@ -420,7 +420,7 @@
         "TitleEn": "Is there a pre-inspection survey?",
         "FAQType": 2,
         "IsFooter": false,
-        "ValueAr": "يمكن أن يقوم فريق من المهندسين بمعاينة المواقع التي تتطلب ذلك وحسب الشروط والمحددات التي تراها انسبكتكس.",
+        "ValueAr": "يمكن أن يقوم فريق من المهندسين بمعاينة المواقع التي تتطلب ذلك وحسب الشروط والمحددات التي تراها إنسبكتكس.",
         "ValueEn": "A team of engineers can conduct a survey of sites that require it, according to the terms and conditions set by Inspectors."
     },
     {
@@ -484,13 +484,13 @@
         "TitleEn": "Title Ar to En 1",
         "FAQType": 2,
         "IsFooter": false,
-        "ValueAr": "تنصح انسبكتكس بطلب خدمة الفحص قبل الشراء لتشاركك القرار في عملية الشراء وتحديد نقاط الفشل والضعف. | يفضل أن يتم الاتفاق مع البائع بشرط إعادة العربون إذا ما تبين من تقرير انسبكتس أن العقار يتوافق مع متطلبات الكود السعودي للبناء. ",
+        "ValueAr": "تنصح إنسبكتكس بطلب خدمة الفحص قبل الشراء لتشاركك القرار في عملية الشراء وتحديد نقاط الفشل والضعف. | يفضل أن يتم الاتفاق مع البائع بشرط إعادة العربون إذا ما تبين من تقرير انسبكتس أن العقار يتوافق مع متطلبات الكود السعودي للبناء. ",
         "ValueEn": "ValueArToEN[0] | ValueArToEN[1] |"
     },
     {
         "TitleAr": " كيف يمكنني التواصل معكم؟ ",
         "TitleEn": "How can I contact you?",
-        "ValueAr": "تسعد انسبكتكس بتلقي رسائلكم من خلال ايقونة الدردشة أسفل الشاشة أو من خلال قنواتها الرقمية الموجودة في بوابة اتصل بنا أو من خلال الاتصال على رقم هاتف خدمة العملاء.",
+        "ValueAr": "تسعد إنسبكتكس بتلقي رسائلكم من خلال ايقونة الدردشة أسفل الشاشة أو من خلال قنواتها الرقمية الموجودة في بوابة اتصل بنا أو من خلال الاتصال على رقم هاتف خدمة العملاء.",
         "ValueEn": "InspectX is pleased to receive your messages through the chat icon at the bottom of the screen or through its digital channels available in the contact us portal or by calling the customer service phone number.",
         "FAQType": 2,
         "IsFooter": false

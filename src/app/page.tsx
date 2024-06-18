@@ -3,7 +3,7 @@ import BlogAll from "@/component/blog/home";
 import InspectionRequest from "@/component/landing/InspectionRequest";
 import OurClientsTestimonials from "@/component/landing/OurClientsTestimonials";
 import RequestMechanism from "@/component/landing/RequestMechanism";
-import AllCounters from "@/component/landing/all";
+import AllCounters from "@/component/landing/AllCounters";
 import Consultation from "@/component/landing/consultation";
 import JobsPart from "@/component/landing/jobs";
 import Services from "@/component/landing/services";

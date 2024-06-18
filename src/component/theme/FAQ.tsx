@@ -131,11 +131,14 @@ export function Ask({ title, value }: Asktype) {
             </div>
 
             {/* anser */}
-            <div
+            <ul
                 ref={ef}
                 className={`overflow-hidden transition-max-height duration-500 flex-col justify-between max-w-[90%] text-xs text-gray-500 font-medium tap:text-lg mt-2 max-h-screen `}
                 style={{ maxHeight: '0', transition: 'max-height 0.5s ease-in-out' }}
-            > {value} </div>
+            >
+
+                {value.split(" | ").map(a => <li style={{ listStyle: 'inside' }} key={a}>{a}</li>)}
+            </ul>
         </div>
     )
 }

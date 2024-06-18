@@ -73,7 +73,7 @@ let getData = async ({ cat, q }: any) => {
         if (q) query = { query: Search, variables: { search: q } }
         else if (cat) query = { query: postsBycat, variables: { slug: cat } }
         else query = { query: allposts }
-        return await getClient().query({ ...query})
+        return await getClient().query({ ...query, fetchPolicy: "no-cache" })
     } catch (error) {
         return { data: { posts: [] } }
     }
