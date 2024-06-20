@@ -31,7 +31,7 @@ export default function BlogCard({ data, type }: any) {
                         <p className="text-white bg-teal-700 p-2 row-auto w-min px-8 rounded-md  font-medium text-sm">{cat[0].name}</p>
                     </div>
                     <b className="text-safety-700 lap:text-2xl text-lg font-extrabold lap:mt-8 mt-6 ">{data.title}</b>
-                    <p className="lap:py-4 py-2 lap:text-base text-xs font-medium text-slate-500 overflow-hidden text-overflow-ellipsis lap:h-[66px] h-[57px] ">{data.excerpt}</p>
+                    <p className="lap:py-4 py-2 lap:text-base text-xs font-medium text-slate-500 overflow-hidden text-overflow-ellipsis lap:h-[66px] h-[57px] " dangerouslySetInnerHTML={{ __html: data.excerpt }} />
                     <p className="pt-4 lap:text-sm text-xs font-semibold w-full text-end text-prussian-500">{data.date.split("T")[0]}</p>
                 </div>
                 <div onMouseEnter={enter} onMouseLeave={leave}>

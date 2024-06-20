@@ -1,7 +1,8 @@
 "use server"
 import { Content, ToBlogs } from "@/component/blog/cards";
 import { getClient } from '@/graphql/Apollo-client'
-import gql from "graphql-tag";
+import gql from "graphql-tag"
+
 let allposts = gql`
     query Posts {  
         posts(first: 3) {
@@ -33,6 +34,7 @@ let allposts = gql`
         }
     }
 `
+
 let getData = async () => {
     try {
         return await getClient().query({ query: allposts })

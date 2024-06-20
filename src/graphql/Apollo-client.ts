@@ -20,11 +20,35 @@ const defaultOptions: DefaultOptions = {
 }
 
 export const { getClient } = registerApolloClient(() => {
-    return new ApolloClient({
-        // cache: new InMemoryCache({resultCacheMaxSize:0}),
-        link: new HttpLink({ uri: process.env.NEXT_PUBLIC_GraphQL, }),
+    return new ApolloClient({ 
+        link: new HttpLink({
+            uri: process.env.NEXT_PUBLIC_GraphQL,
+            fetchOptions: { cache: 'no-store' }
+        }),
 
         cache: new InMemoryCache({}),
         defaultOptions: defaultOptions,
     });
+});
+
+const client = new ApolloClient({
+    link: new HttpLink({
+        uri: 'https://your-graphql-endpoint.com/graphql',
+        // يمكنك تعطيل الكاش بإزالة InMemoryCache أو وضع سياسة الكاش لتجنب استخدام الكاش
+
+    }),
+    cache: new InMemoryCache({
+        typePolicies: {
+            Query: {
+                fields: {
+                    yourQueryFieldName: {
+                        // تعطيل الكاش لهذا الاستعلام
+                        read(_, { args, toReference }) {
+                            return undefined; // اجعل Apollo يتجاهل الكاش لهذا الاستعلام
+                        }
+                    }
+                }
+            }
+        }
+    })
 });

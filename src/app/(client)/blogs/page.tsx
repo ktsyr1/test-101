@@ -1,88 +1,12 @@
-"use server"
-import { Content, SearchBlog } from "@/component/blog/cards";
-import Hero from "@/component/hero";
-import { getClient } from '@/graphql/Apollo-client'
-import gql from "graphql-tag";
-import Link from "next/link";
-let cats = `
-categories {
-    nodes {
-        name
-        slug
-    }
-}
-`
-let post = ` 
-    nodes { 
-        title
-        date
-        slug
-        excerpt
-        author {
-            node {
-                name
-                avatar {
-                    url
-                }
-            }
-        }
-        categories {
-            nodes {
-                name
-                slug
-            }
-        }
-        featuredImage {
-            node { 
-                mediaItemUrl
-            }
-        }
-    } 
-`
-let allposts = gql`
-    query Posts { 
-        ${cats} 
-        posts {
-            ${post} 
-        }
-    }
-`
-let postsBycat = gql`
-    query postsBycat($slug: ID!) {
-        ${cats}
-        category(idType: SLUG, id: $slug) {
-            posts {
-                ${post} 
-            }
-        }
-    }
-
-`
-let Search = gql`
-    query Search( $search: String  ) {
-        ${cats}
-        posts(where: { search: $search}) {
-            ${post} 
-        }
-    }
-`
-let getData = async ({ cat, q }: any) => {
-
-    try {
-        let query: any
-        if (q) query = { query: Search, variables: { search: q } }
-        else if (cat) query = { query: postsBycat, variables: { slug: cat } }
-        else query = { query: allposts }
-        return await getClient().query({ ...query, fetchPolicy: "no-cache" })
-    } catch (error) {
-        return { data: { posts: [] } }
-    }
-}
-
+'use server'
+import Hero from "@/component/hero"
+import { getAllPosts } from "./query"
+import Link from "next/link"
+import { Content, SearchBlog } from "@/component/blog/cards"
 
 export default async function BlogAll({ searchParams: { cat, q } }: any) {
 
-    const { data }: any = await getData({ cat, q })
+    const { data }: any = await getAllPosts({ cat, q })
     let categories = data.categories?.nodes
     let posts: any //= !cat ? data.posts.nodes : 
     if (q) posts = data.posts.nodes
@@ -101,7 +25,6 @@ export default async function BlogAll({ searchParams: { cat, q } }: any) {
             <div className="flex  flex-col  items-center text-sm justify-between   max-w-[1360px] m-auto my-8 w-[90%] tap:w-[80%]">
                 <SearchBlog />
                 <div className="flex flex-row items-center overflow-x-scroll tap:overflow-hidden w-full my-8 select-none">
-
                     <Link href={`/blogs`} className={`py-2 bg-slate-100 tap:text-sm text-sx  border-2 border-slate-100 cursor-pointer ${!cat ? "!text-white !bg-safety-700" : "hover:text-safety-700  hover:border-safety-700 "} font-medium rounded-md px-4 mx-2 text-nowrap`}> الكل</Link>
                     {categories
                         ?.map((a: any) => <Link
