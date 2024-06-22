@@ -23,7 +23,7 @@ export default function BlogCard({ data, type }: any) {
             <img src={data?.featuredImage?.node?.mediaItemUrl} loading="lazy" alt={data.title} className={` rounded-t-3xl min-h-[200px] bg-slate-100 border-safety-700 w-full rounded-b-none card/w-[50%] ${type === CardType.full ? "w-[50%] rounded-l-3xl border-safety-700 border-r" : "rounded-t-3xl border-safety-700 border-b"}`} />
             <div className={`flex flex-col max-h-[432px] ${type === CardType.full ? "mt-[60px]" : ""} `}>
                 <div className="flex flex-col mt-[-40px] mx-8">
-                    <img src={author?.avatar.url} alt={author.avatar.name} loading="lazy" className="rounded-full w-16 min-h-16" />
+                    <img src={author?.avatar.url} alt={`صورة ${author.avatar.name}`} loading="lazy" className="rounded-full w-16 min-h-16" />
                     <b className="text-prussian-500 py-4 font-semibold lap:text-base text-sm">{author.name}</b>
                 </div>
                 <div className="flex flex-col p-4 pb-0">

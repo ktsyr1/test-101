@@ -5,7 +5,6 @@ import { cookies } from 'next/headers'
 import { Counter } from "./AllCountersClient"
 
 async function GetData(): Promise<any> {
-
     const cookieStore = cookies()
     const all = cookieStore.getAll()
     let Cookie = `${all.map(a => `${a.name}=${a.value}; `)}`.replaceAll(" ,", " ")
