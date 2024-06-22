@@ -53,10 +53,10 @@ export function Content({ data }: any) {
                 <div className=" flex flex-col items-center justify-center  w-full ">
                     {/* <BlogCard data={posts[0]} type={CardType.full} /> */}
                     <div className="flex flex-wrap items-center justify-center">
-                        {data.length == 0 && <div className="flex flex-wrap items-center justify-center min-h-[200px]" > لا تتوفر نتائج  </div>}
+                        {data?.length == 0 && <div className="flex flex-wrap items-center justify-center min-h-[200px]" > لا تتوفر نتائج  </div>}
                         {data?.slice(0, limit).map((post: any) => <BlogCard data={post} key={post?.title} />)}
                     </div>
-                    {data.length > 3 && <button type="button" className="flex flex-row text-safety-700 justify-center text-base font-semibold items-center mt-9" onClick={() => setLimit(limit + 3)} >
+                    {data?.length > 3 && <button type="button" className="flex flex-row text-safety-700 justify-center text-base font-semibold items-center mt-9" onClick={() => setLimit(limit + 3)} >
                         <p>المزيد من المقالات</p>
                         <Icon.arrowDown className={`border-2 rounded-full border-safety-700 mx-4 w-8 h-8 p-1 `} color={"#FF5C00"} />
                     </button>}
