@@ -4,7 +4,7 @@ const nextConfig = {
         unoptimized: true,
     },
     cacheMaxMemorySize: 0,
-    distDir: 'build',
+    // distDir: 'build',
     experimental: {
         taint: true,
         serverActions: {
