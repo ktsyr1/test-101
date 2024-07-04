@@ -25,7 +25,7 @@ export default function FormEducation() {
     const [study, setStudy] = useState<QualificationsTypes>();
     const [nextPart, setNextPart] = useState(false);
 
-    let [options, setOptions] = useState<QualificationsTypes[]>([])
+    let [options, setOptions] = useState<any>([])
     useEffect(() => {
 
         let token: any = Cookies.get("userToken")
@@ -37,33 +37,17 @@ export default function FormEducation() {
     }, [data])
     const { register, handleSubmit, watch, formState: { errors }, }: any = useForm<FieldType>()
 
-    const onChange = () => {
-        let MemberShip = watch("MemberShip")
-        let YearsOfExperience = watch("MemberShip")
-
-        if (MemberShip?.length > 3 && YearsOfExperience > 0) {
-            if (study && study?.value) {
-                setNextPart(true);
-            }
-            else setNextPart(false)
-        } else setNextPart(false)
-
-    }
 
     const onSubmit = () => {
         let NewData = { MemberShip: watch("MemberShip"), YearsOfExperience: watch("YearsOfExperience"), QualificationId: study?.value }
-        if (nextPart) {
+        if (NewData?.QualificationId) {
             setData({ ...data, ...NewData })
             let slug = NextPage(select)
             setSelect(slug)
         }
     }
     function BtnsBol({ a }: any) {
-        const setS = () => {
-            setStudy(a);
-            onChange()
-        }
-
+        const setS = () => setStudy(a)
         return (
             <button type="button" onClick={setS}
                 className={`w-full items-center rounded-md max-w-[300px] my-2 p-4 ml-10 bg-white flex flex-row justify-between ${study?.text == a.text && "!bg-prussian-800 text-white"}`}
@@ -75,31 +59,39 @@ export default function FormEducation() {
     }
     return (
 
-        <form onChange={onChange} className='flex flex-col' onSubmit={handleSubmit(onSubmit)}
+        <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}
         >
             <div className="flex tap:flex-row flex-col w-full mt-20">
                 <div className="flex flex-col mx-4 w-full">
                     <p className="text-xl  font-bold text-prussian-800 my-2"> رقم عضوية هيئة المهندسين</p>
-                    <input defaultValue="" {...register("MemberShip", { require: "الحقل اجباري", minLength: 3 })} className='w-full p-2 rounded-md ml-4 ' minLength={3} placeholder=' أدخل رقم العضوية' />
+                    <input {...register("MemberShip", {
+                        require: "الحقل اجباري",
+                        minLength: { value: 6, message: "رقم العضوية يجب أن يكون 6 أحرف" },
+                        maxLength: { value: 6, message: "رقم العضوية يجب أن يكون 6 أحرف" }
+                    })} className='w-full p-2 rounded-md ml-4 ' minLength={3} placeholder=' أدخل رقم العضوية' />
                     <p className='p-4 text-red-600'>{errors?.MemberShip?.message?.toString() || ""}</p>
 
                 </div>
                 <div className="flex flex-col mx-4  w-full">
                     <p className="text-xl  font-bold text-prussian-800 my-2">عدد سنوات الخبرة</p>
-                    <input  {...register("YearsOfExperience", { require: "الحقل اجباري", max: 50 })} type='number' className='w-full p-2 rounded-md  ' minLength={3} placeholder='0' max={50} defaultValue={defaultData.YearsOfExperience} />
+                    <input  {...register("YearsOfExperience", { require: "الحقل اجباري", max: 50 })} type='number' className='w-full p-2 rounded-md ' minLength={3} placeholder='0' max={50} defaultValue={defaultData.YearsOfExperience} />
                     <p className='p-4 text-red-600'>{errors?.YearsOfExperience?.message?.toString() || ""}</p>
 
                 </div>
             </div>
-            <div className=" flex flex-col tap:flex-row justify-center my-6 tap:flex-wrap" onClick={onChange} >
-                {options?.map((a: any, i: any) => <BtnsBol a={a} key={i} />)}
+            <div className="flex flex-col mx-4 w-full">
+                <p className="text-xl  font-bold text-prussian-800 my-2"> التخصص العلمي</p>
+
+                <div className=" flex flex-col tap:flex-row justify-center my-6 tap:flex-wrap" >
+                    {options.length > 0 ? options?.map((a: any, i: any) => <BtnsBol a={a} key={i} />) : <p>جاري التحميل ...</p>}
+                </div>
             </div>
 
-            <SubmitButton active={nextPart && true} >التالي</SubmitButton>
+            <SubmitButton >التالي</SubmitButton>
         </form>
     );
 }
 
-export function SubmitButton({ children, onClick, className, active }: TypeBtn) {
-    return <input type="submit" className={`text-center rounded-md max-w-[600px] text-white w-full m-auto p-2 bg-[#6B7B8F] ${className} ${active == true ? "!bg-safety-700 cursor-pointer " : ""}`} onClick={onClick} value={children} disabled={!active} />
+export function SubmitButton({ children }: any) {
+    return <input type="submit" className={`text-center rounded-md max-w-[600px] text-white w-full m-auto p-2 !bg-safety-700 cursor-pointer  `} value={children} />
 }

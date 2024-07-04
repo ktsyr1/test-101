@@ -10,7 +10,7 @@ import { message } from 'antd';
 import axios from 'axios';
 // ------------------------------------------ 
 let clean = {
-    "projectDate": "3-5-2024",
+    "projectDate": "1-1-2024",
     "startTime": "08:12:00.0000000",
     "endTime": "10:35:00.0000000",
 }
@@ -124,6 +124,7 @@ function LastPage({ state, dispatch }: any) {
 
             createFatch("/Client/Assessment", model, token)
                 .then((res: any) => {
+
                     if (res.code === 500) message.error("هناك خطاء تاكد من معلوماتك")
                     else {
                         JsCookies.set("PromoCode", model?.promoCode)

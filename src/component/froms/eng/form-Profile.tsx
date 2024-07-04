@@ -15,7 +15,7 @@ export default function FormProfile() {
     let { select, setSelect } = useContext(FormContext)
     const [HasRelatives, setHasRelatives] = useState(null);
 
-    const { register, handleSubmit } = useForm({ defaultValues: defaultData });
+    const { register, handleSubmit, watch, formState: { errors } }: any = useForm<any>({ defaultValues: defaultData });
 
     let [cities, setCities] = useState<any>([])
     useEffect(() => {
@@ -25,8 +25,7 @@ export default function FormProfile() {
         else if (process.env.NEXT_PUBLIC_ENV === "production")
             axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`)
                 .then(({ data }) => setCities(data?.data))
-
-    }, [data])
+    }, [])
     const onSubmit = (values: any) => {
 
         let firstname = values.firstname
@@ -53,7 +52,7 @@ export default function FormProfile() {
             <div className="flex flex-col w-full tap:mt-20 mt-10">
                 <div className="flex tap:flex-row flex-col  w-full">
                     <div className='flex flex-col my-4 w-full ml-2'>
-                        <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">إسم المدينة </p>
+                        <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4"> المدينة </p>
                         <Select
                             className='w-full'
                             list={cities}
@@ -68,14 +67,23 @@ export default function FormProfile() {
                     <Input text="إسم العائلة" name="lastName" register={register} required />
 
                 </div>
-                <p className="text-xl  font-bold text-prussian-800 my-2">    هل لديك اقارب</p>
+                <p className="text-xl  font-bold text-prussian-800 my-2"> هل لديك اقارب يعملون في INSPECTEX ؟</p>
                 <div className=" flex flex-row my-6" >
                     {[true, false].map((a, i) => <BtnsBol a={a} key={i} v={HasRelatives} set={setHasRelatives} />)}
                 </div>
                 {HasRelatives &&
                     <div className="flex tap:flex-row flex-col  w-full">
                         <Input text="اسم شخص القريب" name="RelativeName" register={register} required />
-                        <Input text="هاتف القريب" name="RelativePhone" register={register} required />
+                        {/* <Input text="هاتف القريب" name="RelativePhone" register={register} required /> */}
+                        <div className={`flex flex-col my-4 w-full `}>
+                            <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">هاتف القريب</p>
+                            <input type="tel"  {...register('RelativePhone', {
+                                required: 'يرجى إدخال رقم الهاتف',
+                                pattern: { value: /^05\d{8}$/, message: 'الرجاء إدخال رقم صحيح بالصيغة 05XXXXXXXX' },
+                            })} className='p-2 ml-4 rounded-md' />
+                            {errors["RelativePhone"] && <p className="text-red-600 my-4">{errors["RelativePhone"]?.message}</p>}
+
+                        </div>
                     </div>}
             </div>
             <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />

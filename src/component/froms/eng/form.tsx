@@ -85,8 +85,7 @@ export function Input({ text, name, type = "test", className, register, err, ...
         <div className={`flex flex-col my-4 w-full ${className}`}>
             <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">{text}</p>
             <input type={type} {...register(name)} className='p-2 ml-4 rounded-md' {...props} />
-            {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}
-
+            {err?.text && <p className='p-4 text-red-600'>{err.text}</p>} 
         </div>
     )
 }
@@ -102,7 +101,7 @@ export function Select({ list = [], title, name, set, className, err }: any) {
             </button>
             {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}
 
-            <ul ref={m} className="py-2 hidden text-sm text-gray-700 dark:text-gray-200 absolute bg-white   rounded-lg z-40 w-full max-w-[500px]">
+            <ul ref={m} className=" max-h-[500px] overflow-y-scroll py-2 hidden text-sm text-gray-700 dark:text-gray-200 absolute bg-white   rounded-lg z-40 w-full max-w-[500px]">
                 {list?.map((a: any) => (
                     <li key={a}>
                         <button type="button" onClick={(() => {

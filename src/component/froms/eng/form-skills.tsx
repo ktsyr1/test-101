@@ -18,6 +18,7 @@ export default function FormSkills() {
     const [dane, setDane] = useState(false)
     const [valid, setValid] = useState(false)
     let [Files, setFile] = useState(true)
+    let [SendBtn, setSendBtn] = useState(" تقديم الطلب")
     const { register, handleSubmit, formState: { errors }, watch } = useForm({ defaultValues: data })
     const onSubmit = (res: any) => {
         if (!Files && typeof IsFullTime === "boolean" && PassingCourse && typeof Picture !== "undefined") {
@@ -41,7 +42,7 @@ export default function FormSkills() {
             formData.append('Files', new Blob([res?.Files], { type: 'application/pdf' }), `CV${new Date().getTime()}.pdf`);    // Files
             formData.append('Picture', new Blob([res.Picture], { type: 'image/*' }), `Picture-${new Date().getTime()}.jpeg`);       // Picture 
             let token: any = Cookies.get("userToken")
-
+            setSendBtn("جاري تقديم الطلب")
             if (process.env.NEXT_PUBLIC_ENV == "development")
                 createInvester({ data: { formData } })
                     .then(RES => {
@@ -55,6 +56,7 @@ export default function FormSkills() {
                         setDane(true)
                         message.success("تم ارسال الطلب بنجاح")
                     })
+            setSendBtn(" تقديم الطلب")
 
         }
     }
@@ -146,10 +148,9 @@ export default function FormSkills() {
                         </>
                     }
 
-
                     <div className='flex justify-center'>
                         {nextPart
-                            ? <input type='submit' className={`text-center rounded-md max-w-[600px] text-white w-full m-auto p-2 ${valid ? "!bg-safety-700 " : "bg-[#6B7B8F] "}`} value={"إنهاء تقديم الطلب"} disabled={!valid} />
+                            ? <input type='submit' className={`text-center rounded-md max-w-[600px] text-white w-full m-auto p-2 ${valid ? "!bg-safety-700 " : "bg-[#6B7B8F] "}`} value={SendBtn} disabled={!valid} />
                             : <SubmitButton active={PassingCourse === true && typeof IsFullTime === "boolean"} onClick={() => setNextPart(true)}  >التالي</SubmitButton>
                         }
                     </div>
@@ -167,7 +168,22 @@ export function SubmitButton({ children, onClick, className, active }: TypeBtn) 
 function Dane() {
     return (
         <div className='font-semibold h-full tap:min-h-[300px] min-h-[200px]  mt-32 text-center text-prussian-800 text-xl'>
-            <p>نشكرك على تقديم سيرتك الذاتية، وسنتصل بك قريبًا لتحديد موعد للمقابلة.</p>
+
+            <svg width="65" height="65" viewBox="0 0 65 65" fill="none" className='m-auto my-4' xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_112_15605)">
+                    <path d="M32.5427 62.3406C48.8469 62.3406 62.064 49.1235 62.064 32.8193C62.064 16.5152 48.8469 3.2981 32.5427 3.2981C16.2386 3.2981 3.02148 16.5152 3.02148 32.8193C3.02148 49.1235 16.2386 62.3406 32.5427 62.3406Z" fill="#4FC262" />
+                    <path d="M32.5427 64.8193C14.8993 64.8193 0.542725 50.4652 0.542725 32.8193C0.542725 15.176 14.8993 0.819336 32.5427 0.819336C50.1886 0.819336 64.5427 15.176 64.5427 32.8193C64.5427 50.4652 50.1886 64.8193 32.5427 64.8193ZM32.5427 5.77671C17.6308 5.77671 5.5001 17.9075 5.5001 32.8193C5.5001 47.7312 17.6308 59.862 32.5427 59.862C47.4546 59.862 59.5854 47.7287 59.5854 32.8193C59.5854 17.9075 47.4546 5.77671 32.5427 5.77671Z" fill="#4FC262" />
+                    <path d="M28.6759 44.5931C28.0117 44.5931 27.3771 44.3279 26.9086 43.852L17.7622 34.5569C16.8029 33.5802 16.8153 32.0137 17.7919 31.052C18.7686 30.0952 20.3376 30.1051 21.2968 31.0817L28.6041 38.5079L43.7217 21.8585C44.6462 20.8447 46.2128 20.7729 47.2216 21.69C48.2353 22.6096 48.3097 24.1761 47.3901 25.1924L30.5102 43.7825C30.0517 44.2881 29.4072 44.5806 28.7256 44.5955C28.7082 44.5931 28.6933 44.5931 28.6759 44.5931Z" fill="#F5F6F8" />
+                </g>
+                <defs>
+                    <clipPath id="clip0_112_15605">
+                        <rect width="64" height="64" fill="white" transform="translate(0.542725 0.819336)" />
+                    </clipPath>
+                </defs>
+            </svg>
+            <b className='text-3xl text-green-600 py-8' >تهانينا!</b>
+
+            <p className='my-6'>نشكرك على تقديم سيرتك الذاتية، وسنتصل بك قريبًا لتحديد موعد للمقابلة.</p>
         </div>
     )
 }
