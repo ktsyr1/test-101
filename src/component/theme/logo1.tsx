@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { IconLogo } from "../icons"
-import { Rect } from 'react-native-svg';
+import { IconLogo } from "../icons" 
 
 type props = {
     size?: any,
