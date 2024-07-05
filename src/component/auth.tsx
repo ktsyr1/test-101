@@ -147,7 +147,7 @@ function Login({ userType = 2, route, required }: any) {
                 </div>
             </div>
 
-            <p className="text-safety-700 w-full text-end cursor-pointer" onClick={() => route("ForgotPassword")}>هل نسيت كلمة المرور؟</p>
+            {/* <p className="text-safety-700 w-full text-end cursor-pointer" onClick={() => route("ForgotPassword")}>هل نسيت كلمة المرور؟</p> */}
             {err && <p className="text-red-600 mb-4">{err}</p>}
             <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg`} value={se} />
         </form>

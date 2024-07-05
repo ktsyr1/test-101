@@ -10,7 +10,7 @@ import Image from "next/image"
 let sochalmedia = [
     { Icon: Icon.linkedin, to: "https://www.linkedin.com/company/inspectex-sa/" },
     { Icon: Icon.x, to: "https://twitter.com/Inspectex_sa" },
-        { Icon: Icon.instagram, to: "https://www.instagram.com/inspectex_sa" },
+    { Icon: Icon.instagram, to: "https://www.instagram.com/inspectex_sa" },
     { Icon: Icon.Snapchat, to: "https://www.snapchat.com/add/inspectex_sa" },
     { Icon: Icon.tiktok, to: "https://www.tiktok.com/@inspectex" },
 ]
@@ -55,7 +55,7 @@ export default function Footer() {
                         <Icon.applePay />
                     </div>
                     <div className="w-[50px] h-[50px] flex items-center justify-center">
-                        <Image src={"/images/Mada_Logo.png"} width={50} height={50} alt="" />
+                        <Icon.mada />
                     </div>
 
                 </Col>
@@ -69,8 +69,8 @@ export default function Footer() {
                 <Logo size={"260"} type="arOrange" />
             </div>
             <div className="flex flex-row m-auto p-4 font-semibold" style={{ direction: 'ltr' }} >
-            <p>Company MAAIER AL-BANNA AL-HADITHA For Inspections </p>
-        </div>
+                <p>Company MAAIER AL-BANNA AL-HADITHA For Inspections </p>
+            </div>
             <C_Dev_andDes />
         </footer >
     )
