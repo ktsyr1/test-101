@@ -55,7 +55,7 @@ export default function Footer() {
                         <Icon.applePay />
                     </div>
                     <div className="w-[50px] h-[50px] flex items-center justify-center">
-                        <Icon.mada />
+                        <Icon.mada /> 
                     </div>
 
                 </Col>
