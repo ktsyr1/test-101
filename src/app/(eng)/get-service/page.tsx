@@ -10,7 +10,7 @@ export default async function GetService() {
         <div className="flex flex-col justify-center items-center">
             <div className="h-[100px] w-full bg-slate-100" />
             <div className=" w-full flex flex-col   items-center max-w-[1200px] p-4 tap:max-w-[90%] ">
-                <div className="mt-4  bg-white">
+                <div className="mt-4  bg-white w-full mx-auto flex justify-center flex-col items-center">
                     <div className=" flex items-center w-full max-w-[1360px]     flex-col">
                         <div className="flex flex-col items-center m-auto w-[90%] my-20 " >
                             <div className="flex tap:flex-row flex-col justify-between w-full mb-8 items-center" >

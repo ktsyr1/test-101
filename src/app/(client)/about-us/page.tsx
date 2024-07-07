@@ -4,19 +4,21 @@ import Icon from "@/component/icons";
 import Logo from "@/component/theme/logo1";
 import data from "@/data/about.json"
 import ListClients from "@/data/ListClients.json"
-import { Clients, Expertise, Hero, HowCard } from "@/component/about-us";
+import { ChairmanSpeech, Clients, Expertise, Hero, HowCard } from "@/component/about-us";
 import { useState } from "react";
 
 export default function Aobut_us() {
     return (
         <div className="flex flex-col">
             <Hero />
+            <ChairmanSpeech />
             <How />
             <Clients list={ListClients} />
             <Expertise />
         </div>
     )
 }
+
 
 type OpenType = "mony" | "ma3" | "tech";
 

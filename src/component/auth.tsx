@@ -211,7 +211,7 @@ function SignUp({ route }: any) {
             </div>
             <Field title="الجوال" type="tel" {...register('phoneNumber', {
                 required: 'يرجى إدخال رقم الهاتف',
-                pattern: { value: /^05\d{8}$/, message: 'الرجاء إدخال رقم صحيح بالصيغة 05XXXXXXXX' },
+                pattern: { value: /^05\d{8}$/, message: 'يرجى التأكد من رقم الجوال' },
 
                 validate: (value: any) => !isNaN(Number(value)) || 'الرجاء إدخال أرقام فقط'
             })} />

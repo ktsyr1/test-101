@@ -66,8 +66,8 @@ export default function FormEducation() {
                     <p className="text-xl  font-bold text-prussian-800 my-2"> رقم عضوية هيئة المهندسين</p>
                     <input {...register("MemberShip", {
                         require: "الحقل اجباري",
-                        minLength: { value: 6, message: "رقم العضوية يجب أن يكون 6 أحرف" },
-                        maxLength: { value: 6, message: "رقم العضوية يجب أن يكون 6 أحرف" }
+                        minLength: { value: 6, message: "يرجى التأكد من رقم العضوية" },
+                        maxLength: { value: 6, message: "يرجى التأكد من رقم العضوية" }
                     })} className='w-full p-2 rounded-md ml-4 ' minLength={3} placeholder=' أدخل رقم العضوية' />
                     <p className='p-4 text-red-600'>{errors?.MemberShip?.message?.toString() || ""}</p>
 

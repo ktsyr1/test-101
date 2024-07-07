@@ -12,6 +12,7 @@ import { useDraggable } from "react-use-draggable-scroll";
 export default function Aobut_us() {
     return (
         <div className="flex flex-col">
+            <ChairmanSpeech />
             <Hero />
             <How />
             <Clients />
@@ -35,6 +36,36 @@ export function Hero() {
                 </div>
             </div>
         </_init_Hero>
+    )
+}
+
+
+
+export function ChairmanSpeech() {
+    return (
+        <div className="my-10 bg-white flex justify-center  tap:w-[80%] mx-auto items-center w-full max-w-[1360px]  m-auto   ">
+            <div className=" items-center max-w-[1360px]  p-4 tap:rounded-[50px]  rounded-[35px] tap:w-full flex flex-col  w-[90%]">
+                <div className="flex flex-row items-center m-auto w-[90%] tap:my-10 my-4" >
+                    <Logo type="semple" className={"tap:p-[10px]  p-[15px]"} />
+                    <h1 className="  text-start lap:text-6xl tap:text-4xl text-2xl w-full  font-bold text-safety-700 tap:mr-10 leading-loose tracking-tight">كلمة رئيس مجلس الإدارة </h1>
+                </div>
+                <div className="flex lap:flex-row items-center w-[90%] flex-col-reverse ">
+                    <div className="*:font-semibold text-xl p-4 w-[90%]">
+                        <p className="*:font-semibold text-xl">
+                            لسنا مجرد منشأة مقدمة للخدمات فحسب؛ بل نطمح على المدى البعيد أن نكون الوجهة الأولى التي تساعد على النمو واتخاذ القرارات السليمة والتي تُفيد متخذي القرار من الكيانات والمؤسسات والمنظمات المختلفة بالإضافة إلى الأفراد لتحقيق أهدافهم؛ وذلك من خلال فريق عمل متمكن ومتعاون بيدركم<span className="italic text-safety-700"> بأعين لا ترى إلا الحقيقة والمصداقية في العمل</span>، فكل فرد في طاقم عملنا لديه الشغف ليكون شريكاً فعّالاً يقدر أفكاركم وأطروحات إبداعية تكسب ثقتكم ووفاء عملائكم. كل هذا لنتلاكنكم بوثائق فنية عقارية (مبتكرة) ومتفردة في كل مشروع نعمل عليه!
+                        </p>
+                        <p>
+                            نعتمد على تقديم خدمة مميزة، شاملة ومفصلة تليق بشركائنا تُرضي الطموحات وتذخر الأهداف المستقبيلة لهم. سنقوم بتقييم جميع العقبات والمشاكل بُشرح جميع الأطروحات المناسبة وبذلك نضمن أفضل النتائج بما يفيد أهدافهم المستقبلية.
+                        </p>
+                    </div>
+                    <div className="flex flex-col justify-center items-center text-xl font-bold max-w-[200px]">
+                        <img src={"/images/ChairmanSpeech.png"} className={"lap:w-56"} alt="" loading="lazy" />
+                        <p className="text-slate-500">رئيس مجلس الإدارة</p>
+                        <p className="text-blue-900">سلطــان الأحمــدي</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 

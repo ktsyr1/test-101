@@ -79,7 +79,7 @@ export default function FormProfile() {
                             <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">هاتف القريب</p>
                             <input type="tel"  {...register('RelativePhone', {
                                 required: 'يرجى إدخال رقم الهاتف',
-                                pattern: { value: /^05\d{8}$/, message: 'الرجاء إدخال رقم صحيح بالصيغة 05XXXXXXXX' },
+                                pattern: { value: /^05\d{8}$/, message: 'يرجى التأكد من رقم الجوال' },
                             })} className='p-2 ml-4 rounded-md' />
                             {errors["RelativePhone"] && <p className="text-red-600 my-4">{errors["RelativePhone"]?.message}</p>}
 

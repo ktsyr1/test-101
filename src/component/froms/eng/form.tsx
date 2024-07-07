@@ -101,7 +101,7 @@ export function Select({ list = [], title, name, set, className, err }: any) {
             </button>
             {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}
 
-            <ul ref={m} className=" max-h-[500px] overflow-y-scroll py-2 hidden text-sm text-gray-700 dark:text-gray-200 absolute bg-white   rounded-lg z-40 w-full max-w-[500px]">
+            <ul ref={m} className=" max-h-[250px] overflow-y-scroll py-2 hidden text-sm text-gray-700 dark:text-gray-200 absolute bg-white   rounded-lg z-40 w-full max-w-[500px]">
                 {list?.map((a: any) => (
                     <li key={a}>
                         <button type="button" onClick={(() => {
