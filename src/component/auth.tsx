@@ -35,14 +35,13 @@ export default function AuthApp({ userType = 2, required }: any) {
         if (mode === "login") return <Login route={setMode} required={required} />
         if (mode === "Register") return <SignUp route={setMode} />
         if (mode === "OTP") return <OTP route={setMode} />
-        if (mode === "ForgotPassword") return <ForgotPassword route={setMode} />
         else return <></>
     }
 
     if (loading) return <></>
     else return (
         <AuthContext.Provider value={authContext}>
-            <div className="max-w-[400px] m-auto p-4 mb-16 mt-16 flex flex-col j min-h-[500px] shadow-lg rounded-2xl" >
+            <div className="max-w-[400px] m-auto p-4 mb-16 mt-16 flex flex-col j min-h-[500px] w-full shadow-lg rounded-2xl" >
                 <Logo type="ar" className={"m-auto "} />
                 <h1 className="text-3xl font-bold text-center my-4 text-safety-700  " >{title[mode]}</h1>
                 <View />
@@ -147,7 +146,7 @@ function Login({ userType = 2, route, required }: any) {
                 </div>
             </div>
 
-            {/* <p className="text-safety-700 w-full text-end cursor-pointer" onClick={() => route("ForgotPassword")}>هل نسيت كلمة المرور؟</p> */}
+            <a href="/auth/forgot-fassword" className="text-safety-700 w-full text-end cursor-pointer"  >هل نسيت كلمة المرور؟</a>
             {err && <p className="text-red-600 mb-4">{err}</p>}
             <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg`} value={se} />
         </form>
@@ -267,59 +266,6 @@ function OTP({ route }: any) {
     )
 }
 
-function ForgotPassword({ route }: any) {
-
-    const { register, handleSubmit } = useForm<any>()
-    const Register: SubmitHandler<any> = (res) => {
-        let userData = JSON.parse(localStorage.getItem("userData") || 'null');
-        if (userData) {
-            let body = { userId: userData.userId, code: res.code }
-            // createFatch("/Authorization/EmailVerification", body)
-            //     .then((data) => {
-
-            //         if (data.code === 200) {
-            //             localStorage.setItem("userData", JSON.stringify(data))
-            //             message.success('تم التحقق من الايميل')
-            //             route("login")
-            //         } else message.error("كود التحقق من الايميل غير صالح")
-            //     })
-        }
-    }
-    const resendOTP = () => {
-        message.info('جاري طلب كود جديد')
-        let userData = JSON.parse(localStorage.getItem("userData") || 'null');
-        if (userData) createFatch(`/Authorization/ResendOTP`, { email: userData.createdBy })
-            .then((data) => {
-                console.log({ data });
-
-                if (data?.code === 200) message.success('تم طلب كود جديد')
-                else message.error('حدث خطأ ما')
-            })
-    }
-    const [seconds, setSeconds] = useState(3);
-
-    useEffect(() => {
-        if (seconds > 0) {
-            const intervalId = setInterval(() => {
-                setSeconds(prevSeconds => prevSeconds - 1);
-            }, 1000);
-
-            return () => clearInterval(intervalId); // Clean up the interval on component unmount
-        }
-    }, [seconds]);
-    return (
-        <form onSubmit={handleSubmit(Register)} className="w-full h-auto"  >
-            <Field title="الايميل" placeholder="123123" {...register("email")} type="email" />
-            {/* /Authorization/ResendOTP */}
-            <p>يمكنك اعادة الطلب  {seconds > 0 ? `بعد ${seconds} ثانية` : "الان"} </p>
-            <div className="flex flex-row justify-between">
-
-                <button className={`!w-full border border-safety-700 my-6 text-safety-700 hover:shadow-lg p-2 text-center font-bold rounded-lg ml-4`} onClick={resendOTP} disabled={seconds == 0}>طلب كود جديد  </button>
-                <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg`} value="تحقق  " />
-            </div>
-        </form>
-    )
-}
 const Field = forwardRef((props: any, ref) => {
     return (
         <div>

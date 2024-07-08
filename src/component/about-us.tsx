@@ -38,12 +38,11 @@ export function Hero() {
         </_init_Hero>
     )
 }
-
-
+ 
 
 export function ChairmanSpeech() {
     return (
-        <div className="my-10 bg-white flex justify-center  tap:w-[80%] mx-auto items-center w-full max-w-[1360px]  m-auto   ">
+        <div className="my-10 lap:my-15 bg-white flex justify-center  tap:w-[80%] mx-auto items-center w-full max-w-[1360px]  m-auto   ">
             <div className=" items-center max-w-[1360px]  p-4 tap:rounded-[50px]  rounded-[35px] tap:w-full flex flex-col  w-[90%]">
                 <div className="flex flex-row items-center m-auto w-[90%] tap:my-10 my-4" >
                     <Logo type="semple" className={"tap:p-[10px]  p-[15px]"} />
