@@ -8,13 +8,11 @@ import Logo from "@/component/theme/logo1";
 import Cookies from "js-cookie"
 import { useRouter } from "next/navigation";
 // Create a context for the authentication state
-export const AuthContext = createContext({});
 /* This code snippet defines a functional component called `LoginApp` in TypeScript with React. Here's
 a breakdown of what the code is doing: */
 
 export default function ForgotPassword({ userType = 2, required }: any) {
 
-    const authContext = useContext(AuthContext);
     type TitleType = "SendEmail" | "ReCode" | "NewPassword"
     let [mode, setMode] = useState<TitleType>("SendEmail")
     let [loading, setLoading] = useState(false)
@@ -36,13 +34,11 @@ export default function ForgotPassword({ userType = 2, required }: any) {
 
     if (loading) return <></>
     else return (
-        <AuthContext.Provider value={authContext}>
-            <div className="max-w-[400px] mt-20 m-auto p-4 mb-16   flex flex-col j min-h-[500px] w-full shadow-lg rounded-2xl" >
-                <Logo type="ar" className={"m-auto "} />
-                <h1 className="text-3xl font-bold text-center my-4 text-safety-700  " >{title[mode]}</h1>
-                <View />
-            </div>
-        </AuthContext.Provider>
+        <div className="max-w-[400px] mt-20 m-auto p-4 mb-16   flex flex-col j min-h-[500px] w-full shadow-lg rounded-2xl" >
+            <Logo type="ar" className={"m-auto "} />
+            <h1 className="text-3xl font-bold text-center my-4 text-safety-700  " >{title[mode]}</h1>
+            <View />
+        </div>
     )
 }
 
