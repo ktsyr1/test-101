@@ -55,7 +55,7 @@ export default function Footer() {
                         <Icon.applePay />
                     </div>
                     <div className="w-[50px] h-[50px] flex items-center justify-center">
-                        <Icon.mada /> 
+                        <Icon.mada />
                     </div>
 
                 </Col>
@@ -69,9 +69,12 @@ export default function Footer() {
                 <Logo size={"260"} type="arOrange" />
             </div>
             <div className="flex flex-row m-auto p-4 font-semibold" style={{ direction: 'ltr' }} >
+                <p>All rights reserved to INSPECTEX</p>
+            </div>
+            {/* <div className="flex flex-row m-auto p-4 font-semibold" style={{ direction: 'ltr' }} >
                 <p>Company MAAIER AL-BANNA AL-HADITHA For Inspections </p>
             </div>
-            <C_Dev_andDes />
+            <C_Dev_andDes /> */}
         </footer >
     )
 }
