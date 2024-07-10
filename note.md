@@ -1,80 +1,160 @@
-260601965
-
-{
-  "projectTitle": "string",
-  "projectImage": "string",
-  "realEstateTypeId": 0,
-  "workAreaId": 0,
-  "realEstateMunicipal": "string",
-  "realEstateNumber": "string",
-  "realEstateStreet": "string",
-  "longitude": "string",
-  "latitude": "string",
-  "projectDate": "string",
-  "description": "string",
-  "startTime": "string",
-  "endTime": "string",
-  <!-- "realEstateAgesId": 0, -->
-  "numberOfFloors": 0,
-  <!-- "buildingArea": 0, -->
-  "additionalFieldsValue": [
-    {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "value": "string"
+```js
+let data = {
+    req:{
+        "projectTitle": "Testing End",
+        "projectImage": "data:image/png;base64,iVBORw0KGgoAAAANSUh...",
+        "realEstateTypeId": 1,
+        "workAreaId": 2,
+        "realEstateMunicipal": "qweqwe",
+        "realEstateNumber": "123",
+        "realEstateStreet": "123213",
+        "longitude": "0",
+        "latitude": "0",
+        "projectDate": "2024-07-15",
+        "startTime": "21:30:00.0000000",
+        "endTime": "13:00:00.0000000",
+        "description": "12312",
+        "promoCode": "",
+        "realEstateAgesId": 2,
+        "numberOfFloors": 123,
+        "buildingArea": 1231,
+        "projectObjectives": [{ "assessmentObjectivesId": 2 }],
+        "additionalFieldsValue": [
+            { "id": "8d640e91-a215-41e7-b5e4-08dc61472637", "value": "12"}
+        ]
+    },
+    req2:{
+        "projectTitle": "Testing End",
+        "projectImage": "data:image/png;base64,iVBORw0KGgoAAAANS...",
+        "realEstateTypeId": 1,
+        "workAreaId": 1,
+        "realEstateMunicipal": "qweqwe",
+        "realEstateNumber": "123",
+        "realEstateStreet": "123213",
+        "longitude": "0",
+        "latitude": "0",
+        "projectDate": "2024-07-15",
+        "startTime": "21:30:00.0000000",
+        "endTime": "13:00:00.0000000",
+        "description": "12312",
+        "promoCode": "",
+        "realEstateAgesId": 3,
+        "numberOfFloors": 123,
+        "buildingArea": 1231,
+        "projectObjectives": [
+            {
+                "assessmentObjectivesId": 2
+            }
+        ],
+        "additionalFieldsValue": [
+            {
+                "id": "e9e7cc06-4a33-4ef0-6f77-08dc5cbdad73",
+                "value": "ewr"
+            },
+            {
+                "id": "3f376abd-b113-4311-19d7-08dc6d270f0d",
+                "value": "ewr"
+            }
+        ]
     }
-  ],
-  <!-- "projectObjectives": [ -->
-    {
-      "assessmentObjectivesId": 0
+    res:{ 
+        "status": true,
+        "data": {
+            "addAssessments": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "userId": "00000000-0000-0000-0000-000000000000",
+                "projectTitle": "",
+                "projectImageUrl": "",
+                "realEstateTypeId": 0,
+                "workAreaId": 0,
+                "realEstateMunicipal": null,
+                "realEstateNumber": null,
+                "realEstateStreet": null,
+                "longitude": null,
+                "latitude": null,
+                "projectDate": "0001-01-01",
+                "startTime": "00:00:00",
+                "endTime": "00:00:00",
+                "description": null,
+                "realEstateAgesId": 0,
+                "numberOfFloors": 0,
+                "buildingArea": 0,
+                "promoCode": null,
+                "additionalFieldsValue": null,
+                "projectObjectives": null,
+                "assessmentIssues": null
+            },
+            "assessmentPayment": {
+                "assessmentId": "00000000-0000-0000-0000-000000000000",
+                "promoCodeId": 0,
+                "discountPercent": 0,
+                "subtotal": null,
+                "promoCodePrice": null,
+                "discountPrice": null,
+                "totalAmount": null,
+                "serviceTax": null,
+                "tax": null,
+                "netTotal": null
+            }
+        },
+        "messages": null,
+        "code": 200
+    },
+    res2: {
+        "status": true,
+        "data": {
+            "addAssessments": {
+                "id": "a51c9904-1279-4a3f-af54-e8726e7a304d",
+                "userId": "8d640e91-a215-41e7-b5e4-08dc61472637",
+                "projectTitle": "Testing End",
+                "projectImageUrl": "/Uploaded/Projects/72d5f3da-6f28-4040-851d-5d7d043cc884.png",
+                "realEstateTypeId": 1,
+                "workAreaId": 1,
+                "realEstateMunicipal": "qweqwe",
+                "realEstateNumber": "123",
+                "realEstateStreet": "123213",
+                "longitude": "0",
+                "latitude": "0",
+                "projectDate": "2024-07-15",
+                "startTime": "21:30:00",
+                "endTime": "13:00:00",
+                "description": "12312",
+                "realEstateAgesId": 3,
+                "numberOfFloors": 123,
+                "buildingArea": 1231,
+                "promoCode": "",
+                "additionalFieldsValue": [
+                    {
+                    "id": "e9e7cc06-4a33-4ef0-6f77-08dc5cbdad73",
+                    "value": "ewr"
+                    },
+                    {
+                    "id": "3f376abd-b113-4311-19d7-08dc6d270f0d",
+                    "value": "ewr"
+                    }
+                ],
+                "projectObjectives": [
+                    {
+                    "assessmentObjectivesId": 2
+                    }
+                ],
+                "assessmentIssues": null
+            },
+            "assessmentPayment": {
+                "assessmentId": "a51c9904-1279-4a3f-af54-e8726e7a304d",
+                "promoCodeId": 1,
+                "discountPercent": 0,
+                "subtotal": 18344.5,
+                "promoCodePrice": 0,
+                "discountPrice": 0,
+                "totalAmount": 18344.5,
+                "serviceTax": 0,
+                "tax": 2751.675,
+                "netTotal": 21096.175
+            }
+        },
+        "messages": null,
+        "code": 200
     }
-  ]
 }
-
-{
-  status: true,
-  data: {
-    tran_ref: 'TST2413500130071',
-    previous_tran_ref: null,
-    tran_type: 'Sale',
-    cart_id: '5d370220-86d7-4230-9511-d9dcbf0ce188',    
-    cart_description: 'دفع تكاليف الخدمة للمشروع : Testing End',
-    cart_currency: 'SAR',
-    cart_amount: '5750.00',
-    tran_currency: 'SAR',
-    tran_total: '5750.00',
-    callback: null,
-    return: null,
-    redirect_url: null,
-    customer_details: {
-      name: 'Qotayba Mohammad',
-      email: '0f76e31016@emailbbox.pro',
-      phone: '70723177',
-      street1: '123213',
-      city: 'Dammam',
-      state: '04',
-      country: 'SA',
-      zip: null,
-      ip: '213.204.71.118'
-    },
-    payment_result: {
-      response_status: 'C',
-      response_code: '321',
-      response_message: 'Cancelled',
-      transaction_time: '2024-05-14T15:30:22Z'
-    },
-    payment_info: {
-      payment_method: null,
-      card_type: null,
-      card_scheme: 'Unknown',
-      payment_description: 'No Payment',
-      expiryMonth: null,
-      expiryYear: null
-    },
-    serviceId: '2',
-    profileId: '43906',
-    merchantId: '3256',
-    trace: 'PMNT0301.66438392.0004AE82'
-  },
-  messages: 'The payment has been completed successfully.',
-  code: 200
-}
+```

@@ -14,7 +14,7 @@ export default function Home() {
 
     return (
         <div className="flex  flex-col items-center justify-between">
-            {/* <Sliders />
+            <Sliders />
             <AllCounters />
             <Services />
             <RequestMechanism />
@@ -22,7 +22,7 @@ export default function Home() {
             <JobsPart />
             <BlogAll />
             <OurClientsTestimonials />
-            <Consultation /> */}
+            <Consultation />
         </div>
     );
 }
