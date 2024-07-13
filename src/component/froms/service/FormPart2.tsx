@@ -70,10 +70,10 @@ const FormParrt2 = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 '  >
+        <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 flex flex-col'  >
 
-            <div className='flex tap:flex-row flex-col m-4 p-4 justify-between'>
-                <Field title="منطقة العمل" className='flex flex-col w-full  ml-6 min-w-[300px] '>
+            <div className='flex tap:flex-row flex-col justify-between'>
+                <Field title="منطقة العمل" className='flex flex-col w-full min-w-[300px] '>
                     <Select
                         list={state.WorkAreas}
                         title={state?.WorkAreas?.filter((A: any) => A?.value === state.defaultData.workAreaId)[0]?.text || "منطقة العمل"}
@@ -84,16 +84,18 @@ const FormParrt2 = () => {
                 {/* <Input text="صورة العقار" name="projectImage" type='file' accept="image/*" register={register} onChange={setProjectImage} err={state?.err?.projectImage} /> */}
             </div>
 
-            <div className='flex tap:flex-row flex-col p-4'>
+            <div className='flex tap:flex-row flex-col'>
                 <Input text="اسم المشروع" name="projectTitle" register={register} err={state?.err?.projectTitle} />
-                <Input text="الحي" name="realEstateMunicipal" className="mr-4" register={register} err={state?.err?.realEstateMunicipal} />
+                <div className='h-0 w-4' ></div>
+                <Input text="الحي" name="realEstateMunicipal" register={register} err={state?.err?.realEstateMunicipal} />
             </div>
-            <div className='flex tap:flex-row flex-col m-4 p-4'>
+            <div className='flex tap:flex-row flex-col'>
                 <Input text="رقم العقار" name="realEstateNumber" type="number" register={register} err={state?.err?.realEstateNumber} />
+                <div className='h-0 w-4' ></div>
                 <Input text="اسم الشارع " name="realEstateStreet" register={register} err={state?.err?.realEstateStreet} />
             </div>
 
-            <div className='flex flex-col m-4 p-4' >
+            <div className='flex flex-col' >
                 <p className="lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">وصف إضافي</p>
                 <textarea
                     className="!w-full  min-h-[50px] rounded-md p-2"
@@ -121,7 +123,7 @@ const FormParrt2 = () => {
             </div>
 
             {/* <AdditionalFieldsValue page={2} /> */}
-            <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
+            <input type='submit' value="التالي" className='p-2 my-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
             <br />
         </form >
     );

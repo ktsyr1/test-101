@@ -37,7 +37,7 @@ export default function FormEducation() {
         const setS = () => setStudy(a)
         return (
             <button type="button" onClick={setS}
-                className={`w-full items-center rounded-md max-w-[300px] my-2 p-4 ml-10 bg-white flex flex-row justify-between ${study?.text == a.text && "!bg-prussian-800 text-white"}`}
+                className={`w-full items-center rounded-md max-w-[240px] my-2 p-4 ml-4 bg-white flex flex-row justify-between ${study?.text == a.text && "!bg-prussian-800 text-white"}`}
             >
                 <p>{a.text} </p>
                 {study?.value == a.value ? <Icon.okBorder /> : <Icon.c01 size={20} />}
@@ -49,7 +49,7 @@ export default function FormEducation() {
         <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}
         >
             <div className="flex tap:flex-row flex-col w-full mt-20">
-                <div className="flex flex-col mx-4 w-full">
+                <div className="flex flex-col  w-full">
                     <p className="text-xl  font-bold text-prussian-800 my-2"> رقم عضوية هيئة المهندسين</p>
                     <input {...register("MemberShip", {
                         require: "الحقل اجباري",
@@ -59,14 +59,15 @@ export default function FormEducation() {
                     <p className='p-4 text-red-600'>{errors?.MemberShip?.message?.toString() || ""}</p>
 
                 </div>
-                <div className="flex flex-col mx-4  w-full">
+                <div className='h-0 w-4' ></div>
+                <div className="flex flex-col w-full">
                     <p className="text-xl  font-bold text-prussian-800 my-2">عدد سنوات الخبرة</p>
                     <input  {...register("YearsOfExperience", { require: "الحقل اجباري", max: 50 })} type='number' className='w-full p-2 rounded-md ' minLength={3} placeholder='0' max={50} defaultValue={defaultData.YearsOfExperience} />
                     <p className='p-4 text-red-600'>{errors?.YearsOfExperience?.message?.toString() || ""}</p>
 
                 </div>
             </div>
-            <div className="flex flex-col mx-4 w-full">
+            <div className="flex flex-col  w-full">
                 <p className="text-xl  font-bold text-prussian-800 my-2"> التخصص العلمي</p>
 
                 <div className=" flex flex-col tap:flex-row justify-center my-6 tap:flex-wrap" >

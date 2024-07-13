@@ -50,7 +50,7 @@ const FormPropertyData = () => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
             <div className='flex tap:flex-row flex-col'>
-                <Field title="نوع العقار" className='flex flex-col w-full m-4 '>
+                <Field title="نوع العقار" className='flex flex-col w-full '>
                     <Select
                         selector={selector}
                         name={"RealEstatType"}
@@ -61,8 +61,8 @@ const FormPropertyData = () => {
                         err={error?.realEstateTypeId}
                     />
                 </Field>
-
-                <Field title="  العمر التقريبي للعقار" className='flex flex-col w-full m-4 '>
+                <div className='h-0 w-4' ></div>
+                <Field title="  العمر التقريبي للعقار" className='flex flex-col w-full'>
                     <Select
                         selector={selector}
                         name={"RealEstatAges"}
@@ -76,7 +76,7 @@ const FormPropertyData = () => {
 
             </div>
 
-            <Field title="اهداف المشروع" className='flex flex-col w-full mx-4 '>
+            <Field title="اهداف المشروع" className='flex flex-col w-full '>
                 <Select
                     selector={selector}
                     name={"ProjectObjectives"}
@@ -88,13 +88,14 @@ const FormPropertyData = () => {
                     err={error?.projectObjectives}
                 />
             </Field>
-            <div className='flex tap:flex-row flex-col m-4 p-4'>
+            <div className='flex tap:flex-row flex-col '>
                 <Input text="عدد الطوابق" name="numberOfFloors" type="number" register={register} err={error?.numberOfFloors} />
+                <div className='h-0 w-4' ></div>
                 <Input text="مسطحات البناء المسقوفة ( م²)" name="buildingArea" type="number" register={register} err={error?.buildingArea} />
             </div>
             {/* <AdditionalFieldsValue page={1} /> */}
 
-            <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
+            <input type='submit' value="التالي" className='p-2 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
             <br />
         </form >
     );

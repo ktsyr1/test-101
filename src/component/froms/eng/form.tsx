@@ -21,7 +21,7 @@ let readmap: TypeReadmap[] = [
 ]
 // end config setup
 export default function Forms() {
-    // let defaultPage = 3
+    let defaultPage = 2
     let [data, setData] = useState({})
     let [select, setSelect] = useState(readmap[defaultPage].slug)
     let [def, setDef] = useState({})
@@ -87,8 +87,8 @@ export const SubmitButton2: React.FC<React.PropsWithChildren<SubmitButtonProps>>
 export function Input({ text, name, type = "test", className, register, err, ...props }: any) {
     return (
         <div className={`flex flex-col my-4 w-full ${className}`}>
-            <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">{text}</p>
-            <input type={type} {...register(name)} className='p-2 ml-4 rounded-md' {...props} />
+            <p className=" lap:text-xl tap:text-sm text-xs font-bold text-prussian-800 my-2 ">{text}</p>
+            <input type={type} {...register(name)} className='p-2 rounded-md' {...props} />
             {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}
         </div>
     )
@@ -100,7 +100,7 @@ export function Select({ list = [], title, name, set, className, err }: any) {
 
     return (
         <div className={`  ${className}`}>
-            <button onClick={(e: any) => m.current?.classList.toggle("hidden")} className={`flex-shrink-0 z-10 inline-flex items-center py-[5px] px-4 lap:text-xl tap:text-sm text-xs font-medium text-center text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-white focus:ring-4 focus:outline-none focus:ring-gray-100 w-full rounded-lg`} type="button">
+            <button onClick={(e: any) => m.current?.classList.toggle("hidden")} className={`flex-shrink-0 z-10 inline-flex items-center lap:py-[5px] tap:py-[9px] p-3 lap:text-xl tap:text-sm text-xs font-medium text-center text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-white focus:ring-4 focus:outline-none focus:ring-gray-100 w-full rounded-lg`} type="button">
                 {title}
             </button>
             {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}

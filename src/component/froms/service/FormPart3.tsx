@@ -175,8 +175,8 @@ function LastPage({ state, dispatch }: any) {
                     </div>
                 </>
             </Field>
-            <div className='flex flex-col'>
-                <p className="lap:text-xl tap:text-sm text-xs font-bold text-prussian-800 my-2 mr-4">الكوبون</p>
+            <div className='flex flex-col my-4'>
+                <p className="lap:text-xl tap:text-sm text-xs font-bold text-prussian-800 my-2">الكوبون</p>
                 <div className='flex flex-row max-w-[500px]'>
                     <input type={"text"}  {...register("promoCode")} className='p-2 ml-4 rounded-md' />
                     <div className='p-2 px-4 bg-safety-700 text-white rounded-lg w-max  cursor-pointer' onClick={SendPromoCode}>تحقق </div>
@@ -186,7 +186,7 @@ function LastPage({ state, dispatch }: any) {
                 </p>}
             </div>
             {/* <AdditionalFieldsValue page={4} /> */}
-            <input type='submit' value={text} className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
+            <input type='submit' value={text} className='p-2   bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
             <br />
         </form >
     );

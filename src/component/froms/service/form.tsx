@@ -23,7 +23,7 @@ let readmap: TypeReadmap[] = [
 // end config setup
 
 export default function Forms() {
-    // let defaultPage = 1
+    // let defaultPage = 2
     let [data, setData] = useState({})
     let [Content, setContent] = useState({})
     let [select, setSelect] = useState(readmap[defaultPage].slug)
@@ -112,8 +112,8 @@ export function Select({ list = [], title, name, set, className, err }: any) {
 export function Field({ children, title, className }: any) {
     return (
         <div className={className}>
-            <p className="lap:text-xl tap:text-sm text-xs font-bold text-prussian-800 my-2 mr-4">{title}</p>
-            <div className='flex flex-col w-full m-4 '>       {children}</div>
+            <p className="lap:text-xl tap:text-sm text-xs font-bold text-prussian-800 my-2 ">{title}</p>
+            <div className='flex flex-col w-full'> {children}</div>
         </div>
     )
 }
@@ -121,8 +121,8 @@ export function Field({ children, title, className }: any) {
 export function Input({ text, name, type = "test", className, register, err, ...props }: any) {
     return (
         <div className={`flex flex-col my-4 w-full ${className}`}>
-            <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">{text}</p>
-            <input type={type} {...register(name)} className='p-2 ml-4 rounded-md' {...props} />
+            <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2  ">{text}</p>
+            <input type={type} {...register(name)} className='p-2   rounded-md' {...props} />
             {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}
 
         </div>
