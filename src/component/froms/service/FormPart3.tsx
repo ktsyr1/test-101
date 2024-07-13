@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Err, Field, NextPage } from './form';
 import { FormContext, FormDataContext } from '../contextApi';
 import { useForm } from 'react-hook-form';
-import AdditionalFieldsValue from './AdditionalFieldsValue';
+// import AdditionalFieldsValue from './AdditionalFieldsValue';
 
 import JsCookies from 'js-cookie';
 import GetFatch, { createFatch } from '../get';
@@ -36,7 +36,7 @@ const FormPart4 = () => {
     return (
         <div className='*:py-2 mb-10 '   >
             <LastPage state={state} dispatch={dispatch} />
-            <AdditionalFieldsValue page={4} />
+            {/* <AdditionalFieldsValue page={4} /> */}
             <br />
         </div>
     );
@@ -45,6 +45,7 @@ const FormPart4 = () => {
 function LastPage({ state, dispatch }: any) {
     let { data, setData, Content, setContent } = useContext(FormDataContext)
     let [loading, setLoading] = useState("جاري تحميل المواعيد")
+    let [text, setText] = useState("التالي")
     let { select, setSelect } = useContext(FormContext)
 
     useEffect(() => {
@@ -73,15 +74,15 @@ function LastPage({ state, dispatch }: any) {
         // -------------------- end ----------------
 
 
-    }, [data])
+    }, [])
 
     const { register, handleSubmit } = useForm({ defaultValues: state.defaultData });
     const onSubmit = (res: any) => {
         let body = { ...state?.defaultData, projectTitle: res.projectTitle }
-
+        setText("الرجاء الانتظار ...")
         let additionalFieldsValue: any = localStorage.getItem("additionalFieldsValue")
         if (additionalFieldsValue) additionalFieldsValue = JSON.parse(additionalFieldsValue);
-        else additionalFieldsValue = [{ id: "8d640e91-a215-41e7-b5e4-08dc61472637", value: "12" }] // or set to a default value as needed
+        else additionalFieldsValue = [{ id: "6fe46970-f1b2-4831-7e79-08dc67f444f4", value: "12" }] // or set to a default value as needed
 
 
         let model = {
@@ -134,6 +135,7 @@ function LastPage({ state, dispatch }: any) {
                         setSelect(slug)
                         localStorage.setItem("paymonet", JSON.stringify(res?.data?.assessmentPayment))
                     }
+                    setText("التالي")
                 })
         }
     }
@@ -183,8 +185,8 @@ function LastPage({ state, dispatch }: any) {
                     <strong > {state?.promoCode?.amount}% </strong>
                 </p>}
             </div>
-            <AdditionalFieldsValue page={4} />
-            <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
+            {/* <AdditionalFieldsValue page={4} /> */}
+            <input type='submit' value={text} className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
             <br />
         </form >
     );

@@ -1,5 +1,4 @@
 "use client"
-
 import { useEffect, useRef, useState } from "react"
 import SetupForms from "../setupForm";
 import { LayoutType, SubmitButtonProps, TypeReadmap } from "../types";
@@ -10,6 +9,8 @@ import FormEducation from "./form-education";
 import FormSkills from "./form-skills";
 import { Button, Form } from "antd";
 import { defaultPage } from "../config";
+import JsCookies from 'js-cookie';
+import GetFormEng from "./actions";
 // end imported
 
 let readmap: TypeReadmap[] = [
@@ -20,15 +21,18 @@ let readmap: TypeReadmap[] = [
 ]
 // end config setup
 export default function Forms() {
-    // let defaultPage = 2
+    // let defaultPage = 3
     let [data, setData] = useState({})
     let [select, setSelect] = useState(readmap[defaultPage].slug)
-
+    let [def, setDef] = useState({})
+    useEffect(() => {
+        GetFormEng().then(data => setDef({ ...data }))
+    }, [])
     const Layout = ({ children, slug }: LayoutType) => (<>{select === slug ? children : ""}</>)
 
     return (
         <FormContext.Provider value={{ select, setSelect, list: readmap }}>
-            <FormDataContext.Provider value={{ data, setData }}>
+            <FormDataContext.Provider value={{ data, setData, def, setDef }}>
                 <SetupForms>
                     <>
                         <Layout slug="profile">
@@ -85,7 +89,7 @@ export function Input({ text, name, type = "test", className, register, err, ...
         <div className={`flex flex-col my-4 w-full ${className}`}>
             <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">{text}</p>
             <input type={type} {...register(name)} className='p-2 ml-4 rounded-md' {...props} />
-            {err?.text && <p className='p-4 text-red-600'>{err.text}</p>} 
+            {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}
         </div>
     )
 }
@@ -96,7 +100,7 @@ export function Select({ list = [], title, name, set, className, err }: any) {
 
     return (
         <div className={`  ${className}`}>
-            <button onClick={(e: any) => m.current?.classList.toggle("hidden")} className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 lap:text-xl tap:text-sm text-xs font-medium text-center text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-white focus:ring-4 focus:outline-none focus:ring-gray-100 w-full rounded-lg`} type="button">
+            <button onClick={(e: any) => m.current?.classList.toggle("hidden")} className={`flex-shrink-0 z-10 inline-flex items-center py-[5px] px-4 lap:text-xl tap:text-sm text-xs font-medium text-center text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-white focus:ring-4 focus:outline-none focus:ring-gray-100 w-full rounded-lg`} type="button">
                 {title}
             </button>
             {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}

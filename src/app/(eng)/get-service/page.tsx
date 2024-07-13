@@ -1,5 +1,5 @@
 "use server"
-import LoginApp from "@/component/auth";
+import AuthApp from "@/component/auth";
 import CheckCountService from "@/component/froms/service/counts";
 import Forms from "@/component/froms/service/form";
 import { cookies } from 'next/headers'
@@ -37,13 +37,13 @@ function View() {
     let loginTime: any = cookieStore.get('userloginTime')
     let token = auth?.value
 
-    if (!token) return <LoginApp required={true} />
+    if (!token) return <AuthApp required={true} />
     else if (token?.length > 20 && loginTime != null) {
         let newData = new Date().getTime()
         let last = Number(loginTime.value)
         let s = (newData - last) / 60 / 1000
 
         if (s <= 40) return <Forms />
-        else return <LoginApp required={true} />
-    } else return <LoginApp required={true} />
+        else return <AuthApp required={true} />
+    } else return <AuthApp required={true} />
 }

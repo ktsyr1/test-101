@@ -12,12 +12,8 @@ export default async function GetFatch(url: string, token?: string): Promise<any
 export const createFatch = async (url: string, body: any, token?: string): Promise<any> => {
     let headers: any = { "Content-Type": "application/json", "Accept-Language": "ar-SA" }
     if (token) headers["Authorization"] = `Bearer ${token}`
-    // console.log({ body });
-
     return axios.post(`${process.env.NEXT_PUBLIC_API}${url}`, body, { headers })
         .then(({ data }) => {
-            // console.log({ api: data });
-
             return data
         })
         .catch((error: Function) => console.log(error))

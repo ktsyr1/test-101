@@ -1,31 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Form } from 'antd';
+import React, { useContext, useState } from 'react';
 import { Input, NextPage, Select } from './form';
 import { FormContext, FormDataContext } from '../contextApi';
-import Cookies from "js-cookie"
-import GetFatch from '../get';
 import Icon from '@/component/icons';
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
 
 export default function FormProfile() {
 
-    let { data, setData } = useContext(FormDataContext)
+    let { data, setData, def, setDef } = useContext(FormDataContext)
     let [defaultData, setDD] = useState(data)
     let { select, setSelect } = useContext(FormContext)
     const [HasRelatives, setHasRelatives] = useState(null);
 
     const { register, handleSubmit, watch, formState: { errors } }: any = useForm<any>({ defaultValues: defaultData });
 
-    let [cities, setCities] = useState<any>([])
-    useEffect(() => {
-        let token: any = Cookies.get("userToken")
-        if (process.env.NEXT_PUBLIC_ENV == "development")
-            GetFatch("/Lookup/Cities", token).then(data => setCities(data?.data))
-        else if (process.env.NEXT_PUBLIC_ENV === "production")
-            axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Cities`)
-                .then(({ data }) => setCities(data?.data))
-    }, [])
+    let [cities, setCities] = useState<any>(def?.Cities || [])
+
     const onSubmit = (values: any) => {
 
         let firstname = values.firstname
@@ -49,14 +38,14 @@ export default function FormProfile() {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' >
 
-            <div className="flex flex-col w-full tap:mt-20 mt-10">
+            <div className="flex flex-col w-full ">
                 <div className="flex tap:flex-row flex-col  w-full">
                     <div className='flex flex-col my-4 w-full ml-2'>
                         <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4"> المدينة </p>
                         <Select
                             className='w-full'
                             list={cities}
-                            title={cities.filter((A: any) => A?.value === defaultData.cityId)[0]?.text || "اختر المدينة"}
+                            title={cities?.filter((A: any) => A?.value === defaultData.cityId)[0]?.text || "اختر المدينة"}
                             set={(s: any) => setData({ ...defaultData, "cityId": s.value })}
                         />
                     </div>

@@ -11,28 +11,33 @@ import FormPart2 from "./FormPart2";
 import FormPart3 from "./FormPart3";
 import FormPart4 from "./FormPart4";
 import { defaultPage } from "../config";
+import GetFormServise from "./actions";
 // end imported
 
 let readmap: TypeReadmap[] = [
     { id: 1, title: "بيانات العقار", slug: "profile" },
     { id: 2, title: "الموقع والتفاصيل", slug: "PropertyData" },
-    // { id: 3, title: "تفاصيل المشروع", slug: "pin" },
     { id: 3, title: "موعد الفحص", slug: "time" },
     { id: 4, title: "تقديم الطلب", slug: "end" },
 ]
 // end config setup
 
 export default function Forms() {
-    // let defaultPage = 3
+    // let defaultPage = 1
     let [data, setData] = useState({})
     let [Content, setContent] = useState({})
     let [select, setSelect] = useState(readmap[defaultPage].slug)
+    let [def, setDef] = useState({})
+    useEffect(() => {
 
+        let token: any = JsCookies.get("userToken")
+        GetFormServise(token).then(data => setDef({ ...data }))
+    }, [])
     const Layout = ({ children, slug }: LayoutType) => (<>{select === slug ? children : ""}</>)
 
     return (
         <FormContext.Provider value={{ select, setSelect, list: readmap }}>
-            <FormDataContext.Provider value={{ data, setData, Content, setContent }}>
+            <FormDataContext.Provider value={{ data, setData, Content, setContent, def, setDef }}>
                 <SetupForms>
                     <>
                         <Layout slug={readmap[0].slug}>
@@ -89,7 +94,7 @@ export function Select({ list = [], title, name, set, className, err }: any) {
             </button>
             {err?.text && <p className='p-4 text-red-600'>{err.text}</p>}
 
-            <ul ref={m} className="py-2 hidden text-sm text-gray-700 dark:text-gray-200 absolute bg-white   rounded-lg z-40 w-full max-w-[500px]">
+            <ul ref={m} className="py-2 hidden text-sm text-gray-700 dark:text-gray-200 absolute bg-white   rounded-lg z-40   max-w-[500px] w-[300px]  max-h-[300px] overflow-y-scroll">
                 {list?.map((a: any) => (
                     <li key={a}>
                         <button type="button" onClick={(() => {

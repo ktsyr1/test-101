@@ -1,5 +1,5 @@
 "use client"
-import { message } from "antd"
+import { message, notification } from "antd"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { createContext, useContext, useEffect, useState } from 'react';
 
@@ -47,6 +47,11 @@ function SendEmail({ route }: any) {
     let [Errors, setErrors] = useState(null)
     let [Send, setSend] = useState("ارسال  ")
     //  end vars
+
+    const [api, contextHolder] = notification.useNotification();
+    const openNotificationWithIcon = (type: NotificationType) => {
+        api[type]({ message: 'تم التحقق من الايميل' });
+    };
     const Register: SubmitHandler<any> = (res) => {
         setSend("جاري الارسال ...")
         createFatch("/Authorization/ForgotPassword", { email: res.email })
@@ -54,7 +59,7 @@ function SendEmail({ route }: any) {
                 setErrors(null)
                 if (data.code === 200) {
                     sessionStorage.setItem("email", res.email)
-                    message.success('تم التحقق من الايميل')
+                    openNotificationWithIcon("success")
                     route("ReCode")
                 } else setErrors(data.messages)
                 setSend("ارسال  ")
@@ -85,24 +90,29 @@ function SendEmail({ route }: any) {
         </form>
     )
 }
+type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
 function ReCode({ route }: any) {
     const { register, handleSubmit, watch, formState: { errors } }: any = useForm<any>();
     let [Errors, setErrors] = useState<any>(null)
     let [Send, setSend] = useState("ارسال  ")
     //  end vars
+
+    const [api, contextHolder] = notification.useNotification();
+    const openNotificationWithIcon = (type: NotificationType) => {
+        api[type]({ message: 'تم التحقق من الكود' });
+    };
     const Register: SubmitHandler<any> = (res) => {
         let email = sessionStorage.getItem("email")
         setSend("جاري الارسال ...")
 
         if (email) GetFatch(`/Authorization/CheckOTP?Email=${email}&OTP=${res.code}`)
             .then((data) => {
-                console.log(data);
 
                 if (data.code === 200) {
 
                     sessionStorage.setItem("key", data.data)
-                    message.success('تم التحقق من الكود')
+                    openNotificationWithIcon("success")
                     route("NewPassword")
                 } else setErrors("كود التحقق من الايميل غير صالح")
                 setSend("ارسال  ")

@@ -1,13 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { FieldType, TypeBtn } from '../types';
+import React, { useContext, useState } from 'react';
+import { FieldType } from '../types';
 import { NextPage } from './form';
 import { FormContext, FormDataContext } from '../contextApi';
 import Icon from '../../icons';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
-import Cookies from "js-cookie"
-import GetFatch from '../get';
-
 type QualificationsTypes = {
     "disabled": Boolean,
     "group": null,
@@ -18,23 +14,14 @@ type QualificationsTypes = {
 export default function FormEducation() {
 
     let { select, setSelect, list } = useContext(FormContext)
-    let { data, setData } = useContext(FormDataContext)
+    let { data, setData, def, setDef } = useContext(FormDataContext)
     // end context 
 
     let [defaultData, setDD] = useState(data)
     const [study, setStudy] = useState<QualificationsTypes>();
-    const [nextPart, setNextPart] = useState(false);
 
-    let [options, setOptions] = useState<any>([])
-    useEffect(() => {
+    let [options, setOptions] = useState<any>(def?.Qualifications || [])
 
-        let token: any = Cookies.get("userToken")
-        if (process.env.NEXT_PUBLIC_ENV == "development")
-            GetFatch("/Lookup/Qualifications", token).then(data => setOptions(data?.data))
-        else if (process.env.NEXT_PUBLIC_ENV == "production")
-            axios.get(`${process.env.NEXT_PUBLIC_API}/Lookup/Qualifications`)
-                .then(({ data }) => setOptions(data?.data))
-    }, [data])
     const { register, handleSubmit, watch, formState: { errors }, }: any = useForm<FieldType>()
 
 

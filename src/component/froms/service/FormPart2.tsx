@@ -1,15 +1,8 @@
-import React, { useContext, useEffect, useReducer, useRef, useState } from 'react';
-import { Err, Field, Input, NextPage, Select } from './form';
+import React, { useContext, useReducer } from 'react';
+import { Field, Input, NextPage, Select } from './form';
 import { FormContext, FormDataContext } from '../contextApi';
 import { useForm } from 'react-hook-form';
-import JsCookies from 'js-cookie';
-import GetFatch from '../get';
 
-// ------------------------------------------ 
-import backup from './backup.json';
-import AdditionalFieldsValue from './AdditionalFieldsValue';
-import { message } from 'antd';
-import axios from 'axios';
 const reducer = (state: any, action: any) => {
     if (action.type === "data") return { ...state, defaultData: action.payload };
     else if (action.type === "WorkAreas") return { ...state, WorkAreas: action.payload };
@@ -17,47 +10,20 @@ const reducer = (state: any, action: any) => {
     else return state;
 }
 
-// ------------------------------------------
 
 const FormParrt2 = () => {
-
-
     let { select, setSelect } = useContext(FormContext)
-    let { data, setData, Content, setContent } = useContext(FormDataContext)
+    let { data, setData, Content, setContent, def } = useContext(FormDataContext)
     // useReducer start
-    const initialState = { defaultData: data, WorkAreas: [], err: {} };
+    const initialState = { defaultData: data, WorkAreas: def.WorkAreas, err: {} };
     const [state, dispatch] = useReducer(reducer, initialState);
-    // useReducer end
-    // example ` dispatch({ type: 'WorkAreas', payload: data?.data }) `
-
-    useEffect(() => { 
-        // -------------------- start ----------------
-        let token: any = JsCookies.get("userToken")
-
-        // if (process.env.NEXT_PUBLIC_ENV == "development") {
-            GetFatch("/Lookup/WorkAreas", token)
-                .then(data => dispatch({ type: 'WorkAreas', payload: data?.data }))
-                .catch((error) => Err(error))
-
-        // } else if (process.env.NEXT_PUBLIC_ENV === "production") {
-        //     let headers: any = { "Content-Type": "application/json" }
-        //     if (token) headers["Authorization"] = `Bearer ${token}`
-        //     let api = process.env.NEXT_PUBLIC_API
-
-        //     axios.get(`${api}/Lookup/WorkAreas`, { headers })
-        //         .then(({ data }) => dispatch({ type: 'WorkAreas', payload: data?.data }))
-        // }
-        // -------------------- end ----------------
-
-    }, [data])
 
     const { register, handleSubmit } = useForm({ defaultValues: data });
     const onSubmit = (res: any) => {
         // scan valid
-        let { workAreaId } = state.defaultData
+        let { workAreaId, projectImage } = state.defaultData
         let { realEstateMunicipal, realEstateNumber, realEstateStreet } = res
-        let { projectTitle, projectImage } = res
-
+        let { projectTitle } = res
         dispatch({ type: 'err', payload: {} })
         let listErr: any = {}
         if (!workAreaId) listErr["workAreaId"] = { text: "هذه لحقل مطلوب" }
@@ -91,50 +57,40 @@ const FormParrt2 = () => {
             let slug = NextPage(select)
             setSelect(slug)
         }
-    };
+    }
 
 
 
     let setProjectImage = (e: any) => {
-
         const file = e.target.files && e.target.files[0];
         const reader = new FileReader();
-        message.info("جاري رفع الصورة بنجاح")
 
-        reader.onload = (e) => {
-            const base64String = e.target?.result as string;
-            // set {base64String} to
-            dispatch({ type: "data", payload: { ...state?.defaultData, projectImage: base64String } })
-            message.success("تم رفع الصورة بنجاح");
-        };
+        reader.onload = e => dispatch({ type: "data", payload: { ...state?.defaultData, projectImage: e.target?.result as string } })
         if (file) reader.readAsDataURL(file);
-
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
+        <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 '  >
 
             <div className='flex tap:flex-row flex-col m-4 p-4 justify-between'>
                 <Field title="منطقة العمل" className='flex flex-col w-full  ml-6 min-w-[300px] '>
                     <Select
                         list={state.WorkAreas}
-                        title={state?.WorkAreas.filter((A: any) => A?.value === state.defaultData.workAreaId)[0]?.text || "منطقة العمل"}
+                        title={state?.WorkAreas?.filter((A: any) => A?.value === state.defaultData.workAreaId)[0]?.text || "منطقة العمل"}
                         set={(s: any) => setData({ ...state.defaultData, "workAreaId": s.value })}
                         err={state?.err?.workAreaId}
                     />
                 </Field>
-                <Input text="صورة العقار" name="projectImage" type='file' accept="image/*" register={register} onChange={setProjectImage} err={state?.err?.projectImage} />
+                {/* <Input text="صورة العقار" name="projectImage" type='file' accept="image/*" register={register} onChange={setProjectImage} err={state?.err?.projectImage} /> */}
             </div>
 
             <div className='flex tap:flex-row flex-col p-4'>
                 <Input text="اسم المشروع" name="projectTitle" register={register} err={state?.err?.projectTitle} />
-
-
-                <Input text="البلدية العقارية" name="realEstateMunicipal" className="mr-4" register={register} err={state?.err?.realEstateMunicipal} />
+                <Input text="الحي" name="realEstateMunicipal" className="mr-4" register={register} err={state?.err?.realEstateMunicipal} />
             </div>
             <div className='flex tap:flex-row flex-col m-4 p-4'>
                 <Input text="رقم العقار" name="realEstateNumber" type="number" register={register} err={state?.err?.realEstateNumber} />
-                <Input text="شارع العقارات" name="realEstateStreet" register={register} err={state?.err?.realEstateStreet} />
+                <Input text="اسم الشارع " name="realEstateStreet" register={register} err={state?.err?.realEstateStreet} />
             </div>
 
             <div className='flex flex-col m-4 p-4' >
@@ -145,10 +101,26 @@ const FormParrt2 = () => {
                     placeholder=" "
                     onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => dispatch({ type: "data", payload: { ...state?.defaultData, description: e.target.value } })}
                 />
-
             </div>
-            <AdditionalFieldsValue page={2} />
 
+            <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">صورة العقار</p>
+            <div className="flex items-center justify-center w-full">
+                <label htmlFor="projectImage" className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50   hover:bg-gray-100 ">
+                    {state.defaultData?.projectImage ? <img src={state.defaultData.projectImage} alt='image' className='max-h-[250px] p-4' />
+                        : <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                            <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                            </svg>
+                            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">انقر للتحميل</span> أو اسحب وافلات</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                        </div>
+                    }
+                    <input  {...register("projectImage")} className='p-2 ml-4 rounded-md hidden' id='projectImage' type='file' accept="image/*" onChange={setProjectImage} />
+                </label>
+                {state?.err?.projectImage && <p className='p-4 text-red-600'>{state?.err?.projectImage.text}</p>}
+            </div>
+
+            {/* <AdditionalFieldsValue page={2} /> */}
             <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
             <br />
         </form >

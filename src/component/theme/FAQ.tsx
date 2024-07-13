@@ -111,7 +111,6 @@ export function Ask({ title, value }: Asktype) {
     let [open, setOpen] = useState(false)
     let ef: any = useRef(null)
     function handleOpen() {
-        console.log(["test", ef]);
         setOpen(!open)
         if (ef.current && ef.current.style) {
             ef.current.style.maxHeight = open ? '0' : '500px';  // تعديل max-height

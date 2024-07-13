@@ -7,7 +7,6 @@ import Image from "next/image";
 import { loaderProp } from "../lib";
 
 export default function PupLinks() {
-
     return (
         <>
             <GoToTop />
@@ -21,14 +20,11 @@ export default function PupLinks() {
 function PupServie2() {
     let [view, setView] = useState(false)
     useEffect(() => {
-        let Surveys = sessionStorage.getItem(("Surveys")) //Cookies.get("Surveys")
+        let Surveys = sessionStorage.getItem(("Surveys"))
         if (Surveys) setView(false)
-        // else setTimeout(() => { setView(true) }, 1000 * 60)
         else setTimeout(() => { setView(true) }, 1000 * 60 * 5)
-        // else setTimeout(() => { setView(true) }, 1000)
     }, [])
     let close = () => {
-        console.log(!view)
         sessionStorage.setItem("Surveys", new Date().getTime().toString())
         setView(false)
     }

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FormContext, FormDataContext } from '../contextApi';
 import { useForm } from 'react-hook-form';
-import { Input, NextPage, Select } from './form';
+import { NextPage } from './form';
 
 
 const FormContact = () => {
@@ -28,10 +28,9 @@ const FormContact = () => {
                         <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">رقم الجوال</p>
                         <input type="tel"  {...register('phoneNumber', {
                             required: 'يرجى إدخال رقم الهاتف',
-                            pattern: { value: /^05\d{8}$/, message: "يرجى التأكد من رقم الجوال"},
+                            pattern: { value: /^05\d{8}$/, message: "يرجى التأكد من رقم الجوال" },
                         })} className='p-2 ml-4 rounded-md' />
                         {errors["phoneNumber"] && <p className="text-red-600 my-4">{errors["phoneNumber"]?.message}</p>}
-
                     </div>
                     <div className={`flex flex-col my-4 w-full `}>
                         <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2 mr-4">الايميل</p>
@@ -46,13 +45,9 @@ const FormContact = () => {
                         />
                         {errors["email"] && <p className="text-red-600 mb-4">{errors["email"]?.message}</p>}
                     </div>
-                    {/* <div>
-                        <Input text="البريد الإلكتروني" type="email" name="Email" register={register} placeholder='أدخل البريد الإلكتروني' required />
-                    </div> */}
                 </div>
                 <div className='*:mt-4 m-auto w-full flex'>
                     <input type='submit' value="التالي" className='p-2 mx-4 bg-safety-700 text-white rounded-lg w-full  cursor-pointer' />
-
                 </div>
             </div>
         </form>

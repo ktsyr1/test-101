@@ -1,10 +1,8 @@
-import React, { useContext, useReducer, useState, } from 'react';
+import React, { useContext, useState } from 'react';
 import { FormDataContext } from '../contextApi';
-import { Table } from "antd";
 
 import JsCookies from 'js-cookie';
 import Link from 'next/link';
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { createFatch } from './sendpaymonet';
 const reducer = (state: any, action: any) => {
