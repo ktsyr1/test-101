@@ -21,7 +21,7 @@ let readmap: TypeReadmap[] = [
 ]
 // end config setup
 export default function Forms() {
-    let defaultPage = 2
+    // let defaultPage = 2
     let [data, setData] = useState({})
     let [select, setSelect] = useState(readmap[defaultPage].slug)
     let [def, setDef] = useState({})
