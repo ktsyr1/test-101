@@ -33,7 +33,7 @@ export default function FormRef1() {
         <Layout slug={1}>
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-2 *:lap:p-2 *:p-1 *:rounded-lg  flex flex-wrap  justify-between mt-10 *:lap:text-xl *:tap:text-base *:text-xs placeholder:*:text-xs   " >
+                className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
                 <FormElm.Title >أخبرنا عنك</FormElm.Title>
                 <input type="text"  {...register("fullName", { required: true })} placeholder="الاسم الكامل" />
                 <input type="number" {...register("age", { required: true })} placeholder="العمر" />

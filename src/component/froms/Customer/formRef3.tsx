@@ -42,10 +42,10 @@ export default function FormRef3() {
     return (
         <Layout slug={3}>
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-2 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
-                <FormElm.Title >كيف عرفت عن إنسبكتكس؟</FormElm.Title>
+                <FormElm.Title >كيف تعرفت على إنسبكتكس؟</FormElm.Title>
                 {list.slice(1).map((a: any, i) => <Select one={i + 1} key={a} onClick={() => setValue(i + 1)} />)}
                 <Select one={0} onClick={() => setValue(0)} />
-                {value == 0 && <input type="text" {...register("otherAccessChannels")} defaultValue={data?.otherAccessChannels} placeholder="في موتمر او غيرها ..." />}
+                {value == 0 && <input type="text" {...register("otherAccessChannels")} defaultValue={data?.otherAccessChannels} placeholder=" يرجى تحديد الطريقة" />}
                 <FormElm.Send />
             </form>
         </Layout>

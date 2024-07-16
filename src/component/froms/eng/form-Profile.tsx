@@ -42,7 +42,7 @@ export default function FormProfile() {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 flex flex-col ' >
 
-            <div className="flex flex-col w-full ">
+            <div className="flex flex-col w-full "> 
                 <div className="flex tap:flex-row flex-col  w-full">
                     <div className='flex flex-col my-4 w-full'>
                         <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2"> المدينة </p>

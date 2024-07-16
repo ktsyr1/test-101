@@ -37,7 +37,7 @@ export default function FormRef5() {
                 {list.slice(1).map((a: any,) => <Select one={a.i} key={a} onClick={() => setValue(a.i)} />)}
                 <Select one={0} onClick={() => setValue(0)} />
                 {/* {list.slice(1).map(a => <FormElm.Select value={value} one={a} key={a} onClick={() => setValue(a)} />)} */}
-                {value == 0 && <textarea className="!w-full" {...register("informationFoundProblem")} defaultValue={data?.informationFoundProblem} placeholder="..." />}
+                {value == 0 && <textarea className="!w-full" {...register("informationFoundProblem")} defaultValue={data?.informationFoundProblem} placeholder="ما هي تلك المعلومات؟" />}
                 <FormElm.Send />
             </form>
         </Layout>

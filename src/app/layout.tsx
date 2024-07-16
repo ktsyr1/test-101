@@ -7,7 +7,6 @@ import Footer from "@/component/theme/footer";
 import FAQ from "@/component/theme/FAQ";
 import Landing from "@/component/loading";
 import { ApolloWrapper } from "./ApolloWrapper";
-import GoogleAnalytics from "@/component/other/GoogleAnalytics";
 import "@/component/styles/style.css";
 
 const inter =
@@ -34,7 +33,6 @@ export default function RootLayout({ children }: Children) {
 
     return (
         <html lang="ar">
-            <GoogleAnalytics />
             <body className={inter.className} >
                 <Landing />
                 <Nav />

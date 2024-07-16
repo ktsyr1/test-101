@@ -15,7 +15,7 @@ export default function AuthApp({ userType = 2, required }: any) {
 
     const authContext = useContext(AuthContext);
     type TitleType = "login" | "Register" | "OTPEmail"  | "OTPPhone"
-    let [mode, setMode] = useState<TitleType>("login")
+    let [mode, setMode] = useState<TitleType>("OTPPhone")
     let [loading, setLoading] = useState(false)
     useEffect(() => {
         let cookie = Cookies.get("userToken")

@@ -5,6 +5,7 @@ import Link from "next/link";
 import SizeBox from "../size-box";
 import Image from "next/image";
 import { loaderProp } from "../lib";
+import { usePathname } from "next/navigation";
 
 export default function PupLinks() {
     return (
@@ -18,6 +19,7 @@ export default function PupLinks() {
 }
 
 function PupServie2() {
+    const pathname = usePathname()
     let [view, setView] = useState(false)
     useEffect(() => {
         let Surveys = sessionStorage.getItem(("Surveys"))
@@ -28,7 +30,7 @@ function PupServie2() {
         sessionStorage.setItem("Surveys", new Date().getTime().toString())
         setView(false)
     }
-    if (!view) return <></>
+    if (pathname == "/surveies" && !view) return <></>
     else
         return (
             <div className="bottom-0 fixed w-full z-50  shadow-2xl  ">

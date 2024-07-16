@@ -33,7 +33,7 @@ export default function FormRef6() {
                 <FormElm.Title >هل واجهت أي صعوبات في فهم خطوات طلب الخدمة؟</FormElm.Title> 
                 {list.slice(1).map((a: any,) => <Select one={a.i} key={a} onClick={() => setValue(a.i)} />)}
                 <Select one={0} onClick={() => setValue(0)} /> 
-                {value == 0 && <textarea className="!w-full" {...register("problemDescription")} defaultValue={data?.problemDescription} placeholder="..." />}
+                {value == 0 && <textarea className="!w-full" {...register("problemDescription")} defaultValue={data?.problemDescription} placeholder="ما هي تلك الصعوبات؟" />}
                 <FormElm.Send />
             </form>
         </Layout>
