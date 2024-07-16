@@ -29,7 +29,7 @@ export default function SignUp({ route }: any) {
                     localStorage.setItem("userData", JSON.stringify(data?.data))
                     setSe(" تم الاشتراك ")
                     setTimeout(() => setSe(" إشتراك "), 3000)
-                    route("OTP")
+                    route("OTPEmail")
                 } else if (data?.code === 400) seterr(data?.messages)
                 setSe(" إشتراك ")
             })

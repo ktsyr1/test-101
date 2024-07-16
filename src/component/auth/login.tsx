@@ -18,8 +18,9 @@ type TypeSendLoginReturn = {
 export function SendLogin(body: any) {
     return createFatch("/Authorization/Login", { ...body, userType: 2 })
         .then((data: any) => {
-            if (data?.code === 400) return { messages: data?.messages, sendText: "تسجيل الدخول" }
-            else if (data.code === 200) {
+
+            if (!data?.status) return { ...data, sendText: "تسجيل الدخول" }
+            else if (data?.status) {
                 data = data.data
 
                 Cookies.set("userInformation", JSON.stringify(data?.userInformation))
@@ -47,41 +48,20 @@ export default function Login({ userType = 2, route, required }: any) {
         // -------------------- start ----------------
         let token: any = JsCookies.get("userToken")
 
-        if (process.env.NEXT_PUBLIC_ENV == "development") {
-            SendLogin(res)
-                .then((data: any) => {
+        SendLogin(body)
+            .then((data: any) => {
+                console.log(data);
+
+                if (data.sendText) setSe(data.sendText)
+                if (data.data == null) {
                     if (data.messages) seterr(data.messages)
-                    if (data.sendText) setSe(data.sendText)
-                })
-
-
-        } else if (process.env.NEXT_PUBLIC_ENV === "production") {
-            let headers: any = { "Content-Type": "application/json" }
-            if (token) headers["Authorization"] = `Bearer ${token}`
-            let api = process.env.NEXT_PUBLIC_API
-            SendLogin(res)
-                .then((data: any) => {
-                    if (data.messages) seterr(data.messages)
-                    if (data.sendText) setSe(data.sendText)
-                })
-
-            axios.post(`${api}/Authorization/Login`, body, { headers })
-                .then(({ data }: any) => {
-                    if (data?.code === 400) seterr(data?.messages)
-                    else if (data.code === 200) {
-                        data = data.data
-
-                        Cookies.set("userInformation", JSON.stringify(data?.userInformation))
-                        Cookies.set("refreshToken", data?.refreshToken)
-                        Cookies.set("userToken", data?.userToken)
-                        Cookies.set("userloginTime", new Date().getTime().toString())
-                        location.reload()
-                    }
-                    setSe(" تسجيل الدخول  ")
-                })
-                .catch((error) => Err(error))
-        }
-        // -------------------- end ----------------
+                } else if (data?.data?.user?.isEmailVerified == false) {
+                    route("OTPEmail")
+                } else if (data?.data?.userId?.isPhoneVerified == false) {
+                    console.log(data);
+                    route("OTPPhone")
+                }
+            })
         // refresh
     }
     return (
@@ -97,7 +77,7 @@ export default function Login({ userType = 2, route, required }: any) {
             </div>
 
             <a href="/auth/forgot-fassword" className="text-safety-700 w-full text-end cursor-pointer"  >هل نسيت كلمة المرور؟</a>
-            {err && <p className="text-red-600 mb-4">{err}</p>}
+            {err && <p className="text-red-600 mt-4">{err}</p>}
             <input type="submit" className={`!w-full bg-safety-700 my-6 text-white hover:shadow-lg p-2 text-center font-bold rounded-lg`} value={se} />
         </form>
     )
