@@ -48,7 +48,11 @@ const FormPropertyData = () => {
     let titleProjectObjectives = def.ProjectObjectives?.filter((A: any) => A?.value == defaultData?.projectObjectives?.[0]?.assessmentObjectivesId)//?.[0]?.text || "اهداف المشروع"
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onChange={() => ""} >
+        <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 ' onClick={(e: any) => {
+            console.log(e);
+            if (e.target.localName == "button") ""
+            else setSelector("")
+        }} >
             <div className='flex tap:flex-row flex-col'>
                 <Field title="نوع العقار" className='flex flex-col w-full '>
                     <Select
@@ -106,7 +110,8 @@ export default FormPropertyData;
 
 export function Select({ list = [], title, name, set, className, err, selector, setSelector }: any) {
     function onClick(e: any) {
-        setSelector(name)
+        if (selector != name) setSelector(name)
+        else setSelector("")
     }
     return (
         <div className={`  ${className}`}>

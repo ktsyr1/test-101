@@ -30,7 +30,9 @@ function PupServie2() {
         sessionStorage.setItem("Surveys", new Date().getTime().toString())
         setView(false)
     }
-    if (pathname == "/surveies" && !view) return <></>
+    console.log(pathname == "/surveies" && !view, pathname == "/surveies", !view);
+    if (pathname == "/surveies") return <></>
+    if (!view) return <></>
     else
         return (
             <div className="bottom-0 fixed w-full z-50  shadow-2xl  ">
