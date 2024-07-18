@@ -21,21 +21,29 @@ export default function FormRef2() {
         { i: 7, text: "مكتب عقاري" }
     ]
 
+    let [Err, setErr] = useState<any>(null)
     const { handleSubmit } = useForm<any>({ defaultValues: data })
     const onSubmit: SubmitHandler<any> = (res) => {
+        setErr("")
 
         if (value) {
             setData({ ...data, guestType: value + 1 })
             setSelect(select + 1)
-        }
+        } else setErr("حدد العنصر")
     }
     let Select = ({ value, one, onClick, className }: any) => <div className={`p-4 rounded-full lap:text-base tap:text-sm text-xs  font-semibold ${value == one.i ? "bg-[#001D6C] text-white" : "text-[#001D6C] bg-white"} !pr-6 hover:shadow-lg ${className} `} onClick={onClick} >{one.text} </div>
-
+    let SET = (a: any) => {
+        setErr("")
+        setValue(a)
+    }
     return (
         <Layout slug={2}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-col  justify-between mt-14" >
                 <FormElm.Title > هل انت </FormElm.Title>
-                {list.map((a: any) => <Select value={value} one={a} key={a.i} onClick={() => setValue(a.i)} />)}
+                <div className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14"  >
+                    {list.map((a: any) => <Select value={value} one={a} key={a.i} onClick={() => SET(a.i)} />)}
+                </div>
+                {Err && <p className='p-4 text-red-600 w-full mx-4'>{Err}</p>}
                 <FormElm.Send />
             </form>
         </Layout>

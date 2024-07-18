@@ -1,3 +1,4 @@
+
 'use client'
 
 import JsCookies from 'js-cookie'
@@ -5,9 +6,10 @@ import { useEffect, useState } from 'react';
 
 export default function CheckCountService() {
     let [count, setCount] = useState<any | number>(null)
+    useEffect(() => setCount(GinCount()), [])
     useEffect(() => {
-        setCount(GinCount())
-    }, [])
+        setTimeout(() => setCount(count > 2 ? count - 1 : 2), 1000 * 60 * 5)
+    }, [count])
     function GinCount() {
 
         let MR = Math.floor(Math.random() * 10)
@@ -27,7 +29,7 @@ export default function CheckCountService() {
             let endDay = new Date().getTime() - count - 24 * 60 * 60 * 1000
             if (endDay > 0) return SetCount().value
             let end = 9 - count[5]
-            return end 
+            return end
         }
     }
     let value = GinCount()

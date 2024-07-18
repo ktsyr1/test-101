@@ -22,6 +22,7 @@ export const Layout = ({ children, slug }: LayoutType) => {
     let { select, setSelect, } = useContext(FormContext)
     return <>{select === slug && children}</>
 }
+
 export default function FormsCustomer() {
     let [data, setData] = useState({})
     let [select, setSelect] = useState(defaultPage == 0 && 1)

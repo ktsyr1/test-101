@@ -26,13 +26,14 @@ export default function FormRef1() {
         res.gender = Number(res.gender)
 
         if (!data?.gender) setErr("حدد الجنس")
-        setData({ ...res })
-        setSelect(select + 1)
+        else if (!data?.cityId) setErr("حدد المدينة")
+        else {
+            setData({ ...res })
+            setSelect(select + 1)
+        }
     }
     useEffect(() => {
-        async function get() {
-            return GetFatch("/Lookup/Cities").then(data => setCities(data?.data))
-        }
+        let get = async () => GetFatch("/Lookup/Cities").then(data => setCities(data?.data))
         get()
     }, [])
     let [selector, setSelector] = useState<any>(null)
@@ -45,7 +46,7 @@ export default function FormRef1() {
                 <FormElm.Title >أخبرنا عنك</FormElm.Title>
                 <input type="text"  {...register("fullName", { required: true })} placeholder="الاسم الكامل" />
                 <input type="number" {...register("age", { required: true })} placeholder="العمر" />
-                <input type="text" {...register("occupation", { required: true })} placeholder="المهنة" />
+                <input type="text" className="my-4" {...register("occupation", { required: true })} placeholder="المهنة" />
                 <Select
                     selector={selector}
                     name={"cityId"}
