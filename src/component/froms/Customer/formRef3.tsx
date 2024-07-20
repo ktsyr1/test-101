@@ -25,23 +25,30 @@ export default function FormRef3() {
     let { select, setSelect, } = useContext(FormContext)
     let { data, setData } = useContext(FormDataContext)
     const [Err, setErr] = useState<string | null>(null);
-    const [value, setValue] = useState<number>(data?.accessChannelType || 0);
+    const [value, setValue] = useState<number>(data?.accessChannelType || null);
     let list = ["آخر", "انستغرام", "سنابشات", "فيسبوك", "تويتر", " لينكد إن", "تيك توك", "جوجل", "عن طريق صديق"]
 
     const { handleSubmit, register } = useForm<any>({ defaultValues: data })
     const onSubmit: SubmitHandler<any> = (res) => {
-        console.log(value);
         setErr("")
 
         if (value !== undefined && value !== null) {
             let model = { ...data, accessChannelType: value }
             model["otherAccessChannels"] = res?.otherAccessChannels
-
-            setData(model)
-            setSelect(select + 1)
-            if (value == 0) ""
-            else setErr("حدد العنصر")
-        }
+            let oa = model?.otherAccessChannels.length < 1
+            let v = value == 0
+            console.log(v);
+            ""
+            console.log(oa);
+            console.log(v && oa);
+            console.log({ otherAccessChannels: model?.otherAccessChannels });
+            if (v && oa) setErr("قم بملاء العنصر")
+            else {
+                setData(model)
+                setSelect(select + 1)
+                setErr("")
+            }
+        } else setErr("حدد عنصر")
     }
     const Select = ({ one, onClick, className }: any) => (
         <div
@@ -63,7 +70,7 @@ export default function FormRef3() {
                 <div className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14"  >
                     {list.slice(1).map((a: any, i) => <Select one={i + 1} key={a} onClick={() => SET(i + 1)} />)}
                     <Select one={0} onClick={() => setValue(0)} />
-                    {value == 0 && <input type="text" {...register("otherAccessChannels")} defaultValue={data?.otherAccessChannels} placeholder=" يرجى تحديد الطريقة" />}
+                    {value == 0 && <input type="text" {...register("otherAccessChannels", { required: "قم بملاء العنصر  " })} defaultValue={data?.otherAccessChannels} placeholder=" يرجى تحديد الطريقة" />}
                 </div>
                 {Err && <p className='p-4 text-red-600 w-full mx-4'>{Err}</p>}
                 <FormElm.Send />

@@ -42,7 +42,7 @@ export default function FormProfile() {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='*:py-2 mb-10 flex flex-col ' >
 
-            <div className="flex flex-col w-full "> 
+            <div className="flex flex-col w-full ">
                 <div className="flex tap:flex-row flex-col  w-full">
                     <div className='flex flex-col my-4 w-full'>
                         <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2"> المدينة </p>
@@ -68,8 +68,8 @@ export default function FormProfile() {
                 </div>
                 {HasRelatives &&
                     <div className="flex tap:flex-row flex-col  w-full">
-                        <Input text="اسم شخص القريب" name="RelativeName" register={register} required />
-                        {/* <Input text="هاتف القريب" name="RelativePhone" register={register} required /> */}
+                        <Input text="اسم شخص القريب" name="RelativeName" register={register} required />                        <div className='h-0 w-4' ></div>
+
                         <div className={`flex flex-col my-4 w-full `}>
                             <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2">هاتف القريب</p>
                             <input type="tel"  {...register('RelativePhone', {

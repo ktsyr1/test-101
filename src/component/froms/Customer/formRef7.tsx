@@ -28,6 +28,7 @@ export default function FormRef7() {
                 .then(res => {
                     if (res?.code == 200) {
                         message.success('تم ارسال الاستبيان')
+                        sessionStorage.setItem("Surveys", new Date().getTime().toString())
                         setDane(true)
                         route.push("/")
                     }
@@ -45,7 +46,7 @@ export default function FormRef7() {
                 </div>
                     : <>
                         <FormElm.Title >كيف يمكننا تحسين تجربتك على الموقع؟ </FormElm.Title>
-                        <textarea className="!w-full my-6" {...register("serviceRequestSuggestion")} defaultValue={data?.problemDescription} placeholder="اقترح تحسينات" />
+                        <textarea className="!w-full my-6" {...register("serviceRequestSuggestion")} defaultValue={data?.serviceRequestSuggestion} placeholder="اقترح تحسينات" />
                         {Err && <p className='p-4 text-red-600 w-full mx-4'>{Err}</p>}
                         <FormElm.Send title="ارسال" />
                     </>}

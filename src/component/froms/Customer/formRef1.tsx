@@ -1,6 +1,6 @@
 "use client"
 
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { FormContext, FormDataContext } from "../contextApi";
 import { useForm, SubmitHandler } from "react-hook-form"
 import { FormElm, Layout } from "./form"
@@ -22,11 +22,11 @@ export default function FormRef1() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm<any>({ defaultValues: data })
     const onSubmit: SubmitHandler<any> = (res) => {
         res.age = Number(res.age)
-        res.cityId = Number(res.cityId)
-        res.gender = Number(res.gender)
+        res.cityId = Number(data.cityId)
+        res.gender = Number(data.gender)
 
-        if (!data?.gender) setErr("حدد الجنس")
-        else if (!data?.cityId) setErr("حدد المدينة")
+        if (!data?.cityId) setErr("حدد المدينة")
+        else if (!data?.gender) setErr("حدد الجنس")
         else {
             setData({ ...res })
             setSelect(select + 1)
@@ -37,36 +37,59 @@ export default function FormRef1() {
         get()
     }, [])
     let [selector, setSelector] = useState<any>(null)
-
     return (
         <Layout slug={1}>
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
+                className="max-w-[1200px]  *:p-2 *:rounded-lg  flex flex-col  justify-between mt-14" >
                 <FormElm.Title >أخبرنا عنك</FormElm.Title>
-                <input type="text"  {...register("fullName", { required: true })} placeholder="الاسم الكامل" />
-                <input type="number" {...register("age", { required: true })} placeholder="العمر" />
-                <input type="text" className="my-4" {...register("occupation", { required: true })} placeholder="المهنة" />
-                <Select
-                    selector={selector}
-                    name={"cityId"}
-                    setSelector={setSelector}
-                    list={cities}
-                    title={cities?.filter((A: any) => A?.value === data.cityId)[0]?.text || "حدد المدينة"}
-                    set={(s: any) => setData({ ...data, "cityId": s.value })}
-                // err={error?.realEstateAgesId}
-                />
-                <Select
-                    selector={selector}
-                    name={"gender"}
-                    setSelector={setSelector}
-                    list={gender}
-                    title={gender?.filter((A: any) => A?.value === data.gender)[0]?.text || "حدد الجنس"}
-                    set={(s: any) => setData({ ...data, "gender": s.value })}
-                // err={error?.realEstateAgesId}
-                />
-                {Err && <p className='p-4 text-red-600'>{Err}</p>}
+                <div className="*:m-4 *:p-2 *:rounded-lg flex flex-col justify-between tap:flex-row w-full *:w-full" >
+                    <input type="text"  {...register("fullName", { required: "الرجاء اضافة الاسم" })} placeholder="الاسم الكامل" />
+                    <input type="number" {...register("age", { required: "الرجاء اضافة العمر" })} placeholder="العمر" />
+                </div>
+                <div className="*:m-4 *:p-2 *:rounded-lg flex flex-col justify-between tap:flex-row w-full *:w-full" >
+                    <input type="number"  {...register('phoneNumber', {
+                        required: 'يرجى إدخال رقم الهاتف',
+                        pattern: { value: /^05\d{8}$/, message: "يرجى التأكد من رقم الجوال" },
+                    })} placeholder="الهاتف" />
+                    <input type="email"  {...register("email", {
+                        required: "يرجى إدخال البريد الإلكتروني",
+                        pattern: {
+                            value: /^[A-Za-z0-9.+]+@[A-Za-z0-9.-]+\.[A-Z]{2,4}$/i,
+                            message: "الرجاء إدخال بريد إلكتروني صحيح"
+                        }
+                    })} placeholder="الايميل" />
+                </div>
+                <div className="*:m-4 *:p-2 *:rounded-lg flex flex-col justify-between tap:flex-row w-full *:w-full" >
+                    <Select
+                        className="!p-0 mx-0"
+                        selector={selector}
+                        name={"cityId"}
+                        setSelector={setSelector}
+                        list={cities}
+                        title={cities?.filter((A: any) => A?.value === data.cityId)[0]?.text || "حدد المدينة"}
+                        set={(s: any) => setData({ ...data, "cityId": s.value })}
+                    // err={error?.realEstateAgesId}
+                    />
+                    <Select
+                        className="!p-0 mx-0"
+                        selector={selector}
+                        name={"gender"}
+                        setSelector={setSelector}
+                        list={gender}
+                        title={gender?.filter((A: any) => A?.value === data.gender)[0]?.text || "حدد الجنس"}
+                        set={(s: any) => setData({ ...data, "gender": s.value })}
+                    // err={error?.realEstateAgesId}
+                    />
+                </div>
+                <div className="*:m-4 *:p-2 *:rounded-lg flex flex-col justify-between tap:flex-row w-full *:w-full" >
+                    <input type="text" className="my-4" {...register("occupation", { required: "الرجاء اضافة المهنة" })} placeholder="المهنة" />
+                </div>
+                {Object.keys(errors)?.map((a: any) => {
+                    return <p className='p-4 text-red-600'>{errors[a]?.message}</p>
+                })}
 
+                {Err && <p className='p-4 text-red-600'>{Err}</p>}
                 <FormElm.Send />
             </form>
         </Layout>

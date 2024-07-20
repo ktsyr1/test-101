@@ -29,7 +29,7 @@ export default function FormRef2() {
         if (value) {
             setData({ ...data, guestType: value + 1 })
             setSelect(select + 1)
-        } else setErr("حدد العنصر")
+        } else setErr("حدد عنصر")
     }
     let Select = ({ value, one, onClick, className }: any) => <div className={`p-4 rounded-full lap:text-base tap:text-sm text-xs  font-semibold ${value == one.i ? "bg-[#001D6C] text-white" : "text-[#001D6C] bg-white"} !pr-6 hover:shadow-lg ${className} `} onClick={onClick} >{one.text} </div>
     let SET = (a: any) => {
