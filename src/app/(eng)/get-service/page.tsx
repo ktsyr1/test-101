@@ -29,22 +29,20 @@ export default async function GetService() {
     )
 }
 
-
 function View() {
     const cookieStore = cookies()
-
     const auth = cookieStore.get('userToken')
     let loginTime: any = cookieStore.get('userloginTime')
     let token = auth?.value
 
     if (!token) return <AuthApp required={true} data={{ token, loginTime }} />
     else if (token?.length > 20 && loginTime != null) {
-        let newData = new Date().getTime()
-        let last = Number(loginTime.value)
-        let s = (newData - last) / 60 / 1000
+        // Use UTC time to avoid timezone issues
+        let newData = Date.now() // Current time in milliseconds since epoch (UTC)
+        let last = Number(loginTime.value) // Assuming loginTime is stored in UTC milliseconds
+        let s = (newData - last) / 60 / 1000 // Calculate difference in minutes
 
-        // if (s <= 40) return <Forms />
-        // else
-         return <AuthApp required={true} data={{ token, loginTime, newData, last, s , off:new Date( ).getTimezoneOffset()        }} />
+        if (s <= 40) return <Forms />
+        else return <AuthApp required={true} data={{ token, loginTime, newData, last, s }} />
     } else return <AuthApp required={true} data={{ token, loginTime }} />
 }
