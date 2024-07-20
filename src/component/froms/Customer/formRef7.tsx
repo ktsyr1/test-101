@@ -17,9 +17,11 @@ export default function FormRef7() {
 
     let [dane, setDane] = useState<any>(false)
     let [Err, setErr] = useState<any>(null)
-    const { handleSubmit, register } = useForm<any>({ defaultValues: data })
+    let [Send, setSend] = useState<any>("ارسال")
+    const { register, handleSubmit, formState: { errors } }: any = useForm<any>({ defaultValues: data })
     const onSubmit: SubmitHandler<any> = (res) => {
         setErr("")
+        setSend("جاري الارسال ...")
         let model = data
         model["serviceRequestSuggestion"] = res?.serviceRequestSuggestion
         if (res?.serviceRequestSuggestion.length <= 1) setErr("هذا الطلب ضروري")
@@ -30,11 +32,13 @@ export default function FormRef7() {
                         message.success('تم ارسال الاستبيان')
                         sessionStorage.setItem("Surveys", new Date().getTime().toString())
                         setDane(true)
-                        route.push("/")
+                        setSend("تم الارسال")
+                        setTimeout(() => route.push("/"), 3000)
                     }
                 })
                 .catch(error => setErr('حدث خطأ أثناء ارسال الاستبيان'));
         }
+        setSend("ارسال")
     }
 
     return (
@@ -46,9 +50,11 @@ export default function FormRef7() {
                 </div>
                     : <>
                         <FormElm.Title >كيف يمكننا تحسين تجربتك على الموقع؟ </FormElm.Title>
-                        <textarea className="!w-full my-6" {...register("serviceRequestSuggestion")} defaultValue={data?.serviceRequestSuggestion} placeholder="اقترح تحسينات" />
+                        <textarea className="!w-full my-6" {...register("serviceRequestSuggestion", { required: "قم بملاء العنصر  " })} defaultValue={data?.serviceRequestSuggestion} placeholder="اقترح تحسينات" />
+                        {errors["serviceRequestSuggestion"] && <p className="text-red-600 my-4">{errors["serviceRequestSuggestion"]?.message}</p>}
+
                         {Err && <p className='p-4 text-red-600 w-full mx-4'>{Err}</p>}
-                        <FormElm.Send title="ارسال" />
+                        <FormElm.Send title={Send} />
                     </>}
             </form>
         </Layout>

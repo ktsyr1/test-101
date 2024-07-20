@@ -18,7 +18,7 @@ export default function FormRef5() {
         { i: 2, text: "سهل" },
         { i: 3, text: "صعب" }
     ]
-    const { handleSubmit, register } = useForm<any>({ defaultValues: data })
+    const { register, handleSubmit, formState: { errors } }: any = useForm<any>({ defaultValues: data })
 
     const onSubmit: SubmitHandler<any> = (res) => {
         setErr("")
@@ -42,8 +42,10 @@ export default function FormRef5() {
                 <div className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14"  >
                     {list.slice(1).map((a: any,) => <Select one={a.i} key={a} onClick={() => SET(a.i)} />)}
                     <Select one={0} onClick={() => SET(0)} />
-                    {value == 0 && <textarea className="!w-full" {...register("informationFoundProblem")} defaultValue={data?.informationFoundProblem} placeholder="ما هي تلك المعلومات؟" />}
+                    {value == 0 && <textarea className="!w-full" {...register("informationFoundProblem", { required: "قم بملاء العنصر  " })} defaultValue={data?.informationFoundProblem} placeholder="ما هي تلك المعلومات؟" />}
                 </div>
+                {errors["informationFoundProblem"] && <p className="text-red-600 my-4">{errors["informationFoundProblem"]?.message}</p>}
+
                 {Err && <p className='p-4 text-red-600 w-full mx-4'>{Err}</p>}
                 <FormElm.Send />
             </form>

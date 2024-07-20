@@ -68,7 +68,7 @@ export default function FormRef1() {
                         name={"cityId"}
                         setSelector={setSelector}
                         list={cities}
-                        title={cities?.filter((A: any) => A?.value === data.cityId)[0]?.text || "حدد المدينة"}
+                        title={cities?.filter((A: any) => A?.value === data.cityId)[0]?.text || " المدينة"}
                         set={(s: any) => setData({ ...data, "cityId": s.value })}
                     // err={error?.realEstateAgesId}
                     />
@@ -78,7 +78,7 @@ export default function FormRef1() {
                         name={"gender"}
                         setSelector={setSelector}
                         list={gender}
-                        title={gender?.filter((A: any) => A?.value === data.gender)[0]?.text || "حدد الجنس"}
+                        title={gender?.filter((A: any) => A?.value === data.gender)[0]?.text || " الجنس"}
                         set={(s: any) => setData({ ...data, "gender": s.value })}
                     // err={error?.realEstateAgesId}
                     />

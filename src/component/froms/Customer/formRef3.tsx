@@ -28,20 +28,15 @@ export default function FormRef3() {
     const [value, setValue] = useState<number>(data?.accessChannelType || null);
     let list = ["آخر", "انستغرام", "سنابشات", "فيسبوك", "تويتر", " لينكد إن", "تيك توك", "جوجل", "عن طريق صديق"]
 
-    const { handleSubmit, register } = useForm<any>({ defaultValues: data })
+    const { register, handleSubmit, formState: { errors } }: any = useForm<any>({ defaultValues: data })
     const onSubmit: SubmitHandler<any> = (res) => {
         setErr("")
 
         if (value !== undefined && value !== null) {
             let model = { ...data, accessChannelType: value }
             model["otherAccessChannels"] = res?.otherAccessChannels
-            let oa = model?.otherAccessChannels.length < 1
-            let v = value == 0
-            console.log(v);
-            ""
-            console.log(oa);
-            console.log(v && oa);
-            console.log({ otherAccessChannels: model?.otherAccessChannels });
+            let oa = model?.otherAccessChannels?.length < 1
+            let v = value == 0 
             if (v && oa) setErr("قم بملاء العنصر")
             else {
                 setData(model)
@@ -72,6 +67,8 @@ export default function FormRef3() {
                     <Select one={0} onClick={() => setValue(0)} />
                     {value == 0 && <input type="text" {...register("otherAccessChannels", { required: "قم بملاء العنصر  " })} defaultValue={data?.otherAccessChannels} placeholder=" يرجى تحديد الطريقة" />}
                 </div>
+                {errors["otherAccessChannels"] && <p className="text-red-600 my-4">{errors["otherAccessChannels"]?.message}</p>}
+
                 {Err && <p className='p-4 text-red-600 w-full mx-4'>{Err}</p>}
                 <FormElm.Send />
             </form>

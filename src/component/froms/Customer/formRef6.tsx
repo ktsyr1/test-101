@@ -17,7 +17,7 @@ export default function FormRef6() {
         { i: 1, text: "كانت متطلبات طلب الخدمة واضحة ومباشرة" },
         { i: 2, text: "كان شرح متطلبات طلب الخدمة كافيًا، لكن يمكن تحسينه لجعله أكثر وضوحًا" },
     ]
-    const { handleSubmit, register } = useForm<any>({ defaultValues: data })
+    const { register, handleSubmit, formState: { errors } }: any = useForm<any>({ defaultValues: data })
     const onSubmit: SubmitHandler<any> = (res) => {
         setErr("")
         if (typeof value == 'number') {
@@ -39,8 +39,10 @@ export default function FormRef6() {
                 <div className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14"  >
                     {list.slice(1).map((a: any,) => <Select one={a.i} key={a} onClick={() => SET(a.i)} />)}
                     <Select one={0} onClick={() => SET(0)} />
-                    {value == 0 && <textarea className="!w-full" {...register("problemDescription")} defaultValue={data?.problemDescription} placeholder="ما هي تلك الصعوبات؟" />}
+                    {value == 0 && <textarea className="!w-full" {...register("problemDescription", { required: "قم بملاء العنصر  " })} defaultValue={data?.problemDescription} placeholder="ما هي تلك الصعوبات؟" />}
                 </div>
+                {errors["problemDescription"] && <p className="text-red-600 my-4">{errors["problemDescription"]?.message}</p>}
+
                 {Err && <p className='p-4 text-red-600 w-full mx-4'>{Err}</p>}
                 <FormElm.Send />
             </form>

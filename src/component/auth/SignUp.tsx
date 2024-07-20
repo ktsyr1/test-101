@@ -2,7 +2,7 @@
 import { useForm, SubmitHandler } from "react-hook-form"
 import { createContext, forwardRef, useState } from 'react';
 
-import { createFatch } from "../froms/get" 
+import { createFatch } from "../froms/get"
 // Create a context for the authentication state
 export const AuthContext = createContext({});
 /* This code snippet defines a functional component called `LoginApp` in TypeScript with React. Here's
@@ -30,12 +30,16 @@ export default function SignUp({ route }: any) {
                     setSe(" تم الاشتراك ")
                     setTimeout(() => setSe(" إشتراك "), 3000)
                     route("OTPEmail")
-                } else if (data?.code === 400) seterr(data?.messages)
+                } else if (data?.code === 400) {
+                    if (data?.messages == "This name was added previously") seterr("الايميل مستخدم من قبل")
+                    else seterr(data?.messages )
+                }
                 setSe(" إشتراك ")
             })
         // seterr(null)
     }
     let Err = ({ name }: any) => errors[name] && <p className="text-red-600 mb-4">{errors[name]?.message}</p>
+
     return (
         <form onSubmit={handleSubmit(Register)} className="w-full h-auto"  >
             <Field title="الاسم الكامل" type="text"{...register("fullName", {

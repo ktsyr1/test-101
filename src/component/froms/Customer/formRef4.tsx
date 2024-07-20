@@ -16,14 +16,14 @@ export default function FormRef4() {
     let { select, setSelect, } = useContext(FormContext)
     let { data, setData } = useContext(FormDataContext)
     let [Err, setErr] = useState<any>(null)
-    let [value, setValue] = useState<any>(data?.isGoodGeneralLayout)
+    let [value, setValue] = useState<any>(data?.isGoodGeneralLayout || null)
     let list = [
         { text: "جيد, كان كل شيء واضح", value: true },
         { text: "يحتاج تحسينات", value: false }
     ]
     // let other = list.slice(0, -1).filter(x => x == value).length == 0
 
-    const { handleSubmit, register } = useForm<any>({ defaultValues: data })
+    const { register, handleSubmit, formState: { errors } }: any = useForm<any>({ defaultValues: data })
 
     const onSubmit: SubmitHandler<any> = (res) => {
 
@@ -46,8 +46,10 @@ export default function FormRef4() {
                 <FormElm.Title >بشكل عام, كيف تقييم الموقع</FormElm.Title>
                 <div className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14"  >
                     {list.map((a: any) => <Select value={value} one={a} key={a.text} onClick={() => SET(a.value)} />)}
-                    {!value && <textarea className="!w-full" {...register("suggestImprovements")} defaultValue={data?.suggestImprovements} placeholder="في موتمر او غيرها ..." />}
+                    {value == false && <textarea className="!w-full" {...register("suggestImprovements", { required: "قم بملاء العنصر  " })} defaultValue={data?.suggestImprovements} placeholder="حدد تلك التحسينات" />}
                 </div>
+                {errors["suggestImprovements"] && <p className="text-red-600 my-4">{errors["suggestImprovements"]?.message}</p>}
+
                 {Err && <p className='p-4 text-red-600 w-full mx-4'>{Err}</p>}
 
 
