@@ -11,7 +11,7 @@ export default function FormProfile() {
     let { select, setSelect } = useContext(FormContext)
     const [HasRelatives, setHasRelatives] = useState(null);
 
-    const { register, handleSubmit, watch, formState: { errors } }: any = useForm<any>({ defaultValues: defaultData });
+    const { register, handleSubmit, formState: { errors } }: any = useForm<any>({ defaultValues: defaultData });
 
     let [cities, setCities] = useState<any>(def?.Cities || [])
 
@@ -68,7 +68,8 @@ export default function FormProfile() {
                 </div>
                 {HasRelatives &&
                     <div className="flex tap:flex-row flex-col  w-full">
-                        <Input text="اسم شخص القريب" name="RelativeName" register={register} required />                        <div className='h-0 w-4' ></div>
+                        <Input text="اسم شخص القريب" name="RelativeName" register={register} required />
+                        <div className='h-0 w-4' ></div>
 
                         <div className={`flex flex-col my-4 w-full `}>
                             <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-prussian-800 my-2">هاتف القريب</p>
