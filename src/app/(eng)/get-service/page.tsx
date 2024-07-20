@@ -43,7 +43,8 @@ function View() {
         let last = Number(loginTime.value)
         let s = (newData - last) / 60 / 1000
 
-        if (s <= 40) return <Forms />
-        else return <AuthApp required={true} data={{ token, loginTime }} />
+        // if (s <= 40) return <Forms />
+        // else
+         return <AuthApp required={true} data={{ token, loginTime, newData, last, s , off:new Date( ).getTimezoneOffset()        }} />
     } else return <AuthApp required={true} data={{ token, loginTime }} />
 }
