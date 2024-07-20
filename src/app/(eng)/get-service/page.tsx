@@ -37,13 +37,13 @@ function View() {
     let loginTime: any = cookieStore.get('userloginTime')
     let token = auth?.value
 
-    if (!token) return <AuthApp required={true} />
+    if (!token) return <AuthApp required={true} data={{ token, loginTime }} />
     else if (token?.length > 20 && loginTime != null) {
         let newData = new Date().getTime()
         let last = Number(loginTime.value)
         let s = (newData - last) / 60 / 1000
 
         if (s <= 40) return <Forms />
-        else return <AuthApp required={true} />
-    } else return <AuthApp required={true} />
+        else return <AuthApp required={true} data={{ token, loginTime }} />
+    } else return <AuthApp required={true} data={{ token, loginTime }} />
 }

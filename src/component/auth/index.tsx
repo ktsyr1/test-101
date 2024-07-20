@@ -1,7 +1,7 @@
 "use client"
 import Logo from "@/component/theme/logo1"
 import Cookies from "js-cookie"
-import { createContext,   useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import Login from "./login"
 import OTPEmail from "./OTPEmail"
 import SignUp from "./SignUp"
@@ -11,10 +11,11 @@ export const AuthContext = createContext({});
 /* This code snippet defines a functional component called `LoginApp` in TypeScript with React. Here's
 a breakdown of what the code is doing: */
 
-export default function AuthApp({ userType = 2, required }: any) {
+export default function AuthApp({ userType = 2, required, data }: any) {
+    console.log(data);
 
     const authContext = useContext(AuthContext);
-    type TitleType = "login" | "Register" | "OTPEmail"  | "OTPPhone"
+    type TitleType = "login" | "Register" | "OTPEmail" | "OTPPhone"
     let [mode, setMode] = useState<TitleType>("login")
     let [loading, setLoading] = useState(false)
     useEffect(() => {

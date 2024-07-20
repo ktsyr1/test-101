@@ -37,6 +37,7 @@ export default function FormRef1() {
         get()
     }, [])
     let [selector, setSelector] = useState<any>(null)
+    let err: any = errors
     return (
         <Layout slug={1}>
             <form
@@ -86,7 +87,7 @@ export default function FormRef1() {
                     <input type="text" className="my-4" {...register("occupation", { required: "الرجاء اضافة المهنة" })} placeholder="المهنة" />
                 </div>
                 {Object.keys(errors)?.map((a: any) => {
-                    return <p className='p-4 text-red-600'>{errors[a]?.message}</p>
+                    return <p key={a} className='p-4 text-red-600'>{err[a]?.message}</p>
                 })}
 
                 {Err && <p className='p-4 text-red-600'>{Err}</p>}
