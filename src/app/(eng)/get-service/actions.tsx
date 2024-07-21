@@ -12,12 +12,13 @@ export default async function CheckCountService() {
         count  =JSON.parse( count?.value)
         console.log(count);
     }else{
-        let MR = Math.floor(Math.random() * 10)
-        const data = { date: new Date().getTime(), value: MR > 0 ? MR : 1 };
-        console.log(data);
-        const oneDay = 6 * 60 * 60 * 1000
-        cookies().set( 'Counts', JSON.stringify(MR > 0 ? MR : 1) ,  { expires: Date.now() - oneDay }         )
-        count = data
+        count = {value:2}
+        // let MR = Math.floor(Math.random() * 10)
+        // const data = { date: new Date().getTime(), value: MR > 0 ? MR : 1 };
+        // console.log(data);
+        // const oneDay = 6 * 60 * 60 * 1000
+        // cookies().set( 'Counts', JSON.stringify(MR > 0 ? MR : 1) ,  { expires: Date.now() - oneDay }         )
+        // count = data
     }  
     // let endDay = new Date().getTime() - count - 24 * 60 * 60 * 1000
     // if (endDay > 0) {
