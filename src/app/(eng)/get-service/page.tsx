@@ -1,6 +1,6 @@
 'use server' // 
 import AuthGetServise from '@/component/froms/service/auth'
-import CheckCountService from '@/component/froms/service/counts'
+import CheckCountService from '@/app/(eng)/get-service/actions'
 export default async function GetService() {
     return (
         <div className="flex flex-col items-center justify-center">

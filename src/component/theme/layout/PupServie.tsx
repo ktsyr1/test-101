@@ -58,7 +58,7 @@ export default function PupServie() {
                     <div className="cursor-pointer flex flex-col  mt-[-100px] z-10">
                         <div className="cursor-pointer flex flex-row justify-between z-10">
                             <p className=" font-bold text-slate-900 text-start text-sm p-2 mx-4 " >املأ الاستبيان الآن للحصول على   </p>
-                            <button className=" -border-4 border-slate-900 flex font-bold h-8 items-center justify-center rounded-full text-center text-xl w-8" onClick={() => { PupView.set(setView) }}>X</button>
+                            <button className="text-[#6B7B8F] flex font-bold h-8 items-center justify-center rounded-full text-center text-xl w-8" onClick={() => { PupView.set(setView) }}>X</button>
                         </div>
                         <Link href={'/surveies'} className=" font-bold text-safety-700  mx-4  text-start text-xl p-2 py-1 " >  استشـــــارة مجانيــــــة !</Link>
                     </div>

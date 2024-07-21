@@ -1,5 +1,5 @@
 "use client"
-import CheckCountService from "@/component/froms/service/counts";
+import CheckCountService from "@/app/(eng)/get-service/actions";
 
 /* This code snippet defines a functional component called `LoginApp` in TypeScript with React. Here's
 a breakdown of what the code is doing: */
