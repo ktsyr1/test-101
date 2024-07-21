@@ -22,12 +22,14 @@ export function SendLogin(body: any) {
             if (!data?.status) return { ...data, sendText: "تسجيل الدخول" }
             else if (data?.status) {
                 data = data.data
-                let userloginTime = new Date().getTimezoneOffset() == 0 ? new Date().getTime().toString() : new Date().getTime() + (new Date().getTimezoneOffset() * 60 * 1000)
+                let userloginTime = new Date().getTime().toString()
+                console.log(new Date(Number(userloginTime)));
+                
                 Cookies.set("userInformation", JSON.stringify(data?.userInformation))
                 Cookies.set("refreshToken", data?.refreshToken)
                 Cookies.set("userToken", data?.userToken)
                 Cookies.set("userloginTime", userloginTime.toString())
-
+                Cookies.set('getTimezoneOffset', new Date().getTimezoneOffset().toString())
                 location.reload()
                 return { messages: null, sendText: "تسجيل الدخول" }
             }
