@@ -23,6 +23,7 @@ export default function FormRef5() {
     const onSubmit: SubmitHandler<any> = (res) => {
         setErr("")
         if (typeof value == 'number') {
+            window.scrollTo({ top: 380, behavior: 'smooth' })
             let model = { ...data, informationFoundType: value }
             model["informationFoundProblem"] = res?.informationFoundProblem
             setData(model)
@@ -37,7 +38,7 @@ export default function FormRef5() {
     }
     return (
         <Layout slug={5}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px]   *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px]   *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
                 <FormElm.Title >   ما هي انطباعاتك العامة حول سهولة الوصول للمعلومات على هذا الموقع؟</FormElm.Title>
                 <div className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14"  >
                     {list.slice(1).map((a: any,) => <Select one={a.i} key={a} onClick={() => SET(a.i)} />)}

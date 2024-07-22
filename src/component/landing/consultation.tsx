@@ -13,26 +13,26 @@ export default function Consultation() {
         setErr(null)
         createFatch(`/Guest/ConsultationRequest`, res)
             .then((data: any) => {
-                // if (data?.status) setF(true)
-                // else setErr("حدث خطاء في التقديم")
+                if (data?.status) setF(true)
+                else setErr("حدث خطاء في التقديم")
             })
     }
     let FormView = () => (
         <form className="flex w-full max-w-[400px] tap:mx-8 flex-col items-center " onSubmit={handleSubmit(onSubmit)}>
             <div className={`flex flex-col my-2 w-full `}>
                 <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-white my-2 ">الاسم</p>
-                <input type="tel"  {...register('fullName', { required: 'يرجى إدخال الاسم', })} className='p-2 rounded-md' />
-                {errors["phoneNumber"] && <p className="text-red-600 my-4">{errors["phoneNumber"]?.message}</p>}
+                <input type="tel"  {...register('fullName', { required: 'يرجى إدخال الاسم', })} className='p-2 rounded-md text-slate-900' />
+                {errors["fullName"] && <p className="text-red-600 my-4">{errors["fullName"]?.message}</p>}
             </div>
             <div className={`flex flex-col my-2 w-full `}>
                 <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-white my-2 ">رقم الجوال</p>
-                <input type="tel"  {...register('phoneNumber', { required: 'يرجى إدخال رقم الهاتف', pattern: { value: /^05\d{8}$/, message: "يرجى التأكد من رقم الجوال" }, })} className='p-2 rounded-md' />
+                <input type="tel"  {...register('phoneNumber', { required: 'يرجى إدخال رقم الهاتف', pattern: { value: /^05\d{8}$/, message: "يرجى التأكد من رقم الجوال" }, })} className='p-2 rounded-md  text-slate-900' />
                 {errors["phoneNumber"] && <p className="text-red-600 my-4">{errors["phoneNumber"]?.message}</p>}
             </div>
             <div className='h-0 w-4' ></div>
             <div className={`flex flex-col my-2 w-full `}>
                 <p className=" lap:text-xl tap:text-sm text-xs  font-bold text-white my-2 ">الايميل</p>
-                <input className='p-2 rounded-md' placeholder="example@mail.com" type="text" {...register("email", { required: "يرجى إدخال البريد الإلكتروني", pattern: { value: /^[A-Za-z0-9.+]+@[A-Za-z0-9.-]+\.[A-Z]{2,4}$/i, message: "الرجاء إدخال بريد إلكتروني صحيح" } })} />
+                <input className='p-2 rounded-md  text-slate-900' placeholder="example@mail.com" type="text" {...register("email", { required: "يرجى إدخال البريد الإلكتروني", pattern: { value: /^[A-Za-z0-9.+]+@[A-Za-z0-9.-]+\.[A-Z]{2,4}$/i, message: "الرجاء إدخال بريد إلكتروني صحيح" } })} />
                 {errors["email"] && <p className="text-red-600 mb-4">{errors["email"]?.message}</p>}
             </div>
             {Err && <p className="text-red-600 mb-4">{Err}</p>}

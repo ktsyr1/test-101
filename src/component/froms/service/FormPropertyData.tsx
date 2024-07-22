@@ -34,7 +34,7 @@ const FormPropertyData = () => {
             DB["realEstateTypeId"] = def?.RealEstatTypes?.filter((a: any) => a?.value == DB.realEstateTypeId)[0]?.text
             DB["realEstateAgesId"] = def?.RealEstatAges?.filter((a: any) => a?.value == DB.realEstateAgesId)[0]?.text
             DB["projectObjectives"] = def?.ProjectObjectives?.filter((a: any) => a?.value == DB.projectObjectives[0].assessmentObjectivesId)[0]?.text
-
+            window.scrollTo({ top: 380, behavior: 'smooth' })
             setContent({ ...Content, ...DB })
             setData({ ...data, ...res })
             let slug = NextPage(select)

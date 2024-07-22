@@ -47,8 +47,8 @@ const FormParrt2 = () => {
         dispatch({ type: 'err', payload: listErr })
 
         if (Object.keys(listErr)?.length == 0) {
+            window.scrollTo({ top: 380, behavior: 'smooth' })
             let payload = { ...state?.defaultData, ...res, projectImage: state?.defaultData?.projectImage }
-
             let DB = { workAreaId, realEstateMunicipal, realEstateNumber, realEstateStreet, projectTitle, description: res?.description }
             DB["workAreaId"] = state?.WorkAreas?.filter((a: any) => a?.value == DB.workAreaId)[0]?.text
 

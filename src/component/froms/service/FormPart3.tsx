@@ -128,6 +128,7 @@ function LastPage({ state, dispatch }: any) {
 
                     if (res.code === 500) message.error("هناك خطاء تاكد من معلوماتك")
                     else {
+                        window.scrollTo({ top: 380, behavior: 'smooth' })
                         JsCookies.set("PromoCode", model?.promoCode)
                         localStorage.removeItem("additionalFieldsValue")
                         setData({ ...model, res: res?.data })

@@ -79,7 +79,7 @@ export default function FormPart4() {
         createFatch("/payment?" + searchParams, model, token)
             .then((data) => {
                 if (data?.redirect_url) {
-
+                    window.scrollTo({ top: 380, behavior: 'smooth' })
                     JsCookies.set("tran_ref", data?.tran_ref)
                     location.href = data?.redirect_url
                 }

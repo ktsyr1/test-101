@@ -36,9 +36,10 @@ export default function FormRef3() {
             let model = { ...data, accessChannelType: value }
             model["otherAccessChannels"] = res?.otherAccessChannels
             let oa = model?.otherAccessChannels?.length < 1
-            let v = value == 0 
+            let v = value == 0
             if (v && oa) setErr("قم بملاء العنصر")
             else {
+                window.scrollTo({ top: 380, behavior: 'smooth' })
                 setData(model)
                 setSelect(select + 1)
                 setErr("")
@@ -60,7 +61,7 @@ export default function FormRef3() {
 
     return (
         <Layout slug={3}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px]  *:w-full *:m-2 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px]  *:w-full *:m-2 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
                 <FormElm.Title >كيف تعرفت على إنسبكتكس؟</FormElm.Title>
                 <div className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14"  >
                     {list.slice(1).map((a: any, i) => <Select one={i + 1} key={a} onClick={() => SET(i + 1)} />)}

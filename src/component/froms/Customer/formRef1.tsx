@@ -28,6 +28,7 @@ export default function FormRef1() {
         if (!data?.cityId) setErr("حدد المدينة")
         else if (!data?.gender) setErr("حدد الجنس")
         else {
+            window.scrollTo({ top: 380, behavior: 'smooth' })
             setData({ ...res })
             setSelect(select + 1)
         }

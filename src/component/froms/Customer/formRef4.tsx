@@ -29,6 +29,7 @@ export default function FormRef4() {
 
         setErr("")
         if (typeof value == "boolean") {
+            window.scrollTo({ top: 380, behavior: 'smooth' })
             let model = { ...data, isGoodGeneralLayout: value }
             model["suggestImprovements"] = res?.suggestImprovements
             setData(model)
@@ -42,7 +43,7 @@ export default function FormRef4() {
     }
     return (
         <Layout slug={4}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px]  *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px]  *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
                 <FormElm.Title >بشكل عام, كيف تقييم الموقع</FormElm.Title>
                 <div className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14"  >
                     {list.map((a: any) => <Select value={value} one={a} key={a.text} onClick={() => SET(a.value)} />)}

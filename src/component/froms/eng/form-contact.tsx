@@ -14,6 +14,7 @@ const FormContact = () => {
     const onSubmit = (values: any) => {
         let phoneNumber = values.phoneNumber.toString()
         if (phoneNumber.length > 6) {
+            window.scrollTo({ top: 380, behavior: 'smooth' })
             setData({ ...data, ...values })
             let slug = NextPage(select)
             setSelect(slug)

@@ -46,13 +46,17 @@ export default function FormSkills() {
             if (process.env.NEXT_PUBLIC_ENV == "development")
                 createInvester({ data: { formData } })
                     .then(RES => {
-                        if (RES.code == 200) setDane(true)
+                        if (RES.code == 200) {
+                            window.scrollTo({ top: 380, behavior: 'smooth' })
+                            setDane(true)
+                        }
                         else setErr("هناك حقل مفقود")
                     })
                     .catch(error => console.error(error))
             else if (process.env.NEXT_PUBLIC_ENV == "production")
                 axios.post(`${process.env.NEXT_PUBLIC_API}/Inspector/InspectorJoinRequest`, formData)
                     .then(({ data }) => {
+                        window.scrollTo({ top: 380, behavior: 'smooth' })
                         setDane(true)
                     })
             setSendBtn(" تقديم الطلب")

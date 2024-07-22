@@ -28,6 +28,7 @@ export default function FormEducation() {
     const onSubmit = () => {
         let NewData = { MemberShip: watch("MemberShip"), YearsOfExperience: watch("YearsOfExperience"), QualificationId: study?.value }
         if (NewData?.QualificationId) {
+            window.scrollTo({ top: 380, behavior: 'smooth' })
             setData({ ...data, ...NewData })
             let slug = NextPage(select)
             setSelect(slug)
@@ -54,7 +55,8 @@ export default function FormEducation() {
                     <input {...register("MemberShip", {
                         require: "الحقل اجباري",
                         minLength: { value: 6, message: "يرجى التأكد من رقم العضوية" },
-                        maxLength: { value: 6, message: "يرجى التأكد من رقم العضوية" }
+                        maxLength: { value: 6, message: "يرجى التأكد من رقم العضوية" },
+                        pattern: { value: /^[0-9]+$/, message: "يجب أن يكون النص فقط أرقام" }
                     })} className='w-full p-2 rounded-md ml-4 ' minLength={3} placeholder=' أدخل رقم العضوية' />
                     <p className='p-4 text-red-600'>{errors?.MemberShip?.message?.toString() || ""}</p>
 

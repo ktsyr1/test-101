@@ -27,6 +27,7 @@ export default function FormRef2() {
         setErr("")
 
         if (value) {
+            window.scrollTo({ top: 380, behavior: 'smooth' })
             setData({ ...data, guestType: value + 1 })
             setSelect(select + 1)
         } else setErr("حدد عنصر")

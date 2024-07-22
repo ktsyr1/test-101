@@ -19,6 +19,7 @@ export default function FormProfile() {
 
         let firstname = values.firstname
         if (firstname.length > 3) {
+            window.scrollTo({ top: 380, behavior: 'smooth' })
             setData({ ...data, ...values, HasRelatives, })
             let slug = NextPage(select)
             setSelect(slug)

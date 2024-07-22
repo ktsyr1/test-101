@@ -29,6 +29,7 @@ export default function FormRef7() {
             createFatch("/Guest/Surveys", model)
                 .then(res => {
                     if (res?.code == 200) {
+                        window.scrollTo({ top: 380, behavior: 'smooth' })
                         message.success('تم ارسال الاستبيان')
                         sessionStorage.setItem("Surveys", new Date().getTime().toString())
                         setDane(true)
@@ -43,7 +44,7 @@ export default function FormRef7() {
 
     return (
         <Layout slug={7}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] *:w-full *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] *:w-full *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
                 {dane ? <div className="my-20 text-center">
                     <h1 className="text-green-700 font-bold text-3xl lap:text-6xl" > شكًرا على تعبئة االستبيان! </h1>
                     <p className="my-4 font-bold text-lg lap:text-xl"> سيتواصل معك فريقنا قريبًا للحصول على استشارة مجانية.</p>

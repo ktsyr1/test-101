@@ -21,6 +21,7 @@ export default function FormRef6() {
     const onSubmit: SubmitHandler<any> = (res) => {
         setErr("")
         if (typeof value == 'number') {
+            window.scrollTo({ top: 380, behavior: 'smooth' })
             let model = { ...data, problemType: value }
             model["problemDescription"] = res?.problemDescription
             setData(model)
@@ -34,7 +35,7 @@ export default function FormRef6() {
     }
     return (
         <Layout slug={6}>
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-6" >
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-[1200px] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14" >
                 <FormElm.Title >هل واجهت أي صعوبات في فهم خطوات طلب الخدمة؟</FormElm.Title>
                 <div className="max-w-[1200px] tap:*:w-[45%] *:w-full *:m-4 *:p-2 *:rounded-lg  flex flex-wrap  justify-between mt-14"  >
                     {list.slice(1).map((a: any,) => <Select one={a.i} key={a} onClick={() => SET(a.i)} />)}
