@@ -12,7 +12,7 @@ export default function Jobs() {
     return (
         <div className="flex flex-col justify-center items-center">
             <div className="h-[100px] bg-slate-100" />
-            <div className="  items-center   max-w-[1360px]   tap:w-full flex flex-col">
+            <div className=" items-center max-w-[1000px] tap:w-full flex flex-col">
                 <ListJobs />
             </div>
         </div>
@@ -38,7 +38,7 @@ function ListJobs() {
     }, [])
     return (
         <AppContext.Provider value={{ data, setData, }} >
-            <div className="my-10 bg-white">
+            <div className="my-10 bg-white w-full">
                 <div className=" items-center w-full max-w-[1360px]    m-auto flex flex-col">
                     <form className="flex flex-row justify-center   tap:w-[80%] lap:w-full  ">
                         <Icon.search className={"ml-[-30px] z-10 m-4"} />
@@ -48,8 +48,13 @@ function ListJobs() {
                     <div className="flex flex-col items-center m-auto w-[90%] tap:my-20 my-6" >
                         <h2 className="w-full text-start lap:text-5xl tap:text-3xl text-xl  font-bold text-safety-700 tap:mr-10 tap:mb-8 ">إنضم إلى فريقنا </h2>
                         <p className="text-slate-700 m-4 w-full lap:text-xl tap:text-base text-sm ">
-                            استكشف العديد من فرص العمل في Inspectex
-                            انضم إلى فريقنا و كن جزءًا من تشكيل مستقبل مشرق في المجال الهندسي.
+                            انضم إلى فريقنا وكن جز ًء ا من بيئة عمل ملهمة تدعم نموك وتطورك.
+                        </p>
+                        <p className="text-slate-700 m-4 w-full lap:text-xl tap:text-base text-sm ">
+                            نحن نبحث عن أشخاص شغوفين ومبدعين يسعون لتحقيق التميز واالبتكار.
+                        </p>
+                        <p className="text-slate-700 m-4 w-full lap:text-xl tap:text-base text-sm ">
+                            قدم اآلن وساهم في تحقيق رؤيتنا المشتركة!
                         </p>
                     </div>
                     <div className="w-full tap:w-[80%] lap:w-full">
@@ -74,7 +79,7 @@ function CardJob({ data: One }: { data: CardJobType; }) {
     let [open, setOpen] = useState(false)
 
     return (
-        <div className="p-2 lap:p-4 w-full ">
+        <div className=" px-4 ">
             <div className={` w-full flex flex-col  rounded-3xl p-4 tap:p-6 lap:!m-10 cursor-pointer  ${open ? " bg-white shadow-lg " : " bg-prussian-800  hover:px-5 hover:tap:px-7 "}  `} onClick={() => setOpen(!open)}  >
                 <p className={`${open ? "text-safety-700" : " text-white"} lap:text-2xl tap:text-lg text-lg flex items-center`}>{One.jobTitle} </p>
                 <div className={`flex flex-row ${open ? "*:text-white *:rounded-full *:bg-prussian-800" : " *:bg-white *:rounded-full *:text-prussian-800 "} `}>

@@ -30,7 +30,7 @@ export default function JobsPart({ className, title, to }: any) {
                             <p className="p-4 m-4 lap:text-xl text-base">كن امتدادًا لاحتياجات مجتمعك من أجل اتخاذ قرار مستنير يزيد من الأمان والوعي أثناء الصفقات العقارية.</p>
                             <div onMouseEnter={enter} onMouseLeave={leave}>
 
-                                <Btn title={title ? title : "تعرف على آلية تقديم الطلبات"} to={to ? to : "/join"} className="bg-white tap:text-lg text-sm !justify-between  text-prussian-800 rounded-full m-4 hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end" >
+                                <Btn title={title ? title : "تعرف على آلية تقديم الطلبات"} to={to ? to : "/join-eng"} className="bg-white tap:text-lg text-sm !justify-between  text-prussian-800 rounded-full m-4 hover:bg-safety-700 hover:text-white hover:*:!fill-white " childSort="end" >
                                     <IconArrow className={'fill-prussian-800'} color={btnHover ? "#fff" : "#032DA6"} />
                                 </Btn>
                             </div>

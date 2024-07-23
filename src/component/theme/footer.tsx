@@ -6,6 +6,7 @@ import Logo from "./logo1"
 import dataList from "@/data/footerList.json"
 import PupLinks from "./pup-links"
 import Image from "next/image"
+import { listMenu } from "./menu"
 
 let sochalmedia = [
     { Icon: Icon.linkedin, to: "https://www.linkedin.com/company/inspectex-sa/" },
@@ -44,7 +45,7 @@ export default function Footer() {
                 </Col>
 
                 <Col title={dataList.sitemap.title} >
-                    {dataList.sitemap.list.map(item => <Item key={item.to} data={item} />)}
+                    {listMenu.map(item => <Item key={item.to} data={item} />)}
                 </Col>
 
                 <Col title={'طرق الدفع'}   >

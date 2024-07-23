@@ -24,8 +24,8 @@ export default function Menu() {
             </label>
             <label htmlFor="openMenu" className={`fixed   flex-col tap:top-[78px] top-[55px] w-full bg-gradient-to-r from-[#0043cecc] to-[#032da6cc] h-full peer-checked:flex hidden`}  >
                 <div className="h-full lap:w-[75px] w-[55px] bg-white fixed"> </div>
-                <div className="h-70 w-full fixed z-20 top-[100px] lap:top-[200px] " >
-                    {list.map(a => <Row {...a} key={a.title} />)}
+                <div className="fixed h-70 w-full z-20" >
+                    {listMenu.map(a => <Row {...a} key={a.title} />)}
                 </div>
 
             </label>
@@ -50,17 +50,17 @@ function Row({ title, Icon, to, }: Row) {
         </Link>
     )
 }
-let list = [
+export let listMenu = [
     {
         title: "عن الشركة",
         to: "/about-us",
         Icon: "company.png"
     }, {
-        title: "خدماتنا",
+        title: "خدمــاتنــا",
         to: "/services",
         Icon: "services.png"
     }, {
-        title: "المدونة ",
+        title: "المــدونــة ",
         to: "/blogs",
         Icon: "blog.png"
     }, {
@@ -72,7 +72,7 @@ let list = [
         to: "/join-eng",
         Icon: "join.png"
     }, {
-        title: "حول التطبيق",
+        title: "حــول التطبيــق",
         to: "/about-app",
         Icon: "about-app.png"
     }, {
@@ -85,4 +85,4 @@ let list = [
         Icon: "surveies.png"
     }
 ]
-export const MenuData = list
+export const MenuData = listMenu

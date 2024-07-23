@@ -29,9 +29,9 @@ export default function Consultation() {
         }
     }
     let FormView = () => (
-        <form className={`flex w-full max-w-[400px] tap:mx-8 flex-col items-center text-start rtl ${Stap == 1 ? "tap:flex-row" : ""}`} onSubmit={handleSubmit(onSubmit)}>
+        <form className={`flex w-full max-w-[400px] tap:mx-8 flex-col items-center text-start rtl ${Stap == 1 ? "-tap:flex-row" : ""}`} onSubmit={handleSubmit(onSubmit)}>
             {Stap == 1 && <div className={`flex flex-col my-2 w-full `}>
-                <input className='p-3 rounded-md  text-slate-900 ml-4' placeholder="example@mail.com" type="text" {...register("email", { required: "يرجى إدخال البريد الإلكتروني", pattern: { value: /^[A-Za-z0-9.+]+@[A-Za-z0-9.-]+\.[A-Z]{2,4}$/i, message: "الرجاء إدخال بريد إلكتروني صحيح" } })} />
+                <input className='p-3 rounded-md  text-slate-900' placeholder="example@mail.com" type="text" {...register("email", { required: "يرجى إدخال البريد الإلكتروني", pattern: { value: /^[A-Za-z0-9.+]+@[A-Za-z0-9.-]+\.[A-Z]{2,4}$/i, message: "الرجاء إدخال بريد إلكتروني صحيح" } })} />
                 {errors["email"] && <p className="text-red-600 mb-4">{errors["email"]?.message}</p>}
             </div>}
             {Stap == 2 && <div className={`flex flex-col my-2 w-full `}>
@@ -45,15 +45,15 @@ export default function Consultation() {
 
             {Err && <p className="text-red-600 mb-4">{Err}</p>}
 
-            <input type="submit" className={`bg-safety-700 rounded-md mx-0 w-full   cursor-pointer hover:mx-1 p-3 my-2  max-w-[400px] ${Stap == 1 ? " tap:w-28" : ""}`} value={se} />
+            <input type="submit" className={`bg-safety-700 rounded-md mx-0 w-full   cursor-pointer hover:mx-1 p-3 my-2  max-w-[400px] ${Stap == 1 ? " -tap:w-28" : ""}`} value={se} />
         </form >
     )
     let Dane = () => (
         <div className="mx-8 p-4 rounded-lg   flex w-full tap:max-w-[500px] flex-row items-center" >
             <OK />
             <div className="mr-8">
-                <b className='text-3xl text-white py-8' > تم الاشتراك</b>
-                <p className="items-center py-2 rounded-lg text-xl" >املاء الطلب للحصول على استشارة مجانية</p>
+                <b className='text-3xl text-white py-8' > تهانينا</b>
+                <p className="items-center py-2 rounded-lg text-xl" >لقد قمت بالتسجيل بنجاح</p>
             </div>
         </div>
     )
@@ -61,10 +61,7 @@ export default function Consultation() {
     let DaneEnd = () => (
         <div className="mx-8 p-4 rounded-lg   flex w-full tap:max-w-[500px] flex-row items-center" >
             <OK />
-            <div>
-                <b className='text-3xl text-white py-8' >شكًرا على تعبئة الطلب! </b>
-                <p className="mx-3 p-4 rounded-lg items-center text-xl text-center" >سيتواصل معك فريقنا قريبًا<br />للحصول على استشارة مجانية</p>
-            </div>
+            <p className="mx-3 p-4 rounded-lg items-center text-xl text-center" > سيتواصل معك فريقنا قريبًا للحصول على استشارة مجانية</p>
         </div>
     )
     return (
@@ -72,7 +69,7 @@ export default function Consultation() {
             <div id="Consultation" className="m-6 text-white select-none" >.</div>
             <div className="bg-white w-full max-w-[1000px] lap:max-w-[1360px] tap:m-20 m-2">
                 <div className="border-4 border-safety-700 tap:rounded-xl tap:p-6 w-full p-3 rounded-none ">
-                    <div className={`bg-gradient-to-l from-[#0694A2] to-[#003035] rounded-xl p-4 text-white   flex flex-col tap:flex-row ${Stap == 3 ? " -justify-between" : "justify-center"} items-center`}>
+                    <div className={`bg-gradient-to-l from-[#0694A2] to-[#003035] rounded-xl p-4 text-white   flex flex-col tap:flex-row ${Stap == 3 ? "justify-center" : " "} items-center`}>
                         {Stap == 1 && <h2 className="lap:text-4xl  p-2  w-full text-2xl text-center mb-4 tap:text-start tap:text-2xl  "> اشترك عبر البريد الإلكتروني <br />واحصل على استشارة مجانية </h2>}
                         {Stap == 2 && <Dane />}
                         {Stap == 3 ? <DaneEnd /> : <FormView />}
