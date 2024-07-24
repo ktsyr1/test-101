@@ -69,7 +69,7 @@ export default function Consultation() {
             <div id="Consultation" className="m-6 text-white select-none" >.</div>
             <div className="bg-white w-full max-w-[1000px] lap:max-w-[1360px] tap:m-20 m-2">
                 <div className="border-4 border-safety-700 tap:rounded-xl tap:p-6 w-full p-3 rounded-none ">
-                    <div className={`bg-gradient-to-l from-[#0694A2] to-[#003035] rounded-xl p-4 text-white   flex flex-col tap:flex-row ${Stap == 3 ? "justify-center" : " "} items-center`}>
+                    <div className={`bg-gradient-to-l from-[#0694A2] to-[#003035] rounded-xl p-4 text-white   flex flex-col tap:flex-row ${Stap == 3 ? "justify-center" : "justify-between "} items-center`}>
                         {Stap == 1 && <h2 className="lap:text-4xl  p-2  w-full text-2xl text-center mb-4 tap:text-start tap:text-2xl  "> اشترك عبر البريد الإلكتروني <br />واحصل على استشارة مجانية </h2>}
                         {Stap == 2 && <Dane />}
                         {Stap == 3 ? <DaneEnd /> : <FormView />}
